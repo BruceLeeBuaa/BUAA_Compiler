@@ -1,0 +1,176 @@
+.data
+str$0: .asciiz " "
+str$1: .asciiz "\n"
+
+.text
+jal main
+li $v0, 10
+syscall
+
+main:
+sub $sp, $sp, 84
+
+# input global_n:
+li $v0, 5
+syscall
+move $t0, $v0
+sw $t0, 80($gp)
+
+# <!-- call block begin -->:
+sw $ra, 64($sp)
+move $a0, $zero
+jal permutation
+lw $ra, 64($sp)
+# <!-- call block end -->:
+
+# <!-- call block begin -->:
+sw $ra, 64($sp)
+li $a0, 6
+jal permutation
+lw $ra, 64($sp)
+# <!-- call block end -->:
+
+# return:
+add $sp, $sp, 84
+jr $ra
+
+permutation:
+# $a0 : permutation_index
+# $s1 : permutation_i
+# $s0 : permutation_#1
+# $s0 : permutation_#4
+# $s0 : permutation_#5
+# $s0 : permutation_#2
+# $s0 : permutation_#3
+sub $sp, $sp, 108
+sw $s0, 24($sp)
+sw $s1, 28($sp)
+
+# if permutation_index < global_n branch to "label$1":
+lw $t0, 80($gp)
+blt $a0, $t0, label$1
+
+# permutation_i = global_int$0:
+move $s1, $zero
+
+# if global_int$0 >= global_n branch to "label$2":
+lw $t0, 80($gp)
+blez $t0, label$2
+
+# label$3::
+label$3:
+
+# output " " :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# permutation_#1 = global_array[permutation_i]:
+sll $t8, $s1, 2
+add $t8, $t8, $gp
+lw $s0, 0($t8)
+
+# output permutation_#1:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# permutation_i = permutation_i + global_int$1:
+add $s1, $s1, 1
+
+# if permutation_i < global_n branch to "label$3":
+lw $t0, 80($gp)
+blt $s1, $t0, label$3
+
+# label$2::
+label$2:
+
+# goto label$4:
+j label$4
+
+# label$1::
+label$1:
+
+# permutation_#2 = global_n - global_int$1:
+lw $t0, 80($gp)
+sub $s0, $t0, 1
+
+# permutation_i = permutation_#2:
+move $s1, $s0
+
+# if permutation_#2 < global_int$0 branch to "label$5":
+bltz $s0, label$5
+
+# label$6::
+label$6:
+
+# permutation_#3 = global_symbol[permutation_i]:
+sll $t8, $s1, 2
+add $t8, $t8, $gp
+lw $s0, 40($t8)
+
+# if permutation_#3 != global_int$0 branch to "label$7":
+bnez $s0, label$7
+
+# permutation_#4 = permutation_i + global_int$1:
+add $s0, $s1, 1
+
+# global_array[permutation_index] = permutation_#4:
+sll $t8, $a0, 2
+add $t8, $t8, $gp
+sw $s0, 0($t8)
+
+# global_symbol[permutation_i] = global_int$1:
+sll $t8, $s1, 2
+li $t9, 1
+add $t8, $t8, $gp
+sw $t9, 40($t8)
+
+# permutation_#5 = permutation_index + global_int$1:
+add $s0, $a0, 1
+
+# <!-- call block begin -->:
+sw $a0, 92($sp)
+sw $ra, 88($sp)
+move $a0, $s0
+jal permutation
+lw $ra, 88($sp)
+lw $a0, 92($sp)
+# <!-- call block end -->:
+
+# global_symbol[permutation_i] = global_int$0:
+sll $t8, $s1, 2
+add $t8, $t8, $gp
+sw $zero, 40($t8)
+
+# label$7::
+label$7:
+
+# permutation_i = permutation_i - global_int$1:
+sub $s1, $s1, 1
+
+# if permutation_i >= global_int$0 branch to "label$6":
+bgez $s1, label$6
+
+# label$5::
+label$5:
+
+# label$4::
+label$4:
+
+# return:
+lw $s0, 24($sp)
+lw $s1, 28($sp)
+add $sp, $sp, 108
+jr $ra

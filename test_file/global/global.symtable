@@ -1,0 +1,51 @@
+N8symtable5EntryE              : global_const_int_1            <const int(12345679)>
+N8symtable5EntryE              : global_const_int_2            <const int(0)>
+N8symtable5EntryE              : global_const_int_3            <const int(0)>
+N8symtable5EntryE              : global_const_int_4            <const int(-12345679)>
+N8symtable5EntryE              : global_const_char_1           <const char('9')>
+N8symtable5EntryE              : global_const_char_2           <const char('_')>
+N8symtable5EntryE              : global_const_char_3           <const char('+')>
+N8symtable5EntryE              : global_const_char_4           <const char('*')>
+N8symtable5EntryE              : global_global_int_1           <int>
+N8symtable5EntryE              : global_global_int_2           <int>
+N8symtable5EntryE              : global_global_char_1          <char>
+N8symtable5EntryE              : global_global_char_2          <char>
+N8symtable5EntryE              : global_global_array_1         <int[100]>
+N8symtable5EntryE              : global_global_array_2         <int[100]>
+N8symtable5EntryE              : global_global_array_3         <char[100]>
+N8symtable5EntryE              : global_global_array_4         <char[100]>
+N8symtable5EntryE              : global_num5                   <int>
+N8symtable9FuncTableE          : assignGlobal                  <void>
+N8symtable5EntryE              : assignGlobal_a                <int>
+N8symtable5EntryE              : assignGlobal_b                <char>
+N8symtable5EntryE              : assignGlobal_c                <int>
+N8symtable5EntryE              : assignGlobal_d                <char>
+N8symtable5EntryE              : global_int$0                  <const int(0)>
+N8symtable5EntryE              : global_int$100                <const int(100)>
+N8symtable5EntryE              : global_int$1                  <const int(1)>
+N8symtable5EntryE              : global_int$10000              <const int(10000)>
+N8symtable5EntryE              : assignGlobal_#1               <int>
+N8symtable5EntryE              : assignGlobal_#2               <int>
+N8symtable5EntryE              : assignGlobal_#3               <int>
+N8symtable9FuncTableE          : printGlobal                   <void>
+N8symtable5EntryE              : global_int$9                  <const int(9)>
+N8symtable5EntryE              : printGlobal_#4                <int>
+N8symtable5EntryE              : printGlobal_#5                <int>
+N8symtable5EntryE              : printGlobal_#6                <char>
+N8symtable5EntryE              : printGlobal_#7                <char>
+N8symtable9FuncTableE          : globalPara                    <int>
+N8symtable5EntryE              : globalPara_a                  <int>
+N8symtable5EntryE              : globalPara_b                  <char>
+N8symtable5EntryE              : globalPara_c                  <int>
+N8symtable5EntryE              : globalPara_d                  <char>
+N8symtable5EntryE              : globalPara_e                  <int>
+N8symtable5EntryE              : globalPara_f                  <char>
+N8symtable5EntryE              : global_char$99                <const char('c')>
+N8symtable9FuncTableE          : testglobal                    <void>
+N8symtable5EntryE              : global_int$30                 <const int(30)>
+N8symtable5EntryE              : testglobal_#8                 <int>
+N8symtable5EntryE              : global_int$50                 <const int(50)>
+N8symtable5EntryE              : testglobal_#9                 <char>
+N8symtable5EntryE              : testglobal_#10                <int>
+N8symtable9FuncTableE          : main                          <void>
+N8symtable5EntryE              : global_int$200                <const int(200)>

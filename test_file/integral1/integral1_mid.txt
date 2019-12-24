@@ -1,0 +1,1203 @@
+const int num1 = 10
+const int num2 = 1
+const int num3 = 10
+const int num4 = -19
+const char char1 = 'a'
+const char char2 = 'b'
+const int chAr2 = -109
+const int hide = 16
+const char char_a = 'a'
+const char b = 'b'
+const char test1 = 'j'
+var int num5
+var int num6
+array int array1[9]
+var char char3
+var char char4
+array char array2[10]
+array char testresult[10]
+var char test2
+var int test3
+array int int_array1[2]
+array char char_array1[2]
+array char char_array2[2]
+array int global[4]
+var int global_int
+var int a
+var int c
+var char d
+var int i
+var int j
+var int k
+void testchar()
+const char test1 = 'a'
+const char test3 = 'c'
+var char test4
+input test2
+input test4
+output string test1:
+#1 = 97
+output char #1
+output string test2:
+#2 = test2
+output char #2
+output string test3:
+#3 = 99
+output char #3
+output string test4:
+#4 = test4
+output char #4
+output string test1 in ascii:
+#5 = 97
+#6 = 0
+#7 = #5 + #6
+output #7
+output string test2 in ascii:
+#8 = test2
+#9 = 0
+#10 = #8 + #9
+output #10
+output string test3 in ascii:
+#11 = 99
+#12 = 0
+#13 = #11 + #12
+output #13
+output string test4 in ascii:
+#14 = test4
+#15 = 0
+#16 = #14 + #15
+output #16
+#ret 
+void testarray1()
+array int int_array2[3]
+array char char_array2[3]
+var int i1
+var int i2
+var int i3
+var int i4
+var int i5
+var char c1
+var char c2
+var char c3
+var char c4
+var char c5
+input c1
+input i1
+input c2
+input i2
+input c3
+input i3
+input c4
+input i4
+input c5
+input i5
+#1 = 0
+#2 = i1
+int_array1[#1] = #2
+#3 = 1
+#4 = i2
+int_array1[#3] = #4
+#5 = 0
+#6 = i3
+int_array2[#5] = #6
+#7 = 1
+#8 = i4
+int_array2[#7] = #8
+#9 = 2
+#10 = i5
+int_array2[#9] = #10
+#11 = 0
+#12 = c1
+char_array1[#11] = #12
+#13 = 1
+#14 = c2
+char_array1[#13] = #14
+#15 = 0
+#16 = c3
+char_array2[#15] = #16
+#17 = 1
+#18 = c4
+char_array2[#17] = #18
+#19 = 2
+#20 = c5
+char_array2[#19] = #20
+output string sum of int array1:
+#21 = 0
+#22 = int_array1[#21]
+#23 = 1
+#24 = int_array1[#23]
+#25 = #22 + #24
+output #25
+output string sum of int array2:
+#26 = 0
+#27 = int_array2[#26]
+#28 = 1
+#29 = int_array2[#28]
+#30 = #27 + #29
+#31 = 2
+#32 = int_array2[#31]
+#33 = #30 + #32
+output #33
+output string char1:
+#34 = 0
+#35 = char_array1[#34]
+output char #35
+output string char2:
+#36 = 1
+#37 = char_array1[#36]
+output char #37
+output string char3:
+#38 = 0
+#39 = char_array2[#38]
+output char #39
+output string char4:
+#40 = 1
+#41 = char_array2[#40]
+output char #41
+output string char5:
+#42 = 2
+#43 = char_array2[#42]
+output char #43
+#ret 
+void teststack()
+var int i0
+var int i1
+var int i2
+var int i3
+var int i4
+var int i5
+var int i6
+var int i7
+var int i8
+var int i9
+input i0
+input i1
+input i2
+input i3
+input i4
+input i5
+input i6
+input i7
+input i8
+input i9
+output string remain:
+#1 = i2
+#2 = i3
+#3 = #1 + #2
+#4 = i4
+#5 = #3 + #4
+#6 = i5
+#7 = #5 + #6
+#8 = i6
+#9 = #7 + #8
+#10 = i7
+#11 = #9 + #10
+#12 = i8
+#13 = #11 + #12
+#14 = i9
+#15 = #13 + #14
+output #15
+output string not remain:
+#16 = i0
+#17 = i1
+#18 = #16 + #17
+output #18
+#ret 
+void testbranch()
+var int in
+var int num
+var int n
+var int doublevar
+var int triple
+var int square
+input num
+input in
+Label0:
+#1 = in
+beqz #1,Label1
+#2 = in
+#3 = 2
+bge #2,#3,Label2
+#4 = num
+#5 = 2
+#6 = #4 * #5
+doublevar = #6
+goto Label3
+Label2:
+#7 = in
+#8 = 2
+#9 = #7 * #8
+doublevar = #9
+Label3:
+output string doublevar:
+#10 = doublevar
+output #10
+output string while finish
+input in
+goto Label0
+Label1:
+input in
+#11 = 0
+n = #11
+Label4:
+#12 = in
+#13 = 0
+ble #12,#13,Label5
+#14 = in
+#15 = 1
+bne #14,#15,Label6
+output string numb double:
+#16 = num
+#17 = 2
+#18 = #16 * #17
+output #18
+goto Label7
+Label6:
+#19 = in
+#20 = 2
+bne #19,#20,Label8
+#21 = num
+#22 = 3
+#23 = #21 * #22
+triple = #23
+output string triple:
+#24 = triple
+output #24
+goto Label9
+Label8:
+#25 = num
+#26 = num
+#27 = #25 * #26
+square = #27
+output string square:
+#28 = square
+output #28
+Label9:
+Label7:
+input in
+addi n,n,1
+goto Label4
+Label5:
+output string n:
+#29 = n
+output #29
+output string doublevar:
+#30 = doublevar
+output #30
+output string triple:
+#31 = triple
+output #31
+output string square:
+#32 = square
+output #32
+output string sum:
+#33 = doublevar
+#34 = triple
+#35 = #33 + #34
+#36 = square
+#37 = #35 + #36
+output #37
+#ret 
+void testbubble()
+array int local[5]
+var int tmp
+var int i
+var int j
+output string input globals
+#1 = 0
+i = #1
+Label10:
+#2 = i
+#3 = 4
+bge #2,#3,Label11
+input tmp
+#4 = i
+#5 = tmp
+global[#4] = #5
+addi i,i,1
+goto Label10
+Label11:
+output string input locals
+#6 = 0
+i = #6
+Label12:
+#7 = i
+#8 = 5
+bge #7,#8,Label13
+input tmp
+#9 = i
+#10 = tmp
+local[#9] = #10
+addi i,i,1
+goto Label12
+Label13:
+#11 = 0
+i = #11
+Label14:
+#12 = i
+#13 = 4
+bge #12,#13,Label15
+#14 = 0
+j = #14
+Label16:
+#15 = j
+#16 = 4
+#17 = i
+#18 = #16 - #17
+#19 = 1
+#20 = #18 - #19
+bge #15,#20,Label17
+#21 = j
+#22 = global[#21]
+#23 = j
+#24 = 1
+#25 = #23 + #24
+#26 = global[#25]
+ble #22,#26,Label18
+#27 = j
+#28 = global[#27]
+tmp = #28
+#29 = j
+#30 = j
+#31 = 1
+#32 = #30 + #31
+#33 = global[#32]
+global[#29] = #33
+#34 = j
+#35 = 1
+#36 = #34 + #35
+#37 = tmp
+global[#36] = #37
+Label18:
+addi j,j,1
+goto Label16
+Label17:
+addi i,i,1
+goto Label14
+Label15:
+#38 = 0
+i = #38
+Label20:
+#39 = i
+#40 = 5
+bge #39,#40,Label21
+#41 = 0
+j = #41
+Label22:
+#42 = j
+#43 = 5
+#44 = i
+#45 = #43 - #44
+#46 = 1
+#47 = #45 - #46
+bge #42,#47,Label23
+#48 = j
+#49 = local[#48]
+#50 = j
+#51 = 1
+#52 = #50 + #51
+#53 = local[#52]
+ble #49,#53,Label24
+#54 = j
+#55 = local[#54]
+tmp = #55
+#56 = j
+#57 = j
+#58 = 1
+#59 = #57 + #58
+#60 = local[#59]
+local[#56] = #60
+#61 = j
+#62 = 1
+#63 = #61 + #62
+#64 = tmp
+local[#63] = #64
+Label24:
+addi j,j,1
+goto Label22
+Label23:
+addi i,i,1
+goto Label20
+Label21:
+output string global
+#65 = 0
+i = #65
+Label26:
+#66 = i
+#67 = 4
+bge #66,#67,Label27
+#68 = i
+#69 = global[#68]
+output #69
+addi i,i,1
+goto Label26
+Label27:
+output string local
+#70 = 0
+i = #70
+Label28:
+#71 = i
+#72 = 5
+bge #71,#72,Label29
+#73 = i
+#74 = local[#73]
+output #74
+addi i,i,1
+goto Label28
+Label29:
+#ret 
+void increase()
+#1 = global_int
+#2 = 1
+#3 = #1 + #2
+global_int = #3
+#ret 
+int doublevar()
+para int n
+var int tmp
+#1 = n
+#2 = 2
+#3 = #1 * #2
+tmp = #3
+#4 = tmp
+#ret #4
+char fa()
+#1 = 97
+#ret #1
+void testsimplefunc()
+var int tmp
+#1 = 0
+global_int = #1
+call increase()
+output string new int:
+#2 = global_int
+output #2
+#3 = 1
+tmp = #3
+output string doublevar:
+#4 = tmp
+push #4
+call doublevar()
+#5 = #ret
+output #5
+output string char:
+call fa()
+#6 = #ret
+output char #6
+output string tmp:
+#7 = tmp
+output #7
+#ret 
+int sum()
+para int a
+para int b
+#1 = a
+#2 = b
+#3 = #1 + #2
+#ret #3
+void testembed()
+var int a
+var int b
+var int c
+input a
+input b
+input c
+output string sum:
+#1 = a
+#2 = b
+push #1
+push #2
+call sum()
+#3 = #ret
+#4 = c
+push #3
+push #4
+call sum()
+#5 = #ret
+output #5
+output string sum:
+#6 = a
+#7 = b
+#8 = c
+push #7
+push #8
+call sum()
+#9 = #ret
+push #6
+push #9
+call sum()
+#10 = #ret
+output #10
+#ret 
+int product()
+para int n
+#1 = n
+#2 = 1
+bgt #1,#2,Label30
+#3 = n
+#ret #3
+Label30:
+#4 = n
+#5 = n
+#6 = 1
+#7 = #5 - #6
+push #7
+call product()
+#8 = #ret
+#9 = #4 * #8
+#ret #9
+int fibo()
+para int n
+#1 = n
+#2 = 2
+bgt #1,#2,Label32
+#3 = 1
+#ret #3
+goto Label33
+Label32:
+#4 = n
+#5 = 1
+#6 = #4 - #5
+push #6
+call fibo()
+#7 = #ret
+#8 = n
+#9 = 2
+#10 = #8 - #9
+push #10
+call fibo()
+#11 = #ret
+#12 = #7 + #11
+#ret #12
+Label33:
+void testrec()
+var int n
+input n
+Label34:
+output string pro:
+#1 = n
+push #1
+call product()
+#2 = #ret
+output #2
+output string fibo:
+#3 = n
+push #3
+call fibo()
+#4 = #ret
+output #4
+input n
+#5 = n
+bnez #5,Label34
+#ret 
+int test()
+para int a
+para int b
+output string ******
+#1 = i
+output #1
+#2 = j
+output #2
+#3 = k
+output #3
+#4 = i
+#5 = j
+blt #4,#5,Label35
+#6 = 0
+i = #6
+Label37:
+#7 = i
+#8 = 10
+bge #7,#8,Label38
+#9 = i
+#10 = 3
+beq #9,#10,Label39
+#11 = i
+output #11
+goto Label40
+Label39:
+#12 = 0
+k = #12
+Label41:
+#13 = k
+#14 = 3
+bge #13,#14,Label42
+output string 333333
+addi k,k,1
+goto Label41
+Label42:
+Label40:
+addi i,i,1
+goto Label37
+Label38:
+goto Label36
+Label35:
+#15 = 9
+i = #15
+Label43:
+#16 = i
+#17 = 0
+blt #16,#17,Label44
+#18 = i
+output #18
+subi i,i,1
+goto Label43
+Label44:
+Label36:
+#19 = a
+#20 = b
+#21 = #19 + #20
+#22 = - #21
+#23 = b
+#24 = #22 - #23
+#ret #24
+void testcontrol()
+#1 = 10
+i = #1
+#2 = 20
+j = #2
+#3 = 30
+k = #3
+#4 = i
+#5 = j
+bge #4,#5,Label45
+#6 = 0
+i = #6
+Label47:
+#7 = i
+#8 = 10
+bge #7,#8,Label48
+#9 = i
+#10 = 3
+beq #9,#10,Label49
+#11 = i
+output #11
+goto Label50
+Label49:
+#12 = 0
+k = #12
+Label51:
+#13 = k
+#14 = 3
+bge #13,#14,Label52
+output string 333333
+addi k,k,1
+goto Label51
+Label52:
+Label50:
+addi i,i,1
+goto Label47
+Label48:
+goto Label46
+Label45:
+#15 = 9
+i = #15
+Label53:
+#16 = i
+#17 = 0
+blt #16,#17,Label54
+#18 = i
+output #18
+subi i,i,1
+goto Label53
+Label54:
+Label46:
+#19 = 1
+#20 = 2
+push #19
+push #20
+call test()
+#21 = #ret
+output #21
+#ret 
+int return1()
+#1 = 1
+#ret #1
+int factorial()
+para int n
+#1 = n
+#2 = 1
+bne #1,#2,Label55
+#3 = n
+#ret #3
+goto Label56
+Label55:
+#4 = n
+#5 = n
+#6 = 1
+#7 = #5 - #6
+push #7
+call factorial()
+#8 = #ret
+#9 = #4 * #8
+#ret #9
+Label56:
+int testfor()
+para int a
+para char b
+para int c
+para int d
+para int f
+para char e
+var int i
+#1 = 9
+a = #1
+#2 = 0
+c = #2
+#3 = 100
+i = #3
+Label57:
+#4 = i
+#5 = 10
+bge #4,#5,Label58
+#6 = a
+#7 = 1
+#8 = #6 + #7
+a = #8
+subi i,i,1
+goto Label57
+Label58:
+#9 = 0
+i = #9
+Label59:
+#10 = i
+#11 = 10
+bge #10,#11,Label60
+#12 = c
+#13 = 1
+#14 = #12 + #13
+c = #14
+addi i,i,1
+goto Label59
+Label60:
+#15 = a
+#16 = 10
+bne #15,#16,Label61
+#17 = c
+#18 = 10
+bne #17,#18,Label63
+#19 = 1
+#ret #19
+Label63:
+Label61:
+#20 = 0
+#ret #20
+int testwhile()
+var int num1
+var int num2
+var int num3
+var int num4
+#1 = 0
+num1 = #1
+#2 = 10
+num2 = #2
+#3 = 1
+#4 = - #3
+num3 = #4
+#5 = 0
+num4 = #5
+Label65:
+#6 = num1
+#7 = 10
+beq #6,#7,Label66
+#8 = num2
+#9 = 1
+#10 = #8 - #9
+num2 = #10
+#11 = num1
+#12 = 1
+#13 = #11 + #12
+num1 = #13
+goto Label65
+Label66:
+Label67:
+#14 = num3
+#15 = 0
+ble #14,#15,Label68
+#16 = num4
+#17 = 10
+#18 = #16 + #17
+num4 = #18
+#19 = num3
+#20 = 10
+#21 = #19 - #20
+num3 = #21
+goto Label67
+Label68:
+#22 = num2
+#23 = 0
+bne #22,#23,Label69
+#24 = num4
+#25 = 0
+bne #24,#25,Label71
+#26 = 1
+#ret #26
+goto Label72
+Label71:
+#27 = 1
+#28 = - #27
+#ret #28
+Label72:
+goto Label70
+Label69:
+#29 = 0
+#ret #29
+Label70:
+int testexpression()
+var int a
+var int c
+var char b
+#1 = 10
+a = #1
+#2 = 97
+b = #2
+#3 = 0
+#4 = 100
+array1[#3] = #4
+#5 = 1
+#6 = 99
+array1[#5] = #6
+#7 = a
+#8 = b
+#9 = #7 - #8
+#10 = 97
+#11 = #9 + #10
+call return1()
+#12 = #ret
+#13 = #11 * #12
+#14 = 0
+#15 = array1[#14]
+#16 = 10
+#17 = #15 / #16
+#18 = #13 - #17
+#19 = 1
+#20 = #18 + #19
+c = #20
+#21 = c
+#22 = array1[#21]
+#23 = 99
+bne #22,#23,Label73
+#24 = 1
+#ret #24
+Label73:
+#25 = 0
+#ret #25
+int testarray()
+var int a
+var int b
+var int c
+#1 = 1
+a = #1
+#2 = 2
+b = #2
+#3 = 3
+c = #3
+#4 = 0
+#5 = 1
+array1[#4] = #5
+#6 = 4
+#7 = 0
+#8 = array1[#7]
+array1[#6] = #8
+#9 = c
+#10 = a
+#11 = b
+call return1()
+#12 = #ret
+#13 = #11 + #12
+#14 = #10 * #13
+#15 = #9 + #14
+#16 = 0
+#17 = array1[#16]
+#18 = 2
+#19 = #17 * #18
+#20 = #15 - #19
+#21 = 10
+array1[#20] = #21
+#22 = 4
+#23 = array1[#22]
+#24 = 10
+bne #23,#24,Label75
+#25 = 1
+#ret #25
+Label75:
+#26 = 0
+#ret #26
+void testprintf()
+para int flag
+#1 = flag
+#2 = 0
+bgt #1,#2,Label77
+output string this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\]^_`{|}~|
+goto Label78
+Label77:
+#3 = flag
+#4 = 2
+blt #3,#4,Label79
+#5 = 97
+output char #5
+#6 = 50
+output char #6
+#7 = 42
+output char #7
+goto Label80
+Label79:
+output string this is a string 
+#8 = 10
+#9 = 5
+#10 = #8 - #9
+output #10
+Label80:
+Label78:
+#ret 
+char testfactorial()
+#1 = 1
+push #1
+call factorial()
+#2 = #ret
+#3 = 1
+bne #2,#3,Label81
+#4 = 3
+push #4
+call factorial()
+#5 = #ret
+#6 = 6
+bne #5,#6,Label83
+#7 = 84
+#ret #7
+Label83:
+Label81:
+#8 = 70
+#ret #8
+void testfunc1()
+var int i
+var int flag
+#1 = 9
+num5 = #1
+#2 = 8
+num6 = #2
+#3 = 97
+char3 = #3
+#4 = 98
+char4 = #4
+input flag
+#5 = 0
+i = #5
+Label85:
+#6 = i
+#7 = 10
+bge #6,#7,Label86
+#8 = i
+#9 = 84
+testresult[#8] = #9
+addi i,i,1
+goto Label85
+Label86:
+#10 = 9
+num5 = #10
+Label87:
+#11 = num5
+#12 = 0
+blt #11,#12,Label88
+#13 = num5
+#14 = num5
+#15 = testresult[#14]
+array2[#13] = #15
+subi num5,num5,1
+goto Label87
+Label88:
+#16 = 0
+num6 = #16
+Label89:
+#17 = num6
+#18 = 8
+beq #17,#18,Label90
+#19 = num6
+#20 = 0
+array1[#19] = #20
+addi num6,num6,1
+goto Label89
+Label90:
+#21 = num5
+#22 = 97
+#23 = num6
+#24 = -109
+#25 = 10
+#26 = char4
+push #21
+push #22
+push #23
+push #24
+push #25
+push #26
+call testfor()
+#27 = #ret
+#28 = 1
+bne #27,#28,Label91
+#29 = 0
+#30 = 84
+testresult[#29] = #30
+goto Label92
+Label91:
+#31 = 0
+#32 = 70
+testresult[#31] = #32
+Label92:
+call testwhile()
+#33 = #ret
+beqz #33,Label93
+#34 = 1
+#35 = 84
+testresult[#34] = #35
+goto Label94
+Label93:
+#36 = 1
+#37 = 70
+testresult[#36] = #37
+Label94:
+call testfactorial()
+#38 = #ret
+#39 = 84
+bne #38,#39,Label95
+#40 = 2
+#41 = 84
+testresult[#40] = #41
+goto Label96
+Label95:
+#42 = 2
+#43 = 70
+testresult[#42] = #43
+Label96:
+call testexpression()
+#44 = #ret
+beqz #44,Label97
+#45 = 3
+#46 = 84
+testresult[#45] = #46
+goto Label98
+Label97:
+#47 = 3
+#48 = 70
+testresult[#47] = #48
+Label98:
+call testarray()
+#49 = #ret
+beqz #49,Label99
+#50 = 4
+#51 = 84
+testresult[#50] = #51
+goto Label100
+Label99:
+#52 = 4
+#53 = 70
+testresult[#52] = #53
+Label100:
+#54 = flag
+push #54
+call testprintf()
+#55 = 1
+#56 = - #55
+push #56
+call testprintf()
+#57 = 0
+push #57
+call testprintf()
+#58 = 1
+push #58
+call testprintf()
+#59 = 2
+push #59
+call testprintf()
+#60 = 3
+push #60
+call testprintf()
+#61 = 0
+i = #61
+Label101:
+#62 = i
+#63 = 5
+bge #62,#63,Label102
+#64 = i
+#65 = testresult[#64]
+output char #65
+addi i,i,1
+goto Label101
+Label102:
+#ret 
+void v0()
+para int char_a
+para char b
+#1 = char_a
+output #1
+#2 = b
+output char #2
+#ret 
+int i0()
+para int char_a
+para char b
+#1 = char_a
+#2 = b
+#3 = 48
+#4 = #2 - #3
+#5 = #1 * #4
+#ret #5
+char c0()
+para char char_a
+para char b
+para char c
+#1 = char_a
+#2 = b
+#3 = #1 + #2
+#4 = 2
+#5 = 48
+#6 = #4 * #5
+#7 = #3 - #6
+output #7
+#8 = c
+#ret #8
+void testfunc2()
+const char char_a = '4'
+const char b = 'z'
+var int c
+var char d
+#1 = 64
+#2 = - #1
+#3 = 122
+push #2
+push #3
+call v0()
+#4 = 4
+#5 = 52
+push #4
+push #5
+call i0()
+#6 = #ret
+c = #6
+#7 = c
+output #7
+#8 = 52
+#9 = 53
+#10 = 118
+push #8
+push #9
+push #10
+call c0()
+#11 = #ret
+d = #11
+#12 = d
+output char #12
+#ret 
+#ret 
+void main()
+call testchar()
+call testarray1()
+call teststack()
+call testbranch()
+call testbubble()
+call testsimplefunc()
+call testembed()
+call testrec()
+call testcontrol()
+call testfunc1()
+call testfunc2()
+#ret 

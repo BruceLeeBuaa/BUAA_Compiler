@@ -1,0 +1,30 @@
+N8symtable5EntryE              : global_PI                     <const int(3)>
+N8symtable5EntryE              : global_PLUS                   <const char('+')>
+N8symtable5EntryE              : global_queue                  <int[5]>
+N8symtable5EntryE              : global_counter                <int>
+N8symtable9FuncTableE          : subPi                         <int>
+N8symtable5EntryE              : subPi_x1                      <int>
+N8symtable5EntryE              : subPi_x2                      <int>
+N8symtable5EntryE              : subPi_#1                      <int>
+N8symtable9FuncTableE          : shiftPlus                     <char>
+N8symtable5EntryE              : shiftPlus_s1                  <int>
+N8symtable5EntryE              : shiftPlus_s2                  <int>
+N8symtable9FuncTableE          : printShift                    <void>
+N8symtable5EntryE              : printShift_key                <int>
+N8symtable5EntryE              : printShift_s1                 <int>
+N8symtable5EntryE              : printShift_s2                 <int>
+N8symtable5EntryE              : global_int$1                  <const int(1)>
+N8symtable5EntryE              : printShift_#2                 <char>
+N8symtable5EntryE              : printShift_#3                 <char>
+N8symtable9FuncTableE          : printDefault                  <void>
+N8symtable5EntryE              : printDefault_c                <char>
+N8symtable5EntryE              : global_int$2                  <const int(2)>
+N8symtable5EntryE              : global_int$0                  <const int(0)>
+N8symtable5EntryE              : global_char$100               <const char('d')>
+N8symtable9FuncTableE          : main                          <void>
+N8symtable5EntryE              : main_a                        <int>
+N8symtable5EntryE              : main_c                        <char>
+N8symtable5EntryE              : main_#4                       <int>
+N8symtable5EntryE              : global_int$5                  <const int(5)>
+N8symtable5EntryE              : main_#5                       <int>
+N8symtable5EntryE              : global_int$-5                 <const int(-5)>

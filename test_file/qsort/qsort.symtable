@@ -1,0 +1,44 @@
+N8symtable5EntryE              : global_sort                   <int[10]>
+N8symtable9FuncTableE          : judge1                        <int>
+N8symtable5EntryE              : judge1_a                      <int>
+N8symtable5EntryE              : judge1_b                      <int>
+N8symtable5EntryE              : judge1_c                      <int>
+N8symtable5EntryE              : judge1_d                      <int>
+N8symtable5EntryE              : judge1_ret                    <int>
+N8symtable5EntryE              : global_int$0                  <const int(0)>
+N8symtable5EntryE              : global_int$1                  <const int(1)>
+N8symtable9FuncTableE          : judge2                        <int>
+N8symtable5EntryE              : judge2_a                      <int>
+N8symtable5EntryE              : judge2_b                      <int>
+N8symtable5EntryE              : judge2_c                      <int>
+N8symtable5EntryE              : judge2_d                      <int>
+N8symtable5EntryE              : judge2_ret                    <int>
+N8symtable9FuncTableE          : Qsort                         <void>
+N8symtable5EntryE              : Qsort_low                     <int>
+N8symtable5EntryE              : Qsort_high                    <int>
+N8symtable5EntryE              : Qsort_first                   <int>
+N8symtable5EntryE              : Qsort_last                    <int>
+N8symtable5EntryE              : Qsort_key                     <int>
+N8symtable5EntryE              : Qsort_#1                      <int>
+N8symtable5EntryE              : Qsort_#2                      <int>
+N8symtable5EntryE              : Qsort_#3                      <int>
+N8symtable5EntryE              : Qsort_#4                      <int>
+N8symtable5EntryE              : Qsort_#5                      <int>
+N8symtable5EntryE              : Qsort_#6                      <int>
+N8symtable5EntryE              : Qsort_#7                      <int>
+N8symtable5EntryE              : Qsort_#8                      <int>
+N8symtable5EntryE              : Qsort_#9                      <int>
+N8symtable5EntryE              : Qsort_#10                     <int>
+N8symtable5EntryE              : Qsort_#11                     <int>
+N8symtable9FuncTableE          : testRecursion                 <void>
+N8symtable5EntryE              : testRecursion_i               <int>
+N8symtable5EntryE              : global_int$5                  <const int(5)>
+N8symtable5EntryE              : global_int$8                  <const int(8)>
+N8symtable5EntryE              : global_int$2                  <const int(2)>
+N8symtable5EntryE              : global_int$3                  <const int(3)>
+N8symtable5EntryE              : global_int$6                  <const int(6)>
+N8symtable5EntryE              : global_int$4                  <const int(4)>
+N8symtable5EntryE              : global_int$7                  <const int(7)>
+N8symtable5EntryE              : testRecursion_#12             <int>
+N8symtable5EntryE              : testRecursion_#13             <int>
+N8symtable9FuncTableE          : main                          <void>

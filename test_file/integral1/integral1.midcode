@@ -1,0 +1,4584 @@
+
+func main()
+call testchar
+call testarray1
+call teststack
+call testbranch
+call testbubble
+call testsimplefunc
+call testembed
+call testrec
+call testcontrol
+call testfunc1
+call testfunc2
+return
+
+func testbubble()
+output "input globals" 
+output "\n" 
+testbubble_i = global_int$0
+if testbubble_i >= global_int$4 branch to "label$11"
+label$12:
+input testbubble_tmp
+global_global[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$12"
+label$11:
+output "input locals" 
+output "\n" 
+testbubble_i = global_int$0
+if testbubble_i >= global_int$5 branch to "label$13"
+label$14:
+input testbubble_tmp
+testbubble_local[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$14"
+label$13:
+testbubble_i = global_int$0
+if testbubble_i >= global_int$4 branch to "label$15"
+label$16:
+testbubble_j = global_int$0
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if testbubble_j >= testbubble_#25 branch to "label$17"
+label$18:
+testbubble_#26 = global_global[testbubble_j]
+testbubble_#27 = testbubble_j + global_int$1
+testbubble_#28 = global_global[testbubble_#27]
+if testbubble_#26 <= testbubble_#28 branch to "label$19"
+testbubble_#29 = global_global[testbubble_j]
+testbubble_tmp = testbubble_#29
+testbubble_#30 = testbubble_j + global_int$1
+testbubble_#31 = global_global[testbubble_#30]
+global_global[testbubble_j] = testbubble_#31
+testbubble_#32 = testbubble_j + global_int$1
+global_global[testbubble_#32] = testbubble_tmp
+label$19:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if testbubble_j < testbubble_#25 branch to "label$18"
+label$17:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$16"
+label$15:
+testbubble_i = global_int$0
+if testbubble_i >= global_int$5 branch to "label$20"
+label$21:
+testbubble_j = global_int$0
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if testbubble_j >= testbubble_#33 branch to "label$22"
+label$23:
+testbubble_#34 = testbubble_local[testbubble_j]
+testbubble_#35 = testbubble_j + global_int$1
+testbubble_#36 = testbubble_local[testbubble_#35]
+if testbubble_#34 <= testbubble_#36 branch to "label$24"
+testbubble_#37 = testbubble_local[testbubble_j]
+testbubble_tmp = testbubble_#37
+testbubble_#38 = testbubble_j + global_int$1
+testbubble_#39 = testbubble_local[testbubble_#38]
+testbubble_local[testbubble_j] = testbubble_#39
+testbubble_#40 = testbubble_j + global_int$1
+testbubble_local[testbubble_#40] = testbubble_tmp
+label$24:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if testbubble_j < testbubble_#33 branch to "label$23"
+label$22:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$21"
+label$20:
+output "global" 
+output "\n" 
+testbubble_i = global_int$0
+if testbubble_i >= global_int$4 branch to "label$25"
+label$26:
+testbubble_#41 = global_global[testbubble_i]
+output testbubble_#41
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$26"
+label$25:
+output "local" 
+output "\n" 
+testbubble_i = global_int$0
+if testbubble_i >= global_int$5 branch to "label$27"
+label$28:
+testbubble_#42 = testbubble_local[testbubble_i]
+output testbubble_#42
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$28"
+label$27:
+return
+
+func increase()
+increase_#43 = global_global_int + global_int$1
+global_global_int = increase_#43
+return
+
+func doublevar()
+doublevar_#44 = doublevar_n * global_int$2
+doublevar_tmp = doublevar_#44
+return doublevar_tmp
+
+func fa()
+return global_char$97
+
+func testsimplefunc()
+global_global_int = global_int$0
+call increase
+output "new int:" 
+output global_global_int
+output "\n" 
+testsimplefunc_tmp = global_int$1
+output "doublevar:" 
+push testsimplefunc_tmp
+testsimplefunc_#45 = call doublevar
+output testsimplefunc_#45
+output "\n" 
+output "char:" 
+testsimplefunc_#46 = call fa
+output testsimplefunc_#46
+output "\n" 
+output "tmp:" 
+output testsimplefunc_tmp
+output "\n" 
+return
+
+func sum()
+sum_#47 = sum_a + sum_b
+return sum_#47
+
+func testembed()
+input testembed_a
+input testembed_b
+input testembed_c
+output "sum:" 
+push testembed_a
+push testembed_b
+testembed_#48 = call sum
+push testembed_#48
+push testembed_c
+testembed_#49 = call sum
+output testembed_#49
+output "\n" 
+output "sum:" 
+push testembed_b
+push testembed_c
+testembed_#50 = call sum
+push testembed_a
+push testembed_#50
+testembed_#51 = call sum
+output testembed_#51
+output "\n" 
+return
+
+func fibo()
+if fibo_n > global_int$2 branch to "label$30"
+return global_int$1
+goto label$31
+label$30:
+fibo_#55 = fibo_n - global_int$1
+push fibo_#55
+fibo_#56 = call fibo
+fibo_#58 = fibo_n - global_int$2
+push fibo_#58
+fibo_#59 = call fibo
+fibo_#57 = fibo_#56 + fibo_#59
+return fibo_#57
+label$31:
+
+func testrec()
+input testrec_n
+label$32:
+output "pro:" 
+push testrec_n
+testrec_#60 = call product
+output testrec_#60
+output "\n" 
+output "fibo:" 
+push testrec_n
+testrec_#61 = call fibo
+output testrec_#61
+output "\n" 
+input testrec_n
+if testrec_n != global_int$0 branch to "label$32"
+return
+
+func testwhile()
+testwhile_num1 = global_int$0
+testwhile_num2 = global_int$10
+testwhile_#71 = global_int$0 - global_int$1
+testwhile_num3 = testwhile_#71
+testwhile_num4 = global_int$0
+if testwhile_num1 == global_int$10 branch to "label$61"
+label$62:
+testwhile_#72 = testwhile_num2 - global_int$1
+testwhile_num2 = testwhile_#72
+testwhile_#73 = testwhile_num1 + global_int$1
+testwhile_num1 = testwhile_#73
+if testwhile_num1 != global_int$10 branch to "label$62"
+label$61:
+if testwhile_num3 <= global_int$0 branch to "label$63"
+label$64:
+testwhile_#74 = testwhile_num4 + global_int$10
+testwhile_num4 = testwhile_#74
+testwhile_#75 = testwhile_num3 - global_int$10
+testwhile_num3 = testwhile_#75
+if testwhile_num3 > global_int$0 branch to "label$64"
+label$63:
+if testwhile_num2 != global_int$0 branch to "label$65"
+if testwhile_num4 != global_int$0 branch to "label$66"
+return global_int$1
+goto label$67
+label$66:
+testwhile_#76 = global_int$0 - global_int$1
+return testwhile_#76
+label$67:
+goto label$68
+label$65:
+return global_int$0
+label$68:
+
+func testexpression()
+testexpression_a = global_int$10
+testexpression_b = global_char$97
+global_array1[global_int$0] = global_int$100
+global_array1[global_int$1] = global_int$99
+testexpression_#78 = testexpression_a - testexpression_b
+testexpression_#78 = testexpression_#78 + global_char$97
+testexpression_#77 = testexpression_#78
+testexpression_#80 = call return1
+testexpression_#79 = testexpression_#77 * testexpression_#80
+testexpression_#82 = global_array1[global_int$0]
+testexpression_#83 = testexpression_#82 / global_int$10
+testexpression_#81 = testexpression_#79 - testexpression_#83
+testexpression_#81 = testexpression_#81 + global_int$1
+testexpression_c = testexpression_#81
+testexpression_#84 = global_array1[testexpression_c]
+if testexpression_#84 != global_int$99 branch to "label$69"
+return global_int$1
+label$69:
+return global_int$0
+
+func testarray()
+testarray_a = global_int$1
+testarray_b = global_int$2
+testarray_c = global_int$3
+global_array1[global_int$0] = global_int$1
+testarray_#85 = global_array1[global_int$0]
+global_array1[global_int$4] = testarray_#85
+testarray_#90 = call return1
+testarray_#89 = testarray_b + testarray_#90
+testarray_#88 = testarray_#89
+testarray_#87 = testarray_a * testarray_#88
+testarray_#86 = testarray_c + testarray_#87
+testarray_#91 = global_array1[global_int$0]
+testarray_#92 = testarray_#91 * global_int$2
+testarray_#86 = testarray_#86 - testarray_#92
+global_array1[testarray_#86] = global_int$10
+testarray_#93 = global_array1[global_int$4]
+if testarray_#93 != global_int$10 branch to "label$70"
+return global_int$1
+label$70:
+return global_int$0
+
+func testprintf()
+if testprintf_flag > global_int$0 branch to "label$71"
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$72
+label$71:
+if testprintf_flag < global_int$2 branch to "label$73"
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$74
+label$73:
+output "this is a string " 
+testprintf_#94 = global_num1 - global_int$5
+output testprintf_#94
+output "\n" 
+label$74:
+label$72:
+return
+
+func testfactorial()
+push global_int$1
+testfactorial_#95 = call factorial
+if testfactorial_#95 != global_int$1 branch to "label$75"
+push global_int$3
+testfactorial_#96 = call factorial
+if testfactorial_#96 != global_int$6 branch to "label$76"
+return global_char$84
+label$76:
+label$75:
+return global_char$70
+
+func testfunc1()
+global_num5 = global_int$9
+global_num6 = global_int$8
+global_char3 = global_char$97
+global_char4 = global_char$98
+input testfunc1_flag
+testfunc1_i = global_int$0
+if testfunc1_i >= global_int$10 branch to "label$77"
+label$78:
+global_testresult[testfunc1_i] = global_char$84
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$10 branch to "label$78"
+label$77:
+global_num5 = global_int$9
+if global_num5 < global_int$0 branch to "label$79"
+label$80:
+testfunc1_#97 = global_testresult[global_num5]
+global_array2[global_num5] = testfunc1_#97
+global_num5 = global_num5 - global_int$1
+if global_num5 >= global_int$0 branch to "label$80"
+label$79:
+global_num6 = global_int$0
+if global_num6 == global_int$8 branch to "label$81"
+label$82:
+global_array1[global_num6] = global_int$0
+global_num6 = global_num6 + global_int$1
+if global_num6 != global_int$8 branch to "label$82"
+label$81:
+push global_num5
+push global_char1
+push global_num6
+push global_chAr2
+push global_int$10
+push global_char4
+testfunc1_#98 = call testfor
+if testfunc1_#98 != global_int$1 branch to "label$83"
+global_testresult[global_int$0] = global_char$84
+goto label$84
+label$83:
+global_testresult[global_int$0] = global_char$70
+label$84:
+testfunc1_#99 = call testwhile
+if testfunc1_#99 == global_int$0 branch to "label$85"
+global_testresult[global_int$1] = global_char$84
+goto label$86
+label$85:
+global_testresult[global_int$1] = global_char$70
+label$86:
+testfunc1_#101 = call testfactorial
+testfunc1_#100 = testfunc1_#101
+testfunc1_#102 = global_char$84
+if testfunc1_#100 != testfunc1_#102 branch to "label$87"
+global_testresult[global_int$2] = global_char$84
+goto label$88
+label$87:
+global_testresult[global_int$2] = global_char$70
+label$88:
+testfunc1_#103 = call testexpression
+if testfunc1_#103 == global_int$0 branch to "label$89"
+global_testresult[global_int$3] = global_char$84
+goto label$90
+label$89:
+global_testresult[global_int$3] = global_char$70
+label$90:
+testfunc1_#104 = call testarray
+if testfunc1_#104 == global_int$0 branch to "label$91"
+global_testresult[global_int$4] = global_char$84
+goto label$92
+label$91:
+global_testresult[global_int$4] = global_char$70
+label$92:
+push testfunc1_flag
+call testprintf
+testfunc1_#105 = global_int$0 - global_int$1
+push testfunc1_#105
+call testprintf
+push global_int$0
+call testprintf
+push global_int$1
+call testprintf
+push global_int$2
+call testprintf
+push global_int$3
+call testprintf
+testfunc1_i = global_int$0
+if testfunc1_i >= global_int$5 branch to "label$93"
+label$94:
+testfunc1_#106 = global_testresult[testfunc1_i]
+output testfunc1_#106
+output "\n" 
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$5 branch to "label$94"
+label$93:
+return
+
+func testarray1()
+input testarray1_c1
+input testarray1_i1
+input testarray1_c2
+input testarray1_i2
+input testarray1_c3
+input testarray1_i3
+input testarray1_c4
+input testarray1_i4
+input testarray1_c5
+input testarray1_i5
+global_int_array1[global_int$0] = testarray1_i1
+global_int_array1[global_int$1] = testarray1_i2
+testarray1_int_array2[global_int$0] = testarray1_i3
+testarray1_int_array2[global_int$1] = testarray1_i4
+testarray1_int_array2[global_int$2] = testarray1_i5
+global_char_array1[global_int$0] = testarray1_c1
+global_char_array1[global_int$1] = testarray1_c2
+testarray1_char_array2[global_int$0] = testarray1_c3
+testarray1_char_array2[global_int$1] = testarray1_c4
+testarray1_char_array2[global_int$2] = testarray1_c5
+output "sum of int array1:" 
+testarray1_#5 = global_int_array1[global_int$0]
+testarray1_#7 = global_int_array1[global_int$1]
+testarray1_#6 = testarray1_#5 + testarray1_#7
+output testarray1_#6
+output "\n" 
+output "sum of int array2:" 
+testarray1_#8 = testarray1_int_array2[global_int$0]
+testarray1_#10 = testarray1_int_array2[global_int$1]
+testarray1_#9 = testarray1_#8 + testarray1_#10
+testarray1_#11 = testarray1_int_array2[global_int$2]
+testarray1_#9 = testarray1_#9 + testarray1_#11
+output testarray1_#9
+output "\n" 
+output "char1:" 
+testarray1_#12 = global_char_array1[global_int$0]
+output testarray1_#12
+output "\n" 
+output "char2:" 
+testarray1_#13 = global_char_array1[global_int$1]
+output testarray1_#13
+output "\n" 
+output "char3:" 
+testarray1_#14 = testarray1_char_array2[global_int$0]
+output testarray1_#14
+output "\n" 
+output "char4:" 
+testarray1_#15 = testarray1_char_array2[global_int$1]
+output testarray1_#15
+output "\n" 
+output "char5:" 
+testarray1_#16 = testarray1_char_array2[global_int$2]
+output testarray1_#16
+output "\n" 
+return
+
+func product()
+if product_n > global_int$1 branch to "label$29"
+return product_n
+label$29:
+product_#53 = product_n - global_int$1
+push product_#53
+product_#54 = call product
+product_#52 = product_n * product_#54
+return product_#52
+
+func test()
+output "******" 
+output "\n" 
+output global_i
+output "\n" 
+output global_j
+output "\n" 
+output global_k
+output "\n" 
+if global_i < global_j branch to "label$33"
+global_i = global_int$0
+if global_i >= global_int$10 branch to "label$34"
+label$35:
+if global_i == global_int$3 branch to "label$36"
+output global_i
+output "\n" 
+goto label$37
+label$36:
+global_k = global_int$0
+if global_k >= global_int$3 branch to "label$38"
+label$39:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$39"
+label$38:
+label$37:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$35"
+label$34:
+goto label$40
+label$33:
+global_i = global_int$9
+if global_i < global_int$0 branch to "label$41"
+label$42:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$42"
+label$41:
+label$40:
+test_#64 = test_a + test_b
+test_#63 = test_#64
+test_#62 = global_int$0 - test_#63
+test_#62 = test_#62 - test_b
+return test_#62
+
+func testcontrol()
+global_i = global_int$10
+global_j = global_int$20
+global_k = global_int$30
+if global_i >= global_j branch to "label$43"
+global_i = global_int$0
+if global_i >= global_int$10 branch to "label$44"
+label$45:
+if global_i == global_int$3 branch to "label$46"
+output global_i
+output "\n" 
+goto label$47
+label$46:
+global_k = global_int$0
+if global_k >= global_int$3 branch to "label$48"
+label$49:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$49"
+label$48:
+label$47:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$45"
+label$44:
+goto label$50
+label$43:
+global_i = global_int$9
+if global_i < global_int$0 branch to "label$51"
+label$52:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$52"
+label$51:
+label$50:
+push global_int$1
+push global_int$2
+testcontrol_#65 = call test
+output testcontrol_#65
+output "\n" 
+return
+
+func return1()
+return global_int$1
+
+func factorial()
+if factorial_n != global_int$1 branch to "label$53"
+return factorial_n
+goto label$54
+label$53:
+factorial_#67 = factorial_n - global_int$1
+push factorial_#67
+factorial_#68 = call factorial
+factorial_#66 = factorial_n * factorial_#68
+return factorial_#66
+label$54:
+
+func testfor()
+testfor_a = global_int$9
+testfor_c = global_int$0
+testfor_i = global_int$100
+if testfor_i >= global_int$10 branch to "label$55"
+label$56:
+testfor_#69 = testfor_a + global_int$1
+testfor_a = testfor_#69
+testfor_i = testfor_i - global_int$1
+if testfor_i < global_int$10 branch to "label$56"
+label$55:
+testfor_i = global_int$0
+if testfor_i >= global_int$10 branch to "label$57"
+label$58:
+testfor_#70 = testfor_c + global_int$1
+testfor_c = testfor_#70
+testfor_i = testfor_i + global_int$1
+if testfor_i < global_int$10 branch to "label$58"
+label$57:
+if testfor_a != global_int$10 branch to "label$59"
+if testfor_c != global_int$10 branch to "label$60"
+return global_int$1
+label$60:
+label$59:
+return global_int$0
+
+func v0()
+output v0_char_a
+output "\n" 
+output v0_b
+output "\n" 
+return
+
+func i0()
+i0_#109 = i0_b - global_char$48
+i0_#108 = i0_#109
+i0_#107 = i0_char_a * i0_#108
+return i0_#107
+
+func c0()
+c0_#110 = c0_char_a + c0_b
+c0_#111 = global_int$2 * global_char$48
+c0_#110 = c0_#110 - c0_#111
+output c0_#110
+output "\n" 
+return c0_c
+
+func testfunc2()
+testfunc2_#112 = global_int$0 - global_int$64
+push testfunc2_#112
+push testfunc2_b
+call v0
+push global_int$4
+push testfunc2_char_a
+testfunc2_#113 = call i0
+testfunc2_c = testfunc2_#113
+output testfunc2_c
+output "\n" 
+push global_char$52
+push global_char$53
+push global_char$118
+testfunc2_#114 = call c0
+testfunc2_d = testfunc2_#114
+output testfunc2_d
+output "\n" 
+return
+
+func testchar()
+input global_test2
+input testchar_test4
+output "test1:" 
+output testchar_test1
+output "\n" 
+output "test2:" 
+output global_test2
+output "\n" 
+output "test3:" 
+output testchar_test3
+output "\n" 
+output "test4:" 
+output testchar_test4
+output "\n" 
+output "test1 in ascii:" 
+testchar_#1 = testchar_test1 + global_int$0
+output testchar_#1
+output "\n" 
+output "test2 in ascii:" 
+testchar_#2 = global_test2 + global_int$0
+output testchar_#2
+output "\n" 
+output "test3 in ascii:" 
+testchar_#3 = testchar_test3 + global_int$0
+output testchar_#3
+output "\n" 
+output "test4 in ascii:" 
+testchar_#4 = testchar_test4 + global_int$0
+output testchar_#4
+output "\n" 
+return
+
+func teststack()
+input teststack_i0
+input teststack_i1
+input teststack_i2
+input teststack_i3
+input teststack_i4
+input teststack_i5
+input teststack_i6
+input teststack_i7
+input teststack_i8
+input teststack_i9
+output "remain:" 
+teststack_#17 = teststack_i2 + teststack_i3
+teststack_#17 = teststack_#17 + teststack_i4
+teststack_#17 = teststack_#17 + teststack_i5
+teststack_#17 = teststack_#17 + teststack_i6
+teststack_#17 = teststack_#17 + teststack_i7
+teststack_#17 = teststack_#17 + teststack_i8
+teststack_#17 = teststack_#17 + teststack_i9
+output teststack_#17
+output "\n" 
+output "not remain:" 
+teststack_#18 = teststack_i0 + teststack_i1
+output teststack_#18
+output "\n" 
+return
+
+func testbranch()
+input testbranch_num
+input testbranch_in
+if testbranch_in == global_int$0 branch to "label$1"
+label$2:
+if testbranch_in >= global_int$2 branch to "label$3"
+testbranch_#19 = testbranch_num * global_int$2
+testbranch_doublevar = testbranch_#19
+goto label$4
+label$3:
+testbranch_#20 = testbranch_in * global_int$2
+testbranch_doublevar = testbranch_#20
+label$4:
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "while finish" 
+output "\n" 
+input testbranch_in
+if testbranch_in != global_int$0 branch to "label$2"
+label$1:
+input testbranch_in
+testbranch_n = global_int$0
+if testbranch_in <= global_int$0 branch to "label$5"
+label$6:
+if testbranch_in != global_int$1 branch to "label$7"
+output "numb double:" 
+testbranch_#21 = testbranch_num * global_int$2
+output testbranch_#21
+output "\n" 
+goto label$8
+label$7:
+if testbranch_in != global_int$2 branch to "label$9"
+testbranch_#22 = testbranch_num * global_int$3
+testbranch_triple = testbranch_#22
+output "triple:" 
+output testbranch_triple
+output "\n" 
+goto label$10
+label$9:
+testbranch_#23 = testbranch_num * testbranch_num
+testbranch_square = testbranch_#23
+output "square:" 
+output testbranch_square
+output "\n" 
+label$10:
+label$8:
+input testbranch_in
+testbranch_n = testbranch_n + global_int$1
+if testbranch_in > global_int$0 branch to "label$6"
+label$5:
+output "n:" 
+output testbranch_n
+output "\n" 
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "triple:" 
+output testbranch_triple
+output "\n" 
+output "square:" 
+output testbranch_square
+output "\n" 
+output "sum:" 
+testbranch_#24 = testbranch_doublevar + testbranch_triple
+testbranch_#24 = testbranch_#24 + testbranch_square
+output testbranch_#24
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+input global_test2
+input testchar_test4
+output "test1:" 
+output testchar_test1
+output "\n" 
+output "test2:" 
+output global_test2
+output "\n" 
+output "test3:" 
+output testchar_test3
+output "\n" 
+output "test4:" 
+output testchar_test4
+output "\n" 
+output "test1 in ascii:" 
+output global_int$97
+output "\n" 
+output "test2 in ascii:" 
+testchar_#2 = global_test2 + global_int$0
+output testchar_#2
+output "\n" 
+output "test3 in ascii:" 
+output global_int$99
+output "\n" 
+output "test4 in ascii:" 
+testchar_#4 = testchar_test4 + global_int$0
+output testchar_#4
+output "\n" 
+input testarray1_c1
+input testarray1_i1
+input testarray1_c2
+input testarray1_i2
+input testarray1_c3
+input testarray1_i3
+input testarray1_c4
+input testarray1_i4
+input testarray1_c5
+input testarray1_i5
+global_int_array1[global_int$0] = testarray1_i1
+global_int_array1[global_int$1] = testarray1_i2
+testarray1_int_array2[global_int$0] = testarray1_i3
+testarray1_int_array2[global_int$1] = testarray1_i4
+testarray1_int_array2[global_int$2] = testarray1_i5
+global_char_array1[global_int$0] = testarray1_c1
+global_char_array1[global_int$1] = testarray1_c2
+testarray1_char_array2[global_int$0] = testarray1_c3
+testarray1_char_array2[global_int$1] = testarray1_c4
+testarray1_char_array2[global_int$2] = testarray1_c5
+output "sum of int array1:" 
+testarray1_#5 = global_int_array1[global_int$0]
+testarray1_#7 = global_int_array1[global_int$1]
+testarray1_#6 = testarray1_#5 + testarray1_#7
+output testarray1_#6
+output "\n" 
+output "sum of int array2:" 
+testarray1_#8 = testarray1_int_array2[global_int$0]
+testarray1_#10 = testarray1_int_array2[global_int$1]
+testarray1_#9 = testarray1_#8 + testarray1_#10
+testarray1_#11 = testarray1_int_array2[global_int$2]
+testarray1_#9 = testarray1_#9 + testarray1_#11
+output testarray1_#9
+output "\n" 
+output "char1:" 
+testarray1_#12 = global_char_array1[global_int$0]
+output testarray1_#12
+output "\n" 
+output "char2:" 
+testarray1_#13 = global_char_array1[global_int$1]
+output testarray1_#13
+output "\n" 
+output "char3:" 
+testarray1_#14 = testarray1_char_array2[global_int$0]
+output testarray1_#14
+output "\n" 
+output "char4:" 
+testarray1_#15 = testarray1_char_array2[global_int$1]
+output testarray1_#15
+output "\n" 
+output "char5:" 
+testarray1_#16 = testarray1_char_array2[global_int$2]
+output testarray1_#16
+output "\n" 
+input teststack_i0
+input teststack_i1
+input teststack_i2
+input teststack_i3
+input teststack_i4
+input teststack_i5
+input teststack_i6
+input teststack_i7
+input teststack_i8
+input teststack_i9
+output "remain:" 
+teststack_#17 = teststack_i2 + teststack_i3
+teststack_#17 = teststack_#17 + teststack_i4
+teststack_#17 = teststack_#17 + teststack_i5
+teststack_#17 = teststack_#17 + teststack_i6
+teststack_#17 = teststack_#17 + teststack_i7
+teststack_#17 = teststack_#17 + teststack_i8
+teststack_#17 = teststack_#17 + teststack_i9
+output teststack_#17
+output "\n" 
+output "not remain:" 
+teststack_#18 = teststack_i0 + teststack_i1
+output teststack_#18
+output "\n" 
+input testbranch_num
+input testbranch_in
+if testbranch_in == global_int$0 branch to "label$99"
+label$100:
+if testbranch_in >= global_int$2 branch to "label$101"
+testbranch_#19 = testbranch_num * global_int$2
+testbranch_doublevar = testbranch_#19
+goto label$102
+label$101:
+testbranch_#20 = testbranch_in * global_int$2
+testbranch_doublevar = testbranch_#20
+label$102:
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "while finish" 
+output "\n" 
+input testbranch_in
+if testbranch_in != global_int$0 branch to "label$100"
+label$99:
+input testbranch_in
+testbranch_n = global_int$0
+if testbranch_in <= global_int$0 branch to "label$103"
+label$104:
+if testbranch_in != global_int$1 branch to "label$105"
+output "numb double:" 
+testbranch_#21 = testbranch_num * global_int$2
+output testbranch_#21
+output "\n" 
+goto label$106
+label$105:
+if testbranch_in != global_int$2 branch to "label$107"
+testbranch_#22 = testbranch_num * global_int$3
+testbranch_triple = testbranch_#22
+output "triple:" 
+output testbranch_#22
+output "\n" 
+goto label$108
+label$107:
+testbranch_#23 = testbranch_num * testbranch_num
+testbranch_square = testbranch_#23
+output "square:" 
+output testbranch_#23
+output "\n" 
+label$108:
+label$106:
+input testbranch_in
+testbranch_n = testbranch_n + global_int$1
+if testbranch_in > global_int$0 branch to "label$104"
+label$103:
+output "n:" 
+output testbranch_n
+output "\n" 
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "triple:" 
+output testbranch_triple
+output "\n" 
+output "square:" 
+output testbranch_square
+output "\n" 
+output "sum:" 
+testbranch_#24 = testbranch_doublevar + testbranch_triple
+testbranch_#24 = testbranch_#24 + testbranch_square
+output testbranch_#24
+output "\n" 
+output "input globals" 
+output "\n" 
+testbubble_i = global_int$0
+if global_int$0 >= global_int$4 branch to "label$110"
+label$111:
+input testbubble_tmp
+global_global[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$111"
+label$110:
+output "input locals" 
+output "\n" 
+testbubble_i = global_int$0
+if global_int$0 >= global_int$5 branch to "label$112"
+label$113:
+input testbubble_tmp
+testbubble_local[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$113"
+label$112:
+testbubble_i = global_int$0
+if global_int$0 >= global_int$4 branch to "label$114"
+label$115:
+testbubble_j = global_int$0
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if global_int$0 >= testbubble_#25 branch to "label$116"
+label$117:
+testbubble_#26 = global_global[testbubble_j]
+testbubble_#27 = testbubble_j + global_int$1
+testbubble_#28 = global_global[testbubble_#27]
+if testbubble_#26 <= testbubble_#28 branch to "label$118"
+testbubble_#29 = global_global[testbubble_j]
+testbubble_#30 = testbubble_j + global_int$1
+testbubble_#31 = global_global[testbubble_#30]
+global_global[testbubble_j] = testbubble_#31
+testbubble_#32 = testbubble_j + global_int$1
+global_global[testbubble_#32] = testbubble_#29
+label$118:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if testbubble_j < testbubble_#25 branch to "label$117"
+label$116:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$115"
+label$114:
+testbubble_i = global_int$0
+if global_int$0 >= global_int$5 branch to "label$119"
+label$120:
+testbubble_j = global_int$0
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if global_int$0 >= testbubble_#33 branch to "label$121"
+label$122:
+testbubble_#34 = testbubble_local[testbubble_j]
+testbubble_#35 = testbubble_j + global_int$1
+testbubble_#36 = testbubble_local[testbubble_#35]
+if testbubble_#34 <= testbubble_#36 branch to "label$123"
+testbubble_#37 = testbubble_local[testbubble_j]
+testbubble_#38 = testbubble_j + global_int$1
+testbubble_#39 = testbubble_local[testbubble_#38]
+testbubble_local[testbubble_j] = testbubble_#39
+testbubble_#40 = testbubble_j + global_int$1
+testbubble_local[testbubble_#40] = testbubble_#37
+label$123:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if testbubble_j < testbubble_#33 branch to "label$122"
+label$121:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$120"
+label$119:
+output "global" 
+output "\n" 
+testbubble_i = global_int$0
+if global_int$0 >= global_int$4 branch to "label$124"
+label$125:
+testbubble_#41 = global_global[testbubble_i]
+output testbubble_#41
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$125"
+label$124:
+output "local" 
+output "\n" 
+testbubble_i = global_int$0
+if global_int$0 >= global_int$5 branch to "label$126"
+label$127:
+testbubble_#42 = testbubble_local[testbubble_i]
+output testbubble_#42
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$127"
+label$126:
+global_global_int = global_int$0
+call increase
+output "new int:" 
+output global_global_int
+output "\n" 
+output "doublevar:" 
+push global_int$1
+testsimplefunc_#45 = call doublevar
+output testsimplefunc_#45
+output "\n" 
+output "char:" 
+testsimplefunc_#46 = call fa
+output testsimplefunc_#46
+output "\n" 
+output "tmp:" 
+output global_int$1
+output "\n" 
+input testembed_a
+input testembed_b
+input testembed_c
+output "sum:" 
+push testembed_a
+push testembed_b
+testembed_#48 = call sum
+push testembed_#48
+push testembed_c
+testembed_#49 = call sum
+output testembed_#49
+output "\n" 
+output "sum:" 
+push testembed_b
+push testembed_c
+testembed_#50 = call sum
+push testembed_a
+push testembed_#50
+testembed_#51 = call sum
+output testembed_#51
+output "\n" 
+input testrec_n
+label$131:
+output "pro:" 
+push testrec_n
+testrec_#60 = call product
+output testrec_#60
+output "\n" 
+output "fibo:" 
+push testrec_n
+testrec_#61 = call fibo
+output testrec_#61
+output "\n" 
+input testrec_n
+if testrec_n != global_int$0 branch to "label$131"
+global_i = global_int$10
+global_j = global_int$20
+global_k = global_int$30
+if global_int$10 >= global_int$20 branch to "label$133"
+global_i = global_int$0
+if global_int$0 >= global_int$10 branch to "label$134"
+label$135:
+if global_i == global_int$3 branch to "label$136"
+output global_i
+output "\n" 
+goto label$137
+label$136:
+global_k = global_int$0
+if global_int$0 >= global_int$3 branch to "label$138"
+label$139:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$139"
+label$138:
+label$137:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$135"
+label$134:
+goto label$140
+label$133:
+global_i = global_int$9
+if global_int$9 < global_int$0 branch to "label$141"
+label$142:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$142"
+label$141:
+label$140:
+push global_int$1
+push global_int$2
+testcontrol_#65 = call test
+output testcontrol_#65
+output "\n" 
+global_num5 = global_int$9
+global_num6 = global_int$8
+global_char3 = global_char$97
+global_char4 = global_char$98
+input testfunc1_flag
+testfunc1_i = global_int$0
+if global_int$0 >= global_int$10 branch to "label$144"
+label$145:
+global_testresult[testfunc1_i] = global_char$84
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$10 branch to "label$145"
+label$144:
+global_num5 = global_int$9
+if global_int$9 < global_int$0 branch to "label$146"
+label$147:
+testfunc1_#97 = global_testresult[global_num5]
+global_array2[global_num5] = testfunc1_#97
+global_num5 = global_num5 - global_int$1
+if global_num5 >= global_int$0 branch to "label$147"
+label$146:
+global_num6 = global_int$0
+if global_int$0 == global_int$8 branch to "label$148"
+label$149:
+global_array1[global_num6] = global_int$0
+global_num6 = global_num6 + global_int$1
+if global_num6 != global_int$8 branch to "label$149"
+label$148:
+push global_num5
+push global_char1
+push global_num6
+push global_chAr2
+push global_int$10
+push global_char4
+testfunc1_#98 = call testfor
+if testfunc1_#98 != global_int$1 branch to "label$150"
+global_testresult[global_int$0] = global_char$84
+goto label$151
+label$150:
+global_testresult[global_int$0] = global_char$70
+label$151:
+testfunc1_#99 = call testwhile
+if testfunc1_#99 == global_int$0 branch to "label$152"
+global_testresult[global_int$1] = global_char$84
+goto label$153
+label$152:
+global_testresult[global_int$1] = global_char$70
+label$153:
+testfunc1_#101 = call testfactorial
+if testfunc1_#101 != global_char$84 branch to "label$154"
+global_testresult[global_int$2] = global_char$84
+goto label$155
+label$154:
+global_testresult[global_int$2] = global_char$70
+label$155:
+testfunc1_#103 = call testexpression
+if testfunc1_#103 == global_int$0 branch to "label$156"
+global_testresult[global_int$3] = global_char$84
+goto label$157
+label$156:
+global_testresult[global_int$3] = global_char$70
+label$157:
+testfunc1_#104 = call testarray
+if testfunc1_#104 == global_int$0 branch to "label$158"
+global_testresult[global_int$4] = global_char$84
+goto label$159
+label$158:
+global_testresult[global_int$4] = global_char$70
+label$159:
+push testfunc1_flag
+call testprintf
+push global_int$-1
+call testprintf
+push global_int$0
+call testprintf
+push global_int$1
+call testprintf
+push global_int$2
+call testprintf
+push global_int$3
+call testprintf
+testfunc1_i = global_int$0
+if global_int$0 >= global_int$5 branch to "label$160"
+label$161:
+testfunc1_#106 = global_testresult[testfunc1_i]
+output testfunc1_#106
+output "\n" 
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$5 branch to "label$161"
+label$160:
+push global_int$-64
+push testfunc2_b
+call v0
+push global_int$4
+push testfunc2_char_a
+testfunc2_#113 = call i0
+output testfunc2_#113
+output "\n" 
+push global_char$52
+push global_char$53
+push global_char$118
+testfunc2_#114 = call c0
+output testfunc2_#114
+output "\n" 
+return
+
+func increase()
+increase_#43 = global_global_int + global_int$1
+global_global_int = increase_#43
+return
+
+func doublevar()
+doublevar_#44 = doublevar_n * global_int$2
+return doublevar_#44
+
+func fa()
+return global_char$97
+
+func sum()
+sum_#47 = sum_a + sum_b
+return sum_#47
+
+func fibo()
+if fibo_n > global_int$2 branch to "label$30"
+return global_int$1
+label$30:
+fibo_#55 = fibo_n - global_int$1
+push fibo_#55
+fibo_#56 = call fibo
+fibo_#58 = fibo_n - global_int$2
+push fibo_#58
+fibo_#59 = call fibo
+fibo_#57 = fibo_#56 + fibo_#59
+return fibo_#57
+
+func testwhile()
+testwhile_num1 = global_int$0
+testwhile_num2 = global_int$10
+testwhile_num3 = global_int$-1
+testwhile_num4 = global_int$0
+if global_int$0 == global_int$10 branch to "label$61"
+label$62:
+testwhile_#72 = testwhile_num2 - global_int$1
+testwhile_num2 = testwhile_#72
+testwhile_#73 = testwhile_num1 + global_int$1
+testwhile_num1 = testwhile_#73
+if testwhile_#73 != global_int$10 branch to "label$62"
+label$61:
+if testwhile_num3 <= global_int$0 branch to "label$63"
+label$64:
+testwhile_#74 = testwhile_num4 + global_int$10
+testwhile_num4 = testwhile_#74
+testwhile_#75 = testwhile_num3 - global_int$10
+testwhile_num3 = testwhile_#75
+if testwhile_#75 > global_int$0 branch to "label$64"
+label$63:
+if testwhile_num2 != global_int$0 branch to "label$65"
+if testwhile_num4 != global_int$0 branch to "label$66"
+return global_int$1
+label$66:
+return global_int$-1
+label$65:
+return global_int$0
+
+func testexpression()
+global_array1[global_int$0] = global_int$100
+global_array1[global_int$1] = global_int$99
+testexpression_#78 = global_int$10 - global_char$97
+testexpression_#78 = testexpression_#78 + global_char$97
+testexpression_#77 = testexpression_#78
+testexpression_#79 = testexpression_#77 * global_int$1
+testexpression_#82 = global_array1[global_int$0]
+testexpression_#83 = testexpression_#82 / global_int$10
+testexpression_#81 = testexpression_#79 - testexpression_#83
+testexpression_#81 = testexpression_#81 + global_int$1
+testexpression_#84 = global_array1[testexpression_#81]
+if testexpression_#84 != global_int$99 branch to "label$69"
+return global_int$1
+label$69:
+return global_int$0
+
+func testarray()
+global_array1[global_int$0] = global_int$1
+testarray_#85 = global_array1[global_int$0]
+global_array1[global_int$4] = testarray_#85
+testarray_#89 = global_int$2 + global_int$1
+testarray_#87 = global_int$1 * testarray_#89
+testarray_#86 = global_int$3 + testarray_#87
+testarray_#91 = global_array1[global_int$0]
+testarray_#92 = testarray_#91 * global_int$2
+testarray_#86 = testarray_#86 - testarray_#92
+global_array1[testarray_#86] = global_int$10
+testarray_#93 = global_array1[global_int$4]
+if testarray_#93 != global_int$10 branch to "label$70"
+return global_int$1
+label$70:
+return global_int$0
+
+func testprintf()
+if testprintf_flag > global_int$0 branch to "label$71"
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$72
+label$71:
+if testprintf_flag < global_int$2 branch to "label$73"
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$74
+label$73:
+output "this is a string " 
+output global_int$5
+output "\n" 
+label$74:
+label$72:
+return
+
+func testfactorial()
+push global_int$1
+testfactorial_#95 = call factorial
+if testfactorial_#95 != global_int$1 branch to "label$75"
+push global_int$3
+testfactorial_#96 = call factorial
+if testfactorial_#96 != global_int$6 branch to "label$76"
+return global_char$84
+label$76:
+label$75:
+return global_char$70
+
+func product()
+if product_n > global_int$1 branch to "label$29"
+return product_n
+label$29:
+product_#53 = product_n - global_int$1
+push product_#53
+product_#54 = call product
+product_#52 = product_n * product_#54
+return product_#52
+
+func test()
+output "******" 
+output "\n" 
+output global_i
+output "\n" 
+output global_j
+output "\n" 
+output global_k
+output "\n" 
+if global_i < global_j branch to "label$33"
+global_i = global_int$0
+if global_int$0 >= global_int$10 branch to "label$34"
+label$35:
+if global_i == global_int$3 branch to "label$36"
+output global_i
+output "\n" 
+goto label$37
+label$36:
+global_k = global_int$0
+if global_int$0 >= global_int$3 branch to "label$38"
+label$39:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$39"
+label$38:
+label$37:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$35"
+label$34:
+goto label$40
+label$33:
+global_i = global_int$9
+if global_int$9 < global_int$0 branch to "label$41"
+label$42:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$42"
+label$41:
+label$40:
+test_#64 = test_a + test_b
+test_#62 = global_int$0 - test_#64
+test_#62 = test_#62 - test_b
+return test_#62
+
+func factorial()
+if factorial_n != global_int$1 branch to "label$53"
+return factorial_n
+label$53:
+factorial_#67 = factorial_n - global_int$1
+push factorial_#67
+factorial_#68 = call factorial
+factorial_#66 = factorial_n * factorial_#68
+return factorial_#66
+
+func testfor()
+testfor_a = global_int$9
+testfor_c = global_int$0
+testfor_i = global_int$100
+if global_int$100 >= global_int$10 branch to "label$55"
+label$56:
+testfor_#69 = testfor_a + global_int$1
+testfor_a = testfor_#69
+testfor_i = testfor_i - global_int$1
+if testfor_i < global_int$10 branch to "label$56"
+label$55:
+testfor_i = global_int$0
+if global_int$0 >= global_int$10 branch to "label$57"
+label$58:
+testfor_#70 = testfor_c + global_int$1
+testfor_c = testfor_#70
+testfor_i = testfor_i + global_int$1
+if testfor_i < global_int$10 branch to "label$58"
+label$57:
+if testfor_a != global_int$10 branch to "label$59"
+if testfor_c != global_int$10 branch to "label$60"
+return global_int$1
+label$60:
+label$59:
+return global_int$0
+
+func v0()
+output v0_char_a
+output "\n" 
+output v0_b
+output "\n" 
+return
+
+func i0()
+i0_#109 = i0_b - global_char$48
+i0_#107 = i0_char_a * i0_#109
+return i0_#107
+
+func c0()
+c0_#110 = c0_char_a + c0_b
+c0_#110 = c0_#110 - global_int$96
+output c0_#110
+output "\n" 
+return c0_c
+
+<!--anchor-->
+
+func main()
+input global_test2
+input testchar_test4
+output "test1:" 
+output testchar_test1
+output "\n" 
+output "test2:" 
+output global_test2
+output "\n" 
+output "test3:" 
+output testchar_test3
+output "\n" 
+output "test4:" 
+output testchar_test4
+output "\n" 
+output "test1 in ascii:" 
+output global_int$97
+output "\n" 
+output "test2 in ascii:" 
+testchar_#2 = global_test2 + global_int$0
+output testchar_#2
+output "\n" 
+output "test3 in ascii:" 
+output global_int$99
+output "\n" 
+output "test4 in ascii:" 
+testchar_#4 = testchar_test4 + global_int$0
+output testchar_#4
+output "\n" 
+input testarray1_c1
+input testarray1_i1
+input testarray1_c2
+input testarray1_i2
+input testarray1_c3
+input testarray1_i3
+input testarray1_c4
+input testarray1_i4
+input testarray1_c5
+input testarray1_i5
+global_int_array1[global_int$0] = testarray1_i1
+global_int_array1[global_int$1] = testarray1_i2
+testarray1_int_array2[global_int$0] = testarray1_i3
+testarray1_int_array2[global_int$1] = testarray1_i4
+testarray1_int_array2[global_int$2] = testarray1_i5
+global_char_array1[global_int$0] = testarray1_c1
+global_char_array1[global_int$1] = testarray1_c2
+testarray1_char_array2[global_int$0] = testarray1_c3
+testarray1_char_array2[global_int$1] = testarray1_c4
+testarray1_char_array2[global_int$2] = testarray1_c5
+output "sum of int array1:" 
+testarray1_#5 = global_int_array1[global_int$0]
+testarray1_#7 = global_int_array1[global_int$1]
+testarray1_#6 = testarray1_#5 + testarray1_#7
+output testarray1_#6
+output "\n" 
+output "sum of int array2:" 
+testarray1_#8 = testarray1_int_array2[global_int$0]
+testarray1_#10 = testarray1_int_array2[global_int$1]
+testarray1_#9 = testarray1_#8 + testarray1_#10
+testarray1_#11 = testarray1_int_array2[global_int$2]
+testarray1_#9 = testarray1_#9 + testarray1_#11
+output testarray1_#9
+output "\n" 
+output "char1:" 
+testarray1_#12 = global_char_array1[global_int$0]
+output testarray1_#12
+output "\n" 
+output "char2:" 
+testarray1_#13 = global_char_array1[global_int$1]
+output testarray1_#13
+output "\n" 
+output "char3:" 
+testarray1_#14 = testarray1_char_array2[global_int$0]
+output testarray1_#14
+output "\n" 
+output "char4:" 
+testarray1_#15 = testarray1_char_array2[global_int$1]
+output testarray1_#15
+output "\n" 
+output "char5:" 
+testarray1_#16 = testarray1_char_array2[global_int$2]
+output testarray1_#16
+output "\n" 
+input teststack_i0
+input teststack_i1
+input teststack_i2
+input teststack_i3
+input teststack_i4
+input teststack_i5
+input teststack_i6
+input teststack_i7
+input teststack_i8
+input teststack_i9
+output "remain:" 
+teststack_#17 = teststack_i2 + teststack_i3
+teststack_#17 = teststack_#17 + teststack_i4
+teststack_#17 = teststack_#17 + teststack_i5
+teststack_#17 = teststack_#17 + teststack_i6
+teststack_#17 = teststack_#17 + teststack_i7
+teststack_#17 = teststack_#17 + teststack_i8
+teststack_#17 = teststack_#17 + teststack_i9
+output teststack_#17
+output "\n" 
+output "not remain:" 
+teststack_#18 = teststack_i0 + teststack_i1
+output teststack_#18
+output "\n" 
+input testbranch_num
+input testbranch_in
+if testbranch_in == global_int$0 branch to "label$99"
+label$100:
+if testbranch_in >= global_int$2 branch to "label$101"
+testbranch_#19 = testbranch_num * global_int$2
+testbranch_doublevar = testbranch_#19
+goto label$102
+label$101:
+testbranch_#20 = testbranch_in * global_int$2
+testbranch_doublevar = testbranch_#20
+label$102:
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "while finish" 
+output "\n" 
+input testbranch_in
+if testbranch_in != global_int$0 branch to "label$100"
+label$99:
+input testbranch_in
+testbranch_n = global_int$0
+if testbranch_in <= global_int$0 branch to "label$103"
+label$104:
+if testbranch_in != global_int$1 branch to "label$105"
+output "numb double:" 
+testbranch_#21 = testbranch_num * global_int$2
+output testbranch_#21
+output "\n" 
+goto label$106
+label$105:
+if testbranch_in != global_int$2 branch to "label$107"
+testbranch_#22 = testbranch_num * global_int$3
+testbranch_triple = testbranch_#22
+output "triple:" 
+output testbranch_#22
+output "\n" 
+goto label$108
+label$107:
+testbranch_#23 = testbranch_num * testbranch_num
+testbranch_square = testbranch_#23
+output "square:" 
+output testbranch_#23
+output "\n" 
+label$108:
+label$106:
+input testbranch_in
+testbranch_n = testbranch_n + global_int$1
+if testbranch_in > global_int$0 branch to "label$104"
+label$103:
+output "n:" 
+output testbranch_n
+output "\n" 
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "triple:" 
+output testbranch_triple
+output "\n" 
+output "square:" 
+output testbranch_square
+output "\n" 
+output "sum:" 
+testbranch_#24 = testbranch_doublevar + testbranch_triple
+testbranch_#24 = testbranch_#24 + testbranch_square
+output testbranch_#24
+output "\n" 
+output "input globals" 
+output "\n" 
+testbubble_i = global_int$0
+label$111:
+input testbubble_tmp
+global_global[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$111"
+output "input locals" 
+output "\n" 
+testbubble_i = global_int$0
+label$113:
+input testbubble_tmp
+testbubble_local[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$113"
+testbubble_i = global_int$0
+label$115:
+testbubble_j = global_int$0
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if global_int$0 >= testbubble_#25 branch to "label$116"
+label$117:
+testbubble_#26 = global_global[testbubble_j]
+testbubble_#27 = testbubble_j + global_int$1
+testbubble_#28 = global_global[testbubble_#27]
+if testbubble_#26 <= testbubble_#28 branch to "label$118"
+testbubble_#29 = global_global[testbubble_j]
+testbubble_#30 = testbubble_j + global_int$1
+testbubble_#31 = global_global[testbubble_#30]
+global_global[testbubble_j] = testbubble_#31
+testbubble_#32 = testbubble_j + global_int$1
+global_global[testbubble_#32] = testbubble_#29
+label$118:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if testbubble_j < testbubble_#25 branch to "label$117"
+label$116:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$115"
+testbubble_i = global_int$0
+label$120:
+testbubble_j = global_int$0
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if global_int$0 >= testbubble_#33 branch to "label$121"
+label$122:
+testbubble_#34 = testbubble_local[testbubble_j]
+testbubble_#35 = testbubble_j + global_int$1
+testbubble_#36 = testbubble_local[testbubble_#35]
+if testbubble_#34 <= testbubble_#36 branch to "label$123"
+testbubble_#37 = testbubble_local[testbubble_j]
+testbubble_#38 = testbubble_j + global_int$1
+testbubble_#39 = testbubble_local[testbubble_#38]
+testbubble_local[testbubble_j] = testbubble_#39
+testbubble_#40 = testbubble_j + global_int$1
+testbubble_local[testbubble_#40] = testbubble_#37
+label$123:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if testbubble_j < testbubble_#33 branch to "label$122"
+label$121:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$120"
+output "global" 
+output "\n" 
+testbubble_i = global_int$0
+label$125:
+testbubble_#41 = global_global[testbubble_i]
+output testbubble_#41
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$125"
+output "local" 
+output "\n" 
+testbubble_i = global_int$0
+label$127:
+testbubble_#42 = testbubble_local[testbubble_i]
+output testbubble_#42
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$127"
+global_global_int = global_int$0
+increase_#43 = global_int$0 + global_int$1
+global_global_int = increase_#43
+output "new int:" 
+output global_global_int
+output "\n" 
+output "doublevar:" 
+doublevar_#44 = global_int$1 * global_int$2
+testsimplefunc_#45 = doublevar_#44
+output testsimplefunc_#45
+output "\n" 
+output "char:" 
+output global_char$97
+output "\n" 
+output "tmp:" 
+output global_int$1
+output "\n" 
+input testembed_a
+input testembed_b
+input testembed_c
+output "sum:" 
+sum_#47 = testembed_a + testembed_b
+testembed_#48 = sum_#47
+sum_#47 = testembed_#48 + testembed_c
+testembed_#49 = sum_#47
+output testembed_#49
+output "\n" 
+output "sum:" 
+sum_#47 = testembed_b + testembed_c
+testembed_#50 = sum_#47
+sum_#47 = testembed_a + testembed_#50
+testembed_#51 = sum_#47
+output testembed_#51
+output "\n" 
+input testrec_n
+label$131:
+output "pro:" 
+push testrec_n
+testrec_#60 = call product
+output testrec_#60
+output "\n" 
+output "fibo:" 
+push testrec_n
+testrec_#61 = call fibo
+output testrec_#61
+output "\n" 
+input testrec_n
+if testrec_n != global_int$0 branch to "label$131"
+global_i = global_int$10
+global_j = global_int$20
+global_k = global_int$30
+global_i = global_int$0
+label$135:
+if global_i == global_int$3 branch to "label$136"
+output global_i
+output "\n" 
+goto label$137
+label$136:
+global_k = global_int$0
+label$139:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$139"
+label$137:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$135"
+goto label$140
+label$142:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$142"
+label$140:
+output "******" 
+output "\n" 
+output global_i
+output "\n" 
+output global_j
+output "\n" 
+output global_k
+output "\n" 
+if global_i < global_j branch to "label$249"
+global_i = global_int$0
+label$251:
+if global_i == global_int$3 branch to "label$252"
+output global_i
+output "\n" 
+goto label$253
+label$252:
+global_k = global_int$0
+label$255:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$255"
+label$253:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$251"
+goto label$256
+label$249:
+global_i = global_int$9
+label$258:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$258"
+label$256:
+test_#64 = global_int$1 + global_int$2
+test_#62 = global_int$0 - test_#64
+test_#62 = test_#62 - global_int$2
+testcontrol_#65 = test_#62
+output testcontrol_#65
+output "\n" 
+global_num5 = global_int$9
+global_num6 = global_int$8
+global_char3 = global_char$97
+global_char4 = global_char$98
+input testfunc1_flag
+testfunc1_i = global_int$0
+label$145:
+global_testresult[testfunc1_i] = global_char$84
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$10 branch to "label$145"
+global_num5 = global_int$9
+label$147:
+testfunc1_#97 = global_testresult[global_num5]
+global_array2[global_num5] = testfunc1_#97
+global_num5 = global_num5 - global_int$1
+if global_num5 >= global_int$0 branch to "label$147"
+global_num6 = global_int$0
+label$149:
+global_array1[global_num6] = global_int$0
+global_num6 = global_num6 + global_int$1
+if global_num6 != global_int$8 branch to "label$149"
+testfor_a = global_int$9
+testfor_c = global_int$0
+goto label$260
+label$261:
+testfor_#69 = testfor_a + global_int$1
+testfor_a = testfor_#69
+testfor_i = testfor_i - global_int$1
+if testfor_i < global_int$10 branch to "label$261"
+label$260:
+testfor_i = global_int$0
+label$263:
+testfor_#70 = testfor_c + global_int$1
+testfor_c = testfor_#70
+testfor_i = testfor_i + global_int$1
+if testfor_i < global_int$10 branch to "label$263"
+if testfor_a != global_int$10 branch to "label$264"
+if testfor_c != global_int$10 branch to "label$265"
+testfunc1_#98 = global_int$1
+goto label$259
+label$265:
+label$264:
+testfunc1_#98 = global_int$0
+label$259:
+if testfunc1_#98 != global_int$1 branch to "label$150"
+global_testresult[global_int$0] = global_char$84
+goto label$151
+label$150:
+global_testresult[global_int$0] = global_char$70
+label$151:
+testwhile_num1 = global_int$0
+testwhile_num2 = global_int$10
+testwhile_num3 = global_int$-1
+testwhile_num4 = global_int$0
+label$268:
+testwhile_#72 = testwhile_num2 - global_int$1
+testwhile_num2 = testwhile_#72
+testwhile_#73 = testwhile_num1 + global_int$1
+testwhile_num1 = testwhile_#73
+if testwhile_#73 != global_int$10 branch to "label$268"
+if global_int$-1 <= global_int$0 branch to "label$269"
+label$270:
+testwhile_#74 = testwhile_num4 + global_int$10
+testwhile_num4 = testwhile_#74
+testwhile_#75 = testwhile_num3 - global_int$10
+testwhile_num3 = testwhile_#75
+if testwhile_#75 > global_int$0 branch to "label$270"
+label$269:
+if testwhile_num2 != global_int$0 branch to "label$271"
+if testwhile_num4 != global_int$0 branch to "label$272"
+testfunc1_#99 = global_int$1
+goto label$266
+label$272:
+testfunc1_#99 = global_int$-1
+goto label$266
+label$271:
+testfunc1_#99 = global_int$0
+label$266:
+if testfunc1_#99 == global_int$0 branch to "label$152"
+global_testresult[global_int$1] = global_char$84
+goto label$153
+label$152:
+global_testresult[global_int$1] = global_char$70
+label$153:
+push global_int$1
+testfactorial_#95 = call factorial
+if testfactorial_#95 != global_int$1 branch to "label$274"
+push global_int$3
+testfactorial_#96 = call factorial
+if testfactorial_#96 != global_int$6 branch to "label$275"
+testfunc1_#101 = global_char$84
+goto label$273
+label$275:
+label$274:
+testfunc1_#101 = global_char$70
+label$273:
+if testfunc1_#101 != global_char$84 branch to "label$154"
+global_testresult[global_int$2] = global_char$84
+goto label$155
+label$154:
+global_testresult[global_int$2] = global_char$70
+label$155:
+global_array1[global_int$0] = global_int$100
+global_array1[global_int$1] = global_int$99
+testexpression_#78 = global_int$-87 + global_char$97
+testexpression_#79 = testexpression_#78 * global_int$1
+testexpression_#82 = global_array1[global_int$0]
+testexpression_#83 = testexpression_#82 / global_int$10
+testexpression_#81 = testexpression_#79 - testexpression_#83
+testexpression_#81 = testexpression_#81 + global_int$1
+testexpression_#84 = global_array1[testexpression_#81]
+if testexpression_#84 != global_int$99 branch to "label$277"
+testfunc1_#103 = global_int$1
+goto label$276
+label$277:
+testfunc1_#103 = global_int$0
+label$276:
+if testfunc1_#103 == global_int$0 branch to "label$156"
+global_testresult[global_int$3] = global_char$84
+goto label$157
+label$156:
+global_testresult[global_int$3] = global_char$70
+label$157:
+global_array1[global_int$0] = global_int$1
+testarray_#85 = global_array1[global_int$0]
+global_array1[global_int$4] = testarray_#85
+testarray_#87 = global_int$1 * global_int$3
+testarray_#86 = global_int$3 + testarray_#87
+testarray_#91 = global_array1[global_int$0]
+testarray_#92 = testarray_#91 * global_int$2
+testarray_#86 = testarray_#86 - testarray_#92
+global_array1[testarray_#86] = global_int$10
+testarray_#93 = global_array1[global_int$4]
+if testarray_#93 != global_int$10 branch to "label$279"
+testfunc1_#104 = global_int$1
+goto label$278
+label$279:
+testfunc1_#104 = global_int$0
+label$278:
+if testfunc1_#104 == global_int$0 branch to "label$158"
+global_testresult[global_int$4] = global_char$84
+goto label$159
+label$158:
+global_testresult[global_int$4] = global_char$70
+label$159:
+testprintf_flag = testfunc1_flag
+if testfunc1_flag > global_int$0 branch to "label$281"
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$282
+label$281:
+if testprintf_flag < global_int$2 branch to "label$283"
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$284
+label$283:
+output "this is a string " 
+output global_int$5
+output "\n" 
+label$284:
+label$282:
+if global_int$-1 > global_int$0 branch to "label$286"
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$287
+label$286:
+if global_int$-1 < global_int$2 branch to "label$288"
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$289
+label$288:
+output "this is a string " 
+output global_int$5
+output "\n" 
+label$289:
+label$287:
+if global_int$0 > global_int$0 branch to "label$291"
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$292
+label$291:
+if global_int$0 < global_int$2 branch to "label$293"
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$294
+label$293:
+output "this is a string " 
+output global_int$5
+output "\n" 
+label$294:
+label$292:
+if global_int$1 > global_int$0 branch to "label$296"
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$297
+label$296:
+if global_int$1 < global_int$2 branch to "label$298"
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$299
+label$298:
+output "this is a string " 
+output global_int$5
+output "\n" 
+label$299:
+label$297:
+if global_int$2 > global_int$0 branch to "label$301"
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$302
+label$301:
+if global_int$2 < global_int$2 branch to "label$303"
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$304
+label$303:
+output "this is a string " 
+output global_int$5
+output "\n" 
+label$304:
+label$302:
+if global_int$3 > global_int$0 branch to "label$306"
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$307
+label$306:
+if global_int$3 < global_int$2 branch to "label$308"
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$309
+label$308:
+output "this is a string " 
+output global_int$5
+output "\n" 
+label$309:
+label$307:
+testfunc1_i = global_int$0
+label$161:
+testfunc1_#106 = global_testresult[testfunc1_i]
+output testfunc1_#106
+output "\n" 
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$5 branch to "label$161"
+output global_int$-64
+output "\n" 
+output testfunc2_b
+output "\n" 
+i0_#109 = testfunc2_char_a - global_char$48
+i0_#107 = global_int$4 * i0_#109
+testfunc2_#113 = i0_#107
+output testfunc2_#113
+output "\n" 
+c0_#110 = global_char$52 + global_char$53
+c0_#110 = c0_#110 - global_int$96
+output c0_#110
+output "\n" 
+testfunc2_#114 = global_char$118
+output testfunc2_#114
+output "\n" 
+return
+
+func fibo()
+if fibo_n > global_int$2 branch to "label$30"
+return global_int$1
+label$30:
+fibo_#55 = fibo_n - global_int$1
+push fibo_#55
+fibo_#56 = call fibo
+fibo_#58 = fibo_n - global_int$2
+push fibo_#58
+fibo_#59 = call fibo
+fibo_#57 = fibo_#56 + fibo_#59
+return fibo_#57
+
+func product()
+if product_n > global_int$1 branch to "label$29"
+return product_n
+label$29:
+product_#53 = product_n - global_int$1
+push product_#53
+product_#54 = call product
+product_#52 = product_n * product_#54
+return product_#52
+
+func factorial()
+if factorial_n != global_int$1 branch to "label$53"
+return factorial_n
+label$53:
+factorial_#67 = factorial_n - global_int$1
+push factorial_#67
+factorial_#68 = call factorial
+factorial_#66 = factorial_n * factorial_#68
+return factorial_#66
+
+<!--anchor-->
+
+func main()
+input global_test2
+input testchar_test4
+output "test1:" 
+output testchar_test1
+output "\n" 
+output "test2:" 
+output global_test2
+output "\n" 
+output "test3:" 
+output testchar_test3
+output "\n" 
+output "test4:" 
+output testchar_test4
+output "\n" 
+output "test1 in ascii:" 
+output global_int$97
+output "\n" 
+output "test2 in ascii:" 
+testchar_#2 = global_test2 + global_int$0
+output testchar_#2
+output "\n" 
+output "test3 in ascii:" 
+output global_int$99
+output "\n" 
+output "test4 in ascii:" 
+testchar_#4 = testchar_test4 + global_int$0
+output testchar_#4
+output "\n" 
+input testarray1_c1
+input testarray1_i1
+input testarray1_c2
+input testarray1_i2
+input testarray1_c3
+input testarray1_i3
+input testarray1_c4
+input testarray1_i4
+input testarray1_c5
+input testarray1_i5
+global_int_array1[global_int$0] = testarray1_i1
+global_int_array1[global_int$1] = testarray1_i2
+testarray1_int_array2[global_int$0] = testarray1_i3
+testarray1_int_array2[global_int$1] = testarray1_i4
+testarray1_int_array2[global_int$2] = testarray1_i5
+global_char_array1[global_int$0] = testarray1_c1
+global_char_array1[global_int$1] = testarray1_c2
+testarray1_char_array2[global_int$0] = testarray1_c3
+testarray1_char_array2[global_int$1] = testarray1_c4
+testarray1_char_array2[global_int$2] = testarray1_c5
+output "sum of int array1:" 
+testarray1_#5 = global_int_array1[global_int$0]
+testarray1_#7 = global_int_array1[global_int$1]
+testarray1_#6 = testarray1_#5 + testarray1_#7
+output testarray1_#6
+output "\n" 
+output "sum of int array2:" 
+testarray1_#8 = testarray1_int_array2[global_int$0]
+testarray1_#10 = testarray1_int_array2[global_int$1]
+testarray1_#9 = testarray1_#8 + testarray1_#10
+testarray1_#11 = testarray1_int_array2[global_int$2]
+testarray1_#9 = testarray1_#9 + testarray1_#11
+output testarray1_#9
+output "\n" 
+output "char1:" 
+testarray1_#12 = global_char_array1[global_int$0]
+output testarray1_#12
+output "\n" 
+output "char2:" 
+testarray1_#13 = global_char_array1[global_int$1]
+output testarray1_#13
+output "\n" 
+output "char3:" 
+testarray1_#14 = testarray1_char_array2[global_int$0]
+output testarray1_#14
+output "\n" 
+output "char4:" 
+testarray1_#15 = testarray1_char_array2[global_int$1]
+output testarray1_#15
+output "\n" 
+output "char5:" 
+testarray1_#16 = testarray1_char_array2[global_int$2]
+output testarray1_#16
+output "\n" 
+input teststack_i0
+input teststack_i1
+input teststack_i2
+input teststack_i3
+input teststack_i4
+input teststack_i5
+input teststack_i6
+input teststack_i7
+input teststack_i8
+input teststack_i9
+output "remain:" 
+teststack_#17 = teststack_i2 + teststack_i3
+teststack_#17 = teststack_#17 + teststack_i4
+teststack_#17 = teststack_#17 + teststack_i5
+teststack_#17 = teststack_#17 + teststack_i6
+teststack_#17 = teststack_#17 + teststack_i7
+teststack_#17 = teststack_#17 + teststack_i8
+teststack_#17 = teststack_#17 + teststack_i9
+output teststack_#17
+output "\n" 
+output "not remain:" 
+teststack_#18 = teststack_i0 + teststack_i1
+output teststack_#18
+output "\n" 
+input testbranch_num
+input testbranch_in
+if testbranch_in == global_int$0 branch to "label$99"
+label$100:
+if testbranch_in >= global_int$2 branch to "label$101"
+testbranch_#19 = testbranch_num * global_int$2
+testbranch_doublevar = testbranch_#19
+goto label$102
+label$101:
+testbranch_#20 = testbranch_in * global_int$2
+testbranch_doublevar = testbranch_#20
+label$102:
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "while finish" 
+output "\n" 
+input testbranch_in
+if testbranch_in != global_int$0 branch to "label$100"
+label$99:
+input testbranch_in
+testbranch_n = global_int$0
+if testbranch_in <= global_int$0 branch to "label$103"
+label$104:
+if testbranch_in != global_int$1 branch to "label$105"
+output "numb double:" 
+testbranch_#21 = testbranch_num * global_int$2
+output testbranch_#21
+output "\n" 
+goto label$106
+label$105:
+if testbranch_in != global_int$2 branch to "label$107"
+testbranch_#22 = testbranch_num * global_int$3
+testbranch_triple = testbranch_#22
+output "triple:" 
+output testbranch_#22
+output "\n" 
+goto label$108
+label$107:
+testbranch_#23 = testbranch_num * testbranch_num
+testbranch_square = testbranch_#23
+output "square:" 
+output testbranch_#23
+output "\n" 
+label$108:
+label$106:
+input testbranch_in
+testbranch_n = testbranch_n + global_int$1
+if testbranch_in > global_int$0 branch to "label$104"
+label$103:
+output "n:" 
+output testbranch_n
+output "\n" 
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "triple:" 
+output testbranch_triple
+output "\n" 
+output "square:" 
+output testbranch_square
+output "\n" 
+output "sum:" 
+testbranch_#24 = testbranch_doublevar + testbranch_triple
+testbranch_#24 = testbranch_#24 + testbranch_square
+output testbranch_#24
+output "\n" 
+output "input globals" 
+output "\n" 
+testbubble_i = global_int$0
+label$111:
+input testbubble_tmp
+global_global[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$111"
+output "input locals" 
+output "\n" 
+testbubble_i = global_int$0
+label$113:
+input testbubble_tmp
+testbubble_local[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$113"
+testbubble_i = global_int$0
+label$115:
+testbubble_j = global_int$0
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if global_int$0 >= testbubble_#25 branch to "label$116"
+label$117:
+testbubble_#26 = global_global[testbubble_j]
+testbubble_#27 = testbubble_j + global_int$1
+testbubble_#28 = global_global[testbubble_#27]
+if testbubble_#26 <= testbubble_#28 branch to "label$118"
+testbubble_#29 = global_global[testbubble_j]
+testbubble_#30 = testbubble_j + global_int$1
+testbubble_#31 = global_global[testbubble_#30]
+global_global[testbubble_j] = testbubble_#31
+testbubble_#32 = testbubble_j + global_int$1
+global_global[testbubble_#32] = testbubble_#29
+label$118:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if testbubble_j < testbubble_#25 branch to "label$117"
+label$116:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$115"
+testbubble_i = global_int$0
+label$120:
+testbubble_j = global_int$0
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if global_int$0 >= testbubble_#33 branch to "label$121"
+label$122:
+testbubble_#34 = testbubble_local[testbubble_j]
+testbubble_#35 = testbubble_j + global_int$1
+testbubble_#36 = testbubble_local[testbubble_#35]
+if testbubble_#34 <= testbubble_#36 branch to "label$123"
+testbubble_#37 = testbubble_local[testbubble_j]
+testbubble_#38 = testbubble_j + global_int$1
+testbubble_#39 = testbubble_local[testbubble_#38]
+testbubble_local[testbubble_j] = testbubble_#39
+testbubble_#40 = testbubble_j + global_int$1
+testbubble_local[testbubble_#40] = testbubble_#37
+label$123:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if testbubble_j < testbubble_#33 branch to "label$122"
+label$121:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$120"
+output "global" 
+output "\n" 
+testbubble_i = global_int$0
+label$125:
+testbubble_#41 = global_global[testbubble_i]
+output testbubble_#41
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$125"
+output "local" 
+output "\n" 
+testbubble_i = global_int$0
+label$127:
+testbubble_#42 = testbubble_local[testbubble_i]
+output testbubble_#42
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$127"
+global_global_int = global_int$0
+global_global_int = global_int$1
+output "new int:" 
+output global_int$1
+output "\n" 
+output "doublevar:" 
+output global_int$2
+output "\n" 
+output "char:" 
+output global_char$97
+output "\n" 
+output "tmp:" 
+output global_int$1
+output "\n" 
+input testembed_a
+input testembed_b
+input testembed_c
+output "sum:" 
+sum_#47 = testembed_a + testembed_b
+sum_#47 = sum_#47 + testembed_c
+output sum_#47
+output "\n" 
+output "sum:" 
+sum_#47 = testembed_b + testembed_c
+sum_#47 = testembed_a + sum_#47
+output sum_#47
+output "\n" 
+input testrec_n
+label$131:
+output "pro:" 
+push testrec_n
+testrec_#60 = call product
+output testrec_#60
+output "\n" 
+output "fibo:" 
+push testrec_n
+testrec_#61 = call fibo
+output testrec_#61
+output "\n" 
+input testrec_n
+if testrec_n != global_int$0 branch to "label$131"
+global_i = global_int$10
+global_j = global_int$20
+global_k = global_int$30
+global_i = global_int$0
+label$135:
+if global_i == global_int$3 branch to "label$136"
+output global_i
+output "\n" 
+goto label$137
+label$136:
+global_k = global_int$0
+label$139:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$139"
+label$137:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$135"
+goto label$140
+label$142:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$142"
+label$140:
+output "******" 
+output "\n" 
+output global_i
+output "\n" 
+output global_j
+output "\n" 
+output global_k
+output "\n" 
+if global_i < global_j branch to "label$249"
+global_i = global_int$0
+label$251:
+if global_i == global_int$3 branch to "label$252"
+output global_i
+output "\n" 
+goto label$253
+label$252:
+global_k = global_int$0
+label$255:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$255"
+label$253:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$251"
+goto label$256
+label$249:
+global_i = global_int$9
+label$258:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$258"
+label$256:
+test_#62 = global_int$0 - global_int$3
+test_#62 = test_#62 - global_int$2
+output test_#62
+output "\n" 
+global_num5 = global_int$9
+global_num6 = global_int$8
+global_char3 = global_char$97
+global_char4 = global_char$98
+input testfunc1_flag
+testfunc1_i = global_int$0
+label$145:
+global_testresult[testfunc1_i] = global_char$84
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$10 branch to "label$145"
+global_num5 = global_int$9
+label$147:
+testfunc1_#97 = global_testresult[global_num5]
+global_array2[global_num5] = testfunc1_#97
+global_num5 = global_num5 - global_int$1
+if global_num5 >= global_int$0 branch to "label$147"
+global_num6 = global_int$0
+label$149:
+global_array1[global_num6] = global_int$0
+global_num6 = global_num6 + global_int$1
+if global_num6 != global_int$8 branch to "label$149"
+testfor_a = global_int$9
+testfor_c = global_int$0
+goto label$260
+label$261:
+testfor_#69 = testfor_a + global_int$1
+testfor_a = testfor_#69
+testfor_i = testfor_i - global_int$1
+if testfor_i < global_int$10 branch to "label$261"
+label$260:
+testfor_i = global_int$0
+label$263:
+testfor_#70 = testfor_c + global_int$1
+testfor_c = testfor_#70
+testfor_i = testfor_i + global_int$1
+if testfor_i < global_int$10 branch to "label$263"
+if testfor_a != global_int$10 branch to "label$264"
+if testfor_c != global_int$10 branch to "label$265"
+testfunc1_#98 = global_int$1
+goto label$259
+label$265:
+label$264:
+testfunc1_#98 = global_int$0
+label$259:
+if testfunc1_#98 != global_int$1 branch to "label$150"
+global_testresult[global_int$0] = global_char$84
+goto label$151
+label$150:
+global_testresult[global_int$0] = global_char$70
+label$151:
+testwhile_num1 = global_int$0
+testwhile_num2 = global_int$10
+testwhile_num4 = global_int$0
+label$268:
+testwhile_#72 = testwhile_num2 - global_int$1
+testwhile_num2 = testwhile_#72
+testwhile_#73 = testwhile_num1 + global_int$1
+testwhile_num1 = testwhile_#73
+if testwhile_#73 != global_int$10 branch to "label$268"
+goto label$269
+label$270:
+testwhile_#74 = testwhile_num4 + global_int$10
+testwhile_num4 = testwhile_#74
+testwhile_#75 = testwhile_num3 - global_int$10
+testwhile_num3 = testwhile_#75
+if testwhile_#75 > global_int$0 branch to "label$270"
+label$269:
+if testwhile_num2 != global_int$0 branch to "label$271"
+if testwhile_num4 != global_int$0 branch to "label$272"
+testfunc1_#99 = global_int$1
+goto label$266
+label$272:
+testfunc1_#99 = global_int$-1
+goto label$266
+label$271:
+testfunc1_#99 = global_int$0
+label$266:
+if testfunc1_#99 == global_int$0 branch to "label$152"
+global_testresult[global_int$1] = global_char$84
+goto label$153
+label$152:
+global_testresult[global_int$1] = global_char$70
+label$153:
+push global_int$1
+testfactorial_#95 = call factorial
+if testfactorial_#95 != global_int$1 branch to "label$274"
+push global_int$3
+testfactorial_#96 = call factorial
+if testfactorial_#96 != global_int$6 branch to "label$275"
+testfunc1_#101 = global_char$84
+goto label$273
+label$275:
+label$274:
+testfunc1_#101 = global_char$70
+label$273:
+if testfunc1_#101 != global_char$84 branch to "label$154"
+global_testresult[global_int$2] = global_char$84
+goto label$155
+label$154:
+global_testresult[global_int$2] = global_char$70
+label$155:
+global_array1[global_int$0] = global_int$100
+global_array1[global_int$1] = global_int$99
+testexpression_#79 = global_int$10 * global_int$1
+testexpression_#82 = global_array1[global_int$0]
+testexpression_#83 = testexpression_#82 / global_int$10
+testexpression_#81 = testexpression_#79 - testexpression_#83
+testexpression_#81 = testexpression_#81 + global_int$1
+testexpression_#84 = global_array1[testexpression_#81]
+if testexpression_#84 != global_int$99 branch to "label$277"
+testfunc1_#103 = global_int$1
+goto label$276
+label$277:
+testfunc1_#103 = global_int$0
+label$276:
+if testfunc1_#103 == global_int$0 branch to "label$156"
+global_testresult[global_int$3] = global_char$84
+goto label$157
+label$156:
+global_testresult[global_int$3] = global_char$70
+label$157:
+global_array1[global_int$0] = global_int$1
+testarray_#85 = global_array1[global_int$0]
+global_array1[global_int$4] = testarray_#85
+testarray_#86 = global_int$3 + global_int$3
+testarray_#91 = global_array1[global_int$0]
+testarray_#92 = testarray_#91 * global_int$2
+testarray_#86 = testarray_#86 - testarray_#92
+global_array1[testarray_#86] = global_int$10
+testarray_#93 = global_array1[global_int$4]
+if testarray_#93 != global_int$10 branch to "label$279"
+testfunc1_#104 = global_int$1
+goto label$278
+label$279:
+testfunc1_#104 = global_int$0
+label$278:
+if testfunc1_#104 == global_int$0 branch to "label$158"
+global_testresult[global_int$4] = global_char$84
+goto label$159
+label$158:
+global_testresult[global_int$4] = global_char$70
+label$159:
+testprintf_flag = testfunc1_flag
+if testfunc1_flag > global_int$0 branch to "label$281"
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$282
+label$281:
+if testprintf_flag < global_int$2 branch to "label$283"
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$284
+label$283:
+output "this is a string " 
+output global_int$5
+output "\n" 
+label$284:
+label$282:
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$287
+label$287:
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$292
+label$292:
+goto label$296
+label$296:
+goto label$298
+label$298:
+output "this is a string " 
+output global_int$5
+output "\n" 
+goto label$301
+label$301:
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$304
+label$304:
+goto label$306
+label$306:
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$309
+label$309:
+testfunc1_i = global_int$0
+label$161:
+testfunc1_#106 = global_testresult[testfunc1_i]
+output testfunc1_#106
+output "\n" 
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$5 branch to "label$161"
+output global_int$-64
+output "\n" 
+output testfunc2_b
+output "\n" 
+i0_#107 = global_int$4 * global_int$4
+output i0_#107
+output "\n" 
+c0_#110 = global_int$105 - global_int$96
+output c0_#110
+output "\n" 
+output global_char$118
+output "\n" 
+return
+
+func fibo()
+if fibo_n > global_int$2 branch to "label$30"
+return global_int$1
+label$30:
+fibo_#55 = fibo_n - global_int$1
+push fibo_#55
+fibo_#56 = call fibo
+fibo_#58 = fibo_n - global_int$2
+push fibo_#58
+fibo_#59 = call fibo
+fibo_#57 = fibo_#56 + fibo_#59
+return fibo_#57
+
+func product()
+if product_n > global_int$1 branch to "label$29"
+return product_n
+label$29:
+product_#53 = product_n - global_int$1
+push product_#53
+product_#54 = call product
+product_#52 = product_n * product_#54
+return product_#52
+
+func factorial()
+if factorial_n != global_int$1 branch to "label$53"
+return factorial_n
+label$53:
+factorial_#67 = factorial_n - global_int$1
+push factorial_#67
+factorial_#68 = call factorial
+factorial_#66 = factorial_n * factorial_#68
+return factorial_#66
+
+<!--anchor-->
+
+func main()
+input global_test2
+input testchar_test4
+output "test1:" 
+output testchar_test1
+output "\n" 
+output "test2:" 
+output global_test2
+output "\n" 
+output "test3:" 
+output testchar_test3
+output "\n" 
+output "test4:" 
+output testchar_test4
+output "\n" 
+output "test1 in ascii:" 
+output global_int$97
+output "\n" 
+output "test2 in ascii:" 
+testchar_#2 = global_test2 + global_int$0
+output testchar_#2
+output "\n" 
+output "test3 in ascii:" 
+output global_int$99
+output "\n" 
+output "test4 in ascii:" 
+testchar_#4 = testchar_test4 + global_int$0
+output testchar_#4
+output "\n" 
+input testarray1_c1
+input testarray1_i1
+input testarray1_c2
+input testarray1_i2
+input testarray1_c3
+input testarray1_i3
+input testarray1_c4
+input testarray1_i4
+input testarray1_c5
+input testarray1_i5
+global_int_array1[global_int$0] = testarray1_i1
+global_int_array1[global_int$1] = testarray1_i2
+testarray1_int_array2[global_int$0] = testarray1_i3
+testarray1_int_array2[global_int$1] = testarray1_i4
+testarray1_int_array2[global_int$2] = testarray1_i5
+global_char_array1[global_int$0] = testarray1_c1
+global_char_array1[global_int$1] = testarray1_c2
+testarray1_char_array2[global_int$0] = testarray1_c3
+testarray1_char_array2[global_int$1] = testarray1_c4
+testarray1_char_array2[global_int$2] = testarray1_c5
+output "sum of int array1:" 
+testarray1_#5 = global_int_array1[global_int$0]
+testarray1_#7 = global_int_array1[global_int$1]
+testarray1_#6 = testarray1_#5 + testarray1_#7
+output testarray1_#6
+output "\n" 
+output "sum of int array2:" 
+testarray1_#8 = testarray1_int_array2[global_int$0]
+testarray1_#10 = testarray1_int_array2[global_int$1]
+testarray1_#9 = testarray1_#8 + testarray1_#10
+testarray1_#11 = testarray1_int_array2[global_int$2]
+testarray1_#9 = testarray1_#9 + testarray1_#11
+output testarray1_#9
+output "\n" 
+output "char1:" 
+testarray1_#12 = global_char_array1[global_int$0]
+output testarray1_#12
+output "\n" 
+output "char2:" 
+testarray1_#13 = global_char_array1[global_int$1]
+output testarray1_#13
+output "\n" 
+output "char3:" 
+testarray1_#14 = testarray1_char_array2[global_int$0]
+output testarray1_#14
+output "\n" 
+output "char4:" 
+testarray1_#15 = testarray1_char_array2[global_int$1]
+output testarray1_#15
+output "\n" 
+output "char5:" 
+testarray1_#16 = testarray1_char_array2[global_int$2]
+output testarray1_#16
+output "\n" 
+input teststack_i0
+input teststack_i1
+input teststack_i2
+input teststack_i3
+input teststack_i4
+input teststack_i5
+input teststack_i6
+input teststack_i7
+input teststack_i8
+input teststack_i9
+output "remain:" 
+teststack_#17 = teststack_i2 + teststack_i3
+teststack_#17 = teststack_#17 + teststack_i4
+teststack_#17 = teststack_#17 + teststack_i5
+teststack_#17 = teststack_#17 + teststack_i6
+teststack_#17 = teststack_#17 + teststack_i7
+teststack_#17 = teststack_#17 + teststack_i8
+teststack_#17 = teststack_#17 + teststack_i9
+output teststack_#17
+output "\n" 
+output "not remain:" 
+teststack_#18 = teststack_i0 + teststack_i1
+output teststack_#18
+output "\n" 
+input testbranch_num
+input testbranch_in
+if testbranch_in == global_int$0 branch to "label$99"
+label$100:
+if testbranch_in >= global_int$2 branch to "label$101"
+testbranch_#19 = testbranch_num * global_int$2
+testbranch_doublevar = testbranch_#19
+goto label$102
+label$101:
+testbranch_#20 = testbranch_in * global_int$2
+testbranch_doublevar = testbranch_#20
+label$102:
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "while finish" 
+output "\n" 
+input testbranch_in
+if testbranch_in != global_int$0 branch to "label$100"
+label$99:
+input testbranch_in
+testbranch_n = global_int$0
+if testbranch_in <= global_int$0 branch to "label$103"
+label$104:
+if testbranch_in != global_int$1 branch to "label$105"
+output "numb double:" 
+testbranch_#21 = testbranch_num * global_int$2
+output testbranch_#21
+output "\n" 
+goto label$106
+label$105:
+if testbranch_in != global_int$2 branch to "label$107"
+testbranch_#22 = testbranch_num * global_int$3
+testbranch_triple = testbranch_#22
+output "triple:" 
+output testbranch_#22
+output "\n" 
+goto label$108
+label$107:
+testbranch_#23 = testbranch_num * testbranch_num
+testbranch_square = testbranch_#23
+output "square:" 
+output testbranch_#23
+output "\n" 
+label$108:
+label$106:
+input testbranch_in
+testbranch_n = testbranch_n + global_int$1
+if testbranch_in > global_int$0 branch to "label$104"
+label$103:
+output "n:" 
+output testbranch_n
+output "\n" 
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "triple:" 
+output testbranch_triple
+output "\n" 
+output "square:" 
+output testbranch_square
+output "\n" 
+output "sum:" 
+testbranch_#24 = testbranch_doublevar + testbranch_triple
+testbranch_#24 = testbranch_#24 + testbranch_square
+output testbranch_#24
+output "\n" 
+output "input globals" 
+output "\n" 
+testbubble_i = global_int$0
+label$111:
+input testbubble_tmp
+global_global[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$111"
+output "input locals" 
+output "\n" 
+testbubble_i = global_int$0
+label$113:
+input testbubble_tmp
+testbubble_local[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$113"
+testbubble_i = global_int$0
+label$115:
+testbubble_j = global_int$0
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if global_int$0 >= testbubble_#25 branch to "label$116"
+label$117:
+testbubble_#26 = global_global[testbubble_j]
+testbubble_#27 = testbubble_j + global_int$1
+testbubble_#28 = global_global[testbubble_#27]
+if testbubble_#26 <= testbubble_#28 branch to "label$118"
+testbubble_#29 = global_global[testbubble_j]
+testbubble_#30 = testbubble_j + global_int$1
+testbubble_#31 = global_global[testbubble_#30]
+global_global[testbubble_j] = testbubble_#31
+testbubble_#32 = testbubble_j + global_int$1
+global_global[testbubble_#32] = testbubble_#29
+label$118:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if testbubble_j < testbubble_#25 branch to "label$117"
+label$116:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$115"
+testbubble_i = global_int$0
+label$120:
+testbubble_j = global_int$0
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if global_int$0 >= testbubble_#33 branch to "label$121"
+label$122:
+testbubble_#34 = testbubble_local[testbubble_j]
+testbubble_#35 = testbubble_j + global_int$1
+testbubble_#36 = testbubble_local[testbubble_#35]
+if testbubble_#34 <= testbubble_#36 branch to "label$123"
+testbubble_#37 = testbubble_local[testbubble_j]
+testbubble_#38 = testbubble_j + global_int$1
+testbubble_#39 = testbubble_local[testbubble_#38]
+testbubble_local[testbubble_j] = testbubble_#39
+testbubble_#40 = testbubble_j + global_int$1
+testbubble_local[testbubble_#40] = testbubble_#37
+label$123:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if testbubble_j < testbubble_#33 branch to "label$122"
+label$121:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$120"
+output "global" 
+output "\n" 
+testbubble_i = global_int$0
+label$125:
+testbubble_#41 = global_global[testbubble_i]
+output testbubble_#41
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$125"
+output "local" 
+output "\n" 
+testbubble_i = global_int$0
+label$127:
+testbubble_#42 = testbubble_local[testbubble_i]
+output testbubble_#42
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$127"
+global_global_int = global_int$0
+global_global_int = global_int$1
+output "new int:" 
+output global_int$1
+output "\n" 
+output "doublevar:" 
+output global_int$2
+output "\n" 
+output "char:" 
+output global_char$97
+output "\n" 
+output "tmp:" 
+output global_int$1
+output "\n" 
+input testembed_a
+input testembed_b
+input testembed_c
+output "sum:" 
+sum_#47 = testembed_a + testembed_b
+sum_#47 = sum_#47 + testembed_c
+output sum_#47
+output "\n" 
+output "sum:" 
+sum_#47 = testembed_b + testembed_c
+sum_#47 = testembed_a + sum_#47
+output sum_#47
+output "\n" 
+input testrec_n
+label$131:
+output "pro:" 
+push testrec_n
+testrec_#60 = call product
+output testrec_#60
+output "\n" 
+output "fibo:" 
+push testrec_n
+testrec_#61 = call fibo
+output testrec_#61
+output "\n" 
+input testrec_n
+if testrec_n != global_int$0 branch to "label$131"
+global_i = global_int$10
+global_j = global_int$20
+global_k = global_int$30
+global_i = global_int$0
+label$135:
+if global_i == global_int$3 branch to "label$136"
+output global_i
+output "\n" 
+goto label$137
+label$136:
+global_k = global_int$0
+label$139:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$139"
+label$137:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$135"
+goto label$140
+label$142:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$142"
+label$140:
+output "******" 
+output "\n" 
+output global_i
+output "\n" 
+output global_j
+output "\n" 
+output global_k
+output "\n" 
+if global_i < global_j branch to "label$249"
+global_i = global_int$0
+label$251:
+if global_i == global_int$3 branch to "label$252"
+output global_i
+output "\n" 
+goto label$253
+label$252:
+global_k = global_int$0
+label$255:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$255"
+label$253:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$251"
+goto label$256
+label$249:
+global_i = global_int$9
+label$258:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$258"
+label$256:
+test_#62 = global_int$-3 - global_int$2
+output test_#62
+output "\n" 
+global_num5 = global_int$9
+global_num6 = global_int$8
+global_char3 = global_char$97
+global_char4 = global_char$98
+input testfunc1_flag
+testfunc1_i = global_int$0
+label$145:
+global_testresult[testfunc1_i] = global_char$84
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$10 branch to "label$145"
+global_num5 = global_int$9
+label$147:
+testfunc1_#97 = global_testresult[global_num5]
+global_array2[global_num5] = testfunc1_#97
+global_num5 = global_num5 - global_int$1
+if global_num5 >= global_int$0 branch to "label$147"
+global_num6 = global_int$0
+label$149:
+global_array1[global_num6] = global_int$0
+global_num6 = global_num6 + global_int$1
+if global_num6 != global_int$8 branch to "label$149"
+testfor_a = global_int$9
+testfor_c = global_int$0
+goto label$260
+label$261:
+testfor_#69 = testfor_a + global_int$1
+testfor_a = testfor_#69
+testfor_i = testfor_i - global_int$1
+if testfor_i < global_int$10 branch to "label$261"
+label$260:
+testfor_i = global_int$0
+label$263:
+testfor_#70 = testfor_c + global_int$1
+testfor_c = testfor_#70
+testfor_i = testfor_i + global_int$1
+if testfor_i < global_int$10 branch to "label$263"
+if testfor_a != global_int$10 branch to "label$264"
+if testfor_c != global_int$10 branch to "label$265"
+testfunc1_#98 = global_int$1
+goto label$259
+label$265:
+label$264:
+testfunc1_#98 = global_int$0
+label$259:
+if testfunc1_#98 != global_int$1 branch to "label$150"
+global_testresult[global_int$0] = global_char$84
+goto label$151
+label$150:
+global_testresult[global_int$0] = global_char$70
+label$151:
+testwhile_num1 = global_int$0
+testwhile_num2 = global_int$10
+testwhile_num4 = global_int$0
+label$268:
+testwhile_#72 = testwhile_num2 - global_int$1
+testwhile_num2 = testwhile_#72
+testwhile_#73 = testwhile_num1 + global_int$1
+testwhile_num1 = testwhile_#73
+if testwhile_#73 != global_int$10 branch to "label$268"
+goto label$269
+label$270:
+testwhile_#74 = testwhile_num4 + global_int$10
+testwhile_num4 = testwhile_#74
+testwhile_#75 = testwhile_num3 - global_int$10
+testwhile_num3 = testwhile_#75
+if testwhile_#75 > global_int$0 branch to "label$270"
+label$269:
+if testwhile_num2 != global_int$0 branch to "label$271"
+if testwhile_num4 != global_int$0 branch to "label$272"
+testfunc1_#99 = global_int$1
+goto label$266
+label$272:
+testfunc1_#99 = global_int$-1
+goto label$266
+label$271:
+testfunc1_#99 = global_int$0
+label$266:
+if testfunc1_#99 == global_int$0 branch to "label$152"
+global_testresult[global_int$1] = global_char$84
+goto label$153
+label$152:
+global_testresult[global_int$1] = global_char$70
+label$153:
+push global_int$1
+testfactorial_#95 = call factorial
+if testfactorial_#95 != global_int$1 branch to "label$274"
+push global_int$3
+testfactorial_#96 = call factorial
+if testfactorial_#96 != global_int$6 branch to "label$275"
+testfunc1_#101 = global_char$84
+goto label$273
+label$275:
+label$274:
+testfunc1_#101 = global_char$70
+label$273:
+if testfunc1_#101 != global_char$84 branch to "label$154"
+global_testresult[global_int$2] = global_char$84
+goto label$155
+label$154:
+global_testresult[global_int$2] = global_char$70
+label$155:
+global_array1[global_int$0] = global_int$100
+global_array1[global_int$1] = global_int$99
+testexpression_#82 = global_array1[global_int$0]
+testexpression_#83 = testexpression_#82 / global_int$10
+testexpression_#81 = global_int$10 - testexpression_#83
+testexpression_#81 = testexpression_#81 + global_int$1
+testexpression_#84 = global_array1[testexpression_#81]
+if testexpression_#84 != global_int$99 branch to "label$277"
+testfunc1_#103 = global_int$1
+goto label$276
+label$277:
+testfunc1_#103 = global_int$0
+label$276:
+if testfunc1_#103 == global_int$0 branch to "label$156"
+global_testresult[global_int$3] = global_char$84
+goto label$157
+label$156:
+global_testresult[global_int$3] = global_char$70
+label$157:
+global_array1[global_int$0] = global_int$1
+testarray_#85 = global_array1[global_int$0]
+global_array1[global_int$4] = testarray_#85
+testarray_#91 = global_array1[global_int$0]
+testarray_#92 = testarray_#91 * global_int$2
+testarray_#86 = global_int$6 - testarray_#92
+global_array1[testarray_#86] = global_int$10
+testarray_#93 = global_array1[global_int$4]
+if testarray_#93 != global_int$10 branch to "label$279"
+testfunc1_#104 = global_int$1
+goto label$278
+label$279:
+testfunc1_#104 = global_int$0
+label$278:
+if testfunc1_#104 == global_int$0 branch to "label$158"
+global_testresult[global_int$4] = global_char$84
+goto label$159
+label$158:
+global_testresult[global_int$4] = global_char$70
+label$159:
+testprintf_flag = testfunc1_flag
+if testfunc1_flag > global_int$0 branch to "label$281"
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$282
+label$281:
+if testprintf_flag < global_int$2 branch to "label$283"
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$284
+label$283:
+output "this is a string " 
+output global_int$5
+output "\n" 
+label$284:
+label$282:
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+output "this is a string " 
+output global_int$5
+output "\n" 
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+testfunc1_i = global_int$0
+label$161:
+testfunc1_#106 = global_testresult[testfunc1_i]
+output testfunc1_#106
+output "\n" 
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$5 branch to "label$161"
+output global_int$-64
+output "\n" 
+output testfunc2_b
+output "\n" 
+output global_int$16
+output "\n" 
+output global_int$9
+output "\n" 
+output global_char$118
+output "\n" 
+return
+
+func fibo()
+if fibo_n > global_int$2 branch to "label$30"
+return global_int$1
+label$30:
+fibo_#55 = fibo_n - global_int$1
+push fibo_#55
+fibo_#56 = call fibo
+fibo_#58 = fibo_n - global_int$2
+push fibo_#58
+fibo_#59 = call fibo
+fibo_#57 = fibo_#56 + fibo_#59
+return fibo_#57
+
+func product()
+if product_n > global_int$1 branch to "label$29"
+return product_n
+label$29:
+product_#53 = product_n - global_int$1
+push product_#53
+product_#54 = call product
+product_#52 = product_n * product_#54
+return product_#52
+
+func factorial()
+if factorial_n != global_int$1 branch to "label$53"
+return factorial_n
+label$53:
+factorial_#67 = factorial_n - global_int$1
+push factorial_#67
+factorial_#68 = call factorial
+factorial_#66 = factorial_n * factorial_#68
+return factorial_#66
+
+<!--anchor-->
+
+func main()
+input global_test2
+input testchar_test4
+output "test1:" 
+output testchar_test1
+output "\n" 
+output "test2:" 
+output global_test2
+output "\n" 
+output "test3:" 
+output testchar_test3
+output "\n" 
+output "test4:" 
+output testchar_test4
+output "\n" 
+output "test1 in ascii:" 
+output global_int$97
+output "\n" 
+output "test2 in ascii:" 
+testchar_#2 = global_test2 + global_int$0
+output testchar_#2
+output "\n" 
+output "test3 in ascii:" 
+output global_int$99
+output "\n" 
+output "test4 in ascii:" 
+testchar_#4 = testchar_test4 + global_int$0
+output testchar_#4
+output "\n" 
+input testarray1_c1
+input testarray1_i1
+input testarray1_c2
+input testarray1_i2
+input testarray1_c3
+input testarray1_i3
+input testarray1_c4
+input testarray1_i4
+input testarray1_c5
+input testarray1_i5
+global_int_array1[global_int$0] = testarray1_i1
+global_int_array1[global_int$1] = testarray1_i2
+testarray1_int_array2[global_int$0] = testarray1_i3
+testarray1_int_array2[global_int$1] = testarray1_i4
+testarray1_int_array2[global_int$2] = testarray1_i5
+global_char_array1[global_int$0] = testarray1_c1
+global_char_array1[global_int$1] = testarray1_c2
+testarray1_char_array2[global_int$0] = testarray1_c3
+testarray1_char_array2[global_int$1] = testarray1_c4
+testarray1_char_array2[global_int$2] = testarray1_c5
+output "sum of int array1:" 
+testarray1_#5 = global_int_array1[global_int$0]
+testarray1_#7 = global_int_array1[global_int$1]
+testarray1_#6 = testarray1_#5 + testarray1_#7
+output testarray1_#6
+output "\n" 
+output "sum of int array2:" 
+testarray1_#8 = testarray1_int_array2[global_int$0]
+testarray1_#10 = testarray1_int_array2[global_int$1]
+testarray1_#9 = testarray1_#8 + testarray1_#10
+testarray1_#11 = testarray1_int_array2[global_int$2]
+testarray1_#9 = testarray1_#9 + testarray1_#11
+output testarray1_#9
+output "\n" 
+output "char1:" 
+testarray1_#12 = global_char_array1[global_int$0]
+output testarray1_#12
+output "\n" 
+output "char2:" 
+testarray1_#13 = global_char_array1[global_int$1]
+output testarray1_#13
+output "\n" 
+output "char3:" 
+testarray1_#14 = testarray1_char_array2[global_int$0]
+output testarray1_#14
+output "\n" 
+output "char4:" 
+testarray1_#15 = testarray1_char_array2[global_int$1]
+output testarray1_#15
+output "\n" 
+output "char5:" 
+testarray1_#16 = testarray1_char_array2[global_int$2]
+output testarray1_#16
+output "\n" 
+input teststack_i0
+input teststack_i1
+input teststack_i2
+input teststack_i3
+input teststack_i4
+input teststack_i5
+input teststack_i6
+input teststack_i7
+input teststack_i8
+input teststack_i9
+output "remain:" 
+teststack_#17 = teststack_i2 + teststack_i3
+teststack_#17 = teststack_#17 + teststack_i4
+teststack_#17 = teststack_#17 + teststack_i5
+teststack_#17 = teststack_#17 + teststack_i6
+teststack_#17 = teststack_#17 + teststack_i7
+teststack_#17 = teststack_#17 + teststack_i8
+teststack_#17 = teststack_#17 + teststack_i9
+output teststack_#17
+output "\n" 
+output "not remain:" 
+teststack_#18 = teststack_i0 + teststack_i1
+output teststack_#18
+output "\n" 
+input testbranch_num
+input testbranch_in
+if testbranch_in == global_int$0 branch to "label$99"
+label$100:
+if testbranch_in >= global_int$2 branch to "label$101"
+testbranch_#19 = testbranch_num * global_int$2
+testbranch_doublevar = testbranch_#19
+goto label$102
+label$101:
+testbranch_#20 = testbranch_in * global_int$2
+testbranch_doublevar = testbranch_#20
+label$102:
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "while finish" 
+output "\n" 
+input testbranch_in
+if testbranch_in != global_int$0 branch to "label$100"
+label$99:
+input testbranch_in
+testbranch_n = global_int$0
+if testbranch_in <= global_int$0 branch to "label$103"
+label$104:
+if testbranch_in != global_int$1 branch to "label$105"
+output "numb double:" 
+testbranch_#21 = testbranch_num * global_int$2
+output testbranch_#21
+output "\n" 
+goto label$106
+label$105:
+if testbranch_in != global_int$2 branch to "label$107"
+testbranch_#22 = testbranch_num * global_int$3
+testbranch_triple = testbranch_#22
+output "triple:" 
+output testbranch_#22
+output "\n" 
+goto label$108
+label$107:
+testbranch_#23 = testbranch_num * testbranch_num
+testbranch_square = testbranch_#23
+output "square:" 
+output testbranch_#23
+output "\n" 
+label$108:
+label$106:
+input testbranch_in
+testbranch_n = testbranch_n + global_int$1
+if testbranch_in > global_int$0 branch to "label$104"
+label$103:
+output "n:" 
+output testbranch_n
+output "\n" 
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "triple:" 
+output testbranch_triple
+output "\n" 
+output "square:" 
+output testbranch_square
+output "\n" 
+output "sum:" 
+testbranch_#24 = testbranch_doublevar + testbranch_triple
+testbranch_#24 = testbranch_#24 + testbranch_square
+output testbranch_#24
+output "\n" 
+output "input globals" 
+output "\n" 
+testbubble_i = global_int$0
+label$111:
+input testbubble_tmp
+global_global[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$111"
+output "input locals" 
+output "\n" 
+testbubble_i = global_int$0
+label$113:
+input testbubble_tmp
+testbubble_local[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$113"
+testbubble_i = global_int$0
+label$115:
+testbubble_j = global_int$0
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if global_int$0 >= testbubble_#25 branch to "label$116"
+label$117:
+testbubble_#26 = global_global[testbubble_j]
+testbubble_#27 = testbubble_j + global_int$1
+testbubble_#28 = global_global[testbubble_#27]
+if testbubble_#26 <= testbubble_#28 branch to "label$118"
+testbubble_#29 = global_global[testbubble_j]
+testbubble_#30 = testbubble_j + global_int$1
+testbubble_#31 = global_global[testbubble_#30]
+global_global[testbubble_j] = testbubble_#31
+testbubble_#32 = testbubble_j + global_int$1
+global_global[testbubble_#32] = testbubble_#29
+label$118:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if testbubble_j < testbubble_#25 branch to "label$117"
+label$116:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$115"
+testbubble_i = global_int$0
+label$120:
+testbubble_j = global_int$0
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if global_int$0 >= testbubble_#33 branch to "label$121"
+label$122:
+testbubble_#34 = testbubble_local[testbubble_j]
+testbubble_#35 = testbubble_j + global_int$1
+testbubble_#36 = testbubble_local[testbubble_#35]
+if testbubble_#34 <= testbubble_#36 branch to "label$123"
+testbubble_#37 = testbubble_local[testbubble_j]
+testbubble_#38 = testbubble_j + global_int$1
+testbubble_#39 = testbubble_local[testbubble_#38]
+testbubble_local[testbubble_j] = testbubble_#39
+testbubble_#40 = testbubble_j + global_int$1
+testbubble_local[testbubble_#40] = testbubble_#37
+label$123:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if testbubble_j < testbubble_#33 branch to "label$122"
+label$121:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$120"
+output "global" 
+output "\n" 
+testbubble_i = global_int$0
+label$125:
+testbubble_#41 = global_global[testbubble_i]
+output testbubble_#41
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$125"
+output "local" 
+output "\n" 
+testbubble_i = global_int$0
+label$127:
+testbubble_#42 = testbubble_local[testbubble_i]
+output testbubble_#42
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$127"
+global_global_int = global_int$0
+global_global_int = global_int$1
+output "new int:" 
+output global_int$1
+output "\n" 
+output "doublevar:" 
+output global_int$2
+output "\n" 
+output "char:" 
+output global_char$97
+output "\n" 
+output "tmp:" 
+output global_int$1
+output "\n" 
+input testembed_a
+input testembed_b
+input testembed_c
+output "sum:" 
+sum_#47 = testembed_a + testembed_b
+sum_#47 = sum_#47 + testembed_c
+output sum_#47
+output "\n" 
+output "sum:" 
+sum_#47 = testembed_b + testembed_c
+sum_#47 = testembed_a + sum_#47
+output sum_#47
+output "\n" 
+input testrec_n
+label$131:
+output "pro:" 
+push testrec_n
+testrec_#60 = call product
+output testrec_#60
+output "\n" 
+output "fibo:" 
+push testrec_n
+testrec_#61 = call fibo
+output testrec_#61
+output "\n" 
+input testrec_n
+if testrec_n != global_int$0 branch to "label$131"
+global_i = global_int$10
+global_j = global_int$20
+global_k = global_int$30
+global_i = global_int$0
+label$135:
+if global_i == global_int$3 branch to "label$136"
+output global_i
+output "\n" 
+goto label$137
+label$136:
+global_k = global_int$0
+label$139:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$139"
+label$137:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$135"
+goto label$140
+label$142:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$142"
+label$140:
+output "******" 
+output "\n" 
+output global_i
+output "\n" 
+output global_j
+output "\n" 
+output global_k
+output "\n" 
+if global_i < global_j branch to "label$249"
+global_i = global_int$0
+label$251:
+if global_i == global_int$3 branch to "label$252"
+output global_i
+output "\n" 
+goto label$253
+label$252:
+global_k = global_int$0
+label$255:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$255"
+label$253:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$251"
+goto label$256
+label$249:
+global_i = global_int$9
+label$258:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$258"
+label$256:
+output global_int$-5
+output "\n" 
+global_num5 = global_int$9
+global_num6 = global_int$8
+global_char3 = global_char$97
+global_char4 = global_char$98
+input testfunc1_flag
+testfunc1_i = global_int$0
+label$145:
+global_testresult[testfunc1_i] = global_char$84
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$10 branch to "label$145"
+global_num5 = global_int$9
+label$147:
+testfunc1_#97 = global_testresult[global_num5]
+global_array2[global_num5] = testfunc1_#97
+global_num5 = global_num5 - global_int$1
+if global_num5 >= global_int$0 branch to "label$147"
+global_num6 = global_int$0
+label$149:
+global_array1[global_num6] = global_int$0
+global_num6 = global_num6 + global_int$1
+if global_num6 != global_int$8 branch to "label$149"
+testfor_a = global_int$9
+testfor_c = global_int$0
+goto label$260
+label$261:
+testfor_#69 = testfor_a + global_int$1
+testfor_a = testfor_#69
+testfor_i = testfor_i - global_int$1
+if testfor_i < global_int$10 branch to "label$261"
+label$260:
+testfor_i = global_int$0
+label$263:
+testfor_#70 = testfor_c + global_int$1
+testfor_c = testfor_#70
+testfor_i = testfor_i + global_int$1
+if testfor_i < global_int$10 branch to "label$263"
+if testfor_a != global_int$10 branch to "label$264"
+if testfor_c != global_int$10 branch to "label$265"
+testfunc1_#98 = global_int$1
+goto label$259
+label$265:
+label$264:
+testfunc1_#98 = global_int$0
+label$259:
+if testfunc1_#98 != global_int$1 branch to "label$150"
+global_testresult[global_int$0] = global_char$84
+goto label$151
+label$150:
+global_testresult[global_int$0] = global_char$70
+label$151:
+testwhile_num1 = global_int$0
+testwhile_num2 = global_int$10
+testwhile_num4 = global_int$0
+label$268:
+testwhile_#72 = testwhile_num2 - global_int$1
+testwhile_num2 = testwhile_#72
+testwhile_#73 = testwhile_num1 + global_int$1
+testwhile_num1 = testwhile_#73
+if testwhile_#73 != global_int$10 branch to "label$268"
+goto label$269
+label$270:
+testwhile_#74 = testwhile_num4 + global_int$10
+testwhile_num4 = testwhile_#74
+testwhile_#75 = testwhile_num3 - global_int$10
+testwhile_num3 = testwhile_#75
+if testwhile_#75 > global_int$0 branch to "label$270"
+label$269:
+if testwhile_num2 != global_int$0 branch to "label$271"
+if testwhile_num4 != global_int$0 branch to "label$272"
+testfunc1_#99 = global_int$1
+goto label$266
+label$272:
+testfunc1_#99 = global_int$-1
+goto label$266
+label$271:
+testfunc1_#99 = global_int$0
+label$266:
+if testfunc1_#99 == global_int$0 branch to "label$152"
+global_testresult[global_int$1] = global_char$84
+goto label$153
+label$152:
+global_testresult[global_int$1] = global_char$70
+label$153:
+push global_int$1
+testfactorial_#95 = call factorial
+if testfactorial_#95 != global_int$1 branch to "label$274"
+push global_int$3
+testfactorial_#96 = call factorial
+if testfactorial_#96 != global_int$6 branch to "label$275"
+testfunc1_#101 = global_char$84
+goto label$273
+label$275:
+label$274:
+testfunc1_#101 = global_char$70
+label$273:
+if testfunc1_#101 != global_char$84 branch to "label$154"
+global_testresult[global_int$2] = global_char$84
+goto label$155
+label$154:
+global_testresult[global_int$2] = global_char$70
+label$155:
+global_array1[global_int$0] = global_int$100
+global_array1[global_int$1] = global_int$99
+testexpression_#82 = global_array1[global_int$0]
+testexpression_#83 = testexpression_#82 / global_int$10
+testexpression_#81 = global_int$10 - testexpression_#83
+testexpression_#81 = testexpression_#81 + global_int$1
+testexpression_#84 = global_array1[testexpression_#81]
+if testexpression_#84 != global_int$99 branch to "label$277"
+testfunc1_#103 = global_int$1
+goto label$276
+label$277:
+testfunc1_#103 = global_int$0
+label$276:
+if testfunc1_#103 == global_int$0 branch to "label$156"
+global_testresult[global_int$3] = global_char$84
+goto label$157
+label$156:
+global_testresult[global_int$3] = global_char$70
+label$157:
+global_array1[global_int$0] = global_int$1
+testarray_#85 = global_array1[global_int$0]
+global_array1[global_int$4] = testarray_#85
+testarray_#91 = global_array1[global_int$0]
+testarray_#92 = testarray_#91 * global_int$2
+testarray_#86 = global_int$6 - testarray_#92
+global_array1[testarray_#86] = global_int$10
+testarray_#93 = global_array1[global_int$4]
+if testarray_#93 != global_int$10 branch to "label$279"
+testfunc1_#104 = global_int$1
+goto label$278
+label$279:
+testfunc1_#104 = global_int$0
+label$278:
+if testfunc1_#104 == global_int$0 branch to "label$158"
+global_testresult[global_int$4] = global_char$84
+goto label$159
+label$158:
+global_testresult[global_int$4] = global_char$70
+label$159:
+testprintf_flag = testfunc1_flag
+if testfunc1_flag > global_int$0 branch to "label$281"
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$282
+label$281:
+if testprintf_flag < global_int$2 branch to "label$283"
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$284
+label$283:
+output "this is a string " 
+output global_int$5
+output "\n" 
+label$284:
+label$282:
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+output "this is a string " 
+output global_int$5
+output "\n" 
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+testfunc1_i = global_int$0
+label$161:
+testfunc1_#106 = global_testresult[testfunc1_i]
+output testfunc1_#106
+output "\n" 
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$5 branch to "label$161"
+output global_int$-64
+output "\n" 
+output testfunc2_b
+output "\n" 
+output global_int$16
+output "\n" 
+output global_int$9
+output "\n" 
+output global_char$118
+output "\n" 
+return
+
+func fibo()
+if fibo_n > global_int$2 branch to "label$30"
+return global_int$1
+label$30:
+fibo_#55 = fibo_n - global_int$1
+push fibo_#55
+fibo_#56 = call fibo
+fibo_#58 = fibo_n - global_int$2
+push fibo_#58
+fibo_#59 = call fibo
+fibo_#57 = fibo_#56 + fibo_#59
+return fibo_#57
+
+func product()
+if product_n > global_int$1 branch to "label$29"
+return product_n
+label$29:
+product_#53 = product_n - global_int$1
+push product_#53
+product_#54 = call product
+product_#52 = product_n * product_#54
+return product_#52
+
+func factorial()
+if factorial_n != global_int$1 branch to "label$53"
+return factorial_n
+label$53:
+factorial_#67 = factorial_n - global_int$1
+push factorial_#67
+factorial_#68 = call factorial
+factorial_#66 = factorial_n * factorial_#68
+return factorial_#66
+
+<!--anchor-->
+
+func main()
+input global_test2
+input testchar_test4
+output "test1:" 
+output testchar_test1
+output "\n" 
+output "test2:" 
+output global_test2
+output "\n" 
+output "test3:" 
+output testchar_test3
+output "\n" 
+output "test4:" 
+output testchar_test4
+output "\n" 
+output "test1 in ascii:" 
+output global_int$97
+output "\n" 
+output "test2 in ascii:" 
+testchar_#2 = global_test2 + global_int$0
+output testchar_#2
+output "\n" 
+output "test3 in ascii:" 
+output global_int$99
+output "\n" 
+output "test4 in ascii:" 
+testchar_#4 = testchar_test4 + global_int$0
+output testchar_#4
+output "\n" 
+input testarray1_c1
+input testarray1_i1
+input testarray1_c2
+input testarray1_i2
+input testarray1_c3
+input testarray1_i3
+input testarray1_c4
+input testarray1_i4
+input testarray1_c5
+input testarray1_i5
+global_int_array1[global_int$0] = testarray1_i1
+global_int_array1[global_int$1] = testarray1_i2
+testarray1_int_array2[global_int$0] = testarray1_i3
+testarray1_int_array2[global_int$1] = testarray1_i4
+testarray1_int_array2[global_int$2] = testarray1_i5
+global_char_array1[global_int$0] = testarray1_c1
+global_char_array1[global_int$1] = testarray1_c2
+testarray1_char_array2[global_int$0] = testarray1_c3
+testarray1_char_array2[global_int$1] = testarray1_c4
+testarray1_char_array2[global_int$2] = testarray1_c5
+output "sum of int array1:" 
+testarray1_#5 = global_int_array1[global_int$0]
+testarray1_#7 = global_int_array1[global_int$1]
+testarray1_#6 = testarray1_#5 + testarray1_#7
+output testarray1_#6
+output "\n" 
+output "sum of int array2:" 
+testarray1_#8 = testarray1_int_array2[global_int$0]
+testarray1_#10 = testarray1_int_array2[global_int$1]
+testarray1_#9 = testarray1_#8 + testarray1_#10
+testarray1_#11 = testarray1_int_array2[global_int$2]
+testarray1_#9 = testarray1_#9 + testarray1_#11
+output testarray1_#9
+output "\n" 
+output "char1:" 
+testarray1_#12 = global_char_array1[global_int$0]
+output testarray1_#12
+output "\n" 
+output "char2:" 
+testarray1_#13 = global_char_array1[global_int$1]
+output testarray1_#13
+output "\n" 
+output "char3:" 
+testarray1_#14 = testarray1_char_array2[global_int$0]
+output testarray1_#14
+output "\n" 
+output "char4:" 
+testarray1_#15 = testarray1_char_array2[global_int$1]
+output testarray1_#15
+output "\n" 
+output "char5:" 
+testarray1_#16 = testarray1_char_array2[global_int$2]
+output testarray1_#16
+output "\n" 
+input teststack_i0
+input teststack_i1
+input teststack_i2
+input teststack_i3
+input teststack_i4
+input teststack_i5
+input teststack_i6
+input teststack_i7
+input teststack_i8
+input teststack_i9
+output "remain:" 
+teststack_#17 = teststack_i2 + teststack_i3
+teststack_#17 = teststack_#17 + teststack_i4
+teststack_#17 = teststack_#17 + teststack_i5
+teststack_#17 = teststack_#17 + teststack_i6
+teststack_#17 = teststack_#17 + teststack_i7
+teststack_#17 = teststack_#17 + teststack_i8
+teststack_#17 = teststack_#17 + teststack_i9
+output teststack_#17
+output "\n" 
+output "not remain:" 
+teststack_#18 = teststack_i0 + teststack_i1
+output teststack_#18
+output "\n" 
+input testbranch_num
+input testbranch_in
+if testbranch_in == global_int$0 branch to "label$99"
+label$100:
+if testbranch_in >= global_int$2 branch to "label$101"
+testbranch_#19 = testbranch_num * global_int$2
+testbranch_doublevar = testbranch_#19
+goto label$102
+label$101:
+testbranch_#20 = testbranch_in * global_int$2
+testbranch_doublevar = testbranch_#20
+label$102:
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "while finish" 
+output "\n" 
+input testbranch_in
+if testbranch_in != global_int$0 branch to "label$100"
+label$99:
+input testbranch_in
+testbranch_n = global_int$0
+if testbranch_in <= global_int$0 branch to "label$103"
+label$104:
+if testbranch_in != global_int$1 branch to "label$105"
+output "numb double:" 
+testbranch_#21 = testbranch_num * global_int$2
+output testbranch_#21
+output "\n" 
+goto label$106
+label$105:
+if testbranch_in != global_int$2 branch to "label$107"
+testbranch_#22 = testbranch_num * global_int$3
+testbranch_triple = testbranch_#22
+output "triple:" 
+output testbranch_#22
+output "\n" 
+goto label$108
+label$107:
+testbranch_#23 = testbranch_num * testbranch_num
+testbranch_square = testbranch_#23
+output "square:" 
+output testbranch_#23
+output "\n" 
+label$108:
+label$106:
+input testbranch_in
+testbranch_n = testbranch_n + global_int$1
+if testbranch_in > global_int$0 branch to "label$104"
+label$103:
+output "n:" 
+output testbranch_n
+output "\n" 
+output "doublevar:" 
+output testbranch_doublevar
+output "\n" 
+output "triple:" 
+output testbranch_triple
+output "\n" 
+output "square:" 
+output testbranch_square
+output "\n" 
+output "sum:" 
+testbranch_#24 = testbranch_doublevar + testbranch_triple
+testbranch_#24 = testbranch_#24 + testbranch_square
+output testbranch_#24
+output "\n" 
+output "input globals" 
+output "\n" 
+testbubble_i = global_int$0
+label$111:
+input testbubble_tmp
+global_global[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$111"
+output "input locals" 
+output "\n" 
+testbubble_i = global_int$0
+label$113:
+input testbubble_tmp
+testbubble_local[testbubble_i] = testbubble_tmp
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$113"
+testbubble_i = global_int$0
+label$115:
+testbubble_j = global_int$0
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if global_int$0 >= testbubble_#25 branch to "label$116"
+label$117:
+testbubble_#26 = global_global[testbubble_j]
+testbubble_#27 = testbubble_j + global_int$1
+testbubble_#28 = global_global[testbubble_#27]
+if testbubble_#26 <= testbubble_#28 branch to "label$118"
+testbubble_#29 = global_global[testbubble_j]
+testbubble_#30 = testbubble_j + global_int$1
+testbubble_#31 = global_global[testbubble_#30]
+global_global[testbubble_j] = testbubble_#31
+testbubble_#32 = testbubble_j + global_int$1
+global_global[testbubble_#32] = testbubble_#29
+label$118:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#25 = global_int$4 - testbubble_i
+testbubble_#25 = testbubble_#25 - global_int$1
+if testbubble_j < testbubble_#25 branch to "label$117"
+label$116:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$115"
+testbubble_i = global_int$0
+label$120:
+testbubble_j = global_int$0
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if global_int$0 >= testbubble_#33 branch to "label$121"
+label$122:
+testbubble_#34 = testbubble_local[testbubble_j]
+testbubble_#35 = testbubble_j + global_int$1
+testbubble_#36 = testbubble_local[testbubble_#35]
+if testbubble_#34 <= testbubble_#36 branch to "label$123"
+testbubble_#37 = testbubble_local[testbubble_j]
+testbubble_#38 = testbubble_j + global_int$1
+testbubble_#39 = testbubble_local[testbubble_#38]
+testbubble_local[testbubble_j] = testbubble_#39
+testbubble_#40 = testbubble_j + global_int$1
+testbubble_local[testbubble_#40] = testbubble_#37
+label$123:
+testbubble_j = testbubble_j + global_int$1
+testbubble_#33 = global_int$5 - testbubble_i
+testbubble_#33 = testbubble_#33 - global_int$1
+if testbubble_j < testbubble_#33 branch to "label$122"
+label$121:
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$120"
+output "global" 
+output "\n" 
+testbubble_i = global_int$0
+label$125:
+testbubble_#41 = global_global[testbubble_i]
+output testbubble_#41
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$4 branch to "label$125"
+output "local" 
+output "\n" 
+testbubble_i = global_int$0
+label$127:
+testbubble_#42 = testbubble_local[testbubble_i]
+output testbubble_#42
+output "\n" 
+testbubble_i = testbubble_i + global_int$1
+if testbubble_i < global_int$5 branch to "label$127"
+global_global_int = global_int$0
+global_global_int = global_int$1
+output "new int:" 
+output global_int$1
+output "\n" 
+output "doublevar:" 
+output global_int$2
+output "\n" 
+output "char:" 
+output global_char$97
+output "\n" 
+output "tmp:" 
+output global_int$1
+output "\n" 
+input testembed_a
+input testembed_b
+input testembed_c
+output "sum:" 
+sum_#47 = testembed_a + testembed_b
+sum_#47 = sum_#47 + testembed_c
+output sum_#47
+output "\n" 
+output "sum:" 
+sum_#47 = testembed_b + testembed_c
+sum_#47 = testembed_a + sum_#47
+output sum_#47
+output "\n" 
+input testrec_n
+label$131:
+output "pro:" 
+push testrec_n
+testrec_#60 = call product
+output testrec_#60
+output "\n" 
+output "fibo:" 
+push testrec_n
+testrec_#61 = call fibo
+output testrec_#61
+output "\n" 
+input testrec_n
+if testrec_n != global_int$0 branch to "label$131"
+global_i = global_int$10
+global_j = global_int$20
+global_k = global_int$30
+global_i = global_int$0
+label$135:
+if global_i == global_int$3 branch to "label$136"
+output global_i
+output "\n" 
+goto label$137
+label$136:
+global_k = global_int$0
+label$139:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$139"
+label$137:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$135"
+goto label$140
+label$142:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$142"
+label$140:
+output "******" 
+output "\n" 
+output global_i
+output "\n" 
+output global_j
+output "\n" 
+output global_k
+output "\n" 
+if global_i < global_j branch to "label$249"
+global_i = global_int$0
+label$251:
+if global_i == global_int$3 branch to "label$252"
+output global_i
+output "\n" 
+goto label$253
+label$252:
+global_k = global_int$0
+label$255:
+output "333333" 
+output "\n" 
+global_k = global_k + global_int$1
+if global_k < global_int$3 branch to "label$255"
+label$253:
+global_i = global_i + global_int$1
+if global_i < global_int$10 branch to "label$251"
+goto label$256
+label$249:
+global_i = global_int$9
+label$258:
+output global_i
+output "\n" 
+global_i = global_i - global_int$1
+if global_i >= global_int$0 branch to "label$258"
+label$256:
+output global_int$-5
+output "\n" 
+global_num5 = global_int$9
+global_num6 = global_int$8
+global_char3 = global_char$97
+global_char4 = global_char$98
+input testfunc1_flag
+testfunc1_i = global_int$0
+label$145:
+global_testresult[testfunc1_i] = global_char$84
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$10 branch to "label$145"
+global_num5 = global_int$9
+label$147:
+testfunc1_#97 = global_testresult[global_num5]
+global_array2[global_num5] = testfunc1_#97
+global_num5 = global_num5 - global_int$1
+if global_num5 >= global_int$0 branch to "label$147"
+global_num6 = global_int$0
+label$149:
+global_array1[global_num6] = global_int$0
+global_num6 = global_num6 + global_int$1
+if global_num6 != global_int$8 branch to "label$149"
+testfor_a = global_int$9
+testfor_c = global_int$0
+goto label$260
+label$261:
+testfor_#69 = testfor_a + global_int$1
+testfor_a = testfor_#69
+testfor_i = testfor_i - global_int$1
+if testfor_i < global_int$10 branch to "label$261"
+label$260:
+testfor_i = global_int$0
+label$263:
+testfor_#70 = testfor_c + global_int$1
+testfor_c = testfor_#70
+testfor_i = testfor_i + global_int$1
+if testfor_i < global_int$10 branch to "label$263"
+if testfor_a != global_int$10 branch to "label$264"
+if testfor_c != global_int$10 branch to "label$265"
+testfunc1_#98 = global_int$1
+goto label$259
+label$265:
+label$264:
+testfunc1_#98 = global_int$0
+label$259:
+if testfunc1_#98 != global_int$1 branch to "label$150"
+global_testresult[global_int$0] = global_char$84
+goto label$151
+label$150:
+global_testresult[global_int$0] = global_char$70
+label$151:
+testwhile_num1 = global_int$0
+testwhile_num2 = global_int$10
+testwhile_num4 = global_int$0
+label$268:
+testwhile_#72 = testwhile_num2 - global_int$1
+testwhile_num2 = testwhile_#72
+testwhile_#73 = testwhile_num1 + global_int$1
+testwhile_num1 = testwhile_#73
+if testwhile_#73 != global_int$10 branch to "label$268"
+goto label$269
+label$270:
+testwhile_#74 = testwhile_num4 + global_int$10
+testwhile_num4 = testwhile_#74
+testwhile_#75 = testwhile_num3 - global_int$10
+testwhile_num3 = testwhile_#75
+if testwhile_#75 > global_int$0 branch to "label$270"
+label$269:
+if testwhile_num2 != global_int$0 branch to "label$271"
+if testwhile_num4 != global_int$0 branch to "label$272"
+testfunc1_#99 = global_int$1
+goto label$266
+label$272:
+testfunc1_#99 = global_int$-1
+goto label$266
+label$271:
+testfunc1_#99 = global_int$0
+label$266:
+if testfunc1_#99 == global_int$0 branch to "label$152"
+global_testresult[global_int$1] = global_char$84
+goto label$153
+label$152:
+global_testresult[global_int$1] = global_char$70
+label$153:
+push global_int$1
+testfactorial_#95 = call factorial
+if testfactorial_#95 != global_int$1 branch to "label$274"
+push global_int$3
+testfactorial_#96 = call factorial
+if testfactorial_#96 != global_int$6 branch to "label$275"
+testfunc1_#101 = global_char$84
+goto label$273
+label$275:
+label$274:
+testfunc1_#101 = global_char$70
+label$273:
+if testfunc1_#101 != global_char$84 branch to "label$154"
+global_testresult[global_int$2] = global_char$84
+goto label$155
+label$154:
+global_testresult[global_int$2] = global_char$70
+label$155:
+global_array1[global_int$0] = global_int$100
+global_array1[global_int$1] = global_int$99
+testexpression_#82 = global_array1[global_int$0]
+testexpression_#83 = testexpression_#82 / global_int$10
+testexpression_#81 = global_int$10 - testexpression_#83
+testexpression_#81 = testexpression_#81 + global_int$1
+testexpression_#84 = global_array1[testexpression_#81]
+if testexpression_#84 != global_int$99 branch to "label$277"
+testfunc1_#103 = global_int$1
+goto label$276
+label$277:
+testfunc1_#103 = global_int$0
+label$276:
+if testfunc1_#103 == global_int$0 branch to "label$156"
+global_testresult[global_int$3] = global_char$84
+goto label$157
+label$156:
+global_testresult[global_int$3] = global_char$70
+label$157:
+global_array1[global_int$0] = global_int$1
+testarray_#85 = global_array1[global_int$0]
+global_array1[global_int$4] = testarray_#85
+testarray_#91 = global_array1[global_int$0]
+testarray_#92 = testarray_#91 * global_int$2
+testarray_#86 = global_int$6 - testarray_#92
+global_array1[testarray_#86] = global_int$10
+testarray_#93 = global_array1[global_int$4]
+if testarray_#93 != global_int$10 branch to "label$279"
+testfunc1_#104 = global_int$1
+goto label$278
+label$279:
+testfunc1_#104 = global_int$0
+label$278:
+if testfunc1_#104 == global_int$0 branch to "label$158"
+global_testresult[global_int$4] = global_char$84
+goto label$159
+label$158:
+global_testresult[global_int$4] = global_char$70
+label$159:
+testprintf_flag = testfunc1_flag
+if testfunc1_flag > global_int$0 branch to "label$281"
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+goto label$282
+label$281:
+if testprintf_flag < global_int$2 branch to "label$283"
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+goto label$284
+label$283:
+output "this is a string " 
+output global_int$5
+output "\n" 
+label$284:
+label$282:
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" 
+output "\n" 
+output "this is a string " 
+output global_int$5
+output "\n" 
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+output global_char$97
+output "\n" 
+output global_char$50
+output "\n" 
+output global_char$42
+output "\n" 
+testfunc1_i = global_int$0
+label$161:
+testfunc1_#106 = global_testresult[testfunc1_i]
+output testfunc1_#106
+output "\n" 
+testfunc1_i = testfunc1_i + global_int$1
+if testfunc1_i < global_int$5 branch to "label$161"
+output global_int$-64
+output "\n" 
+output testfunc2_b
+output "\n" 
+output global_int$16
+output "\n" 
+output global_int$9
+output "\n" 
+output global_char$118
+output "\n" 
+return
+
+func fibo()
+if fibo_n > global_int$2 branch to "label$30"
+return global_int$1
+label$30:
+fibo_#55 = fibo_n - global_int$1
+push fibo_#55
+fibo_#56 = call fibo
+fibo_#58 = fibo_n - global_int$2
+push fibo_#58
+fibo_#59 = call fibo
+fibo_#57 = fibo_#56 + fibo_#59
+return fibo_#57
+
+func product()
+if product_n > global_int$1 branch to "label$29"
+return product_n
+label$29:
+product_#53 = product_n - global_int$1
+push product_#53
+product_#54 = call product
+product_#52 = product_n * product_#54
+return product_#52
+
+func factorial()
+if factorial_n != global_int$1 branch to "label$53"
+return factorial_n
+label$53:
+factorial_#67 = factorial_n - global_int$1
+push factorial_#67
+factorial_#68 = call factorial
+factorial_#66 = factorial_n * factorial_#68
+return factorial_#66
+

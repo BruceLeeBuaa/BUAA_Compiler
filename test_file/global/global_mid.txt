@@ -1,0 +1,243 @@
+const int const_int_1 = 12345679
+const int const_int_2 = 0
+const int const_int_3 = 0
+const int const_int_4 = -12345679
+const char const_char_1 = '9'
+const char const_char_2 = '_'
+const char const_char_3 = '+'
+const char const_char_4 = '*'
+var int global_int_1
+var int global_int_2
+var char global_char_1
+var char global_char_2
+array int global_array_1[100]
+array int global_array_2[100]
+array char global_array_3[100]
+array char global_array_4[100]
+var int num5
+void assignGlobal()
+para int a
+para char b
+para int c
+para char d
+var int num5
+#1 = a
+global_int_1 = #1
+#2 = b
+global_char_1 = #2
+#3 = c
+global_int_2 = #3
+#4 = d
+global_char_2 = #4
+#5 = 0
+num5 = #5
+#6 = num5
+#7 = 100
+bge #6,#7,Label1
+Label0:
+#8 = num5
+#9 = num5
+global_array_1[#8] = #9
+addi num5,num5,1
+Label1:
+#10 = 100
+num5 = #10
+#11 = 0
+#12 = num5
+bgt #11,#12,Label3
+Label2:
+#13 = num5
+#14 = 10000
+#15 = num5
+#16 = #14 - #15
+global_array_2[#13] = #16
+subi num5,num5,1
+Label3:
+#17 = 100
+num5 = #17
+#18 = num5
+#19 = 100
+#20 = 100
+#21 = #19 + #20
+bge #18,#21,Label5
+Label4:
+#22 = num5
+#23 = 100
+#24 = #22 - #23
+#25 = 57
+global_array_3[#24] = #25
+addi num5,num5,1
+Label5:
+#26 = 0
+num5 = #26
+#27 = num5
+#28 = 100
+bge #27,#28,Label7
+Label6:
+#29 = num5
+#30 = 95
+global_array_4[#29] = #30
+addi num5,num5,1
+Label7:
+#ret 
+#ret 
+void printGlobal()
+var int num5
+output string global_int_1 = 
+#1 = global_int_1
+output #1
+output string global_int_2 = 
+#2 = global_int_2
+output #2
+output string global_char_1 = 
+#3 = global_char_1
+output char #3
+output string global_char_2 = 
+#4 = global_char_2
+output char #4
+#5 = 9
+num5 = #5
+#6 = 9
+num5 = #6
+#7 = num5
+#8 = 0
+blt #7,#8,Label9
+Label8:
+#9 = num5
+output #9
+subi num5,num5,1
+Label9:
+output string const_int_1 = 
+#10 = 12345679
+output #10
+output string const_int_2 = 
+#11 = 0
+output #11
+output string const_int_3 = 
+#12 = 0
+output #12
+output string const_int_4 = 
+#13 = -12345679
+output #13
+output string const_char_1 = 
+#14 = 57
+output char #14
+output string const_char_2 = 
+#15 = 95
+output char #15
+output string const_char_3 = 
+#16 = 43
+output char #16
+output string const_char_4 = 
+#17 = 42
+output char #17
+#18 = 0
+num5 = #18
+#19 = num5
+#20 = 100
+bge #19,#20,Label11
+Label10:
+#21 = num5
+#22 = global_array_1[#21]
+output #22
+#23 = num5
+#24 = global_array_2[#23]
+output #24
+#25 = num5
+#26 = global_array_3[#25]
+output char #26
+#27 = num5
+#28 = global_array_4[#27]
+output char #28
+addi num5,num5,1
+Label11:
+#ret 
+int globalPara()
+para int a
+para char b
+para int c
+para char d
+para int e
+para char f
+output string a = 
+#1 = a
+output #1
+output string b = 
+#2 = b
+output char #2
+output string c = 
+#3 = c
+output #3
+output string d = 
+#4 = d
+output char #4
+output string e = 
+#5 = e
+output #5
+output string f = 
+#6 = f
+output char #6
+#7 = 1
+a = #7
+#8 = 99
+b = #8
+#9 = 1
+c = #9
+#10 = 99
+d = #10
+#11 = 1
+e = #11
+#12 = 99
+f = #12
+output string a = 
+#13 = a
+output #13
+output string b = 
+#14 = b
+output char #14
+output string c = 
+#15 = c
+output #15
+output string d = 
+#16 = d
+output char #16
+output string e = 
+#17 = e
+output #17
+output string f = 
+#18 = f
+output char #18
+#19 = num5
+#ret #19
+void testglobal()
+#1 = 12345679
+#2 = 57
+#3 = -12345679
+#4 = 42
+push #1
+push #2
+push #3
+push #4
+call assignGlobal()
+call printGlobal()
+#5 = 12345679
+#6 = 57
+#7 = global_int_1
+#8 = global_char_1
+#9 = 30
+#10 = global_array_1[#9]
+#11 = 50
+#12 = global_array_3[#11]
+push #5
+push #6
+push #7
+push #8
+push #10
+push #12
+call globalPara()
+call printGlobal()
+#ret 
+void main()
+call testglobal()
+#ret 
+#ret 

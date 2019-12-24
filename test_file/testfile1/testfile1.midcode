@@ -1,0 +1,381 @@
+
+func main()
+main_tmp_c = global_char$100
+input global_var_a
+input main_tmp_b
+input main_tmp_c
+main_tmp_d = global_var_a
+main_#3 = global_a + global_int$20
+main_#3 = main_#3 + global_c
+global_var_a = main_#3
+main_#4 = global_var_a + global_var_a
+main_#4 = main_#4 - global_int$2
+global_var_b = main_#4
+main_#5 = global_b - global_var_b
+main_#5 = main_#5 + global_var_a
+global_var_c = main_#5
+main_#6 = global_int$10 - global_int$32
+main_#6 = main_#6 - global_int$4543
+main_#6 = main_#6 + global_int$343
+global_var_c = main_#6
+global_var_b = global_int$34325
+output global_var_a
+output "\n" 
+output global_var_b
+output "\n" 
+output "This is answer " 
+main_#7 = global_var_c + global_var_b
+main_#7 = main_#7 + main_tmp_d
+output main_#7
+output "\n" 
+output main_tmp_c
+output "\n" 
+output global_c
+output "\n" 
+output global_a
+output "\n" 
+main_arr_a[global_int$3] = global_int$3
+main_#8 = main_tmp_a + main_tmp_b
+main_arr_a[global_int$8] = main_#8
+main_tmp_a = global_int$234
+main_arr_a[main_tmp_a] = global_int$543
+main_#9 = main_arr_a[main_tmp_a]
+main_#10 = main_#9 + global_int$3
+output main_#10
+output "\n" 
+main_tmp_a = global_int$324
+main_#11 = global_int$0 - global_int$123
+main_tmp_b = main_#11
+main_#12 = main_tmp_a + main_tmp_b
+main_#12 = main_#12 - global_int$3
+main_arr_a[main_#12] = main_tmp_a
+main_#13 = main_tmp_a + main_tmp_b
+main_#13 = main_#13 - global_int$3
+main_#14 = main_arr_a[main_#13]
+main_#15 = main_#14 + global_int$3
+output main_#15
+output "\n" 
+return
+
+func A()
+A_arr_char[global_int$33] = global_char$100
+A_#1 = A_a + A_dg
+A_k = A_#1
+A_dg = global_c
+A_#2 = global_int$42 + A_k
+return A_#2
+
+<!--anchor-->
+
+func main()
+input global_var_a
+input main_tmp_b
+input main_tmp_c
+main_tmp_d = global_var_a
+main_#3 = global_int$30 + global_c
+global_var_a = main_#3
+main_#4 = main_#3 + main_#3
+main_#4 = main_#4 - global_int$2
+global_var_b = main_#4
+main_#5 = global_b - main_#4
+main_#5 = main_#5 + main_#3
+global_var_c = main_#5
+main_#6 = global_int$-22 - global_int$4543
+main_#6 = main_#6 + global_int$343
+global_var_c = main_#6
+global_var_b = global_int$34325
+output main_#3
+output "\n" 
+output global_int$34325
+output "\n" 
+output "This is answer " 
+main_#7 = main_#6 + global_int$34325
+main_#7 = main_#7 + main_tmp_d
+output main_#7
+output "\n" 
+output main_tmp_c
+output "\n" 
+output global_c
+output "\n" 
+output global_a
+output "\n" 
+main_arr_a[global_int$3] = global_int$3
+main_#8 = main_tmp_a + main_tmp_b
+main_arr_a[global_int$8] = main_#8
+main_arr_a[global_int$234] = global_int$543
+main_#9 = main_arr_a[global_int$234]
+main_#10 = main_#9 + global_int$3
+output main_#10
+output "\n" 
+main_#12 = global_int$324 + global_int$-123
+main_#12 = main_#12 - global_int$3
+main_arr_a[main_#12] = global_int$324
+main_#13 = global_int$324 + global_int$-123
+main_#13 = main_#13 - global_int$3
+main_#14 = main_arr_a[main_#13]
+main_#15 = main_#14 + global_int$3
+output main_#15
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+input global_var_a
+input main_tmp_b
+input main_tmp_c
+main_tmp_d = global_var_a
+global_var_a = global_int$130
+main_#4 = global_int$130 + global_int$130
+main_#4 = main_#4 - global_int$2
+global_var_b = main_#4
+main_#5 = global_b - main_#4
+main_#5 = main_#5 + global_int$130
+global_var_c = main_#5
+main_#6 = global_int$-4565 + global_int$343
+global_var_c = main_#6
+global_var_b = global_int$34325
+output global_int$130
+output "\n" 
+output global_int$34325
+output "\n" 
+output "This is answer " 
+main_#7 = main_#6 + global_int$34325
+main_#7 = main_#7 + main_tmp_d
+output main_#7
+output "\n" 
+output main_tmp_c
+output "\n" 
+output global_c
+output "\n" 
+output global_a
+output "\n" 
+main_arr_a[global_int$3] = global_int$3
+main_#8 = main_tmp_a + main_tmp_b
+main_arr_a[global_int$8] = main_#8
+main_arr_a[global_int$234] = global_int$543
+main_#9 = main_arr_a[global_int$234]
+main_#10 = main_#9 + global_int$3
+output main_#10
+output "\n" 
+main_#12 = global_int$201 - global_int$3
+main_arr_a[main_#12] = global_int$324
+main_#13 = global_int$201 - global_int$3
+main_#14 = main_arr_a[main_#13]
+main_#15 = main_#14 + global_int$3
+output main_#15
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+input global_var_a
+input main_tmp_b
+input main_tmp_c
+main_tmp_d = global_var_a
+global_var_a = global_int$130
+main_#4 = global_int$260 - global_int$2
+global_var_b = main_#4
+main_#5 = global_b - main_#4
+main_#5 = main_#5 + global_int$130
+global_var_c = main_#5
+global_var_c = global_int$-4222
+global_var_b = global_int$34325
+output global_int$130
+output "\n" 
+output global_int$34325
+output "\n" 
+output "This is answer " 
+main_#7 = global_int$-4222 + global_int$34325
+main_#7 = main_#7 + main_tmp_d
+output main_#7
+output "\n" 
+output main_tmp_c
+output "\n" 
+output global_c
+output "\n" 
+output global_a
+output "\n" 
+main_arr_a[global_int$3] = global_int$3
+main_#8 = main_tmp_a + main_tmp_b
+main_arr_a[global_int$8] = main_#8
+main_arr_a[global_int$234] = global_int$543
+main_#9 = main_arr_a[global_int$234]
+main_#10 = main_#9 + global_int$3
+output main_#10
+output "\n" 
+main_arr_a[global_int$198] = global_int$324
+main_#14 = main_arr_a[global_int$198]
+main_#15 = main_#14 + global_int$3
+output main_#15
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+input global_var_a
+input main_tmp_b
+input main_tmp_c
+main_tmp_d = global_var_a
+global_var_a = global_int$130
+global_var_b = global_int$258
+main_#5 = global_b - global_int$258
+main_#5 = main_#5 + global_int$130
+global_var_c = main_#5
+global_var_c = global_int$-4222
+global_var_b = global_int$34325
+output global_int$130
+output "\n" 
+output global_int$34325
+output "\n" 
+output "This is answer " 
+main_#7 = global_int$30103 + main_tmp_d
+output main_#7
+output "\n" 
+output main_tmp_c
+output "\n" 
+output global_c
+output "\n" 
+output global_a
+output "\n" 
+main_arr_a[global_int$3] = global_int$3
+main_#8 = main_tmp_a + main_tmp_b
+main_arr_a[global_int$8] = main_#8
+main_arr_a[global_int$234] = global_int$543
+main_#9 = main_arr_a[global_int$234]
+main_#10 = main_#9 + global_int$3
+output main_#10
+output "\n" 
+main_arr_a[global_int$198] = global_int$324
+main_#14 = main_arr_a[global_int$198]
+main_#15 = main_#14 + global_int$3
+output main_#15
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+input global_var_a
+input main_tmp_b
+input main_tmp_c
+main_tmp_d = global_var_a
+global_var_a = global_int$130
+global_var_b = global_int$258
+main_#5 = global_int$-158 + global_int$130
+global_var_c = main_#5
+global_var_c = global_int$-4222
+global_var_b = global_int$34325
+output global_int$130
+output "\n" 
+output global_int$34325
+output "\n" 
+output "This is answer " 
+main_#7 = global_int$30103 + main_tmp_d
+output main_#7
+output "\n" 
+output main_tmp_c
+output "\n" 
+output global_c
+output "\n" 
+output global_a
+output "\n" 
+main_arr_a[global_int$3] = global_int$3
+main_#8 = main_tmp_a + main_tmp_b
+main_arr_a[global_int$8] = main_#8
+main_arr_a[global_int$234] = global_int$543
+main_#9 = main_arr_a[global_int$234]
+main_#10 = main_#9 + global_int$3
+output main_#10
+output "\n" 
+main_arr_a[global_int$198] = global_int$324
+main_#14 = main_arr_a[global_int$198]
+main_#15 = main_#14 + global_int$3
+output main_#15
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+input global_var_a
+input main_tmp_b
+input main_tmp_c
+main_tmp_d = global_var_a
+global_var_a = global_int$130
+global_var_b = global_int$258
+global_var_c = global_int$-28
+global_var_c = global_int$-4222
+global_var_b = global_int$34325
+output global_int$130
+output "\n" 
+output global_int$34325
+output "\n" 
+output "This is answer " 
+main_#7 = global_int$30103 + main_tmp_d
+output main_#7
+output "\n" 
+output main_tmp_c
+output "\n" 
+output global_c
+output "\n" 
+output global_a
+output "\n" 
+main_arr_a[global_int$3] = global_int$3
+main_#8 = main_tmp_a + main_tmp_b
+main_arr_a[global_int$8] = main_#8
+main_arr_a[global_int$234] = global_int$543
+main_#9 = main_arr_a[global_int$234]
+main_#10 = main_#9 + global_int$3
+output main_#10
+output "\n" 
+main_arr_a[global_int$198] = global_int$324
+main_#14 = main_arr_a[global_int$198]
+main_#15 = main_#14 + global_int$3
+output main_#15
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+input global_var_a
+input main_tmp_b
+input main_tmp_c
+main_tmp_d = global_var_a
+global_var_a = global_int$130
+global_var_b = global_int$258
+global_var_c = global_int$-28
+global_var_c = global_int$-4222
+global_var_b = global_int$34325
+output global_int$130
+output "\n" 
+output global_int$34325
+output "\n" 
+output "This is answer " 
+main_#7 = global_int$30103 + main_tmp_d
+output main_#7
+output "\n" 
+output main_tmp_c
+output "\n" 
+output global_c
+output "\n" 
+output global_a
+output "\n" 
+main_arr_a[global_int$3] = global_int$3
+main_#8 = main_tmp_a + main_tmp_b
+main_arr_a[global_int$8] = main_#8
+main_arr_a[global_int$234] = global_int$543
+main_#9 = main_arr_a[global_int$234]
+main_#10 = main_#9 + global_int$3
+output main_#10
+output "\n" 
+main_arr_a[global_int$198] = global_int$324
+main_#14 = main_arr_a[global_int$198]
+main_#15 = main_#14 + global_int$3
+output main_#15
+output "\n" 
+return
+

@@ -1,0 +1,30 @@
+int i;
+void hanshu()
+{
+	printf(i);
+}
+void global_add()
+{
+	int c;
+	int d;
+	int e;
+	int f;
+	int g;
+	c = 3;
+	d = 4;
+	if (c == 2) {
+		return;
+	}
+	f = 5;
+	g = 6;
+	hanshu();
+	printf(c);
+	return;
+}
+void main()
+{
+	int a;
+	a = 1;
+	global_add();
+	return;
+}

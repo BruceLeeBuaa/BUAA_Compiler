@@ -1,0 +1,37 @@
+N8symtable5EntryE              : global_arr                    <char[10]>
+N8symtable9FuncTableE          : arrange                       <void>
+N8symtable5EntryE              : arrange_n                     <int>
+N8symtable5EntryE              : arrange_i                     <int>
+N8symtable5EntryE              : arrange_ONE                   <const int(1)>
+N8symtable5EntryE              : arrange_j                     <int>
+N8symtable5EntryE              : arrange_tmp                   <char>
+N8symtable5EntryE              : arrange_#1                    <int>
+N8symtable5EntryE              : global_int$1                  <const int(1)>
+N8symtable5EntryE              : global_int$0                  <const int(0)>
+N8symtable5EntryE              : arrange_#2                    <char>
+N8symtable5EntryE              : arrange_#3                    <int>
+N8symtable5EntryE              : arrange_#4                    <int>
+N8symtable5EntryE              : arrange_#5                    <int>
+N8symtable5EntryE              : arrange_#6                    <char>
+N8symtable5EntryE              : arrange_#7                    <int>
+N8symtable5EntryE              : arrange_#8                    <char>
+N8symtable5EntryE              : arrange_#9                    <char>
+N8symtable5EntryE              : arrange_#10                   <char>
+N8symtable5EntryE              : arrange_#11                   <int>
+N8symtable5EntryE              : arrange_#12                   <int>
+N8symtable5EntryE              : arrange_#13                   <int>
+N8symtable5EntryE              : arrange_#14                   <char>
+N8symtable5EntryE              : arrange_#15                   <int>
+N8symtable5EntryE              : global_int$-1                 <const int(-1)>
+N8symtable5EntryE              : arrange_#16                   <char>
+N8symtable9FuncTableE          : main                          <void>
+N8symtable5EntryE              : global_char$97                <const char('a')>
+N8symtable5EntryE              : global_char$98                <const char('b')>
+N8symtable5EntryE              : global_int$2                  <const int(2)>
+N8symtable5EntryE              : global_char$99                <const char('c')>
+N8symtable5EntryE              : global_int$3                  <const int(3)>
+N8symtable5EntryE              : global_char$100               <const char('d')>
+N8symtable5EntryE              : global_int$4                  <const int(4)>
+N8symtable5EntryE              : global_char$101               <const char('e')>
+N8symtable5EntryE              : global_int$5                  <const int(5)>
+N8symtable5EntryE              : global_char$102               <const char('f')>

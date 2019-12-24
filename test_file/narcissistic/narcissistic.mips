@@ -1,0 +1,940 @@
+.data
+str$9: .asciiz " "
+str$8: .asciiz "  "
+str$11: .asciiz "'water flower'number is:"
+str$10: .asciiz "---------------------------------------------------------------"
+str$0: .asciiz "5 != "
+str$6: .asciiz "OVERFLOW!"
+str$4: .asciiz "SWAP x = "
+str$5: .asciiz "SWAP y = "
+str$15: .asciiz "The total is "
+str$1: .asciiz "\n"
+str$7: .asciiz "complete number: "
+str$13: .asciiz "flower_num = "
+str$12: .asciiz "full_num = "
+str$14: .asciiz "mod = "
+str$2: .asciiz "x = "
+str$3: .asciiz "y = "
+
+.text
+jal main
+li $v0, 10
+syscall
+
+factorial:
+# $a0 : factorial_n
+# $s0 : factorial_#3
+# $s0 : factorial_#1
+# $s0 : factorial_#2
+sub $sp, $sp, 96
+sw $s0, 12($sp)
+
+# if factorial_n > global_int$1 branch to "label$1":
+bgt $a0, 1, label$1
+
+# return global_int$1:
+li $v0, 1
+lw $s0, 12($sp)
+add $sp, $sp, 96
+jr $ra
+
+# label$1::
+label$1:
+
+# factorial_#2 = factorial_n - global_int$1:
+sub $s0, $a0, 1
+
+# <!-- call block begin -->:
+sw $a0, 80($sp)
+sw $ra, 76($sp)
+move $a0, $s0
+jal factorial
+lw $ra, 76($sp)
+lw $a0, 80($sp)
+move $s0, $v0
+# <!-- call block end -->:
+
+# factorial_#1 = factorial_n * factorial_#3:
+mul $s0, $a0, $s0
+
+# return factorial_#1:
+move $v0, $s0
+lw $s0, 12($sp)
+add $sp, $sp, 96
+jr $ra
+
+main:
+# $s0 : complete_flower_num_#30
+# $s5 : mod_#4
+# $s5 : mod_#5
+# $s0 : complete_flower_num_#31
+# $s5 : complete_flower_num_#32
+# $s2 : complete_flower_num_#38
+# $s0 : complete_flower_num_#40
+# $s0 : complete_flower_num_#41
+# $s0 : main_#42
+# $s6 : full_num_#6
+# $s6 : full_num_#7
+# $s1 : full_num_#8
+# $s7 : flower_num_#9
+# $s7 : flower_num_#10
+# $s1 : flower_num_#11
+# $s1 : flower_num_#12
+# $s2 : complete_flower_num_i
+# $s3 : complete_flower_num_j
+# $s4 : complete_flower_num_n
+# $s1 : complete_flower_num_s
+# $s4 : complete_flower_num_y
+# $s4 : complete_flower_num_m
+# $s3 : complete_flower_num_k2
+# $s1 : complete_flower_num_h
+# $s0 : complete_flower_num_leap
+# $s1 : complete_flower_num_#19
+# $s0 : complete_flower_num_#18
+# $s1 : complete_flower_num_#23
+# $s0 : complete_flower_num_#20
+# $s0 : complete_flower_num_#22
+sub $sp, $sp, 856
+sw $s0, 772($sp)
+sw $s1, 776($sp)
+sw $s2, 780($sp)
+sw $s3, 784($sp)
+sw $s4, 788($sp)
+sw $s5, 792($sp)
+sw $s6, 796($sp)
+sw $s7, 800($sp)
+
+# <!-- call block begin -->:
+sw $ra, 836($sp)
+li $a0, 5
+jal factorial
+lw $ra, 836($sp)
+move $s0, $v0
+# <!-- call block end -->:
+
+# output "5 != " :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output main_#42:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "x = " :
+move $t8, $a0
+la $a0, str$2
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$5:
+move $t8, $a0
+li $a0, 5
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "y = " :
+move $t8, $a0
+la $a0, str$3
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$10:
+move $t8, $a0
+li $a0, 10
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "SWAP x = " :
+move $t8, $a0
+la $a0, str$4
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$10:
+move $t8, $a0
+li $a0, 10
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "SWAP y = " :
+move $t8, $a0
+la $a0, str$5
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$5:
+move $t8, $a0
+li $a0, 5
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# complete_flower_num_j = global_int$2:
+li $s3, 2
+
+# label$27::
+label$27:
+
+# complete_flower_num_n = global_int$-1:
+li $s4, -1
+
+# complete_flower_num_s = complete_flower_num_j:
+move $s1, $s3
+
+# complete_flower_num_i = global_int$1:
+li $s2, 1
+
+# if global_int$1 >= complete_flower_num_j branch to "label$28":
+ble $s3, 1, label$28
+
+# label$29::
+label$29:
+
+# mod_#5 = complete_flower_num_j / complete_flower_num_i:
+div $s3, $s2
+mflo $s5
+
+# mod_#5 = mod_#5 * complete_flower_num_i:
+mul $s5, $s5, $s2
+
+# mod_#4 = complete_flower_num_j - mod_#5:
+sub $s5, $s3, $s5
+
+# if mod_#4 != global_int$0 branch to "label$30":
+bnez $s5, label$30
+
+# complete_flower_num_#18 = complete_flower_num_n + global_int$1:
+add $s0, $s4, 1
+
+# complete_flower_num_n = complete_flower_num_#18:
+move $s4, $s0
+
+# complete_flower_num_#19 = complete_flower_num_s - complete_flower_num_i:
+sub $s1, $s1, $s2
+
+# complete_flower_num_s = complete_flower_num_#19:
+move $s1, $s1
+
+# if complete_flower_num_#18 < global_int$128 branch to "label$31":
+blt $s0, 128, label$31
+
+# output "OVERFLOW!" :
+move $t8, $a0
+la $a0, str$6
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$32:
+j label$32
+
+# label$31::
+label$31:
+
+# complete_flower_num_k[complete_flower_num_n] = complete_flower_num_i:
+sll $t8, $s4, 2
+add $t8, $t8, $sp
+sw $s2, 144($t8)
+
+# label$32::
+label$32:
+
+# label$30::
+label$30:
+
+# complete_flower_num_i = complete_flower_num_i + global_int$1:
+add $s2, $s2, 1
+
+# if complete_flower_num_i < complete_flower_num_j branch to "label$29":
+blt $s2, $s3, label$29
+
+# label$28::
+label$28:
+
+# if complete_flower_num_s != global_int$0 branch to "label$33":
+bnez $s1, label$33
+
+# output "complete number: " :
+move $t8, $a0
+la $a0, str$7
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output complete_flower_num_j:
+move $t8, $a0
+move $a0, $s3
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# complete_flower_num_i = global_int$0:
+move $s2, $zero
+
+# if global_int$0 > complete_flower_num_n branch to "label$34":
+bltz $s4, label$34
+
+# label$35::
+label$35:
+
+# output "  " :
+move $t8, $a0
+la $a0, str$8
+li $v0, 4
+syscall
+move $a0, $t8
+
+# complete_flower_num_#20 = complete_flower_num_k[complete_flower_num_i]:
+sll $t8, $s2, 2
+add $t8, $t8, $sp
+lw $s0, 144($t8)
+
+# output complete_flower_num_#20:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# complete_flower_num_i = complete_flower_num_i + global_int$1:
+add $s2, $s2, 1
+
+# if complete_flower_num_i <= complete_flower_num_n branch to "label$35":
+ble $s2, $s4, label$35
+
+# label$34::
+label$34:
+
+# output " " :
+move $t8, $a0
+la $a0, str$9
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$33::
+label$33:
+
+# complete_flower_num_j = complete_flower_num_j + global_int$1:
+add $s3, $s3, 1
+
+# if complete_flower_num_j < global_MAX_NUM branch to "label$27":
+blt $s3, 128, label$27
+
+# output "---------------------------------------------------------------" :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "'water flower'number is:" :
+move $t8, $a0
+la $a0, str$11
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# complete_flower_num_y = global_int$0:
+move $s4, $zero
+
+# complete_flower_num_i = global_int$100:
+li $s2, 100
+
+# label$37::
+label$37:
+
+# complete_flower_num_#22 = complete_flower_num_i / global_int$100:
+li $t8, 100
+div $s2, $t8
+mflo $s0
+
+# output complete_flower_num_#22:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# complete_flower_num_#23 = complete_flower_num_i / global_int$10:
+li $t8, 10
+div $s2, $t8
+mflo $s1
+
+# mod_#5 = complete_flower_num_#23 / global_int$10:
+li $t8, 10
+div $s1, $t8
+mflo $s5
+
+# mod_#5 = mod_#5 * global_int$10:
+mul $s5, $s5, 10
+
+# mod_#4 = complete_flower_num_#23 - mod_#5:
+sub $s5, $s1, $s5
+
+# complete_flower_num_j = mod_#4:
+move $s3, $s5
+
+# output mod_#4:
+move $t8, $a0
+move $a0, $s5
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# mod_#5 = complete_flower_num_i / global_int$10:
+li $t8, 10
+div $s2, $t8
+mflo $s5
+
+# mod_#5 = mod_#5 * global_int$10:
+mul $s5, $s5, 10
+
+# mod_#4 = complete_flower_num_i - mod_#5:
+sub $s5, $s2, $s5
+
+# output mod_#4:
+move $t8, $a0
+move $a0, $s5
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "full_num = " :
+move $t8, $a0
+la $a0, str$12
+li $v0, 4
+syscall
+move $a0, $t8
+
+# full_num_#6 = complete_flower_num_#22 * global_int$100:
+mul $s6, $s0, 100
+
+# full_num_#8 = complete_flower_num_j * global_int$10:
+mul $s1, $s3, 10
+
+# full_num_#7 = full_num_#6 + full_num_#8:
+add $s6, $s6, $s1
+
+# full_num_#7 = full_num_#7 + mod_#4:
+add $s6, $s6, $s5
+
+# output full_num_#7:
+move $t8, $a0
+move $a0, $s6
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "flower_num = " :
+move $t8, $a0
+la $a0, str$13
+li $v0, 4
+syscall
+move $a0, $t8
+
+# flower_num_#9 = complete_flower_num_#22 * complete_flower_num_#22:
+mul $s7, $s0, $s0
+
+# flower_num_#9 = flower_num_#9 * complete_flower_num_#22:
+mul $s7, $s7, $s0
+
+# flower_num_#11 = complete_flower_num_j * complete_flower_num_j:
+mul $s1, $s3, $s3
+
+# flower_num_#11 = flower_num_#11 * complete_flower_num_j:
+mul $s1, $s1, $s3
+
+# flower_num_#10 = flower_num_#9 + flower_num_#11:
+add $s7, $s7, $s1
+
+# flower_num_#12 = mod_#4 * mod_#4:
+mul $s1, $s5, $s5
+
+# flower_num_#12 = flower_num_#12 * mod_#4:
+mul $s1, $s1, $s5
+
+# flower_num_#10 = flower_num_#10 + flower_num_#12:
+add $s7, $s7, $s1
+
+# output flower_num_#10:
+move $t8, $a0
+move $a0, $s7
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# full_num_#6 = complete_flower_num_#22 * global_int$100:
+mul $s6, $s0, 100
+
+# full_num_#8 = complete_flower_num_j * global_int$10:
+mul $s1, $s3, 10
+
+# full_num_#7 = full_num_#6 + full_num_#8:
+add $s6, $s6, $s1
+
+# full_num_#7 = full_num_#7 + mod_#4:
+add $s6, $s6, $s5
+
+# flower_num_#9 = complete_flower_num_#22 * complete_flower_num_#22:
+mul $s7, $s0, $s0
+
+# flower_num_#9 = flower_num_#9 * complete_flower_num_#22:
+mul $s7, $s7, $s0
+
+# flower_num_#11 = complete_flower_num_j * complete_flower_num_j:
+mul $s1, $s3, $s3
+
+# flower_num_#11 = flower_num_#11 * complete_flower_num_j:
+mul $s1, $s1, $s3
+
+# flower_num_#10 = flower_num_#9 + flower_num_#11:
+add $s7, $s7, $s1
+
+# flower_num_#12 = mod_#4 * mod_#4:
+mul $s1, $s5, $s5
+
+# flower_num_#12 = flower_num_#12 * mod_#4:
+mul $s1, $s1, $s5
+
+# flower_num_#10 = flower_num_#10 + flower_num_#12:
+add $s7, $s7, $s1
+
+# if full_num_#7 != flower_num_#10 branch to "label$38":
+bne $s6, $s7, label$38
+
+# complete_flower_num_k[complete_flower_num_y] = complete_flower_num_i:
+sll $t8, $s4, 2
+add $t8, $t8, $sp
+sw $s2, 144($t8)
+
+# complete_flower_num_#30 = complete_flower_num_y + global_int$1:
+add $s0, $s4, 1
+
+# complete_flower_num_y = complete_flower_num_#30:
+move $s4, $s0
+
+# output complete_flower_num_#30:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$38::
+label$38:
+
+# complete_flower_num_i = complete_flower_num_i + global_int$1:
+add $s2, $s2, 1
+
+# if complete_flower_num_i < global_int$228 branch to "label$37":
+blt $s2, 228, label$37
+
+# output complete_flower_num_y:
+move $t8, $a0
+move $a0, $s4
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# complete_flower_num_i = global_int$0:
+move $s2, $zero
+
+# if global_int$0 >= complete_flower_num_y branch to "label$39":
+blez $s4, label$39
+
+# label$40::
+label$40:
+
+# output "  " :
+move $t8, $a0
+la $a0, str$8
+li $v0, 4
+syscall
+move $a0, $t8
+
+# complete_flower_num_#31 = complete_flower_num_k[complete_flower_num_i]:
+sll $t8, $s2, 2
+add $t8, $t8, $sp
+lw $s0, 144($t8)
+
+# output complete_flower_num_#31:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# complete_flower_num_i = complete_flower_num_i + global_int$1:
+add $s2, $s2, 1
+
+# if complete_flower_num_i < complete_flower_num_y branch to "label$40":
+blt $s2, $s4, label$40
+
+# label$39::
+label$39:
+
+# output " " :
+move $t8, $a0
+la $a0, str$9
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "---------------------------------------------------------------" :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# complete_flower_num_h = global_int$0:
+move $s1, $zero
+
+# complete_flower_num_leap = global_int$1:
+li $s0, 1
+
+# complete_flower_num_m = global_int$2:
+li $s4, 2
+
+# label$42::
+label$42:
+
+# complete_flower_num_#32 = complete_flower_num_m / global_int$2:
+li $t8, 2
+div $s4, $t8
+mflo $s5
+
+# complete_flower_num_k2 = complete_flower_num_#32:
+move $s3, $s5
+
+# complete_flower_num_i = global_int$2:
+li $s2, 2
+
+# if global_int$2 > complete_flower_num_#32 branch to "label$43":
+blt $s5, 2, label$43
+
+# label$44::
+label$44:
+
+# output "mod = " :
+move $t8, $a0
+la $a0, str$14
+li $v0, 4
+syscall
+move $a0, $t8
+
+# mod_#5 = complete_flower_num_m / complete_flower_num_i:
+div $s4, $s2
+mflo $s5
+
+# mod_#5 = mod_#5 * complete_flower_num_i:
+mul $s5, $s5, $s2
+
+# mod_#4 = complete_flower_num_m - mod_#5:
+sub $s5, $s4, $s5
+
+# output mod_#4:
+move $t8, $a0
+move $a0, $s5
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# mod_#5 = complete_flower_num_m / complete_flower_num_i:
+div $s4, $s2
+mflo $s5
+
+# mod_#5 = mod_#5 * complete_flower_num_i:
+mul $s5, $s5, $s2
+
+# mod_#4 = complete_flower_num_m - mod_#5:
+sub $s5, $s4, $s5
+
+# if mod_#4 != global_int$0 branch to "label$45":
+bnez $s5, label$45
+
+# complete_flower_num_leap = global_int$0:
+move $s0, $zero
+
+# label$45::
+label$45:
+
+# complete_flower_num_i = complete_flower_num_i + global_int$1:
+add $s2, $s2, 1
+
+# if complete_flower_num_i <= complete_flower_num_k2 branch to "label$44":
+ble $s2, $s3, label$44
+
+# label$43::
+label$43:
+
+# if complete_flower_num_leap != global_int$1 branch to "label$46":
+bne $s0, 1, label$46
+
+# output " " :
+move $t8, $a0
+la $a0, str$9
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output complete_flower_num_m:
+move $t8, $a0
+move $a0, $s4
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# complete_flower_num_#38 = complete_flower_num_h + global_int$1:
+add $s2, $s1, 1
+
+# complete_flower_num_h = complete_flower_num_#38:
+move $s1, $s2
+
+# complete_flower_num_#40 = complete_flower_num_#38 / global_int$10:
+li $t8, 10
+div $s2, $t8
+mflo $s0
+
+# complete_flower_num_#41 = complete_flower_num_#40 * global_int$10:
+mul $s0, $s0, 10
+
+# if complete_flower_num_#41 != complete_flower_num_#38 branch to "label$47":
+bne $s0, $s2, label$47
+
+# output " " :
+move $t8, $a0
+la $a0, str$9
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$47::
+label$47:
+
+# label$46::
+label$46:
+
+# complete_flower_num_leap = global_int$1:
+li $s0, 1
+
+# complete_flower_num_m = complete_flower_num_m + global_int$1:
+add $s4, $s4, 1
+
+# if complete_flower_num_m <= global_MAX_NUM branch to "label$42":
+ble $s4, 128, label$42
+
+# output "The total is " :
+move $t8, $a0
+la $a0, str$15
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output complete_flower_num_h:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# return:
+lw $s0, 772($sp)
+lw $s1, 776($sp)
+lw $s2, 780($sp)
+lw $s3, 784($sp)
+lw $s4, 788($sp)
+lw $s5, 792($sp)
+lw $s6, 796($sp)
+lw $s7, 800($sp)
+add $sp, $sp, 856
+jr $ra

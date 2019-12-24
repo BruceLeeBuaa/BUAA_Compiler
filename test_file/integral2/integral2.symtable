@@ -1,0 +1,92 @@
+N8symtable9FuncTableE          : mean                          <int>
+N8symtable5EntryE              : mean_n                        <int>
+N8symtable5EntryE              : mean_MAX_N                    <const int(10000)>
+N8symtable5EntryE              : mean_ERR                      <const int(-1)>
+N8symtable5EntryE              : mean_i                        <int>
+N8symtable5EntryE              : mean_tmp                      <int>
+N8symtable5EntryE              : mean_result                   <int>
+N8symtable5EntryE              : mean_num                      <int[10000]>
+N8symtable5EntryE              : global_int$0                  <const int(0)>
+N8symtable5EntryE              : global_int$1                  <const int(1)>
+N8symtable5EntryE              : mean_#1                       <int>
+N8symtable5EntryE              : mean_#2                       <int>
+N8symtable9FuncTableE          : testmean                      <void>
+N8symtable5EntryE              : testmean_n                    <int>
+N8symtable5EntryE              : testmean_#3                   <int>
+N8symtable9FuncTableE          : isOdd                         <int>
+N8symtable5EntryE              : isOdd_num                     <int>
+N8symtable5EntryE              : isOdd_TWO                     <const int(2)>
+N8symtable5EntryE              : isOdd_half                    <int>
+N8symtable5EntryE              : isOdd_#4                      <int>
+N8symtable5EntryE              : isOdd_#5                      <int>
+N8symtable5EntryE              : isOdd_#6                      <int>
+N8symtable5EntryE              : global_int$2                  <const int(2)>
+N8symtable9FuncTableE          : isEven                        <int>
+N8symtable5EntryE              : isEven_num                    <int>
+N8symtable5EntryE              : isEven_TWO                    <const int(2)>
+N8symtable5EntryE              : isEven_half                   <int>
+N8symtable5EntryE              : isEven_#7                     <int>
+N8symtable5EntryE              : isEven_#8                     <int>
+N8symtable5EntryE              : isEven_#9                     <int>
+N8symtable5EntryE              : isEven_#10                    <int>
+N8symtable5EntryE              : isEven_#11                    <int>
+N8symtable9FuncTableE          : pick                          <int>
+N8symtable5EntryE              : pick_num                      <int>
+N8symtable5EntryE              : pick_odd                      <int>
+N8symtable5EntryE              : pick_#12                      <int>
+N8symtable5EntryE              : pick_#13                      <int>
+N8symtable5EntryE              : pick_#14                      <int>
+N8symtable5EntryE              : pick_#15                      <int>
+N8symtable5EntryE              : pick_#16                      <int>
+N8symtable5EntryE              : pick_#17                      <int>
+N8symtable5EntryE              : pick_#18                      <int>
+N8symtable5EntryE              : pick_#19                      <int>
+N8symtable5EntryE              : pick_#20                      <int>
+N8symtable5EntryE              : pick_#21                      <int>
+N8symtable5EntryE              : pick_#22                      <int>
+N8symtable5EntryE              : pick_#23                      <int>
+N8symtable9FuncTableE          : pick2                         <int>
+N8symtable5EntryE              : pick2_num                     <int>
+N8symtable5EntryE              : pick2_i                       <int>
+N8symtable5EntryE              : pick2_j                       <int>
+N8symtable5EntryE              : pick2_#24                     <int>
+N8symtable5EntryE              : pick2_#25                     <int>
+N8symtable5EntryE              : pick2_#26                     <int>
+N8symtable5EntryE              : pick2_#27                     <int>
+N8symtable5EntryE              : pick2_#28                     <int>
+N8symtable5EntryE              : pick2_#29                     <int>
+N8symtable9FuncTableE          : testpick                      <void>
+N8symtable5EntryE              : testpick_base                 <int>
+N8symtable5EntryE              : testpick_exp                  <int>
+N8symtable5EntryE              : testpick_tmp                  <int>
+N8symtable5EntryE              : testpick_#30                  <int>
+N8symtable5EntryE              : global_int$10                 <const int(10)>
+N8symtable5EntryE              : testpick_#31                  <int>
+N8symtable5EntryE              : testpick_#32                  <int>
+N8symtable9FuncTableE          : test1                         <void>
+N8symtable5EntryE              : test1_i                       <int>
+N8symtable5EntryE              : test1_j                       <int>
+N8symtable5EntryE              : test1_k                       <int>
+N8symtable5EntryE              : global_int$5                  <const int(5)>
+N8symtable9FuncTableE          : mod                           <int>
+N8symtable5EntryE              : mod_a                         <int>
+N8symtable5EntryE              : mod_b                         <int>
+N8symtable5EntryE              : mod_#33                       <int>
+N8symtable5EntryE              : mod_#34                       <int>
+N8symtable9FuncTableE          : test2                         <void>
+N8symtable5EntryE              : test2_n                       <int>
+N8symtable5EntryE              : test2_reversedInteger         <int>
+N8symtable5EntryE              : test2_remainder               <int>
+N8symtable5EntryE              : test2_originalInteger         <int>
+N8symtable5EntryE              : test2_#35                     <int>
+N8symtable5EntryE              : test2_#36                     <int>
+N8symtable5EntryE              : test2_#37                     <int>
+N8symtable5EntryE              : test2_#38                     <int>
+N8symtable9FuncTableE          : test3                         <void>
+N8symtable5EntryE              : test3_n                       <int>
+N8symtable5EntryE              : test3_i                       <int>
+N8symtable5EntryE              : test3_flag                    <int>
+N8symtable5EntryE              : test3_#39                     <int>
+N8symtable5EntryE              : test3_#40                     <int>
+N8symtable9FuncTableE          : main                          <void>
+N8symtable5EntryE              : global_int$-1                 <const int(-1)>

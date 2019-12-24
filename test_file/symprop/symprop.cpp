@@ -1,0 +1,12 @@
+#include <iostream>
+
+int main(){
+	int a, b, c;
+	int d, e, f;
+	a = 1 + 2;
+	b = a;
+	c = b + a;
+	d = a;
+	e = d;
+	f = e;
+}

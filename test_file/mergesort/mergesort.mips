@@ -1,0 +1,514 @@
+.data
+str$0: .asciiz "\n"
+
+.text
+jal main
+li $v0, 10
+syscall
+
+inner_merge_sort:
+# $a0 : inner_merge_sort_start
+# $a1 : inner_merge_sort_length
+# $s7 : merge_s1
+# $s6 : merge_s2
+# $s0 : inner_merge_sort_#25
+# $s0 : inner_merge_sort_#26
+# $s1 : inner_merge_sort_#22
+# $s1 : inner_merge_sort_#23
+# $s1 : inner_merge_sort_#24
+# $s0 : inner_merge_sort_#28
+# $s0 : inner_merge_sort_#27
+# $s2 : inner_merge_sort_#29
+# $s1 : inner_merge_sort_#30
+# $s2 : inner_merge_sort_#31
+# $s1 : inner_merge_sort_#32
+# $s5 : merge_l2
+# $s4 : merge_i
+# $s3 : merge_j
+# $s2 : merge_k
+# $s0 : merge_#1
+# $s1 : merge_#2
+# $s0 : merge_#3
+# $s0 : merge_#8
+# $s0 : merge_#9
+# $s0 : merge_#4
+# $s0 : merge_#5
+# $s0 : merge_#6
+# $s0 : merge_#7
+# $s0 : merge_#14
+# $s0 : merge_#10
+# $s0 : merge_#11
+# $s0 : merge_#12
+# $s0 : merge_#13
+# $s0 : merge_#15
+# $s0 : merge_#16
+# $s0 : merge_#17
+# $s0 : merge_#18
+# $s0 : merge_#19
+# $s0 : merge_#20
+# $s0 : inner_merge_sort_mid
+# $s0 : inner_merge_sort_#21
+sub $sp, $sp, 248
+sw $s0, 164($sp)
+sw $s1, 168($sp)
+sw $s2, 172($sp)
+sw $s3, 176($sp)
+sw $s4, 180($sp)
+sw $s5, 184($sp)
+sw $s6, 188($sp)
+sw $s7, 192($sp)
+
+# if inner_merge_sort_length > global_int$1 branch to "label$13":
+bgt $a1, 1, label$13
+
+# return:
+lw $s0, 164($sp)
+lw $s1, 168($sp)
+lw $s2, 172($sp)
+lw $s3, 176($sp)
+lw $s4, 180($sp)
+lw $s5, 184($sp)
+lw $s6, 188($sp)
+lw $s7, 192($sp)
+add $sp, $sp, 248
+jr $ra
+
+# label$13::
+label$13:
+
+# if inner_merge_sort_length != global_int$2 branch to "label$14":
+bne $a1, 2, label$14
+
+# inner_merge_sort_#21 = global_arr[inner_merge_sort_start]:
+sll $t8, $a0, 2
+add $t8, $t8, $gp
+lw $s0, 0($t8)
+
+# inner_merge_sort_#22 = inner_merge_sort_start + global_int$1:
+add $s1, $a0, 1
+
+# inner_merge_sort_#23 = global_arr[inner_merge_sort_#22]:
+sll $t8, $s1, 2
+add $t8, $t8, $gp
+lw $s1, 0($t8)
+
+# if inner_merge_sort_#21 <= inner_merge_sort_#23 branch to "label$15":
+ble $s0, $s1, label$15
+
+# inner_merge_sort_#24 = global_arr[inner_merge_sort_start]:
+sll $t8, $a0, 2
+add $t8, $t8, $gp
+lw $s1, 0($t8)
+
+# inner_merge_sort_#25 = inner_merge_sort_start + global_int$1:
+add $s0, $a0, 1
+
+# inner_merge_sort_#26 = global_arr[inner_merge_sort_#25]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 0($t8)
+
+# global_arr[inner_merge_sort_start] = inner_merge_sort_#26:
+sll $t8, $a0, 2
+add $t8, $t8, $gp
+sw $s0, 0($t8)
+
+# inner_merge_sort_#27 = inner_merge_sort_start + global_int$1:
+add $s0, $a0, 1
+
+# global_arr[inner_merge_sort_#27] = inner_merge_sort_#24:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+sw $s1, 0($t8)
+
+# label$15::
+label$15:
+
+# return:
+lw $s0, 164($sp)
+lw $s1, 168($sp)
+lw $s2, 172($sp)
+lw $s3, 176($sp)
+lw $s4, 180($sp)
+lw $s5, 184($sp)
+lw $s6, 188($sp)
+lw $s7, 192($sp)
+add $sp, $sp, 248
+jr $ra
+
+# label$14::
+label$14:
+
+# inner_merge_sort_#28 = inner_merge_sort_length / global_int$2:
+li $t8, 2
+div $a1, $t8
+mflo $s0
+
+# inner_merge_sort_mid = inner_merge_sort_#28:
+move $s0, $s0
+
+# <!-- call block begin -->:
+sw $a0, 232($sp)
+sw $a1, 236($sp)
+sw $ra, 228($sp)
+lw $a0, 232($sp)
+move $a1, $s0
+jal inner_merge_sort
+lw $ra, 228($sp)
+lw $a0, 232($sp)
+lw $a1, 236($sp)
+# <!-- call block end -->:
+
+# inner_merge_sort_#29 = inner_merge_sort_start + inner_merge_sort_mid:
+add $s2, $a0, $s0
+
+# inner_merge_sort_#30 = inner_merge_sort_length - inner_merge_sort_mid:
+sub $s1, $a1, $s0
+
+# <!-- call block begin -->:
+sw $a0, 232($sp)
+sw $a1, 236($sp)
+sw $ra, 228($sp)
+move $a0, $s2
+move $a1, $s1
+jal inner_merge_sort
+lw $ra, 228($sp)
+lw $a0, 232($sp)
+lw $a1, 236($sp)
+# <!-- call block end -->:
+
+# inner_merge_sort_#31 = inner_merge_sort_start + inner_merge_sort_mid:
+add $s2, $a0, $s0
+
+# inner_merge_sort_#32 = inner_merge_sort_length - inner_merge_sort_mid:
+sub $s1, $a1, $s0
+
+# merge_s1 = inner_merge_sort_start:
+move $s7, $a0
+
+# merge_l1 = inner_merge_sort_mid:
+move $t0, $s0
+
+# merge_s2 = inner_merge_sort_#31:
+move $s6, $s2
+
+# merge_l2 = inner_merge_sort_#32:
+move $s5, $s1
+
+# merge_i = global_int$0:
+move $s4, $zero
+
+# merge_j = global_int$0:
+move $s3, $zero
+
+# merge_k = inner_merge_sort_start:
+move $s2, $a0
+
+# if global_int$0 >= inner_merge_sort_mid branch to "label$21":
+sw $t0, 0($sp)
+blez $s0, label$21
+
+# label$22::
+label$22:
+
+# if merge_j >= merge_l2 branch to "label$23":
+bge $s3, $s5, label$23
+
+# merge_#1 = merge_s1 + merge_i:
+add $s0, $s7, $s4
+
+# merge_#2 = global_arr[merge_#1]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s1, 0($t8)
+
+# merge_#3 = merge_s2 + merge_j:
+add $s0, $s6, $s3
+
+# merge_#4 = global_arr[merge_#3]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 0($t8)
+
+# if merge_#2 <= merge_#4 branch to "label$24":
+ble $s1, $s0, label$24
+
+# merge_#5 = merge_s2 + merge_j:
+add $s0, $s6, $s3
+
+# merge_#6 = global_arr[merge_#5]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 0($t8)
+
+# global_tmp[merge_k] = merge_#6:
+sll $t8, $s2, 2
+add $t8, $t8, $gp
+sw $s0, 400($t8)
+
+# merge_#7 = merge_j + global_int$1:
+add $s0, $s3, 1
+
+# merge_j = merge_#7:
+move $s3, $s0
+
+# goto label$25:
+j label$25
+
+# label$24::
+label$24:
+
+# merge_#8 = merge_s1 + merge_i:
+add $s0, $s7, $s4
+
+# merge_#9 = global_arr[merge_#8]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 0($t8)
+
+# global_tmp[merge_k] = merge_#9:
+sll $t8, $s2, 2
+add $t8, $t8, $gp
+sw $s0, 400($t8)
+
+# merge_#10 = merge_i + global_int$1:
+add $s0, $s4, 1
+
+# merge_i = merge_#10:
+move $s4, $s0
+
+# label$25::
+label$25:
+
+# merge_#11 = merge_k + global_int$1:
+add $s0, $s2, 1
+
+# merge_k = merge_#11:
+move $s2, $s0
+
+# goto label$26:
+j label$26
+
+# label$23::
+label$23:
+
+# if merge_i >= merge_l1 branch to "label$27":
+lw $t0, 0($sp)
+bge $s4, $t0, label$27
+
+# label$28::
+label$28:
+
+# merge_#12 = merge_s1 + merge_i:
+add $s0, $s7, $s4
+
+# merge_#13 = global_arr[merge_#12]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 0($t8)
+
+# global_tmp[merge_k] = merge_#13:
+sll $t8, $s2, 2
+add $t8, $t8, $gp
+sw $s0, 400($t8)
+
+# merge_#14 = merge_k + global_int$1:
+add $s0, $s2, 1
+
+# merge_k = merge_#14:
+move $s2, $s0
+
+# merge_#15 = merge_i + global_int$1:
+add $s0, $s4, 1
+
+# merge_i = merge_#15:
+move $s4, $s0
+
+# if merge_#15 < merge_l1 branch to "label$28":
+lw $t0, 0($sp)
+blt $s0, $t0, label$28
+
+# label$27::
+label$27:
+
+# label$26::
+label$26:
+
+# if merge_i < merge_l1 branch to "label$22":
+lw $t0, 0($sp)
+blt $s4, $t0, label$22
+
+# label$21::
+label$21:
+
+# if merge_j >= merge_l2 branch to "label$29":
+bge $s3, $s5, label$29
+
+# label$30::
+label$30:
+
+# merge_#16 = merge_s2 + merge_j:
+add $s0, $s6, $s3
+
+# merge_#17 = global_arr[merge_#16]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 0($t8)
+
+# global_tmp[merge_k] = merge_#17:
+sll $t8, $s2, 2
+add $t8, $t8, $gp
+sw $s0, 400($t8)
+
+# merge_#18 = merge_k + global_int$1:
+add $s0, $s2, 1
+
+# merge_k = merge_#18:
+move $s2, $s0
+
+# merge_#19 = merge_j + global_int$1:
+add $s0, $s3, 1
+
+# merge_j = merge_#19:
+move $s3, $s0
+
+# if merge_#19 < merge_l2 branch to "label$30":
+blt $s0, $s5, label$30
+
+# label$29::
+label$29:
+
+# merge_i = merge_s1:
+move $s4, $s7
+
+# if merge_s1 >= merge_k branch to "label$31":
+bge $s7, $s2, label$31
+
+# label$32::
+label$32:
+
+# merge_#20 = global_tmp[merge_i]:
+sll $t8, $s4, 2
+add $t8, $t8, $gp
+lw $s0, 400($t8)
+
+# global_arr[merge_i] = merge_#20:
+sll $t8, $s4, 2
+add $t8, $t8, $gp
+sw $s0, 0($t8)
+
+# merge_i = merge_i + global_int$1:
+add $s4, $s4, 1
+
+# if merge_i < merge_k branch to "label$32":
+blt $s4, $s2, label$32
+
+# label$31::
+label$31:
+
+# return:
+lw $s0, 164($sp)
+lw $s1, 168($sp)
+lw $s2, 172($sp)
+lw $s3, 176($sp)
+lw $s4, 180($sp)
+lw $s5, 184($sp)
+lw $s6, 188($sp)
+lw $s7, 192($sp)
+add $sp, $sp, 248
+jr $ra
+
+main:
+# $s2 : main_n
+# $s1 : main_i
+# $s0 : main_a
+# $s0 : main_#33
+sub $sp, $sp, 100
+sw $s0, 16($sp)
+sw $s1, 20($sp)
+sw $s2, 24($sp)
+
+# input main_n:
+li $v0, 5
+syscall
+move $s2, $v0
+
+# main_i = global_int$0:
+move $s1, $zero
+
+# if global_int$0 >= main_n branch to "label$16":
+blez $s2, label$16
+
+# label$17::
+label$17:
+
+# input main_a:
+li $v0, 5
+syscall
+move $s0, $v0
+
+# global_arr[main_i] = main_a:
+sll $t8, $s1, 2
+add $t8, $t8, $gp
+sw $s0, 0($t8)
+
+# main_i = main_i + global_int$1:
+add $s1, $s1, 1
+
+# if main_i < main_n branch to "label$17":
+blt $s1, $s2, label$17
+
+# label$16::
+label$16:
+
+# <!-- call block begin -->:
+sw $ra, 80($sp)
+move $a0, $zero
+move $a1, $s2
+jal inner_merge_sort
+lw $ra, 80($sp)
+# <!-- call block end -->:
+
+# main_i = global_int$0:
+move $s1, $zero
+
+# if global_int$0 >= main_n branch to "label$18":
+blez $s2, label$18
+
+# label$19::
+label$19:
+
+# main_#33 = global_arr[main_i]:
+sll $t8, $s1, 2
+add $t8, $t8, $gp
+lw $s0, 0($t8)
+
+# output main_#33:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# main_i = main_i + global_int$1:
+add $s1, $s1, 1
+
+# if main_i < main_n branch to "label$19":
+blt $s1, $s2, label$19
+
+# label$18::
+label$18:
+
+# return:
+lw $s0, 16($sp)
+lw $s1, 20($sp)
+lw $s2, 24($sp)
+add $sp, $sp, 100
+jr $ra

@@ -1,0 +1,676 @@
+const int _t1 = 1
+const int _t2 = 2
+const int _t3 = 3
+var char _c1
+var char _c2
+var char _c3
+var char _c4
+char ff1()
+para char c
+const char temp_c = 'b'
+#1 = 98
+_c1 = #1
+#2 = c
+#ret #2
+int ff2()
+#1 = 45
+_c2 = #1
+#2 = 1
+#3 = 2
+#4 = #2 + #3
+#5 = 3
+#6 = #4 + #5
+#ret #6
+void ff3()
+para int a
+para int b
+para char c
+para int d
+para char e
+para char f
+#1 = a
+#2 = b
+#3 = #1 + #2
+#4 = c
+#5 = #3 + #4
+#6 = d
+#7 = #5 + #6
+#8 = e
+#9 = #7 + #8
+#10 = f
+#11 = #9 + #10
+output #11
+#ret 
+#ret 
+void ff4()
+output string _ff4_
+#ret 
+int factorial()
+para int a
+var int b
+#1 = a
+#2 = 1
+bne #1,#2,Label0
+#3 = 1
+#ret #3
+goto Label1
+Label0:
+#4 = a
+#5 = 1
+#6 = #4 - #5
+push #6
+call factorial()
+#7 = #ret
+#8 = a
+#9 = #7 * #8
+b = #9
+#10 = b
+#ret #10
+Label1:
+void ff5()
+const char _c2 = 'z'
+var int _t1
+40 j
+#1 = 4
+_t1 = #1
+#2 = _t1
+#3 = 122
+#4 = #2 + #3
+#5 = _c1
+#6 = #4 + #5
+output #6
+#ret 
+void main()
+const int int_100 = 100
+const char char_z = 'z'
+var int in_1
+var int t1
+var int t2
+var char c1
+var char c2
+array char single_chars[10]
+var int t3
+var int t4
+var int t5
+var int t6
+var int t7
+var int t8
+var int t9
+var char C3
+var char C4
+var int t10
+var int t11
+var int t12
+var int t13
+var int t14
+var int t15
+var int t16
+var int t17
+var int t18
+var int t19
+var int t20
+var int t21
+var int t22
+var int t23
+var char c5
+var char c6
+var char c7
+var char c8
+array int t_array1[100]
+array char c_array1[100]
+var int _c4
+var int i
+var char _t1
+array int t_array2[100]
+array char c_array2[100]
+input in_1
+#1 = in_1
+#2 = 1
+bne #1,#2,Label2
+input t1
+input c2
+input c1
+input t2
+#3 = c2
+#4 = t1
+#5 = c2
+#6 = #4 * #5
+#7 = #3 + #6
+#8 = t1
+#9 = c1
+#10 = #8 / #9
+#11 = #7 - #10
+output #11
+output string ___ !#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~___\n\t\\\'___
+output string 
+output string @@@@@
+#12 = c2
+output char #12
+#13 = 0
+#14 = 43
+single_chars[#13] = #14
+#15 = 1
+#16 = 45
+single_chars[#15] = #16
+#17 = 2
+#18 = 42
+single_chars[#17] = #18
+#19 = 3
+#20 = 47
+single_chars[#19] = #20
+#21 = 4
+#22 = 48
+single_chars[#21] = #22
+#23 = 5
+#24 = 57
+single_chars[#23] = #24
+#25 = 6
+#26 = 97
+single_chars[#25] = #26
+#27 = 7
+#28 = 122
+single_chars[#27] = #28
+#29 = 8
+#30 = 65
+single_chars[#29] = #30
+#31 = 9
+#32 = 90
+single_chars[#31] = #32
+#33 = 43
+_c1 = #33
+#34 = 97
+_c3 = #34
+#35 = _c1
+#36 = 2
+#37 = #35 + #36
+t3 = #37
+#38 = _c3
+#39 = - #38
+#40 = 77
+#41 = #39 + #40
+t4 = #41
+#42 = 1
+#43 = - #42
+#44 = 45
+#45 = #43 + #44
+#46 = 1
+#47 = #45 + #46
+t5 = #47
+#48 = t3
+#49 = t5
+beq #48,#49,Label4
+output string error1
+Label4:
+#50 = t3
+#51 = t4
+bne #50,#51,Label6
+output string error2
+Label6:
+#52 = t3
+#53 = t4
+bgt #52,#53,Label8
+output string error3
+Label8:
+#54 = t3
+#55 = t5
+bge #54,#55,Label10
+output string error4
+Label10:
+#56 = t4
+#57 = t5
+blt #56,#57,Label12
+output string error5
+Label12:
+#58 = t5
+#59 = t3
+ble #58,#59,Label14
+output string error6
+Label14:
+#60 = 12
+t6 = #60
+#61 = 23
+t7 = #61
+#62 = 23
+#63 = - #62
+t8 = #63
+#64 = t8
+#65 = t6
+#66 = #64 + #65
+#67 = t7
+#68 = #66 + #67
+#69 = 12
+beq #68,#69,Label16
+output string error7
+Label16:
+#70 = 3
+#71 = 5
+ble #70,#71,Label18
+output string error8
+Label18:
+112 c
+#72 = 9
+T9 = #72
+113 c
+#73 = 51
+c3 = #73
+#74 = 52
+C4 = #74
+#75 = C4
+115 c
+#76 = c3
+#77 = #75 - #76
+115 c
+#78 = T9
+#79 = #77 + #78
+#80 = 10
+beq #79,#80,Label20
+output string error9
+Label20:
+Label2:
+#81 = in_1
+#82 = 2
+bne #81,#82,Label22
+#83 = 0
+#84 = 2333
+t_array1[#83] = #84
+#85 = 0
+#86 = 47
+c_array1[#85] = #86
+#87 = 7
+#88 = - #87
+#89 = 9
+#90 = #88 + #89
+t10 = #90
+#91 = 43
+c5 = #91
+#92 = c5
+c6 = #92
+#93 = 0
+#94 = c_array1[#93]
+c7 = #94
+#95 = 7
+#96 = - #95
+t11 = #96
+#97 = t11
+t12 = #97
+#98 = 0
+#99 = t_array1[#98]
+t13 = #99
+call ff2()
+#100 = #ret
+t14 = #100
+#101 = 121
+push #101
+call ff1()
+#102 = #ret
+c8 = #102
+#103 = t10
+#104 = c5
+#105 = #103 + #104
+#106 = c6
+#107 = #105 + #106
+#108 = c7
+#109 = #107 + #108
+#110 = t11
+#111 = #109 + #110
+#112 = t12
+#113 = #111 + #112
+#114 = t13
+#115 = #113 + #114
+#116 = t14
+#117 = #115 + #116
+#118 = c8
+#119 = #117 + #118
+t14 = #119
+#120 = t11
+#121 = -7
+#122 = #120 * #121
+#123 = t13
+#124 = #122 * #123
+#125 = c8
+#126 = #124 / #125
+#127 = t10
+#128 = #126 / #127
+#129 = t12
+#130 = #128 * #129
+output #130
+output string  
+#131 = 4
+#132 = t14
+#133 = #131 + #132
+output #133
+output string  
+#134 = 3
+#135 = -2
+#136 = #134 / #135
+#137 = - #136
+output #137
+#138 = 4
+#139 = 5
+#140 = #138 / #139
+beqz #140,Label24
+output string error10
+goto Label25
+Label24:
+#141 = 1
+t15 = #141
+Label25:
+#142 = 3
+#143 = 4
+bge #142,#143,Label26
+#144 = 4
+#145 = 4
+bge #144,#145,Label28
+output string error11
+goto Label29
+Label28:
+#146 = 4
+#147 = 4
+blt #146,#147,Label30
+#148 = t15
+#149 = 0
+ble #148,#149,Label32
+#150 = t15
+#151 = 0
+bge #150,#151,Label34
+output string error12
+goto Label35
+Label34:
+output string  ojbk
+Label35:
+Label32:
+Label30:
+Label29:
+goto Label27
+Label26:
+output string error13
+Label27:
+#152 = 1
+t16 = #152
+#153 = 0
+t18 = #153
+Label36:
+#154 = t16
+#155 = 4
+bgt #154,#155,Label37
+#156 = 1
+t17 = #156
+Label38:
+#157 = t17
+#158 = t16
+bge #157,#158,Label39
+#159 = t18
+#160 = t17
+#161 = #159 + #160
+t18 = #161
+#162 = t17
+#163 = 1
+#164 = #162 + #163
+t17 = #164
+goto Label38
+Label39:
+#165 = t16
+#166 = 1
+#167 = #165 + #166
+t16 = #167
+goto Label36
+Label37:
+#168 = t18
+output #168
+#169 = 0
+t19 = #169
+#170 = 2
+t20 = #170
+Label40:
+#171 = t20
+#172 = 5
+bgt #171,#172,Label41
+#173 = 1
+t22 = #173
+#174 = 2
+t21 = #174
+Label42:
+#175 = t21
+#176 = t20
+bge #175,#176,Label43
+#177 = t22
+#178 = t21
+#179 = #177 * #178
+t22 = #179
+addi t21,t21,2
+goto Label42
+Label43:
+#180 = t19
+#181 = t22
+#182 = #180 + #181
+t19 = #182
+addi t20,t20,1
+goto Label40
+Label41:
+#183 = t19
+output #183
+#184 = 100
+t20 = #184
+Label44:
+#185 = t20
+#186 = 97
+blt #185,#186,Label45
+#187 = 1
+t22 = #187
+#188 = 100
+t21 = #188
+Label46:
+#189 = t21
+#190 = t20
+ble #189,#190,Label47
+#191 = t22
+#192 = t21
+#193 = #191 * #192
+t22 = #193
+subi t21,t21,2
+goto Label46
+Label47:
+#194 = t19
+#195 = t22
+#196 = #194 + #195
+t19 = #196
+subi t20,t20,1
+goto Label44
+Label45:
+#197 = t19
+output #197
+#198 = 1
+#199 = 0
+#200 = - #199
+ble #198,#200,Label48
+output string  ojbk
+Label48:
+Label50:
+#201 = 1
+beqz #201,Label51
+#202 = 0
+t23 = #202
+Label52:
+#203 = t23
+#204 = 100
+bge #203,#204,Label53
+#205 = t23
+#206 = 2
+#207 = #205 + #206
+t23 = #207
+#208 = t23
+#209 = 60
+ble #208,#209,Label54
+#210 = t23
+output #210
+output string  
+#211 = t18
+#212 = t19
+#213 = #211 + #212
+#214 = t23
+#215 = #213 + #214
+output #215
+#ret 
+Label54:
+addi t23,t23,1
+goto Label52
+Label53:
+goto Label50
+Label51:
+output string error14
+Label22:
+#216 = in_1
+#217 = 3
+bne #216,#217,Label56
+#218 = 1
+push #218
+call factorial()
+#219 = #ret
+#220 = 2
+push #220
+call factorial()
+#221 = #ret
+#222 = #219 + #221
+#223 = 5
+push #223
+call factorial()
+#224 = #ret
+#225 = #222 + #224
+output #225
+#226 = 97
+_c1 = #226
+#227 = 43
+push #227
+call ff1()
+#228 = _c1
+output char #228
+#229 = 98
+_c2 = #229
+call ff2()
+#230 = _c2
+output char #230
+#231 = 1
+push #231
+#232 = 2
+push #232
+#233 = 97
+push #233
+#234 = 3
+push #234
+#235 = 98
+push #235
+#236 = 99
+push #236
+call ff3()
+call ff4()
+#237 = 42
+_c1 = #237
+call ff5()
+#238 = 6666
+_c4 = #238
+239 j
+#239 = 56
+_t1 = #239
+#240 = _c4
+#241 = _t1
+#242 = #240 + #241
+output #242
+#243 = 50
+#244 = 104
+c_array2[#243] = #244
+#245 = 50
+#246 = c_array2[#245]
+output char #246
+#247 = 103
+push #247
+call ff1()
+#248 = #ret
+output char #248
+#249 = 114
+output #249
+#250 = 0
+i = #250
+Label58:
+#251 = i
+#252 = 100
+bge #251,#252,Label59
+#253 = i
+#254 = i
+t_array2[#253] = #254
+addi i,i,1
+goto Label58
+Label59:
+#255 = 34
+#256 = 4
+#257 = #255 / #256
+#258 = 6
+#259 = #257 * #258
+#260 = 122
+#261 = 10
+#262 = #260 / #261
+#263 = #259 + #262
+#264 = t_array2[#263]
+#265 = 23
+#266 = #264 / #265
+#267 = 22
+#268 = i
+#269 = #267 * #268
+#270 = 23
+#271 = #269 / #270
+#272 = 1
+#273 = t_array2[#272]
+#274 = 1000
+#275 = #273 * #274
+#276 = #271 * #275
+#277 = 1000
+#278 = #276 / #277
+#279 = 57
+#280 = 17
+#281 = #279 / #280
+#282 = #278 + #281
+#283 = t_array2[#282]
+#284 = 30
+#285 = #283 / #284
+#286 = #266 + #285
+#287 = t_array2[#286]
+i = #287
+#288 = 34
+#289 = 4
+#290 = #288 / #289
+#291 = 6
+#292 = #290 * #291
+#293 = 122
+#294 = 10
+#295 = #293 / #294
+#296 = #292 + #295
+#297 = t_array2[#296]
+#298 = 23
+#299 = #297 / #298
+#300 = 22
+#301 = i
+#302 = #300 * #301
+#303 = 23
+#304 = #302 / #303
+#305 = 1
+#306 = t_array2[#305]
+#307 = 1000
+#308 = #306 * #307
+#309 = #304 * #308
+#310 = 1000
+#311 = #309 / #310
+#312 = 57
+#313 = 17
+#314 = #312 / #313
+#315 = #311 + #314
+#316 = t_array2[#315]
+#317 = 30
+#318 = #316 / #317
+#319 = #299 + #318
+#320 = t_array2[#319]
+push #320
+call factorial()
+#321 = #ret
+output #321
+Label56:
+#ret 
+#ret 

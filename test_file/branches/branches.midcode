@@ -1,0 +1,1214 @@
+
+func main()
+if global_int$1 == global_int$0 branch to "label$48"
+label$49:
+input main_a
+input main_b
+input main_c
+if main_a != global_int$0 branch to "label$50"
+if main_b != global_int$0 branch to "label$51"
+if main_c != global_int$0 branch to "label$52"
+return
+label$52:
+label$51:
+label$50:
+push main_a
+push main_b
+push main_c
+call compare
+push main_a
+push main_b
+push main_c
+call compare_to_num
+if global_int$1 != global_int$0 branch to "label$49"
+label$48:
+return
+
+func ads()
+if ads_x >= global_int$0 branch to "label$2"
+ads_#3 = global_int$0 - ads_x
+return ads_#3
+goto label$3
+label$2:
+return ads_x
+label$3:
+
+func compare()
+push compare_a
+push compare_b
+compare_#4 = call distance
+compare_edage1 = compare_#4
+push compare_b
+push compare_c
+compare_#5 = call distance
+compare_edage2 = compare_#5
+push compare_a
+push compare_c
+compare_#6 = call distance
+compare_edage3 = compare_#6
+compare_#7 = compare_edage1 + compare_edage3
+if compare_#7 < compare_edage2 branch to "label$4"
+output "assumption1 confirmed 1" 
+output "\n" 
+compare_#8 = compare_edage1 + compare_edage3
+if compare_#8 <= compare_edage2 branch to "label$5"
+output "situation 1" 
+output "\n" 
+goto label$6
+label$5:
+output "no situation 1" 
+output "\n" 
+label$6:
+compare_#9 = compare_edage1 + compare_edage3
+if compare_#9 != compare_edage2 branch to "label$7"
+output "situation 2" 
+output "\n" 
+goto label$8
+label$7:
+output "no situation 2" 
+output "\n" 
+label$8:
+label$4:
+compare_#10 = compare_edage2 + compare_edage3
+if compare_edage1 > compare_#10 branch to "label$9"
+output "assumption1 confirmed 2" 
+output "\n" 
+compare_#11 = compare_edage2 + compare_edage3
+if compare_edage1 == compare_#11 branch to "label$10"
+output "situation 1" 
+output "\n" 
+goto label$11
+label$10:
+output "no situation 1" 
+output "\n" 
+label$11:
+compare_#12 = compare_edage2 + compare_edage3
+if compare_#12 != compare_edage1 branch to "label$12"
+output "situation 2" 
+output "\n" 
+goto label$13
+label$12:
+output "no situation 2" 
+output "\n" 
+label$13:
+label$9:
+compare_#13 = compare_edage1 - compare_edage2
+if compare_#13 > compare_edage3 branch to "label$14"
+output "assumption2 confirmed 1" 
+output "\n" 
+compare_#14 = compare_edage1 - compare_edage2
+if compare_edage3 <= compare_#14 branch to "label$15"
+output "situation 1" 
+output "\n" 
+goto label$16
+label$15:
+output "no situation 1" 
+output "\n" 
+label$16:
+compare_#15 = compare_edage1 - compare_edage2
+if compare_#15 != compare_edage1 branch to "label$17"
+output "situation 2" 
+output "\n" 
+goto label$18
+label$17:
+output "no situation 2" 
+output "\n" 
+label$18:
+label$14:
+compare_#16 = compare_edage3 - compare_edage2
+if compare_edage1 < compare_#16 branch to "label$19"
+output "assumption2 confirmed 2" 
+output "\n" 
+compare_#17 = compare_edage2 + compare_edage3
+if compare_#17 >= compare_edage1 branch to "label$20"
+output "situation 1" 
+output "\n" 
+goto label$21
+label$20:
+output "no situation 1" 
+output "\n" 
+label$21:
+compare_#18 = compare_edage2 - compare_edage3
+if compare_#18 != compare_edage1 branch to "label$22"
+output "situation 2" 
+output "\n" 
+goto label$23
+label$22:
+output "no situation 2" 
+output "\n" 
+label$23:
+label$19:
+return
+
+func distance()
+distance_#1 = distance_x - distance_y
+distance_res = distance_#1
+if distance_res >= global_int$0 branch to "label$1"
+distance_#2 = global_int$0 - distance_res
+distance_res = distance_#2
+label$1:
+return distance_res
+
+func compare_to_num()
+if compare_to_num_a >= global_int$10 branch to "label$24"
+output "a < 10" 
+output "\n" 
+goto label$25
+label$24:
+output " " 
+output "\n" 
+label$25:
+if global_int$85 >= compare_to_num_b branch to "label$26"
+output "85 < b" 
+output "\n" 
+goto label$27
+label$26:
+output " " 
+output "\n" 
+label$27:
+if compare_to_num_b > global_int$5 branch to "label$28"
+output "b <= 5" 
+output "\n" 
+goto label$29
+label$28:
+output " " 
+output "\n" 
+label$29:
+if global_int$1 > compare_to_num_b branch to "label$30"
+output "1 <= b" 
+output "\n" 
+goto label$31
+label$30:
+output " " 
+output "\n" 
+label$31:
+if global_int$8 != compare_to_num_c branch to "label$32"
+output "8 == c" 
+output "\n" 
+goto label$33
+label$32:
+output " " 
+output "\n" 
+label$33:
+if compare_to_num_a != global_int$7 branch to "label$34"
+output "a == 7" 
+output "\n" 
+goto label$35
+label$34:
+output " " 
+output "\n" 
+label$35:
+if global_int$9 == compare_to_num_b branch to "label$36"
+output "9 != b" 
+output "\n" 
+goto label$37
+label$36:
+output " " 
+output "\n" 
+label$37:
+compare_to_num_#19 = compare_to_num_a + compare_to_num_c
+if compare_to_num_#19 == global_int$15 branch to "label$38"
+output "a + c != 15" 
+output "\n" 
+goto label$39
+label$38:
+output " " 
+output "\n" 
+label$39:
+compare_to_num_#20 = global_int$0 - global_int$1
+compare_to_num_#21 = compare_to_num_a - compare_to_num_c
+if compare_to_num_#20 <= compare_to_num_#21 branch to "label$40"
+output "-1 > a - c" 
+output "\n" 
+goto label$41
+label$40:
+output " " 
+output "\n" 
+label$41:
+compare_to_num_#22 = compare_to_num_c - compare_to_num_a
+compare_to_num_#23 = global_int$0 - global_int$8
+if compare_to_num_#22 <= compare_to_num_#23 branch to "label$42"
+output "c - a > -8" 
+output "\n" 
+goto label$43
+label$42:
+output " " 
+output "\n" 
+label$43:
+compare_to_num_#24 = compare_to_num_a + compare_to_num_c
+compare_to_num_#24 = compare_to_num_#24 + compare_to_num_b
+if global_int$56 < compare_to_num_#24 branch to "label$44"
+output "56 >= a + c + b" 
+output "\n" 
+goto label$45
+label$44:
+output " " 
+output "\n" 
+label$45:
+compare_to_num_#25 = compare_to_num_a + compare_to_num_b
+compare_to_num_#25 = compare_to_num_#25 - compare_to_num_c
+if compare_to_num_#25 < global_int$5 branch to "label$46"
+output "a + b - c >= 5" 
+output "\n" 
+goto label$47
+label$46:
+output " " 
+output "\n" 
+label$47:
+return
+
+<!--anchor-->
+
+func main()
+label$49:
+input main_a
+input main_b
+input main_c
+if main_a != global_int$0 branch to "label$50"
+if main_b != global_int$0 branch to "label$51"
+if main_c != global_int$0 branch to "label$52"
+return
+label$52:
+label$51:
+label$50:
+compare_a = main_a
+compare_b = main_b
+compare_c = main_c
+push compare_a
+push compare_b
+compare_#4 = call distance
+compare_edage1 = compare_#4
+push compare_b
+push compare_c
+compare_#5 = call distance
+compare_edage2 = compare_#5
+push compare_a
+push compare_c
+compare_#6 = call distance
+compare_edage3 = compare_#6
+compare_#7 = compare_edage1 + compare_#6
+if compare_#7 < compare_edage2 branch to "label$54"
+output "assumption1 confirmed 1" 
+output "\n" 
+compare_#8 = compare_edage1 + compare_edage3
+if compare_#8 <= compare_edage2 branch to "label$55"
+output "situation 1" 
+output "\n" 
+goto label$56
+label$55:
+output "no situation 1" 
+output "\n" 
+label$56:
+compare_#9 = compare_edage1 + compare_edage3
+if compare_#9 != compare_edage2 branch to "label$57"
+output "situation 2" 
+output "\n" 
+goto label$58
+label$57:
+output "no situation 2" 
+output "\n" 
+label$58:
+label$54:
+compare_#10 = compare_edage2 + compare_edage3
+if compare_edage1 > compare_#10 branch to "label$59"
+output "assumption1 confirmed 2" 
+output "\n" 
+compare_#11 = compare_edage2 + compare_edage3
+if compare_edage1 == compare_#11 branch to "label$60"
+output "situation 1" 
+output "\n" 
+goto label$61
+label$60:
+output "no situation 1" 
+output "\n" 
+label$61:
+compare_#12 = compare_edage2 + compare_edage3
+if compare_#12 != compare_edage1 branch to "label$62"
+output "situation 2" 
+output "\n" 
+goto label$63
+label$62:
+output "no situation 2" 
+output "\n" 
+label$63:
+label$59:
+compare_#13 = compare_edage1 - compare_edage2
+if compare_#13 > compare_edage3 branch to "label$64"
+output "assumption2 confirmed 1" 
+output "\n" 
+compare_#14 = compare_edage1 - compare_edage2
+if compare_edage3 <= compare_#14 branch to "label$65"
+output "situation 1" 
+output "\n" 
+goto label$66
+label$65:
+output "no situation 1" 
+output "\n" 
+label$66:
+compare_#15 = compare_edage1 - compare_edage2
+if compare_#15 != compare_edage1 branch to "label$67"
+output "situation 2" 
+output "\n" 
+goto label$68
+label$67:
+output "no situation 2" 
+output "\n" 
+label$68:
+label$64:
+compare_#16 = compare_edage3 - compare_edage2
+if compare_edage1 < compare_#16 branch to "label$69"
+output "assumption2 confirmed 2" 
+output "\n" 
+compare_#17 = compare_edage2 + compare_edage3
+if compare_#17 >= compare_edage1 branch to "label$70"
+output "situation 1" 
+output "\n" 
+goto label$71
+label$70:
+output "no situation 1" 
+output "\n" 
+label$71:
+compare_#18 = compare_edage2 - compare_edage3
+if compare_#18 != compare_edage1 branch to "label$72"
+output "situation 2" 
+output "\n" 
+goto label$73
+label$72:
+output "no situation 2" 
+output "\n" 
+label$73:
+label$69:
+compare_to_num_a = main_a
+compare_to_num_b = main_b
+compare_to_num_c = main_c
+if main_a >= global_int$10 branch to "label$75"
+output "a < 10" 
+output "\n" 
+goto label$76
+label$75:
+output " " 
+output "\n" 
+label$76:
+if global_int$85 >= compare_to_num_b branch to "label$77"
+output "85 < b" 
+output "\n" 
+goto label$78
+label$77:
+output " " 
+output "\n" 
+label$78:
+if compare_to_num_b > global_int$5 branch to "label$79"
+output "b <= 5" 
+output "\n" 
+goto label$80
+label$79:
+output " " 
+output "\n" 
+label$80:
+if global_int$1 > compare_to_num_b branch to "label$81"
+output "1 <= b" 
+output "\n" 
+goto label$82
+label$81:
+output " " 
+output "\n" 
+label$82:
+if global_int$8 != compare_to_num_c branch to "label$83"
+output "8 == c" 
+output "\n" 
+goto label$84
+label$83:
+output " " 
+output "\n" 
+label$84:
+if compare_to_num_a != global_int$7 branch to "label$85"
+output "a == 7" 
+output "\n" 
+goto label$86
+label$85:
+output " " 
+output "\n" 
+label$86:
+if global_int$9 == compare_to_num_b branch to "label$87"
+output "9 != b" 
+output "\n" 
+goto label$88
+label$87:
+output " " 
+output "\n" 
+label$88:
+compare_to_num_#19 = compare_to_num_a + compare_to_num_c
+if compare_to_num_#19 == global_int$15 branch to "label$89"
+output "a + c != 15" 
+output "\n" 
+goto label$90
+label$89:
+output " " 
+output "\n" 
+label$90:
+compare_to_num_#21 = compare_to_num_a - compare_to_num_c
+if global_int$-1 <= compare_to_num_#21 branch to "label$91"
+output "-1 > a - c" 
+output "\n" 
+goto label$92
+label$91:
+output " " 
+output "\n" 
+label$92:
+compare_to_num_#22 = compare_to_num_c - compare_to_num_a
+if compare_to_num_#22 <= global_int$-8 branch to "label$93"
+output "c - a > -8" 
+output "\n" 
+goto label$94
+label$93:
+output " " 
+output "\n" 
+label$94:
+compare_to_num_#24 = compare_to_num_a + compare_to_num_c
+compare_to_num_#24 = compare_to_num_#24 + compare_to_num_b
+if global_int$56 < compare_to_num_#24 branch to "label$95"
+output "56 >= a + c + b" 
+output "\n" 
+goto label$96
+label$95:
+output " " 
+output "\n" 
+label$96:
+compare_to_num_#25 = compare_to_num_a + compare_to_num_b
+compare_to_num_#25 = compare_to_num_#25 - compare_to_num_c
+if compare_to_num_#25 < global_int$5 branch to "label$97"
+output "a + b - c >= 5" 
+output "\n" 
+goto label$98
+label$97:
+output " " 
+output "\n" 
+label$98:
+goto label$49
+
+func distance()
+distance_#1 = distance_x - distance_y
+distance_res = distance_#1
+if distance_#1 >= global_int$0 branch to "label$1"
+distance_#2 = global_int$0 - distance_res
+distance_res = distance_#2
+label$1:
+return distance_res
+
+<!--anchor-->
+
+func main()
+label$49:
+input main_a
+input main_b
+input main_c
+if main_a != global_int$0 branch to "label$50"
+if main_b != global_int$0 branch to "label$51"
+if main_c != global_int$0 branch to "label$52"
+return
+label$52:
+label$51:
+label$50:
+compare_a = main_a
+compare_b = main_b
+compare_c = main_c
+distance_#1 = main_a - main_b
+distance_res = distance_#1
+if distance_#1 >= global_int$0 branch to "label$106"
+distance_#2 = global_int$0 - distance_res
+distance_res = distance_#2
+label$106:
+compare_#4 = distance_res
+compare_edage1 = compare_#4
+distance_#1 = compare_b - compare_c
+distance_res = distance_#1
+if distance_#1 >= global_int$0 branch to "label$108"
+distance_#2 = global_int$0 - distance_res
+distance_res = distance_#2
+label$108:
+compare_#5 = distance_res
+compare_edage2 = compare_#5
+distance_#1 = compare_a - compare_c
+distance_res = distance_#1
+if distance_#1 >= global_int$0 branch to "label$110"
+distance_#2 = global_int$0 - distance_res
+distance_res = distance_#2
+label$110:
+compare_#6 = distance_res
+compare_edage3 = compare_#6
+compare_#7 = compare_edage1 + compare_#6
+if compare_#7 < compare_edage2 branch to "label$54"
+output "assumption1 confirmed 1" 
+output "\n" 
+compare_#8 = compare_edage1 + compare_edage3
+if compare_#8 <= compare_edage2 branch to "label$55"
+output "situation 1" 
+output "\n" 
+goto label$56
+label$55:
+output "no situation 1" 
+output "\n" 
+label$56:
+compare_#9 = compare_edage1 + compare_edage3
+if compare_#9 != compare_edage2 branch to "label$57"
+output "situation 2" 
+output "\n" 
+goto label$58
+label$57:
+output "no situation 2" 
+output "\n" 
+label$58:
+label$54:
+compare_#10 = compare_edage2 + compare_edage3
+if compare_edage1 > compare_#10 branch to "label$59"
+output "assumption1 confirmed 2" 
+output "\n" 
+compare_#11 = compare_edage2 + compare_edage3
+if compare_edage1 == compare_#11 branch to "label$60"
+output "situation 1" 
+output "\n" 
+goto label$61
+label$60:
+output "no situation 1" 
+output "\n" 
+label$61:
+compare_#12 = compare_edage2 + compare_edage3
+if compare_#12 != compare_edage1 branch to "label$62"
+output "situation 2" 
+output "\n" 
+goto label$63
+label$62:
+output "no situation 2" 
+output "\n" 
+label$63:
+label$59:
+compare_#13 = compare_edage1 - compare_edage2
+if compare_#13 > compare_edage3 branch to "label$64"
+output "assumption2 confirmed 1" 
+output "\n" 
+compare_#14 = compare_edage1 - compare_edage2
+if compare_edage3 <= compare_#14 branch to "label$65"
+output "situation 1" 
+output "\n" 
+goto label$66
+label$65:
+output "no situation 1" 
+output "\n" 
+label$66:
+compare_#15 = compare_edage1 - compare_edage2
+if compare_#15 != compare_edage1 branch to "label$67"
+output "situation 2" 
+output "\n" 
+goto label$68
+label$67:
+output "no situation 2" 
+output "\n" 
+label$68:
+label$64:
+compare_#16 = compare_edage3 - compare_edage2
+if compare_edage1 < compare_#16 branch to "label$69"
+output "assumption2 confirmed 2" 
+output "\n" 
+compare_#17 = compare_edage2 + compare_edage3
+if compare_#17 >= compare_edage1 branch to "label$70"
+output "situation 1" 
+output "\n" 
+goto label$71
+label$70:
+output "no situation 1" 
+output "\n" 
+label$71:
+compare_#18 = compare_edage2 - compare_edage3
+if compare_#18 != compare_edage1 branch to "label$72"
+output "situation 2" 
+output "\n" 
+goto label$73
+label$72:
+output "no situation 2" 
+output "\n" 
+label$73:
+label$69:
+compare_to_num_a = main_a
+compare_to_num_b = main_b
+compare_to_num_c = main_c
+if main_a >= global_int$10 branch to "label$75"
+output "a < 10" 
+output "\n" 
+goto label$76
+label$75:
+output " " 
+output "\n" 
+label$76:
+if global_int$85 >= compare_to_num_b branch to "label$77"
+output "85 < b" 
+output "\n" 
+goto label$78
+label$77:
+output " " 
+output "\n" 
+label$78:
+if compare_to_num_b > global_int$5 branch to "label$79"
+output "b <= 5" 
+output "\n" 
+goto label$80
+label$79:
+output " " 
+output "\n" 
+label$80:
+if global_int$1 > compare_to_num_b branch to "label$81"
+output "1 <= b" 
+output "\n" 
+goto label$82
+label$81:
+output " " 
+output "\n" 
+label$82:
+if global_int$8 != compare_to_num_c branch to "label$83"
+output "8 == c" 
+output "\n" 
+goto label$84
+label$83:
+output " " 
+output "\n" 
+label$84:
+if compare_to_num_a != global_int$7 branch to "label$85"
+output "a == 7" 
+output "\n" 
+goto label$86
+label$85:
+output " " 
+output "\n" 
+label$86:
+if global_int$9 == compare_to_num_b branch to "label$87"
+output "9 != b" 
+output "\n" 
+goto label$88
+label$87:
+output " " 
+output "\n" 
+label$88:
+compare_to_num_#19 = compare_to_num_a + compare_to_num_c
+if compare_to_num_#19 == global_int$15 branch to "label$89"
+output "a + c != 15" 
+output "\n" 
+goto label$90
+label$89:
+output " " 
+output "\n" 
+label$90:
+compare_to_num_#21 = compare_to_num_a - compare_to_num_c
+if global_int$-1 <= compare_to_num_#21 branch to "label$91"
+output "-1 > a - c" 
+output "\n" 
+goto label$92
+label$91:
+output " " 
+output "\n" 
+label$92:
+compare_to_num_#22 = compare_to_num_c - compare_to_num_a
+if compare_to_num_#22 <= global_int$-8 branch to "label$93"
+output "c - a > -8" 
+output "\n" 
+goto label$94
+label$93:
+output " " 
+output "\n" 
+label$94:
+compare_to_num_#24 = compare_to_num_a + compare_to_num_c
+compare_to_num_#24 = compare_to_num_#24 + compare_to_num_b
+if global_int$56 < compare_to_num_#24 branch to "label$95"
+output "56 >= a + c + b" 
+output "\n" 
+goto label$96
+label$95:
+output " " 
+output "\n" 
+label$96:
+compare_to_num_#25 = compare_to_num_a + compare_to_num_b
+compare_to_num_#25 = compare_to_num_#25 - compare_to_num_c
+if compare_to_num_#25 < global_int$5 branch to "label$97"
+output "a + b - c >= 5" 
+output "\n" 
+goto label$98
+label$97:
+output " " 
+output "\n" 
+label$98:
+goto label$49
+
+<!--anchor-->
+
+func main()
+label$49:
+input main_a
+input main_b
+input main_c
+if main_a != global_int$0 branch to "label$50"
+if main_b != global_int$0 branch to "label$51"
+if main_c != global_int$0 branch to "label$52"
+return
+label$52:
+label$51:
+label$50:
+compare_a = main_a
+compare_b = main_b
+compare_c = main_c
+distance_#1 = main_a - main_b
+distance_res = distance_#1
+if distance_#1 >= global_int$0 branch to "label$106"
+distance_#2 = global_int$0 - distance_res
+distance_res = distance_#2
+label$106:
+compare_edage1 = distance_res
+distance_#1 = compare_b - compare_c
+distance_res = distance_#1
+if distance_#1 >= global_int$0 branch to "label$108"
+distance_#2 = global_int$0 - distance_res
+distance_res = distance_#2
+label$108:
+compare_edage2 = distance_res
+distance_#1 = compare_a - compare_c
+distance_res = distance_#1
+if distance_#1 >= global_int$0 branch to "label$110"
+distance_#2 = global_int$0 - distance_res
+distance_res = distance_#2
+label$110:
+compare_edage3 = distance_res
+compare_#7 = compare_edage1 + distance_res
+if compare_#7 < compare_edage2 branch to "label$54"
+output "assumption1 confirmed 1" 
+output "\n" 
+compare_#8 = compare_edage1 + compare_edage3
+if compare_#8 <= compare_edage2 branch to "label$55"
+output "situation 1" 
+output "\n" 
+goto label$56
+label$55:
+output "no situation 1" 
+output "\n" 
+label$56:
+compare_#9 = compare_edage1 + compare_edage3
+if compare_#9 != compare_edage2 branch to "label$57"
+output "situation 2" 
+output "\n" 
+goto label$58
+label$57:
+output "no situation 2" 
+output "\n" 
+label$58:
+label$54:
+compare_#10 = compare_edage2 + compare_edage3
+if compare_edage1 > compare_#10 branch to "label$59"
+output "assumption1 confirmed 2" 
+output "\n" 
+compare_#11 = compare_edage2 + compare_edage3
+if compare_edage1 == compare_#11 branch to "label$60"
+output "situation 1" 
+output "\n" 
+goto label$61
+label$60:
+output "no situation 1" 
+output "\n" 
+label$61:
+compare_#12 = compare_edage2 + compare_edage3
+if compare_#12 != compare_edage1 branch to "label$62"
+output "situation 2" 
+output "\n" 
+goto label$63
+label$62:
+output "no situation 2" 
+output "\n" 
+label$63:
+label$59:
+compare_#13 = compare_edage1 - compare_edage2
+if compare_#13 > compare_edage3 branch to "label$64"
+output "assumption2 confirmed 1" 
+output "\n" 
+compare_#14 = compare_edage1 - compare_edage2
+if compare_edage3 <= compare_#14 branch to "label$65"
+output "situation 1" 
+output "\n" 
+goto label$66
+label$65:
+output "no situation 1" 
+output "\n" 
+label$66:
+compare_#15 = compare_edage1 - compare_edage2
+if compare_#15 != compare_edage1 branch to "label$67"
+output "situation 2" 
+output "\n" 
+goto label$68
+label$67:
+output "no situation 2" 
+output "\n" 
+label$68:
+label$64:
+compare_#16 = compare_edage3 - compare_edage2
+if compare_edage1 < compare_#16 branch to "label$69"
+output "assumption2 confirmed 2" 
+output "\n" 
+compare_#17 = compare_edage2 + compare_edage3
+if compare_#17 >= compare_edage1 branch to "label$70"
+output "situation 1" 
+output "\n" 
+goto label$71
+label$70:
+output "no situation 1" 
+output "\n" 
+label$71:
+compare_#18 = compare_edage2 - compare_edage3
+if compare_#18 != compare_edage1 branch to "label$72"
+output "situation 2" 
+output "\n" 
+goto label$73
+label$72:
+output "no situation 2" 
+output "\n" 
+label$73:
+label$69:
+compare_to_num_a = main_a
+compare_to_num_b = main_b
+compare_to_num_c = main_c
+if main_a >= global_int$10 branch to "label$75"
+output "a < 10" 
+output "\n" 
+goto label$76
+label$75:
+output " " 
+output "\n" 
+label$76:
+if global_int$85 >= compare_to_num_b branch to "label$77"
+output "85 < b" 
+output "\n" 
+goto label$78
+label$77:
+output " " 
+output "\n" 
+label$78:
+if compare_to_num_b > global_int$5 branch to "label$79"
+output "b <= 5" 
+output "\n" 
+goto label$80
+label$79:
+output " " 
+output "\n" 
+label$80:
+if global_int$1 > compare_to_num_b branch to "label$81"
+output "1 <= b" 
+output "\n" 
+goto label$82
+label$81:
+output " " 
+output "\n" 
+label$82:
+if global_int$8 != compare_to_num_c branch to "label$83"
+output "8 == c" 
+output "\n" 
+goto label$84
+label$83:
+output " " 
+output "\n" 
+label$84:
+if compare_to_num_a != global_int$7 branch to "label$85"
+output "a == 7" 
+output "\n" 
+goto label$86
+label$85:
+output " " 
+output "\n" 
+label$86:
+if global_int$9 == compare_to_num_b branch to "label$87"
+output "9 != b" 
+output "\n" 
+goto label$88
+label$87:
+output " " 
+output "\n" 
+label$88:
+compare_to_num_#19 = compare_to_num_a + compare_to_num_c
+if compare_to_num_#19 == global_int$15 branch to "label$89"
+output "a + c != 15" 
+output "\n" 
+goto label$90
+label$89:
+output " " 
+output "\n" 
+label$90:
+compare_to_num_#21 = compare_to_num_a - compare_to_num_c
+if global_int$-1 <= compare_to_num_#21 branch to "label$91"
+output "-1 > a - c" 
+output "\n" 
+goto label$92
+label$91:
+output " " 
+output "\n" 
+label$92:
+compare_to_num_#22 = compare_to_num_c - compare_to_num_a
+if compare_to_num_#22 <= global_int$-8 branch to "label$93"
+output "c - a > -8" 
+output "\n" 
+goto label$94
+label$93:
+output " " 
+output "\n" 
+label$94:
+compare_to_num_#24 = compare_to_num_a + compare_to_num_c
+compare_to_num_#24 = compare_to_num_#24 + compare_to_num_b
+if global_int$56 < compare_to_num_#24 branch to "label$95"
+output "56 >= a + c + b" 
+output "\n" 
+goto label$96
+label$95:
+output " " 
+output "\n" 
+label$96:
+compare_to_num_#25 = compare_to_num_a + compare_to_num_b
+compare_to_num_#25 = compare_to_num_#25 - compare_to_num_c
+if compare_to_num_#25 < global_int$5 branch to "label$97"
+output "a + b - c >= 5" 
+output "\n" 
+goto label$98
+label$97:
+output " " 
+output "\n" 
+label$98:
+goto label$49
+
+<!--anchor-->
+
+func main()
+label$49:
+input main_a
+input main_b
+input main_c
+if main_a != global_int$0 branch to "label$50"
+if main_b != global_int$0 branch to "label$51"
+if main_c != global_int$0 branch to "label$52"
+return
+label$52:
+label$51:
+label$50:
+compare_a = main_a
+compare_b = main_b
+compare_c = main_c
+distance_#1 = main_a - main_b
+distance_res = distance_#1
+if distance_#1 >= global_int$0 branch to "label$106"
+distance_#2 = global_int$0 - distance_res
+distance_res = distance_#2
+label$106:
+compare_edage1 = distance_res
+distance_#1 = compare_b - compare_c
+distance_res = distance_#1
+if distance_#1 >= global_int$0 branch to "label$108"
+distance_#2 = global_int$0 - distance_res
+distance_res = distance_#2
+label$108:
+compare_edage2 = distance_res
+distance_#1 = compare_a - compare_c
+distance_res = distance_#1
+if distance_#1 >= global_int$0 branch to "label$110"
+distance_#2 = global_int$0 - distance_res
+distance_res = distance_#2
+label$110:
+compare_edage3 = distance_res
+compare_#7 = compare_edage1 + distance_res
+if compare_#7 < compare_edage2 branch to "label$54"
+output "assumption1 confirmed 1" 
+output "\n" 
+compare_#8 = compare_edage1 + compare_edage3
+if compare_#8 <= compare_edage2 branch to "label$55"
+output "situation 1" 
+output "\n" 
+goto label$56
+label$55:
+output "no situation 1" 
+output "\n" 
+label$56:
+compare_#9 = compare_edage1 + compare_edage3
+if compare_#9 != compare_edage2 branch to "label$57"
+output "situation 2" 
+output "\n" 
+goto label$58
+label$57:
+output "no situation 2" 
+output "\n" 
+label$58:
+label$54:
+compare_#10 = compare_edage2 + compare_edage3
+if compare_edage1 > compare_#10 branch to "label$59"
+output "assumption1 confirmed 2" 
+output "\n" 
+compare_#11 = compare_edage2 + compare_edage3
+if compare_edage1 == compare_#11 branch to "label$60"
+output "situation 1" 
+output "\n" 
+goto label$61
+label$60:
+output "no situation 1" 
+output "\n" 
+label$61:
+compare_#12 = compare_edage2 + compare_edage3
+if compare_#12 != compare_edage1 branch to "label$62"
+output "situation 2" 
+output "\n" 
+goto label$63
+label$62:
+output "no situation 2" 
+output "\n" 
+label$63:
+label$59:
+compare_#13 = compare_edage1 - compare_edage2
+if compare_#13 > compare_edage3 branch to "label$64"
+output "assumption2 confirmed 1" 
+output "\n" 
+compare_#14 = compare_edage1 - compare_edage2
+if compare_edage3 <= compare_#14 branch to "label$65"
+output "situation 1" 
+output "\n" 
+goto label$66
+label$65:
+output "no situation 1" 
+output "\n" 
+label$66:
+compare_#15 = compare_edage1 - compare_edage2
+if compare_#15 != compare_edage1 branch to "label$67"
+output "situation 2" 
+output "\n" 
+goto label$68
+label$67:
+output "no situation 2" 
+output "\n" 
+label$68:
+label$64:
+compare_#16 = compare_edage3 - compare_edage2
+if compare_edage1 < compare_#16 branch to "label$69"
+output "assumption2 confirmed 2" 
+output "\n" 
+compare_#17 = compare_edage2 + compare_edage3
+if compare_#17 >= compare_edage1 branch to "label$70"
+output "situation 1" 
+output "\n" 
+goto label$71
+label$70:
+output "no situation 1" 
+output "\n" 
+label$71:
+compare_#18 = compare_edage2 - compare_edage3
+if compare_#18 != compare_edage1 branch to "label$72"
+output "situation 2" 
+output "\n" 
+goto label$73
+label$72:
+output "no situation 2" 
+output "\n" 
+label$73:
+label$69:
+compare_to_num_a = main_a
+compare_to_num_b = main_b
+compare_to_num_c = main_c
+if main_a >= global_int$10 branch to "label$75"
+output "a < 10" 
+output "\n" 
+goto label$76
+label$75:
+output " " 
+output "\n" 
+label$76:
+if global_int$85 >= compare_to_num_b branch to "label$77"
+output "85 < b" 
+output "\n" 
+goto label$78
+label$77:
+output " " 
+output "\n" 
+label$78:
+if compare_to_num_b > global_int$5 branch to "label$79"
+output "b <= 5" 
+output "\n" 
+goto label$80
+label$79:
+output " " 
+output "\n" 
+label$80:
+if global_int$1 > compare_to_num_b branch to "label$81"
+output "1 <= b" 
+output "\n" 
+goto label$82
+label$81:
+output " " 
+output "\n" 
+label$82:
+if global_int$8 != compare_to_num_c branch to "label$83"
+output "8 == c" 
+output "\n" 
+goto label$84
+label$83:
+output " " 
+output "\n" 
+label$84:
+if compare_to_num_a != global_int$7 branch to "label$85"
+output "a == 7" 
+output "\n" 
+goto label$86
+label$85:
+output " " 
+output "\n" 
+label$86:
+if global_int$9 == compare_to_num_b branch to "label$87"
+output "9 != b" 
+output "\n" 
+goto label$88
+label$87:
+output " " 
+output "\n" 
+label$88:
+compare_to_num_#19 = compare_to_num_a + compare_to_num_c
+if compare_to_num_#19 == global_int$15 branch to "label$89"
+output "a + c != 15" 
+output "\n" 
+goto label$90
+label$89:
+output " " 
+output "\n" 
+label$90:
+compare_to_num_#21 = compare_to_num_a - compare_to_num_c
+if global_int$-1 <= compare_to_num_#21 branch to "label$91"
+output "-1 > a - c" 
+output "\n" 
+goto label$92
+label$91:
+output " " 
+output "\n" 
+label$92:
+compare_to_num_#22 = compare_to_num_c - compare_to_num_a
+if compare_to_num_#22 <= global_int$-8 branch to "label$93"
+output "c - a > -8" 
+output "\n" 
+goto label$94
+label$93:
+output " " 
+output "\n" 
+label$94:
+compare_to_num_#24 = compare_to_num_a + compare_to_num_c
+compare_to_num_#24 = compare_to_num_#24 + compare_to_num_b
+if global_int$56 < compare_to_num_#24 branch to "label$95"
+output "56 >= a + c + b" 
+output "\n" 
+goto label$96
+label$95:
+output " " 
+output "\n" 
+label$96:
+compare_to_num_#25 = compare_to_num_a + compare_to_num_b
+compare_to_num_#25 = compare_to_num_#25 - compare_to_num_c
+if compare_to_num_#25 < global_int$5 branch to "label$97"
+output "a + b - c >= 5" 
+output "\n" 
+goto label$98
+label$97:
+output " " 
+output "\n" 
+label$98:
+goto label$49
+

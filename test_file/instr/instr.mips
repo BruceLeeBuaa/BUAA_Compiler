@@ -1,0 +1,1503 @@
+.data
+str$14: .asciiz ")))"
+str$13: .asciiz "***"
+str$9: .asciiz "-a <= b"
+str$8: .asciiz "-bbb"
+str$6: .asciiz "1self yes"
+str$7: .asciiz "2222 yes"
+str$12: .asciiz ">>>"
+str$1: .asciiz "\n"
+str$4: .asciiz "a > b"
+str$5: .asciiz "a not less than b"
+str$0: .asciiz "abc"
+str$20: .asciiz "array_a[0] = "
+str$21: .asciiz "array_a[1] = "
+str$22: .asciiz "array_a[2] = "
+str$23: .asciiz "array_a[3] = "
+str$24: .asciiz "b[0] = "
+str$25: .asciiz "b[1] = "
+str$26: .asciiz "b[2] = "
+str$27: .asciiz "b[3] = "
+str$2: .asciiz "def"
+str$28: .asciiz "e"
+str$15: .asciiz "end"
+str$3: .asciiz "in"
+str$10: .asciiz "line21 y"
+str$19: .asciiz "t e s t 4"
+str$16: .asciiz "test1"
+str$17: .asciiz "test2"
+str$18: .asciiz "test3"
+str$11: .asciiz "w r o n g"
+
+.text
+jal main
+li $v0, 10
+syscall
+
+main:
+# $s2 : func2_a
+# $s0 : func2_b
+# $s1 : func2_c
+# $s0 : func2_#1
+# $s0 : integral_#8
+# $s0 : integral_#9
+# $s0 : funcarray_#69
+# $s0 : funcarray_#70
+# $s0 : funcarray_#71
+# $s0 : funcarray_#72
+# $s1 : funcloop_i
+# $s0 : funcloop_#15
+# $s0 : funcloop_#16
+# $s2 : funcio_i
+# $s1 : funcio_sum
+# $s0 : funcio_tmp
+# $s0 : funcio_#28
+# $s0 : funcio_#29
+# $s0 : funcarray_#31
+# $s0 : funcarray_#32
+# $s0 : funcio_#30
+# $s0 : funcarray_#34
+# $s0 : funcarray_#33
+# $s0 : funcarray_#37
+# $s0 : funcarray_#38
+# $s0 : funcarray_#35
+# $s0 : funcarray_#36
+# $s0 : funcarray_#39
+# $s0 : funcarray_#40
+# $s0 : funcarray_#41
+# $s0 : funcarray_#42
+# $s0 : funcarray_#43
+# $s0 : funcarray_#44
+# $s0 : funcarray_#59
+# $s0 : funcarray_#60
+# $s0 : funcarray_#45
+# $s0 : funcarray_#46
+# $s0 : funcarray_#47
+# $s0 : funcarray_#48
+# $s0 : funcarray_#49
+# $s0 : funcarray_#50
+# $s0 : funcarray_#51
+# $s0 : funcarray_#52
+# $s0 : funcarray_#53
+# $s0 : funcarray_#54
+# $s0 : funcarray_#55
+# $s0 : funcarray_#56
+# $s0 : funcarray_#57
+# $s0 : funcarray_#58
+# $s0 : funcarray_#88
+# $s0 : funcarray_#61
+# $s0 : funcarray_#62
+# $s0 : funcarray_#63
+# $s0 : funcarray_#64
+# $s0 : funcarray_#65
+# $s0 : funcarray_#66
+# $s0 : funcarray_#67
+# $s0 : funcarray_#68
+# $s0 : funcarray_#73
+# $s0 : funcarray_#87
+# $s0 : funcarray_#74
+# $s0 : funcarray_#75
+# $s0 : funcarray_#76
+# $s0 : funcarray_#77
+# $s0 : funcarray_#78
+# $s0 : funcarray_#79
+# $s0 : funcarray_#80
+# $s0 : funcarray_#81
+# $s0 : funcarray_#82
+# $s0 : funcarray_#83
+# $s0 : funcarray_#84
+# $s0 : funcarray_#85
+# $s0 : funcarray_#86
+# $s0 : funcarray_#89
+# $s0 : funcarray_#90
+# $s0 : funcarray_#91
+# $s0 : funcarray_#92
+# $s0 : funcarray_#93
+# $s0 : funcarray_#94
+sub $sp, $sp, 572
+sw $s0, 488($sp)
+sw $s1, 492($sp)
+sw $s2, 496($sp)
+
+# output "abc" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$2:
+move $t8, $a0
+li $a0, 2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$2:
+move $t8, $a0
+li $a0, 2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$0:
+move $t8, $a0
+move $a0, $zero
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$0:
+move $t8, $a0
+move $a0, $zero
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$2:
+move $t8, $a0
+li $a0, 2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$0:
+move $t8, $a0
+move $a0, $zero
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# integral_b[global_int$0] = global_int$2:
+sll $t8, $zero, 2
+li $t9, 2
+add $t8, $t8, $sp
+sw $t9, 20($t8)
+
+# integral_#8 = integral_b[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $sp
+lw $s0, 20($t8)
+
+# output integral_#8:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# integral_#9 = integral_b[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $sp
+lw $s0, 20($t8)
+
+# output integral_#9:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output integral_a:
+move $t8, $a0
+li $a0, 1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$2:
+move $t8, $a0
+li $a0, 2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1:
+move $t8, $a0
+li $a0, 1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$2:
+move $t8, $a0
+li $a0, 2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1:
+move $t8, $a0
+li $a0, 1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1:
+move $t8, $a0
+li $a0, 1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "def" :
+move $t8, $a0
+la $a0, str$2
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# input func2_a:
+li $v0, 5
+syscall
+move $s2, $v0
+
+# input func2_b:
+li $v0, 5
+syscall
+move $s0, $v0
+
+# input func2_c:
+li $v0, 5
+syscall
+move $s1, $v0
+
+# func2_#1 = func2_a + func2_b:
+add $s0, $s2, $s0
+
+# func2_#1 = func2_#1 + func2_c:
+add $s0, $s0, $s1
+
+# output func2_#1:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "in" :
+move $t8, $a0
+la $a0, str$3
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$9:
+move $t8, $a0
+li $a0, 9
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "def" :
+move $t8, $a0
+la $a0, str$2
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$9:
+move $t8, $a0
+li $a0, 9
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "a > b" :
+move $t8, $a0
+la $a0, str$4
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "a not less than b" :
+move $t8, $a0
+la $a0, str$5
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "1self yes" :
+move $t8, $a0
+la $a0, str$6
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "2222 yes" :
+move $t8, $a0
+la $a0, str$7
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "-bbb" :
+move $t8, $a0
+la $a0, str$8
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "-a <= b" :
+move $t8, $a0
+la $a0, str$9
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "line21 y" :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcloop_i = global_int$10:
+li $s1, 10
+
+# label$64::
+label$64:
+
+# funcloop_#15 = funcloop_i - global_int$2:
+sub $s0, $s1, 2
+
+# funcloop_i = funcloop_#15:
+move $s1, $s0
+
+# output funcloop_#15:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# if funcloop_#15 >= global_int$0 branch to "label$64":
+bgez $s0, label$64
+
+# if funcloop_i <= global_int$10 branch to "label$65":
+ble $s1, 10, label$65
+
+# label$66::
+label$66:
+
+# output "w r o n g" :
+move $t8, $a0
+la $a0, str$11
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# if funcloop_i > global_int$10 branch to "label$66":
+bgt $s1, 10, label$66
+
+# label$65::
+label$65:
+
+# funcloop_i = global_int$0:
+move $s1, $zero
+
+# label$68::
+label$68:
+
+# output ">>>" :
+move $t8, $a0
+la $a0, str$12
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output funcloop_i:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcloop_i = funcloop_i + global_int$1:
+add $s1, $s1, 1
+
+# if funcloop_i < global_int$20 branch to "label$68":
+blt $s1, 20, label$68
+
+# funcloop_i = global_int$20:
+li $s1, 20
+
+# label$70::
+label$70:
+
+# output "***" :
+move $t8, $a0
+la $a0, str$13
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output funcloop_i:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcloop_i = funcloop_i - global_int$1:
+sub $s1, $s1, 1
+
+# if funcloop_i >= global_int$0 branch to "label$70":
+bgez $s1, label$70
+
+# funcloop_i = global_int$1:
+li $s1, 1
+
+# label$71::
+label$71:
+
+# output ")))" :
+move $t8, $a0
+la $a0, str$14
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output funcloop_i:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcloop_#16 = funcloop_i + global_int$2:
+add $s0, $s1, 2
+
+# funcloop_i = funcloop_#16:
+move $s1, $s0
+
+# if funcloop_#16 <= global_int$1 branch to "label$71":
+ble $s0, 1, label$71
+
+# output "end" :
+move $t8, $a0
+la $a0, str$15
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# global_io_e = global_int$20:
+li $t0, 20
+
+# global_io_f = global_int$30:
+li $t1, 30
+
+# global_io_g = global_char$103:
+li $t2, 103
+
+# global_io_h = global_char$104:
+li $t3, 104
+
+# output "test1" :
+move $t8, $a0
+la $a0, str$16
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "test2" :
+move $t8, $a0
+la $a0, str$17
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$207:
+move $t8, $a0
+li $a0, 207
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$207:
+move $t8, $a0
+li $a0, 207
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "test3" :
+move $t8, $a0
+la $a0, str$18
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$-994:
+move $t8, $a0
+li $a0, -994
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$-994:
+move $t8, $a0
+li $a0, -994
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "t e s t 4" :
+move $t8, $a0
+la $a0, str$19
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcio_sum = global_int$0:
+move $s1, $zero
+
+# funcio_i = global_int$0:
+move $s2, $zero
+sw $t0, 48($gp)
+sw $t1, 52($gp)
+sw $t2, 56($gp)
+sw $t3, 60($gp)
+
+# label$74::
+label$74:
+
+# input funcio_tmp:
+li $v0, 5
+syscall
+move $s0, $v0
+
+# funcio_aa[funcio_i] = funcio_tmp:
+sll $t8, $s2, 2
+add $t8, $t8, $sp
+sw $s0, 148($t8)
+
+# funcio_#29 = funcio_aa[funcio_i]:
+sll $t8, $s2, 2
+add $t8, $t8, $sp
+lw $s0, 148($t8)
+
+# funcio_#28 = funcio_sum + funcio_#29:
+add $s0, $s1, $s0
+
+# funcio_sum = funcio_#28:
+move $s1, $s0
+
+# funcio_i = funcio_i + global_int$1:
+add $s2, $s2, 1
+
+# if funcio_i < global_int$3 branch to "label$74":
+blt $s2, 3, label$74
+
+# output funcio_sum:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcio_#30 = global_io_e + global_io_f:
+lw $t0, 48($gp)
+lw $t1, 52($gp)
+add $s0, $t0, $t1
+
+# output funcio_#30:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# input global_io_e:
+li $v0, 5
+syscall
+move $t0, $v0
+
+# input global_io_f:
+li $v0, 5
+syscall
+move $t1, $v0
+
+# output global_io_e:
+move $t8, $a0
+move $a0, $t0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_io_f:
+move $t8, $a0
+move $a0, $t1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# input global_io_e:
+li $v0, 5
+syscall
+move $t0, $v0
+
+# input global_io_f:
+li $v0, 5
+syscall
+move $t1, $v0
+
+# input global_io_g:
+li $v0, 12
+syscall
+move $t2, $v0
+
+# input global_io_h:
+li $v0, 12
+syscall
+move $t3, $v0
+
+# output global_io_e:
+move $t8, $a0
+move $a0, $t0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_io_f:
+move $t8, $a0
+move $a0, $t1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_io_g:
+move $t8, $a0
+move $a0, $t2
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_io_h:
+move $t8, $a0
+move $a0, $t3
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# global_array_a[global_int$0] = global_int$1:
+sll $t8, $zero, 2
+li $t9, 1
+add $t8, $t8, $gp
+sw $t9, 64($t8)
+
+# funcarray_#31 = global_array_a[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#32 = funcarray_#31 - global_int$1:
+sub $s0, $s0, 1
+
+# funcarray_b[funcarray_#32] = global_int$2:
+sll $t8, $s0, 2
+li $t9, 2
+add $t8, $t8, $sp
+sw $t9, 224($t8)
+
+# funcarray_#33 = global_array_a[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#34 = funcarray_#33 - global_int$1:
+sub $s0, $s0, 1
+
+# funcarray_#35 = funcarray_b[funcarray_#34]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 224($t8)
+
+# funcarray_#36 = funcarray_#35 - global_int$1:
+sub $s0, $s0, 1
+
+# global_array_a[funcarray_#36] = global_int$3:
+sll $t8, $s0, 2
+li $t9, 3
+add $t8, $t8, $gp
+sw $t9, 64($t8)
+
+# funcarray_#37 = global_array_a[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#38 = funcarray_#37 - global_int$1:
+sub $s0, $s0, 1
+
+# funcarray_#39 = funcarray_b[funcarray_#38]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 224($t8)
+
+# funcarray_#40 = funcarray_#39 - global_int$1:
+sub $s0, $s0, 1
+
+# funcarray_#41 = global_array_a[funcarray_#40]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#42 = funcarray_#41 - global_int$2:
+sub $s0, $s0, 2
+
+# funcarray_b[funcarray_#42] = global_int$4:
+sll $t8, $s0, 2
+li $t9, 4
+add $t8, $t8, $sp
+sw $t9, 224($t8)
+
+# funcarray_#43 = global_array_a[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#44 = funcarray_#43 - global_int$1:
+sub $s0, $s0, 1
+
+# funcarray_#45 = funcarray_b[funcarray_#44]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 224($t8)
+
+# funcarray_#46 = funcarray_#45 - global_int$1:
+sub $s0, $s0, 1
+
+# funcarray_#47 = global_array_a[funcarray_#46]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#48 = funcarray_#47 - global_int$2:
+sub $s0, $s0, 2
+
+# funcarray_#49 = funcarray_b[funcarray_#48]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 224($t8)
+
+# funcarray_#50 = funcarray_#49 - global_int$2:
+sub $s0, $s0, 2
+
+# global_array_a[funcarray_#50] = global_int$5:
+sll $t8, $s0, 2
+li $t9, 5
+add $t8, $t8, $gp
+sw $t9, 64($t8)
+
+# funcarray_#51 = global_array_a[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#52 = funcarray_#51 - global_int$1:
+sub $s0, $s0, 1
+
+# funcarray_#53 = funcarray_b[funcarray_#52]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 224($t8)
+
+# funcarray_#54 = funcarray_#53 - global_int$1:
+sub $s0, $s0, 1
+
+# funcarray_#55 = global_array_a[funcarray_#54]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#56 = funcarray_#55 - global_int$2:
+sub $s0, $s0, 2
+
+# funcarray_#57 = funcarray_b[funcarray_#56]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 224($t8)
+
+# funcarray_#58 = funcarray_#57 - global_int$2:
+sub $s0, $s0, 2
+
+# funcarray_#59 = global_array_a[funcarray_#58]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#60 = funcarray_#59 - global_int$3:
+sub $s0, $s0, 3
+
+# funcarray_b[funcarray_#60] = global_int$6:
+sll $t8, $s0, 2
+li $t9, 6
+add $t8, $t8, $sp
+sw $t9, 224($t8)
+
+# funcarray_#61 = global_array_a[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#62 = funcarray_#61 - global_int$1:
+sub $s0, $s0, 1
+
+# funcarray_#63 = funcarray_b[funcarray_#62]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 224($t8)
+
+# funcarray_#64 = funcarray_#63 - global_int$1:
+sub $s0, $s0, 1
+
+# funcarray_#65 = global_array_a[funcarray_#64]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#66 = funcarray_#65 - global_int$2:
+sub $s0, $s0, 2
+
+# funcarray_#67 = funcarray_b[funcarray_#66]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 224($t8)
+
+# funcarray_#68 = funcarray_#67 - global_int$2:
+sub $s0, $s0, 2
+
+# funcarray_#69 = global_array_a[funcarray_#68]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#70 = funcarray_#69 - global_int$3:
+sub $s0, $s0, 3
+
+# funcarray_#71 = funcarray_b[funcarray_#70]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 224($t8)
+
+# funcarray_#72 = funcarray_#71 - global_int$3:
+sub $s0, $s0, 3
+
+# global_array_a[funcarray_#72] = global_int$7:
+sll $t8, $s0, 2
+li $t9, 7
+add $t8, $t8, $gp
+sw $t9, 64($t8)
+
+# funcarray_#73 = global_array_a[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#74 = funcarray_#73 - global_int$1:
+sub $s0, $s0, 1
+
+# funcarray_#75 = funcarray_b[funcarray_#74]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 224($t8)
+
+# funcarray_#76 = funcarray_#75 - global_int$1:
+sub $s0, $s0, 1
+
+# funcarray_#77 = global_array_a[funcarray_#76]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#78 = funcarray_#77 - global_int$2:
+sub $s0, $s0, 2
+
+# funcarray_#79 = funcarray_b[funcarray_#78]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 224($t8)
+
+# funcarray_#80 = funcarray_#79 - global_int$2:
+sub $s0, $s0, 2
+
+# funcarray_#81 = global_array_a[funcarray_#80]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#82 = funcarray_#81 - global_int$3:
+sub $s0, $s0, 3
+
+# funcarray_#83 = funcarray_b[funcarray_#82]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 224($t8)
+
+# funcarray_#84 = funcarray_#83 - global_int$3:
+sub $s0, $s0, 3
+
+# funcarray_#85 = global_array_a[funcarray_#84]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# funcarray_#86 = funcarray_#85 - global_int$4:
+sub $s0, $s0, 4
+
+# funcarray_b[funcarray_#86] = global_int$8:
+sll $t8, $s0, 2
+li $t9, 8
+add $t8, $t8, $sp
+sw $t9, 224($t8)
+
+# output "array_a[0] = " :
+move $t8, $a0
+la $a0, str$20
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcarray_#87 = global_array_a[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+lw $s0, 64($t8)
+
+# output funcarray_#87:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "array_a[1] = " :
+move $t8, $a0
+la $a0, str$21
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcarray_#88 = global_array_a[global_int$1]:
+lw $s0, 68($gp)
+
+# output funcarray_#88:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "array_a[2] = " :
+move $t8, $a0
+la $a0, str$22
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcarray_#89 = global_array_a[global_int$2]:
+lw $s0, 72($gp)
+
+# output funcarray_#89:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "array_a[3] = " :
+move $t8, $a0
+la $a0, str$23
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcarray_#90 = global_array_a[global_int$3]:
+lw $s0, 76($gp)
+
+# output funcarray_#90:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "b[0] = " :
+move $t8, $a0
+la $a0, str$24
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcarray_#91 = funcarray_b[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $sp
+lw $s0, 224($t8)
+
+# output funcarray_#91:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "b[1] = " :
+move $t8, $a0
+la $a0, str$25
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcarray_#92 = funcarray_b[global_int$1]:
+lw $s0, 228($sp)
+
+# output funcarray_#92:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "b[2] = " :
+move $t8, $a0
+la $a0, str$26
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcarray_#93 = funcarray_b[global_int$2]:
+lw $s0, 232($sp)
+
+# output funcarray_#93:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "b[3] = " :
+move $t8, $a0
+la $a0, str$27
+li $v0, 4
+syscall
+move $a0, $t8
+
+# funcarray_#94 = funcarray_b[global_int$3]:
+lw $s0, 236($sp)
+
+# output funcarray_#94:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "e" :
+move $t8, $a0
+la $a0, str$28
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# return:
+sw $t0, 48($gp)
+sw $t1, 52($gp)
+sw $t2, 56($gp)
+sw $t3, 60($gp)
+lw $s0, 488($sp)
+lw $s1, 492($sp)
+lw $s2, 496($sp)
+add $sp, $sp, 572
+jr $ra

@@ -1,0 +1,131 @@
+
+func main()
+input global_n
+push global_int$0
+call permutation
+push global_int$6
+call permutation
+return
+
+func permutation()
+if permutation_index < global_n branch to "label$1"
+permutation_i = global_int$0
+if permutation_i >= global_n branch to "label$2"
+label$3:
+output " " 
+permutation_#1 = global_array[permutation_i]
+output permutation_#1
+output "\n" 
+permutation_i = permutation_i + global_int$1
+if permutation_i < global_n branch to "label$3"
+label$2:
+goto label$4
+label$1:
+permutation_#2 = global_n - global_int$1
+permutation_i = permutation_#2
+if permutation_i < global_int$0 branch to "label$5"
+label$6:
+permutation_#3 = global_symbol[permutation_i]
+if permutation_#3 != global_int$0 branch to "label$7"
+permutation_#4 = permutation_i + global_int$1
+global_array[permutation_index] = permutation_#4
+global_symbol[permutation_i] = global_int$1
+permutation_#5 = permutation_index + global_int$1
+push permutation_#5
+call permutation
+global_symbol[permutation_i] = global_int$0
+label$7:
+permutation_i = permutation_i - global_int$1
+if permutation_i >= global_int$0 branch to "label$6"
+label$5:
+label$4:
+return
+
+<!--anchor-->
+
+func main()
+input global_n
+push global_int$0
+call permutation
+push global_int$6
+call permutation
+return
+
+func permutation()
+if permutation_index < global_n branch to "label$1"
+permutation_i = global_int$0
+if global_int$0 >= global_n branch to "label$2"
+label$3:
+output " " 
+permutation_#1 = global_array[permutation_i]
+output permutation_#1
+output "\n" 
+permutation_i = permutation_i + global_int$1
+if permutation_i < global_n branch to "label$3"
+label$2:
+goto label$4
+label$1:
+permutation_#2 = global_n - global_int$1
+permutation_i = permutation_#2
+if permutation_#2 < global_int$0 branch to "label$5"
+label$6:
+permutation_#3 = global_symbol[permutation_i]
+if permutation_#3 != global_int$0 branch to "label$7"
+permutation_#4 = permutation_i + global_int$1
+global_array[permutation_index] = permutation_#4
+global_symbol[permutation_i] = global_int$1
+permutation_#5 = permutation_index + global_int$1
+push permutation_#5
+call permutation
+global_symbol[permutation_i] = global_int$0
+label$7:
+permutation_i = permutation_i - global_int$1
+if permutation_i >= global_int$0 branch to "label$6"
+label$5:
+label$4:
+return
+
+<!--anchor-->
+
+func main()
+input global_n
+push global_int$0
+call permutation
+push global_int$6
+call permutation
+return
+
+func permutation()
+if permutation_index < global_n branch to "label$1"
+permutation_i = global_int$0
+if global_int$0 >= global_n branch to "label$2"
+label$3:
+output " " 
+permutation_#1 = global_array[permutation_i]
+output permutation_#1
+output "\n" 
+permutation_i = permutation_i + global_int$1
+if permutation_i < global_n branch to "label$3"
+label$2:
+goto label$4
+label$1:
+permutation_#2 = global_n - global_int$1
+permutation_i = permutation_#2
+if permutation_#2 < global_int$0 branch to "label$5"
+label$6:
+permutation_#3 = global_symbol[permutation_i]
+if permutation_#3 != global_int$0 branch to "label$7"
+permutation_#4 = permutation_i + global_int$1
+global_array[permutation_index] = permutation_#4
+global_symbol[permutation_i] = global_int$1
+permutation_#5 = permutation_index + global_int$1
+push permutation_#5
+call permutation
+global_symbol[permutation_i] = global_int$0
+label$7:
+permutation_i = permutation_i - global_int$1
+if permutation_i >= global_int$0 branch to "label$6"
+label$5:
+label$4:
+return
+

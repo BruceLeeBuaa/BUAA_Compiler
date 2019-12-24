@@ -1,0 +1,209 @@
+
+func main()
+global_arr[global_int$0] = global_char$97
+global_arr[global_int$1] = global_char$98
+global_arr[global_int$2] = global_char$99
+global_arr[global_int$3] = global_char$100
+global_arr[global_int$4] = global_char$101
+global_arr[global_int$5] = global_char$102
+push global_int$5
+push global_int$0
+call arrange
+return
+
+func arrange()
+arrange_#1 = arrange_n - global_int$1
+if arrange_i < arrange_#1 branch to "label$1"
+arrange_j = global_int$0
+if arrange_j >= arrange_n branch to "label$2"
+label$3:
+arrange_#2 = global_arr[arrange_j]
+output arrange_#2
+output "\n" 
+arrange_j = arrange_j + global_int$1
+if arrange_j < arrange_n branch to "label$3"
+label$2:
+output "\\n" 
+output "\n" 
+return
+goto label$4
+label$1:
+arrange_#3 = arrange_i + global_int$1
+push arrange_n
+push arrange_#3
+call arrange
+arrange_#4 = arrange_i + arrange_ONE
+arrange_j = arrange_#4
+if arrange_j >= arrange_n branch to "label$5"
+label$6:
+arrange_#6 = global_arr[arrange_i]
+arrange_#5 = arrange_#6
+arrange_#8 = global_arr[arrange_j]
+arrange_#7 = arrange_#8
+if arrange_#5 == arrange_#7 branch to "label$7"
+arrange_#9 = global_arr[arrange_i]
+arrange_tmp = arrange_#9
+arrange_#10 = global_arr[arrange_j]
+global_arr[arrange_i] = arrange_#10
+global_arr[arrange_j] = arrange_tmp
+arrange_#11 = arrange_i + global_int$1
+push arrange_n
+push arrange_#11
+call arrange
+label$7:
+arrange_j = arrange_j + global_int$1
+if arrange_j < arrange_n branch to "label$6"
+label$5:
+arrange_#12 = arrange_i + global_int$1
+arrange_j = arrange_#12
+if arrange_n <= arrange_j branch to "label$8"
+label$9:
+arrange_#13 = arrange_j - global_int$1
+arrange_#14 = global_arr[arrange_#13]
+arrange_tmp = arrange_#14
+arrange_#15 = arrange_j + global_int$-1
+arrange_#16 = global_arr[arrange_j]
+global_arr[arrange_#15] = arrange_#16
+global_arr[arrange_j] = arrange_tmp
+arrange_j = arrange_j + global_int$1
+if arrange_n > arrange_j branch to "label$9"
+label$8:
+label$4:
+return
+
+<!--anchor-->
+
+func main()
+global_arr[global_int$0] = global_char$97
+global_arr[global_int$1] = global_char$98
+global_arr[global_int$2] = global_char$99
+global_arr[global_int$3] = global_char$100
+global_arr[global_int$4] = global_char$101
+global_arr[global_int$5] = global_char$102
+push global_int$5
+push global_int$0
+call arrange
+return
+
+func arrange()
+arrange_#1 = arrange_n - global_int$1
+if arrange_i < arrange_#1 branch to "label$1"
+arrange_j = global_int$0
+if global_int$0 >= arrange_n branch to "label$2"
+label$3:
+arrange_#2 = global_arr[arrange_j]
+output arrange_#2
+output "\n" 
+arrange_j = arrange_j + global_int$1
+if arrange_j < arrange_n branch to "label$3"
+label$2:
+output "\\n" 
+output "\n" 
+return
+label$1:
+arrange_#3 = arrange_i + global_int$1
+push arrange_n
+push arrange_#3
+call arrange
+arrange_#4 = arrange_i + arrange_ONE
+arrange_j = arrange_#4
+if arrange_#4 >= arrange_n branch to "label$5"
+label$6:
+arrange_#6 = global_arr[arrange_i]
+arrange_#8 = global_arr[arrange_j]
+if arrange_#6 == arrange_#8 branch to "label$7"
+arrange_#9 = global_arr[arrange_i]
+arrange_#10 = global_arr[arrange_j]
+global_arr[arrange_i] = arrange_#10
+global_arr[arrange_j] = arrange_#9
+arrange_#11 = arrange_i + global_int$1
+push arrange_n
+push arrange_#11
+call arrange
+label$7:
+arrange_j = arrange_j + global_int$1
+if arrange_j < arrange_n branch to "label$6"
+label$5:
+arrange_#12 = arrange_i + global_int$1
+arrange_j = arrange_#12
+if arrange_n <= arrange_#12 branch to "label$8"
+label$9:
+arrange_#13 = arrange_j - global_int$1
+arrange_#14 = global_arr[arrange_#13]
+arrange_#15 = arrange_j + global_int$-1
+arrange_#16 = global_arr[arrange_j]
+global_arr[arrange_#15] = arrange_#16
+global_arr[arrange_j] = arrange_#14
+arrange_j = arrange_j + global_int$1
+if arrange_n > arrange_j branch to "label$9"
+label$8:
+return
+
+<!--anchor-->
+
+func main()
+global_arr[global_int$0] = global_char$97
+global_arr[global_int$1] = global_char$98
+global_arr[global_int$2] = global_char$99
+global_arr[global_int$3] = global_char$100
+global_arr[global_int$4] = global_char$101
+global_arr[global_int$5] = global_char$102
+push global_int$5
+push global_int$0
+call arrange
+return
+
+func arrange()
+arrange_#1 = arrange_n - global_int$1
+if arrange_i < arrange_#1 branch to "label$1"
+arrange_j = global_int$0
+if global_int$0 >= arrange_n branch to "label$2"
+label$3:
+arrange_#2 = global_arr[arrange_j]
+output arrange_#2
+output "\n" 
+arrange_j = arrange_j + global_int$1
+if arrange_j < arrange_n branch to "label$3"
+label$2:
+output "\\n" 
+output "\n" 
+return
+label$1:
+arrange_#3 = arrange_i + global_int$1
+push arrange_n
+push arrange_#3
+call arrange
+arrange_#4 = arrange_i + arrange_ONE
+arrange_j = arrange_#4
+if arrange_#4 >= arrange_n branch to "label$5"
+label$6:
+arrange_#6 = global_arr[arrange_i]
+arrange_#8 = global_arr[arrange_j]
+if arrange_#6 == arrange_#8 branch to "label$7"
+arrange_#9 = global_arr[arrange_i]
+arrange_#10 = global_arr[arrange_j]
+global_arr[arrange_i] = arrange_#10
+global_arr[arrange_j] = arrange_#9
+arrange_#11 = arrange_i + global_int$1
+push arrange_n
+push arrange_#11
+call arrange
+label$7:
+arrange_j = arrange_j + global_int$1
+if arrange_j < arrange_n branch to "label$6"
+label$5:
+arrange_#12 = arrange_i + global_int$1
+arrange_j = arrange_#12
+if arrange_n <= arrange_#12 branch to "label$8"
+label$9:
+arrange_#13 = arrange_j - global_int$1
+arrange_#14 = global_arr[arrange_#13]
+arrange_#15 = arrange_j + global_int$-1
+arrange_#16 = global_arr[arrange_j]
+global_arr[arrange_#15] = arrange_#16
+global_arr[arrange_j] = arrange_#14
+arrange_j = arrange_j + global_int$1
+if arrange_n > arrange_j branch to "label$9"
+label$8:
+return
+

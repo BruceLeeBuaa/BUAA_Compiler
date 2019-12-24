@@ -1,0 +1,123 @@
+const int a = 10
+const int b = 100
+const char c = 'd'
+var int var_a
+var int var_b
+var int var_c
+int A()
+para int k
+para int a
+para char dg
+array char arr_char[300]
+#1 = 33
+#2 = 100
+arr_char[#1] = #2
+#3 = a
+#4 = dg
+#5 = #3 + #4
+k = #5
+#6 = 100
+dg = #6
+#7 = 42
+#8 = k
+#9 = #7 + #8
+#ret #9
+void main()
+var int tmp_a
+var int tmp_b
+var int tmp_d
+var char tmp_c
+array int arr_a[300]
+#1 = 100
+tmp_c = #1
+input var_a
+input tmp_b
+input tmp_c
+#2 = var_a
+tmp_d = #2
+#3 = 10
+#4 = 20
+#5 = #3 + #4
+#6 = 100
+#7 = #5 + #6
+var_a = #7
+#8 = var_a
+#9 = var_a
+#10 = #8 + #9
+#11 = 2
+#12 = #10 - #11
+var_b = #12
+#13 = 100
+#14 = var_b
+#15 = #13 - #14
+#16 = var_a
+#17 = #15 + #16
+var_c = #17
+#18 = 10
+#19 = 32
+#20 = #18 - #19
+#21 = 4543
+#22 = #20 - #21
+#23 = 343
+#24 = #22 + #23
+var_c = #24
+#25 = 34325
+var_b = #25
+#26 = var_a
+output #26
+#27 = var_b
+output #27
+output string This is answer 
+#28 = var_c
+#29 = var_b
+#30 = #28 + #29
+#31 = tmp_d
+#32 = #30 + #31
+output #32
+#33 = tmp_c
+output char #33
+#34 = 100
+output char #34
+#35 = 10
+output #35
+#36 = 3
+#37 = 3
+arr_a[#36] = #37
+#38 = 8
+#39 = tmp_a
+#40 = tmp_b
+#41 = #39 + #40
+arr_a[#38] = #41
+#42 = 234
+tmp_a = #42
+#43 = tmp_a
+#44 = 543
+arr_a[#43] = #44
+#45 = tmp_a
+#46 = arr_a[#45]
+#47 = 3
+#48 = #46 + #47
+output #48
+#49 = 324
+tmp_a = #49
+#50 = 123
+#51 = - #50
+tmp_b = #51
+#52 = tmp_a
+#53 = tmp_b
+#54 = #52 + #53
+#55 = 3
+#56 = #54 - #55
+#57 = tmp_a
+arr_a[#56] = #57
+#58 = tmp_a
+#59 = tmp_b
+#60 = #58 + #59
+#61 = 3
+#62 = #60 - #61
+#63 = arr_a[#62]
+#64 = 3
+#65 = #63 + #64
+output #65
+#ret 
+#ret 

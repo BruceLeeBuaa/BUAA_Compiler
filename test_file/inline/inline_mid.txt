@@ -1,0 +1,405 @@
+const int f = 45
+var int a
+var int b
+var int rec1
+var int rec2
+void inline1()
+var int a
+input a
+#1 = a
+beqz #1,Label0
+output string inline1 
+#2 = a
+output #2
+goto Label1
+Label0:
+output string no input
+Label1:
+Label2:
+output string inline1 iter 
+#3 = a
+output #3
+#4 = a
+#5 = 1
+#6 = #4 + #5
+a = #6
+#7 = a
+#8 = 10
+blt #7,#8,Label2
+#ret 
+void recur1()
+#1 = rec1
+#2 = 1
+#3 = #1 + #2
+rec1 = #3
+#4 = rec1
+#5 = 10
+ble #4,#5,Label3
+output string recur1 exit
+#ret 
+#6 = rec1
+#7 = 10
+#8 = #6 + #7
+rec1 = #8
+output string unreachable
+#ret 
+call recur1()
+input rec1
+Label3:
+output string recur1 iter 
+#9 = rec1
+output #9
+call recur1()
+output string recur1 return
+#ret 
+void recur2()
+#1 = rec2
+#2 = 1
+#3 = #1 - #2
+rec2 = #3
+#4 = rec2
+#5 = 20
+#6 = - #5
+bge #4,#6,Label5
+output string recur2 exit
+#ret 
+Label5:
+call recur2()
+call inline1()
+#ret 
+output string unreachable
+call recur2()
+call inline1()
+#ret 
+int inline2()
+para int a
+para char b
+para int c
+#1 = 3
+a = #1
+#2 = 102
+b = #2
+#3 = a
+output #3
+#4 = b
+output char #4
+#5 = c
+output #5
+#6 = a
+#ret #6
+void testinline()
+#1 = 5
+rec1 = #1
+#2 = 11
+#3 = - #2
+rec2 = #3
+call inline1()
+call recur1()
+call recur2()
+#4 = rec1
+#5 = 100
+#6 = rec2
+push #4
+push #5
+push #6
+call inline2()
+#7 = #ret
+output #7
+#ret 
+int f0()
+para int a
+#1 = a
+#2 = 1
+#3 = #1 + #2
+output #3
+#4 = a
+#5 = 1
+#6 = #4 + #5
+#ret #6
+void f1()
+para int a
+#1 = a
+push #1
+call f0()
+#2 = #ret
+push #2
+call f0()
+#3 = #ret
+output #3
+#ret 
+char cbase()
+para char b
+#1 = b
+output char #1
+#2 = 122
+#ret #2
+int ibase()
+para int a
+#1 = a
+output #1
+#2 = a
+#3 = 1
+#4 = #2 + #3
+#ret #4
+void cv()
+para int a
+para char b
+#1 = a
+push #1
+call ibase()
+#2 = #ret
+push #2
+call ibase()
+#3 = #ret
+output #3
+#4 = b
+push #4
+call cbase()
+#5 = #ret
+output char #5
+#ret 
+void testcall()
+var int a
+input a
+#1 = a
+push #1
+call f0()
+#2 = #ret
+output #2
+#3 = 1
+push #3
+call f1()
+#4 = 6
+#5 = 100
+push #4
+push #5
+call cv()
+#6 = 5
+#7 = 99
+push #6
+push #7
+call cv()
+#ret 
+void fun1()
+para int p1
+para int p2
+para int p3
+para int p4
+para char p5
+para int p6
+para int p7
+para int p8
+para int p9
+para int p10
+para int p11
+para int p12
+para int p13
+const int y = 987
+const char x = 'I'
+array char c[10]
+var int s1
+var int s2
+var int s3
+var int s4
+var int s5
+var int s6
+var int s7
+var int s8
+var int s9
+var int s10
+#1 = 0
+#2 = 81
+c[#1] = #2
+#3 = 2
+#4 = 70
+c[#3] = #4
+#5 = 9
+#6 = 45
+c[#5] = #6
+#7 = 12
+s1 = #7
+#8 = 123
+s2 = #8
+#9 = 1234
+s3 = #9
+#10 = 12345
+s4 = #10
+#11 = 123456
+s5 = #11
+#12 = 1234567
+s6 = #12
+#13 = 1234567
+s7 = #13
+#14 = 12345467
+s8 = #14
+#15 = 12343567
+s9 = #15
+#16 = 12234567
+s10 = #16
+output string s1: 
+#17 = s1
+output #17
+output string s2: 
+#18 = s2
+output #18
+output string s3: 
+#19 = s3
+output #19
+output string s4: 
+#20 = s4
+output #20
+output string s5: 
+#21 = s5
+output #21
+output string s6: 
+#22 = s6
+output #22
+output string s7: 
+#23 = s7
+output #23
+output string s8: 
+#24 = s8
+output #24
+output string s9: 
+#25 = s9
+output #25
+output string s10: 
+#26 = s10
+output #26
+output string s6: 
+#27 = s6
+output #27
+output string c0: 
+#28 = 0
+#29 = c[#28]
+output char #29
+output string c2: 
+#30 = 2
+#31 = c[#30]
+output char #31
+output string c9: 
+#32 = 9
+#33 = c[#32]
+output char #33
+#34 = p1
+output #34
+#35 = p2
+output #35
+#36 = p3
+output #36
+#37 = p4
+output #37
+#38 = p5
+output char #38
+#39 = p6
+output #39
+#40 = p7
+output #40
+#41 = p8
+output #41
+#42 = p9
+output #42
+#43 = p10
+output #43
+#44 = p11
+output #44
+#45 = p12
+output #45
+#46 = p13
+output #46
+#47 = 987
+output #47
+#48 = 73
+output char #48
+output string I am fun1 with a parameter
+#ret 
+void testpara()
+array char ch[10]
+var char c
+var char c1
+array int array[20]
+#1 = 101
+c = #1
+#2 = 9
+#3 = c
+ch[#2] = #3
+#4 = 9
+#5 = ch[#4]
+c1 = #5
+#6 = 2
+a = #6
+#7 = 4
+b = #7
+#8 = 2
+#9 = a
+#10 = 78
+#11 = #9 + #10
+array[#8] = #11
+#12 = 5
+#13 = 7
+#14 = 1
+#15 = 3
+#16 = 57
+#17 = 1234
+#18 = 321
+#19 = 345
+#20 = 1231
+#21 = 5345
+#22 = 1321
+#23 = 2
+#24 = array[#23]
+#25 = 123
+push #12
+push #13
+push #14
+push #15
+push #16
+push #17
+push #18
+push #19
+push #20
+push #21
+push #22
+push #24
+push #25
+call fun1()
+#26 = 5
+#27 = 7
+#28 = 1
+#29 = 3
+#30 = 56
+#31 = 1234
+#32 = 321
+#33 = 345
+#34 = 1231
+#35 = 5345
+#36 = 1321
+#37 = 2
+#38 = array[#37]
+#39 = 123
+push #26
+push #27
+push #28
+push #29
+push #30
+push #31
+push #32
+push #33
+push #34
+push #35
+push #36
+push #38
+push #39
+call fun1()
+#40 = 2
+#41 = array[#40]
+output #41
+#42 = c1
+output char #42
+output string hello world
+#ret 
+void main()
+call testinline()
+call testcall()
+call testpara()
+#ret 

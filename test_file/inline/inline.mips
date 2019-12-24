@@ -1,0 +1,1817 @@
+.data
+str$17: .asciiz "I am fun1 with a parameter"
+str$1: .asciiz "\n"
+str$14: .asciiz "c0: "
+str$15: .asciiz "c2: "
+str$16: .asciiz "c9: "
+str$18: .asciiz "hello world"
+str$0: .asciiz "inline1 "
+str$3: .asciiz "inline1 iter "
+str$2: .asciiz "no input"
+str$19: .asciiz "recur1 exit"
+str$20: .asciiz "recur1 iter "
+str$21: .asciiz "recur1 return"
+str$22: .asciiz "recur2 exit"
+str$13: .asciiz "s10: "
+str$4: .asciiz "s1: "
+str$5: .asciiz "s2: "
+str$6: .asciiz "s3: "
+str$7: .asciiz "s4: "
+str$8: .asciiz "s5: "
+str$9: .asciiz "s6: "
+str$10: .asciiz "s7: "
+str$11: .asciiz "s8: "
+str$12: .asciiz "s9: "
+
+.text
+jal main
+li $v0, 10
+syscall
+
+main:
+# $s1 : inline1_a
+# $s0 : inline1_#1
+# $s1 : f0_#8
+# $s0 : f0_#9
+# $s0 : testcall_a
+# $s2 : fun1_#17
+# $s2 : fun1_#18
+# $s2 : fun1_#19
+# $s1 : testpara_#20
+# $s0 : testpara_#22
+# $s0 : testpara_#23
+# $s0 : testpara_#24
+sub $sp, $sp, 468
+sw $s0, 384($sp)
+sw $s1, 388($sp)
+sw $s2, 392($sp)
+
+# global_rec1 = global_int$5:
+li $t0, 5
+
+# global_rec2 = global_int$-11:
+li $t1, -11
+
+# input inline1_a:
+li $v0, 5
+syscall
+move $s1, $v0
+
+# if inline1_a == global_int$0 branch to "label$38":
+sw $t0, 8($gp)
+sw $t1, 12($gp)
+beqz $s1, label$38
+
+# output "inline1 " :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output inline1_a:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$39:
+j label$39
+
+# label$38::
+label$38:
+
+# output "no input" :
+move $t8, $a0
+la $a0, str$2
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$39::
+label$39:
+
+# label$40::
+label$40:
+
+# output "inline1 iter " :
+move $t8, $a0
+la $a0, str$3
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output inline1_a:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# inline1_#1 = inline1_a + global_int$1:
+add $s0, $s1, 1
+
+# inline1_a = inline1_#1:
+move $s1, $s0
+
+# if inline1_#1 < global_int$10 branch to "label$40":
+blt $s0, 10, label$40
+
+# <!-- call block begin -->:
+sw $ra, 448($sp)
+jal recur1
+lw $ra, 448($sp)
+# <!-- call block end -->:
+
+# <!-- call block begin -->:
+sw $ra, 448($sp)
+jal recur2
+lw $ra, 448($sp)
+# <!-- call block end -->:
+
+# output global_int$3:
+move $t8, $a0
+li $a0, 3
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$102:
+move $t8, $a0
+li $a0, 102
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_rec2:
+move $t8, $a0
+lw $t0, 12($gp)
+move $a0, $t0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$3:
+move $t8, $a0
+li $a0, 3
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# input testcall_a:
+li $v0, 5
+syscall
+move $s0, $v0
+
+# f0_#8 = testcall_a + global_int$1:
+add $s1, $s0, 1
+
+# output f0_#8:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# f0_#9 = testcall_a + global_int$1:
+add $s0, $s0, 1
+
+# output f0_#9:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$2:
+move $t8, $a0
+li $a0, 2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$3:
+move $t8, $a0
+li $a0, 3
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$3:
+move $t8, $a0
+li $a0, 3
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$6:
+move $t8, $a0
+li $a0, 6
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$7:
+move $t8, $a0
+li $a0, 7
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$8:
+move $t8, $a0
+li $a0, 8
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$100:
+move $t8, $a0
+li $a0, 100
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$122:
+move $t8, $a0
+li $a0, 122
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$5:
+move $t8, $a0
+li $a0, 5
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$6:
+move $t8, $a0
+li $a0, 6
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$7:
+move $t8, $a0
+li $a0, 7
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$99:
+move $t8, $a0
+li $a0, 99
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$122:
+move $t8, $a0
+li $a0, 122
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testpara_ch[global_int$9] = global_char$101:
+li $t9, 101
+sw $t9, 272($sp)
+
+# testpara_#20 = testpara_ch[global_int$9]:
+lw $s1, 272($sp)
+
+# global_a = global_int$2:
+li $t1, 2
+
+# global_b = global_int$4:
+li $t2, 4
+
+# testpara_array[global_int$2] = global_int$80:
+li $t9, 80
+sw $t9, 292($sp)
+
+# testpara_#22 = testpara_array[global_int$2]:
+lw $s0, 292($sp)
+
+# fun1_c[global_int$0] = global_char$81:
+sll $t8, $zero, 2
+li $t9, 81
+add $t8, $t8, $sp
+sw $t9, 144($t8)
+
+# fun1_c[global_int$2] = global_char$70:
+li $t9, 70
+sw $t9, 152($sp)
+
+# fun1_c[global_int$9] = global_char$45:
+li $t9, 45
+sw $t9, 180($sp)
+
+# output "s1: " :
+move $t8, $a0
+la $a0, str$4
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$12:
+move $t8, $a0
+li $a0, 12
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s2: " :
+move $t8, $a0
+la $a0, str$5
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$123:
+move $t8, $a0
+li $a0, 123
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s3: " :
+move $t8, $a0
+la $a0, str$6
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1234:
+move $t8, $a0
+li $a0, 1234
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s4: " :
+move $t8, $a0
+la $a0, str$7
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$12345:
+move $t8, $a0
+li $a0, 12345
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s5: " :
+move $t8, $a0
+la $a0, str$8
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$123456:
+move $t8, $a0
+li $a0, 123456
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s6: " :
+move $t8, $a0
+la $a0, str$9
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1234567:
+move $t8, $a0
+li $a0, 1234567
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s7: " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1234567:
+move $t8, $a0
+li $a0, 1234567
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s8: " :
+move $t8, $a0
+la $a0, str$11
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$12345467:
+move $t8, $a0
+li $a0, 12345467
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s9: " :
+move $t8, $a0
+la $a0, str$12
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$12343567:
+move $t8, $a0
+li $a0, 12343567
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s10: " :
+move $t8, $a0
+la $a0, str$13
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$12234567:
+move $t8, $a0
+li $a0, 12234567
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s6: " :
+move $t8, $a0
+la $a0, str$9
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1234567:
+move $t8, $a0
+li $a0, 1234567
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "c0: " :
+move $t8, $a0
+la $a0, str$14
+li $v0, 4
+syscall
+move $a0, $t8
+
+# fun1_#17 = fun1_c[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $sp
+lw $s2, 144($t8)
+
+# output fun1_#17:
+move $t8, $a0
+move $a0, $s2
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "c2: " :
+move $t8, $a0
+la $a0, str$15
+li $v0, 4
+syscall
+move $a0, $t8
+
+# fun1_#18 = fun1_c[global_int$2]:
+lw $s2, 152($sp)
+
+# output fun1_#18:
+move $t8, $a0
+move $a0, $s2
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "c9: " :
+move $t8, $a0
+la $a0, str$16
+li $v0, 4
+syscall
+move $a0, $t8
+
+# fun1_#19 = fun1_c[global_int$9]:
+lw $s2, 180($sp)
+
+# output fun1_#19:
+move $t8, $a0
+move $a0, $s2
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$5:
+move $t8, $a0
+li $a0, 5
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$7:
+move $t8, $a0
+li $a0, 7
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1:
+move $t8, $a0
+li $a0, 1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$3:
+move $t8, $a0
+li $a0, 3
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$57:
+move $t8, $a0
+li $a0, 57
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1234:
+move $t8, $a0
+li $a0, 1234
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$321:
+move $t8, $a0
+li $a0, 321
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$345:
+move $t8, $a0
+li $a0, 345
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1231:
+move $t8, $a0
+li $a0, 1231
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$5345:
+move $t8, $a0
+li $a0, 5345
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1321:
+move $t8, $a0
+li $a0, 1321
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testpara_#22:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$123:
+move $t8, $a0
+li $a0, 123
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output fun1_y:
+move $t8, $a0
+li $a0, 987
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output fun1_x:
+move $t8, $a0
+li $a0, 73
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "I am fun1 with a parameter" :
+move $t8, $a0
+la $a0, str$17
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testpara_#23 = testpara_array[global_int$2]:
+lw $s0, 292($sp)
+
+# fun1_c[global_int$0] = global_char$81:
+sll $t8, $zero, 2
+li $t9, 81
+add $t8, $t8, $sp
+sw $t9, 144($t8)
+
+# fun1_c[global_int$2] = global_char$70:
+li $t9, 70
+sw $t9, 152($sp)
+
+# fun1_c[global_int$9] = global_char$45:
+li $t9, 45
+sw $t9, 180($sp)
+
+# output "s1: " :
+move $t8, $a0
+la $a0, str$4
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$12:
+move $t8, $a0
+li $a0, 12
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s2: " :
+move $t8, $a0
+la $a0, str$5
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$123:
+move $t8, $a0
+li $a0, 123
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s3: " :
+move $t8, $a0
+la $a0, str$6
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1234:
+move $t8, $a0
+li $a0, 1234
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s4: " :
+move $t8, $a0
+la $a0, str$7
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$12345:
+move $t8, $a0
+li $a0, 12345
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s5: " :
+move $t8, $a0
+la $a0, str$8
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$123456:
+move $t8, $a0
+li $a0, 123456
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s6: " :
+move $t8, $a0
+la $a0, str$9
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1234567:
+move $t8, $a0
+li $a0, 1234567
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s7: " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1234567:
+move $t8, $a0
+li $a0, 1234567
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s8: " :
+move $t8, $a0
+la $a0, str$11
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$12345467:
+move $t8, $a0
+li $a0, 12345467
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s9: " :
+move $t8, $a0
+la $a0, str$12
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$12343567:
+move $t8, $a0
+li $a0, 12343567
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s10: " :
+move $t8, $a0
+la $a0, str$13
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$12234567:
+move $t8, $a0
+li $a0, 12234567
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "s6: " :
+move $t8, $a0
+la $a0, str$9
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1234567:
+move $t8, $a0
+li $a0, 1234567
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "c0: " :
+move $t8, $a0
+la $a0, str$14
+li $v0, 4
+syscall
+move $a0, $t8
+
+# fun1_#17 = fun1_c[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $sp
+lw $s2, 144($t8)
+
+# output fun1_#17:
+move $t8, $a0
+move $a0, $s2
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "c2: " :
+move $t8, $a0
+la $a0, str$15
+li $v0, 4
+syscall
+move $a0, $t8
+
+# fun1_#18 = fun1_c[global_int$2]:
+lw $s2, 152($sp)
+
+# output fun1_#18:
+move $t8, $a0
+move $a0, $s2
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "c9: " :
+move $t8, $a0
+la $a0, str$16
+li $v0, 4
+syscall
+move $a0, $t8
+
+# fun1_#19 = fun1_c[global_int$9]:
+lw $s2, 180($sp)
+
+# output fun1_#19:
+move $t8, $a0
+move $a0, $s2
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$5:
+move $t8, $a0
+li $a0, 5
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$7:
+move $t8, $a0
+li $a0, 7
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1:
+move $t8, $a0
+li $a0, 1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$3:
+move $t8, $a0
+li $a0, 3
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$56:
+move $t8, $a0
+li $a0, 56
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1234:
+move $t8, $a0
+li $a0, 1234
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$321:
+move $t8, $a0
+li $a0, 321
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$345:
+move $t8, $a0
+li $a0, 345
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1231:
+move $t8, $a0
+li $a0, 1231
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$5345:
+move $t8, $a0
+li $a0, 5345
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1321:
+move $t8, $a0
+li $a0, 1321
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testpara_#23:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$123:
+move $t8, $a0
+li $a0, 123
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output fun1_y:
+move $t8, $a0
+li $a0, 987
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output fun1_x:
+move $t8, $a0
+li $a0, 73
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "I am fun1 with a parameter" :
+move $t8, $a0
+la $a0, str$17
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testpara_#24 = testpara_array[global_int$2]:
+lw $s0, 292($sp)
+
+# output testpara_#24:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testpara_#20:
+move $t8, $a0
+move $a0, $s1
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "hello world" :
+move $t8, $a0
+la $a0, str$18
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# return:
+sw $t1, 0($gp)
+sw $t2, 4($gp)
+lw $s0, 384($sp)
+lw $s1, 388($sp)
+lw $s2, 392($sp)
+add $sp, $sp, 468
+jr $ra
+
+recur1:
+# $s0 : recur1_#2
+sub $sp, $sp, 92
+sw $s0, 8($sp)
+
+# recur1_#2 = global_rec1 + global_int$1:
+lw $t0, 8($gp)
+add $s0, $t0, 1
+
+# global_rec1 = recur1_#2:
+move $t0, $s0
+
+# if recur1_#2 <= global_int$10 branch to "label$4":
+sw $t0, 8($gp)
+ble $s0, 10, label$4
+
+# output "recur1 exit" :
+move $t8, $a0
+la $a0, str$19
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# return:
+lw $s0, 8($sp)
+add $sp, $sp, 92
+jr $ra
+
+# label$4::
+label$4:
+
+# output "recur1 iter " :
+move $t8, $a0
+la $a0, str$20
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_rec1:
+move $t8, $a0
+lw $t0, 8($gp)
+move $a0, $t0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# <!-- call block begin -->:
+sw $ra, 72($sp)
+jal recur1
+lw $ra, 72($sp)
+# <!-- call block end -->:
+
+# output "recur1 return" :
+move $t8, $a0
+la $a0, str$21
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# return:
+lw $s0, 8($sp)
+add $sp, $sp, 92
+jr $ra
+
+recur2:
+# $s1 : inline1_a
+# $s0 : inline1_#1
+# $s0 : recur2_#4
+sub $sp, $sp, 100
+sw $s0, 16($sp)
+sw $s1, 20($sp)
+
+# recur2_#4 = global_rec2 - global_int$1:
+lw $t0, 12($gp)
+sub $s0, $t0, 1
+
+# global_rec2 = recur2_#4:
+move $t0, $s0
+
+# if recur2_#4 >= global_int$-20 branch to "label$5":
+sw $t0, 12($gp)
+bge $s0, -20, label$5
+
+# output "recur2 exit" :
+move $t8, $a0
+la $a0, str$22
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# return:
+lw $s0, 16($sp)
+lw $s1, 20($sp)
+add $sp, $sp, 100
+jr $ra
+
+# label$5::
+label$5:
+
+# <!-- call block begin -->:
+sw $ra, 80($sp)
+jal recur2
+lw $ra, 80($sp)
+# <!-- call block end -->:
+
+# input inline1_a:
+li $v0, 5
+syscall
+move $s1, $v0
+
+# if inline1_a == global_int$0 branch to "label$10":
+beqz $s1, label$10
+
+# output "inline1 " :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output inline1_a:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$11:
+j label$11
+
+# label$10::
+label$10:
+
+# output "no input" :
+move $t8, $a0
+la $a0, str$2
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$11::
+label$11:
+
+# label$12::
+label$12:
+
+# output "inline1 iter " :
+move $t8, $a0
+la $a0, str$3
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output inline1_a:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# inline1_#1 = inline1_a + global_int$1:
+add $s0, $s1, 1
+
+# inline1_a = inline1_#1:
+move $s1, $s0
+
+# if inline1_#1 < global_int$10 branch to "label$12":
+blt $s0, 10, label$12
+
+# return:
+lw $s0, 16($sp)
+lw $s1, 20($sp)
+add $sp, $sp, 100
+jr $ra

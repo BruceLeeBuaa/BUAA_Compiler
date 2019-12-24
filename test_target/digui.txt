@@ -1,0 +1,18 @@
+int digui(int num)
+{
+	if (num == 1) {
+		return (1);
+	}
+	if (num == 2) {
+		return (1);
+	}
+	return (digui(num - 1) + digui(num - 2));
+}
+void main()
+{
+	int a,b;
+	scanf(a);
+	b = digui(a);
+	printf(b);
+	return;
+}

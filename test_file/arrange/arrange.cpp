@@ -1,0 +1,41 @@
+#include <iostream>
+
+char arr[10];
+
+void arrange(int n, int i)
+{
+    const int ONE = 1;
+    int j;
+    char tmp;
+    if (i >= n - 1)
+    {
+        for (j = 0; j < n; j = j + 1) std::cout<<arr[j]<<std::endl;
+        std::cout<<"\\n"<<std::endl;
+        return;
+    }
+    else {
+        arrange(n, i + 1);
+        for (j = i + ONE; j < n; j = j + 1) if ((arr[i]) != (arr[j]))
+            {
+                tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+                arrange(n, i + 1);
+            }
+        for (j = i + 1; n > j; j = j + 1) {
+            tmp = arr[j - 1];
+            arr[j + -1] = arr[j];
+            arr[j] = tmp;
+        }
+    }
+}
+
+int main(){
+    arr[0] = 'a';
+    arr[1] = 'b';
+    arr[2] = 'c';
+    arr[3] = 'd';
+    arr[4] = 'e';
+    arr[5] = 'f';
+    arrange(5, 0);
+}

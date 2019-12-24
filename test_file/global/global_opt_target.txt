@@ -1,0 +1,576 @@
+.data    
+string0:.asciiz "global_int_1 = "   
+string1:.asciiz "global_int_2 = "   
+string2:.asciiz "global_char_1 = "   
+string3:.asciiz "global_char_2 = "   
+string4:.asciiz "const_int_1 = "   
+string5:.asciiz "const_int_2 = "   
+string6:.asciiz "const_int_3 = "   
+string7:.asciiz "const_int_4 = "   
+string8:.asciiz "const_char_1 = "   
+string9:.asciiz "const_char_2 = "   
+string10:.asciiz "const_char_3 = "   
+string11:.asciiz "const_char_4 = "   
+string12:.asciiz "a = "   
+string13:.asciiz "b = "   
+string14:.asciiz "c = "   
+string15:.asciiz "d = "   
+string16:.asciiz "e = "   
+string17:.asciiz "f = "   
+string18:.asciiz "a = "   
+string19:.asciiz "b = "   
+string20:.asciiz "c = "   
+string21:.asciiz "d = "   
+string22:.asciiz "e = "   
+string23:.asciiz "f = "   
+enter:.asciiz "\n"   
+.text    
+j main   
+assignGlobal :   
+subi $sp $sp 204 
+move $fp $sp  
+sw $ra 196($fp)  
+lw $a1 216($fp)  
+lw $a2 212($fp)  
+lw $a3 208($fp)  
+sw $a1 0($gp)  
+sw $a2 8($gp)  
+sw $a3 4($gp)  
+lw $t0 204($fp)  
+sw $t0 12($gp)  
+li $t0 0  
+move $s0 $t0  
+bge $t0 100 Label1 
+Label0:    
+sll $t9 $s0 2 
+addi $t9 $t9 16 
+add $t9 $t9 $gp 
+sw $s0 0($t9)  
+addi $s0 $s0 1 
+blt $s0 100 Label0 
+Label1:    
+li $t0 100  
+move $s0 $t0  
+blt $t0 0 Label3 
+Label2:    
+lw $t0 0($gp)  
+sub $t0 $t0 $s0 
+sll $t9 $s0 2 
+addi $t9 $t9 416 
+add $t9 $t9 $gp 
+sw $t0 0($t9)  
+subi $s0 $s0 1 
+bge $s0 0 Label2 
+Label3:    
+li $t0 100  
+move $s0 $t0  
+bge $t0 200 Label5 
+Label4:    
+subi $t0 $s0 100 
+li $t1 57  
+sll $t9 $t0 2 
+addi $t9 $t9 816 
+add $t9 $t9 $gp 
+sw $t1 0($t9)  
+addi $s0 $s0 1 
+blt $s0 200 Label4 
+Label5:    
+li $t0 0  
+move $s0 $t0  
+bge $t0 100 Label7 
+Label6:    
+li $t0 95  
+sll $t9 $s0 2 
+addi $t9 $t9 1216 
+add $t9 $t9 $gp 
+sw $t0 0($t9)  
+addi $s0 $s0 1 
+blt $s0 100 Label6 
+Label7:    
+lw $ra 196($fp)  
+addi $sp $sp 220 
+move $fp $sp  
+jr $ra   
+printGlobal :   
+subi $sp $sp 196 
+move $fp $sp  
+sw $ra 188($fp)  
+la $a0 string0  
+li $v0 4  
+syscall    
+lw $t0 0($gp)  
+move $a0 $t0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string1  
+li $v0 4  
+syscall    
+lw $t0 4($gp)  
+move $a0 $t0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string2  
+li $v0 4  
+syscall    
+lw $t0 8($gp)  
+move $a0 $t0  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string3  
+li $v0 4  
+syscall    
+lw $t0 12($gp)  
+move $a0 $t0  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+li $t0 9  
+move $s0 $t0  
+li $t0 9  
+move $s0 $t0  
+blt $t0 0 Label9 
+Label8:    
+move $a0 $s0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+subi $s0 $s0 1 
+bge $s0 0 Label8 
+Label9:    
+la $a0 string4  
+li $v0 4  
+syscall    
+li $t0 12345679  
+move $a0 $t0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string5  
+li $v0 4  
+syscall    
+li $t0 0  
+move $a0 $t0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string6  
+li $v0 4  
+syscall    
+move $a0 $t0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string7  
+li $v0 4  
+syscall    
+li $t1 -12345679  
+move $a0 $t1  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string8  
+li $v0 4  
+syscall    
+li $t1 57  
+move $a0 $t1  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string9  
+li $v0 4  
+syscall    
+li $t1 95  
+move $a0 $t1  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string10  
+li $v0 4  
+syscall    
+li $t1 43  
+move $a0 $t1  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string11  
+li $v0 4  
+syscall    
+li $t1 42  
+move $a0 $t1  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+move $s0 $t0  
+bge $t0 100 Label11 
+Label10:    
+sll $t9 $s0 2 
+addi $t9 $t9 16 
+add $t9 $t9 $gp 
+lw $t0 0($t9)  
+move $a0 $t0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+sll $t9 $s0 2 
+addi $t9 $t9 416 
+add $t9 $t9 $gp 
+lw $t0 0($t9)  
+move $a0 $t0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+sll $t9 $s0 2 
+addi $t9 $t9 816 
+add $t9 $t9 $gp 
+lw $t0 0($t9)  
+move $a0 $t0  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+sll $t9 $s0 2 
+addi $t9 $t9 1216 
+add $t9 $t9 $gp 
+lw $t0 0($t9)  
+move $a0 $t0  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+addi $s0 $s0 1 
+blt $s0 100 Label10 
+Label11:    
+lw $ra 188($fp)  
+addi $sp $sp 196 
+move $fp $sp  
+jr $ra   
+globalPara :   
+subi $sp $sp 160 
+move $fp $sp  
+sw $ra 152($fp)  
+lw $a1 180($fp)  
+lw $a2 176($fp)  
+lw $a3 172($fp)  
+la $a0 string12  
+li $v0 4  
+syscall    
+move $a0 $a1  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string13  
+li $v0 4  
+syscall    
+move $a0 $a2  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string14  
+li $v0 4  
+syscall    
+move $a0 $a3  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string15  
+li $v0 4  
+syscall    
+lw $t0 168($fp)  
+move $a0 $t0  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string16  
+li $v0 4  
+syscall    
+lw $t0 164($fp)  
+move $a0 $t0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string17  
+li $v0 4  
+syscall    
+lw $t0 160($fp)  
+move $a0 $t0  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+li $t0 1  
+move $a1 $t0  
+li $t1 99  
+move $a2 $t1  
+li $t2 1  
+move $a3 $t2  
+li $t3 99  
+sw $t3 168($fp)  
+li $t4 1  
+sw $t4 164($fp)  
+li $t5 99  
+sw $t5 160($fp)  
+la $a0 string18  
+li $v0 4  
+syscall    
+move $a0 $t0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string19  
+li $v0 4  
+syscall    
+move $a0 $t1  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string20  
+li $v0 4  
+syscall    
+move $a0 $t2  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string21  
+li $v0 4  
+syscall    
+move $a0 $t3  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string22  
+li $v0 4  
+syscall    
+move $a0 $t4  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string23  
+li $v0 4  
+syscall    
+move $a0 $t5  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+lw $t0 1616($gp)  
+move $v0 $t0  
+lw $ra 152($fp)  
+addi $sp $sp 184 
+move $fp $sp  
+jr $ra   
+testglobal :   
+subi $sp $sp 240 
+move $fp $sp  
+sw $ra 232($fp)  
+li $t0 12345679  
+li $t1 57  
+li $t2 -12345679  
+li $t3 42  
+addi $sp $sp -4 
+sw $t0 0($sp)  
+addi $sp $sp -4 
+sw $t1 0($sp)  
+addi $sp $sp -4 
+sw $t2 0($sp)  
+addi $sp $sp -4 
+sw $t3 0($sp)  
+sw $t0 160($fp)  
+sw $t1 164($fp)  
+jal assignGlobal   
+lw $t0 160($fp)  
+lw $t1 164($fp)  
+sw $t0 160($fp)  
+sw $t1 164($fp)  
+jal printGlobal   
+lw $t0 160($fp)  
+lw $t1 164($fp)  
+lw $t2 0($gp)  
+lw $t3 8($gp)  
+li $t4 30  
+sll $t9 $t4 2 
+addi $t9 $t9 16 
+add $t9 $t9 $gp 
+lw $t4 0($t9)  
+li $t5 50  
+sll $t9 $t5 2 
+addi $t9 $t9 816 
+add $t9 $t9 $gp 
+lw $t5 0($t9)  
+la $a0 string12  
+li $v0 4  
+syscall    
+move $a0 $t0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string13  
+li $v0 4  
+syscall    
+move $a0 $t1  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string14  
+li $v0 4  
+syscall    
+move $a0 $t2  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string15  
+li $v0 4  
+syscall    
+move $a0 $t3  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string16  
+li $v0 4  
+syscall    
+move $a0 $t4  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string17  
+li $v0 4  
+syscall    
+move $a0 $t5  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+li $t0 1  
+li $t1 99  
+la $a0 string18  
+li $v0 4  
+syscall    
+move $a0 $t0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string19  
+li $v0 4  
+syscall    
+move $a0 $t1  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string20  
+li $v0 4  
+syscall    
+move $a0 $t0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string21  
+li $v0 4  
+syscall    
+move $a0 $t1  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string22  
+li $v0 4  
+syscall    
+move $a0 $t0  
+li $v0 1  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+la $a0 string23  
+li $v0 4  
+syscall    
+move $a0 $t1  
+li $v0 11  
+syscall    
+la $a0 enter  
+li $v0 4  
+syscall    
+lw $ra 232($fp)  
+addi $sp $sp 240 
+move $fp $sp  
+jr $ra   
+main :   
+subi $sp $sp 160 
+move $fp $sp  
+sw $ra 152($fp)  
+jal testglobal   
+li $v0 10  
+syscall    

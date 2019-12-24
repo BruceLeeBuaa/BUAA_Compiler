@@ -1,0 +1,225 @@
+
+func main()
+input main_ch_a
+output "___this_is_b_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_c_string___" 
+main_#10 = main_ch_a
+output main_#10
+output "\n" 
+output "___this_is_d_string___" 
+output "\n" 
+main_#11 = global_int$1 + global_int$2
+main_#11 = main_#11 + global_int$3
+push global_int$4
+push global_int$5
+push global_int$6
+main_#12 = call aa
+main_#11 = main_#11 + main_#12
+output main_#11
+output "\n" 
+output global_char$97
+output "\n" 
+main_#13 = global_char$97 + global_int$1
+output main_#13
+output "\n" 
+main_#14 = global_char$97
+output main_#14
+output "\n" 
+return
+
+func aa()
+aa_#3 = aa_a + global_b
+aa_#2 = aa_#3
+aa_#1 = aa_d + aa_#2
+aa_#6 = global_int$3 + global_int$4423
+aa_#5 = aa_#6
+aa_#4 = aa_f * aa_#5
+aa_#1 = aa_#1 + aa_#4
+aa_#7 = global_int$324
+aa_#1 = aa_#1 + aa_#7
+aa_#9 = aa_g + aa_e
+aa_#8 = aa_#9
+aa_#1 = aa_#1 + aa_#8
+aa_c = aa_#1
+return global_char$99
+
+<!--anchor-->
+
+func main()
+input main_ch_a
+output "___this_is_b_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_c_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_d_string___" 
+output "\n" 
+main_#11 = global_int$3 + global_int$3
+aa_#3 = global_int$4 + global_b
+aa_#1 = aa_d + aa_#3
+aa_#4 = aa_f * global_int$4426
+aa_#1 = aa_#1 + aa_#4
+aa_#1 = aa_#1 + global_int$324
+aa_#9 = aa_g + aa_e
+aa_#1 = aa_#1 + aa_#9
+main_#11 = main_#11 + global_char$99
+output main_#11
+output "\n" 
+output global_char$97
+output "\n" 
+output global_int$98
+output "\n" 
+output global_char$97
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+input main_ch_a
+output "___this_is_b_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_c_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_d_string___" 
+output "\n" 
+aa_#3 = global_int$4 + global_b
+aa_#1 = aa_d + aa_#3
+aa_#4 = aa_f * global_int$4426
+aa_#1 = aa_#1 + aa_#4
+aa_#1 = aa_#1 + global_int$324
+aa_#9 = aa_g + aa_e
+main_#11 = global_int$6 + global_char$99
+output main_#11
+output "\n" 
+output global_char$97
+output "\n" 
+output global_int$98
+output "\n" 
+output global_char$97
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+input main_ch_a
+output "___this_is_b_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_c_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_d_string___" 
+output "\n" 
+aa_#3 = global_int$4 + global_b
+aa_#1 = aa_d + aa_#3
+aa_#4 = aa_f * global_int$4426
+aa_#1 = aa_#1 + aa_#4
+output global_int$105
+output "\n" 
+output global_char$97
+output "\n" 
+output global_int$98
+output "\n" 
+output global_char$97
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+input main_ch_a
+output "___this_is_b_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_c_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_d_string___" 
+output "\n" 
+aa_#3 = global_int$4 + global_b
+aa_#1 = aa_d + aa_#3
+aa_#4 = aa_f * global_int$4426
+output global_int$105
+output "\n" 
+output global_char$97
+output "\n" 
+output global_int$98
+output "\n" 
+output global_char$97
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+input main_ch_a
+output "___this_is_b_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_c_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_d_string___" 
+output "\n" 
+aa_#3 = global_int$4 + global_b
+output global_int$105
+output "\n" 
+output global_char$97
+output "\n" 
+output global_int$98
+output "\n" 
+output global_char$97
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+input main_ch_a
+output "___this_is_b_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_c_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_d_string___" 
+output "\n" 
+output global_int$105
+output "\n" 
+output global_char$97
+output "\n" 
+output global_int$98
+output "\n" 
+output global_char$97
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+input main_ch_a
+output "___this_is_b_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_c_string___" 
+output main_ch_a
+output "\n" 
+output "___this_is_d_string___" 
+output "\n" 
+output global_int$105
+output "\n" 
+output global_char$97
+output "\n" 
+output global_int$98
+output "\n" 
+output global_char$97
+output "\n" 
+return
+

@@ -1,0 +1,274 @@
+const int MAX_NUM = 128
+int factorial()
+para int n
+#1 = n
+bgt #1,1,Label0
+#3 = 1
+#ret #3
+Label0:
+#4 = n
+#7 = #4 - 1
+push #7
+call factorial()
+#8 = #ret
+#9 = #4 * #8
+#ret #9
+int mod()
+para int x
+para int y
+#1 = x
+#3 = y
+#4 = #1 / #3
+#6 = #4 * #3
+#7 = #1 - #6
+x = #7
+#ret #7
+void swap()
+para int x
+para int y
+var int temp
+output string x = 
+#1 = x
+output #1
+output string y = 
+#2 = y
+output #2
+x = #2
+y = #1
+output string SWAP x = 
+output #2
+output string SWAP y = 
+output #1
+#ret 
+int full_num()
+para int n
+para int j
+para int a
+#1 = n
+#3 = #1 * 100
+#4 = j
+#6 = #4 * 10
+#7 = #3 + #6
+#8 = a
+#9 = #7 + #8
+#ret #9
+int flower_num()
+para int n
+para int j
+para int a
+#1 = n
+#3 = #1 * #1
+#5 = #3 * #1
+#6 = j
+#8 = #6 * #6
+#10 = #8 * #6
+#11 = #5 + #10
+#12 = a
+#14 = #12 * #12
+#16 = #14 * #12
+#17 = #11 + #16
+#ret #17
+void complete_flower_num()
+array int k[128]
+var int i
+var int j
+var int n
+var int s
+var int x1
+var int y
+var int m
+var int k2
+var int h
+var int leap
+var int x2
+var int a
+var int b
+var int c
+#1 = 2
+j = #1
+bge #1,128,Label3
+Label2:
+#4 = 1
+#5 = - #4
+n = #5
+#6 = j
+s = #6
+i = #4
+#9 = j
+bge #4,#9,Label5
+Label4:
+#10 = j
+#11 = i
+#111 = #10 / #11
+#113 = #111 * #11
+#114 = #10 - #113
+bne #114,0,Label6
+#19 = n
+#21 = #19 + 1
+n = #21
+#22 = s
+#23 = i
+#24 = #22 - #23
+s = #24
+blt #21,128,Label8
+output string OVERFLOW!
+goto Label9
+Label8:
+#27 = n
+#28 = i
+k[#27] = #28
+Label9:
+Label6:
+addi i,i,1
+#8 = i
+#9 = j
+blt #8,#9,Label4
+Label5:
+#29 = s
+bne #29,0,Label10
+output string complete number: 
+#31 = j
+output #31
+#32 = 0
+i = #32
+#34 = n
+bgt #32,#34,Label13
+Label12:
+output string   
+#35 = i
+#36 = k[#35]
+output #36
+addi i,i,1
+#34 = n
+ble #35,#34,Label12
+Label13:
+output string  
+Label10:
+addi j,j,1
+#2 = j
+blt #2,128,Label2
+Label3:
+output string ---------------------------------------------------------------
+output string 'water flower'number is:
+#37 = 0
+y = #37
+#38 = 100
+i = #38
+bge #38,228,Label15
+Label14:
+#43 = i
+#45 = #43 / 100
+n = #45
+#48 = #43 / 10
+#131 = #48 / 10
+#133 = #131 * 10
+#134 = #48 - #133
+j = #134
+#151 = #43 / 10
+#153 = #151 * 10
+#154 = #43 - #153
+#170 = #45 * 100
+#173 = #134 * 10
+#174 = #170 + #173
+#176 = #174 + #154
+#190 = #45 * #45
+#192 = #190 * #45
+#195 = #134 * #134
+#197 = #195 * #134
+#198 = #192 + #197
+#201 = #154 * #154
+#203 = #201 * #154
+#204 = #198 + #203
+bne #176,#204,Label16
+#62 = y
+#63 = i
+k[#62] = #63
+#66 = #62 + 1
+y = #66
+Label16:
+addi i,i,1
+#39 = i
+blt #39,228,Label14
+Label15:
+#67 = 0
+i = #67
+#69 = y
+bge #67,#69,Label19
+Label18:
+output string   
+#70 = i
+#71 = k[#70]
+output #71
+addi i,i,1
+#69 = y
+blt #70,#69,Label18
+Label19:
+output string  
+output string ---------------------------------------------------------------
+#72 = 0
+h = #72
+#73 = 1
+leap = #73
+#74 = 2
+m = #74
+bgt #74,128,Label21
+Label20:
+#77 = m
+#78 = 2
+#79 = #77 / 2
+k2 = #79
+i = #78
+bgt #78,#79,Label23
+Label22:
+#83 = m
+#84 = i
+#211 = #83 / #84
+#213 = #211 * #84
+#214 = #83 - #213
+bne #214,0,Label24
+#92 = 0
+leap = #92
+Label24:
+addi i,i,1
+#81 = i
+#82 = k2
+ble #81,#82,Label22
+Label23:
+#93 = leap
+bne #93,1,Label26
+output string  
+#95 = m
+output #95
+#96 = h
+#98 = #96 + 1
+h = #98
+#101 = #98 / 10
+#103 = #101 * 10
+bne #103,#98,Label28
+output string  
+Label28:
+Label26:
+#106 = 1
+leap = #106
+addi m,m,1
+#75 = m
+ble #75,128,Label20
+Label21:
+output string The total is 
+#107 = h
+output #107
+#ret 
+void main()
+var int n
+#1 = 5
+push #1
+call factorial()
+#2 = #ret
+output string 5 != 
+output #2
+#5 = 10
+push #1
+push #5
+call swap()
+call complete_flower_num()
+#ret 

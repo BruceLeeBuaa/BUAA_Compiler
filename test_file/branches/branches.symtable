@@ -1,0 +1,58 @@
+N8symtable9FuncTableE          : distance                      <int>
+N8symtable5EntryE              : distance_x                    <int>
+N8symtable5EntryE              : distance_y                    <int>
+N8symtable5EntryE              : distance_res                  <int>
+N8symtable5EntryE              : distance_#1                   <int>
+N8symtable5EntryE              : global_int$0                  <const int(0)>
+N8symtable5EntryE              : distance_#2                   <int>
+N8symtable9FuncTableE          : ads                           <int>
+N8symtable5EntryE              : ads_x                         <int>
+N8symtable5EntryE              : ads_#3                        <int>
+N8symtable9FuncTableE          : compare                       <void>
+N8symtable5EntryE              : compare_a                     <int>
+N8symtable5EntryE              : compare_b                     <int>
+N8symtable5EntryE              : compare_c                     <int>
+N8symtable5EntryE              : compare_edage1                <int>
+N8symtable5EntryE              : compare_edage2                <int>
+N8symtable5EntryE              : compare_edage3                <int>
+N8symtable5EntryE              : compare_#4                    <int>
+N8symtable5EntryE              : compare_#5                    <int>
+N8symtable5EntryE              : compare_#6                    <int>
+N8symtable5EntryE              : compare_#7                    <int>
+N8symtable5EntryE              : compare_#8                    <int>
+N8symtable5EntryE              : compare_#9                    <int>
+N8symtable5EntryE              : compare_#10                   <int>
+N8symtable5EntryE              : compare_#11                   <int>
+N8symtable5EntryE              : compare_#12                   <int>
+N8symtable5EntryE              : compare_#13                   <int>
+N8symtable5EntryE              : compare_#14                   <int>
+N8symtable5EntryE              : compare_#15                   <int>
+N8symtable5EntryE              : compare_#16                   <int>
+N8symtable5EntryE              : compare_#17                   <int>
+N8symtable5EntryE              : compare_#18                   <int>
+N8symtable9FuncTableE          : compare_to_num                <void>
+N8symtable5EntryE              : compare_to_num_a              <int>
+N8symtable5EntryE              : compare_to_num_b              <int>
+N8symtable5EntryE              : compare_to_num_c              <int>
+N8symtable5EntryE              : global_int$10                 <const int(10)>
+N8symtable5EntryE              : global_int$85                 <const int(85)>
+N8symtable5EntryE              : global_int$5                  <const int(5)>
+N8symtable5EntryE              : global_int$1                  <const int(1)>
+N8symtable5EntryE              : global_int$8                  <const int(8)>
+N8symtable5EntryE              : global_int$7                  <const int(7)>
+N8symtable5EntryE              : global_int$9                  <const int(9)>
+N8symtable5EntryE              : compare_to_num_#19            <int>
+N8symtable5EntryE              : global_int$15                 <const int(15)>
+N8symtable5EntryE              : compare_to_num_#20            <int>
+N8symtable5EntryE              : compare_to_num_#21            <int>
+N8symtable5EntryE              : compare_to_num_#22            <int>
+N8symtable5EntryE              : compare_to_num_#23            <int>
+N8symtable5EntryE              : global_int$56                 <const int(56)>
+N8symtable5EntryE              : compare_to_num_#24            <int>
+N8symtable5EntryE              : compare_to_num_#25            <int>
+N8symtable9FuncTableE          : main                          <void>
+N8symtable5EntryE              : main_a                        <int>
+N8symtable5EntryE              : main_b                        <int>
+N8symtable5EntryE              : main_c                        <int>
+N8symtable5EntryE              : global_int$-1                 <const int(-1)>
+N8symtable5EntryE              : global_int$-8                 <const int(-8)>

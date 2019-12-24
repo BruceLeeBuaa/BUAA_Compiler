@@ -1,0 +1,1519 @@
+CONSTTK const
+CHARTK char
+IDENFR m
+ASSIGN =
+CHARCON c
+<常量定义>
+SEMICN ;
+CONSTTK const
+INTTK int
+IDENFR n
+ASSIGN =
+MINU -
+INTCON 5
+<无符号整数>
+<整数>
+COMMA ,
+IDENFR n1
+ASSIGN =
+INTCON 3
+<无符号整数>
+<整数>
+<常量定义>
+SEMICN ;
+<常量说明>
+INTTK int
+IDENFR aa
+<变量定义>
+SEMICN ;
+CHARTK char
+IDENFR bb
+<变量定义>
+SEMICN ;
+INTTK int
+IDENFR aa1
+<变量定义>
+SEMICN ;
+CHARTK char
+IDENFR bb1
+<变量定义>
+SEMICN ;
+INTTK int
+IDENFR aa2
+COMMA ,
+IDENFR aa3
+<变量定义>
+SEMICN ;
+CHARTK char
+IDENFR bb2
+COMMA ,
+IDENFR bb3
+<变量定义>
+SEMICN ;
+CHARTK char
+IDENFR a1
+LBRACK [
+INTCON 100
+<无符号整数>
+RBRACK ]
+<变量定义>
+SEMICN ;
+INTTK int
+IDENFR a2
+LBRACK [
+INTCON 10
+<无符号整数>
+RBRACK ]
+COMMA ,
+IDENFR b1
+LBRACK [
+INTCON 10
+<无符号整数>
+RBRACK ]
+<变量定义>
+SEMICN ;
+INTTK int
+IDENFR aaa
+COMMA ,
+IDENFR A
+COMMA ,
+IDENFR _
+COMMA ,
+IDENFR a111
+COMMA ,
+IDENFR A0
+COMMA ,
+IDENFR b_1_c
+<变量定义>
+SEMICN ;
+<变量说明>
+INTTK int
+IDENFR m1
+<声明头部>
+LPARENT (
+CHARTK char
+IDENFR a
+<参数表>
+RPARENT )
+LBRACE {
+RETURNTK return
+LPARENT (
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RPARENT )
+<返回语句>
+SEMICN ;
+<语句>
+<语句列>
+<复合语句>
+RBRACE }
+<有返回值函数定义>
+INTTK int
+IDENFR add
+<声明头部>
+LPARENT (
+INTTK int
+IDENFR c
+COMMA ,
+INTTK int
+IDENFR d
+<参数表>
+RPARENT )
+LBRACE {
+INTTK int
+IDENFR m
+<变量定义>
+SEMICN ;
+<变量说明>
+IDENFR m
+ASSIGN =
+IDENFR c
+<因子>
+<项>
+PLUS +
+IDENFR d
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+RETURNTK return
+LPARENT (
+IDENFR m
+<因子>
+<项>
+<表达式>
+RPARENT )
+<返回语句>
+SEMICN ;
+<语句>
+<语句列>
+<复合语句>
+RBRACE }
+<有返回值函数定义>
+INTTK int
+IDENFR testInt
+<声明头部>
+LPARENT (
+<参数表>
+RPARENT )
+LBRACE {
+RETURNTK return
+LPARENT (
+INTCON 5
+<无符号整数>
+<整数>
+<因子>
+<项>
+PLUS +
+LPARENT (
+MINU -
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RPARENT )
+<因子>
+<项>
+<表达式>
+RPARENT )
+<返回语句>
+SEMICN ;
+<语句>
+<语句列>
+<复合语句>
+RBRACE }
+<有返回值函数定义>
+CHARTK char
+IDENFR testChar
+<声明头部>
+LPARENT (
+<参数表>
+RPARENT )
+LBRACE {
+RETURNTK return
+LPARENT (
+CHARCON c
+<因子>
+<项>
+<表达式>
+RPARENT )
+<返回语句>
+SEMICN ;
+<语句>
+<语句列>
+<复合语句>
+RBRACE }
+<有返回值函数定义>
+VOIDTK void
+IDENFR merge
+LPARENT (
+INTTK int
+IDENFR a1
+COMMA ,
+INTTK int
+IDENFR a2
+<参数表>
+RPARENT )
+LBRACE {
+LBRACE {
+PRINTFTK printf
+LPARENT (
+STRCON %d
+<字符串>
+COMMA ,
+IDENFR a1
+<因子>
+<项>
+<表达式>
+RPARENT )
+<写语句>
+SEMICN ;
+<语句>
+<语句列>
+RBRACE }
+<语句>
+RETURNTK return
+<返回语句>
+SEMICN ;
+<语句>
+<语句列>
+<复合语句>
+RBRACE }
+<无返回值函数定义>
+VOIDTK void
+IDENFR merge1
+LPARENT (
+INTTK int
+IDENFR a1
+COMMA ,
+INTTK int
+IDENFR a2
+<参数表>
+RPARENT )
+LBRACE {
+LBRACE {
+PRINTFTK printf
+LPARENT (
+STRCON %d
+<字符串>
+COMMA ,
+IDENFR a1
+<因子>
+<项>
+<表达式>
+RPARENT )
+<写语句>
+SEMICN ;
+<语句>
+<语句列>
+RBRACE }
+<语句>
+RETURNTK return
+<返回语句>
+SEMICN ;
+<语句>
+<语句列>
+<复合语句>
+RBRACE }
+<无返回值函数定义>
+VOIDTK void
+IDENFR merge2
+LPARENT (
+INTTK int
+IDENFR a1
+COMMA ,
+INTTK int
+IDENFR a2
+<参数表>
+RPARENT )
+LBRACE {
+INTTK int
+IDENFR m
+<变量定义>
+SEMICN ;
+<变量说明>
+PRINTFTK printf
+LPARENT (
+STRCON %d
+<字符串>
+COMMA ,
+IDENFR a2
+<因子>
+<项>
+<表达式>
+RPARENT )
+<写语句>
+SEMICN ;
+<语句>
+PRINTFTK printf
+LPARENT (
+STRCON abcd
+<字符串>
+RPARENT )
+<写语句>
+SEMICN ;
+<语句>
+RETURNTK return
+<返回语句>
+SEMICN ;
+<语句>
+<语句列>
+<复合语句>
+RBRACE }
+<无返回值函数定义>
+VOIDTK void
+IDENFR me_rge_1
+LPARENT (
+INTTK int
+IDENFR a1
+COMMA ,
+INTTK int
+IDENFR a2
+<参数表>
+RPARENT )
+LBRACE {
+PRINTFTK printf
+LPARENT (
+STRCON %d
+<字符串>
+COMMA ,
+IDENFR a2
+<因子>
+<项>
+<表达式>
+RPARENT )
+<写语句>
+SEMICN ;
+<语句>
+PRINTFTK printf
+LPARENT (
+STRCON abcd
+<字符串>
+RPARENT )
+<写语句>
+SEMICN ;
+<语句>
+RETURNTK return
+<返回语句>
+SEMICN ;
+<语句>
+<语句列>
+<复合语句>
+RBRACE }
+<无返回值函数定义>
+VOIDTK void
+IDENFR try
+LPARENT (
+<参数表>
+RPARENT )
+LBRACE {
+INTTK int
+IDENFR b10
+<变量定义>
+SEMICN ;
+CHARTK char
+IDENFR a10
+COMMA ,
+IDENFR a9
+COMMA ,
+IDENFR a8
+COMMA ,
+IDENFR a7
+<变量定义>
+SEMICN ;
+<变量说明>
+IDENFR b10
+ASSIGN =
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR a10
+ASSIGN =
+CHARCON c
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR a9
+ASSIGN =
+CHARCON +
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR a8
+ASSIGN =
+CHARCON 1
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR a7
+ASSIGN =
+CHARCON *
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+<语句列>
+<复合语句>
+RBRACE }
+<无返回值函数定义>
+VOIDTK void
+IDENFR cc
+LPARENT (
+<参数表>
+RPARENT )
+LBRACE {
+CONSTTK const
+INTTK int
+IDENFR aaaa
+ASSIGN =
+INTCON 1
+<无符号整数>
+<整数>
+<常量定义>
+SEMICN ;
+<常量说明>
+<语句列>
+<复合语句>
+RBRACE }
+<无返回值函数定义>
+VOIDTK void
+MAINTK main
+LPARENT (
+RPARENT )
+LBRACE {
+CONSTTK const
+CHARTK char
+IDENFR m
+ASSIGN =
+CHARCON c
+<常量定义>
+SEMICN ;
+CONSTTK const
+INTTK int
+IDENFR n
+ASSIGN =
+MINU -
+INTCON 5
+<无符号整数>
+<整数>
+COMMA ,
+IDENFR n1
+ASSIGN =
+INTCON 3
+<无符号整数>
+<整数>
+<常量定义>
+SEMICN ;
+<常量说明>
+INTTK int
+IDENFR a
+COMMA ,
+IDENFR b
+COMMA ,
+IDENFR c
+<变量定义>
+SEMICN ;
+CHARTK char
+IDENFR ac
+COMMA ,
+IDENFR bc
+<变量定义>
+SEMICN ;
+INTTK int
+IDENFR aa
+<变量定义>
+SEMICN ;
+INTTK int
+IDENFR A0
+<变量定义>
+SEMICN ;
+INTTK int
+IDENFR i
+COMMA ,
+IDENFR j
+COMMA ,
+IDENFR k
+<变量定义>
+SEMICN ;
+CHARTK char
+IDENFR bb
+<变量定义>
+SEMICN ;
+CHARTK char
+IDENFR a1
+LBRACK [
+INTCON 100
+<无符号整数>
+RBRACK ]
+<变量定义>
+SEMICN ;
+INTTK int
+IDENFR a2
+LBRACK [
+INTCON 10
+<无符号整数>
+RBRACK ]
+COMMA ,
+IDENFR b1
+LBRACK [
+INTCON 10
+<无符号整数>
+RBRACK ]
+<变量定义>
+SEMICN ;
+<变量说明>
+IDENFR a
+ASSIGN =
+INTCON 0
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR b
+ASSIGN =
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR c
+ASSIGN =
+INTCON 2
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR a
+ASSIGN =
+IDENFR b
+<因子>
+<项>
+PLUS +
+IDENFR c
+<因子>
+<项>
+MINU -
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+MULT *
+INTCON 5
+<无符号整数>
+<整数>
+<因子>
+DIV /
+INTCON 2
+<无符号整数>
+<整数>
+<因子>
+<项>
+PLUS +
+INTCON 0
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR m1
+LPARENT (
+CHARCON c
+<因子>
+<项>
+<表达式>
+<值参数表>
+RPARENT )
+<有返回值函数调用语句>
+SEMICN ;
+<语句>
+IFTK if
+LPARENT (
+IDENFR b
+<因子>
+<项>
+<表达式>
+GRE >
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+RPARENT )
+LBRACE {
+IFTK if
+LPARENT (
+IDENFR a
+<因子>
+<项>
+<表达式>
+GRE >
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+RPARENT )
+LBRACE {
+IDENFR a
+ASSIGN =
+INTCON 0
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+<语句列>
+RBRACE }
+<语句>
+<条件语句>
+<语句>
+<语句列>
+RBRACE }
+<语句>
+ELSETK else
+LBRACE {
+IDENFR b
+ASSIGN =
+INTCON 5
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+<语句列>
+RBRACE }
+<语句>
+<条件语句>
+<语句>
+IDENFR a
+ASSIGN =
+INTCON 6
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IFTK if
+LPARENT (
+IDENFR b
+<因子>
+<项>
+<表达式>
+GRE >
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+RPARENT )
+LBRACE {
+IFTK if
+LPARENT (
+IDENFR a
+<因子>
+<项>
+<表达式>
+GRE >
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+RPARENT )
+LBRACE {
+IDENFR a
+ASSIGN =
+INTCON 0
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+<语句列>
+RBRACE }
+<语句>
+<条件语句>
+<语句>
+<语句列>
+RBRACE }
+<语句>
+<条件语句>
+<语句>
+FORTK for
+LPARENT (
+IDENFR i
+ASSIGN =
+INTCON 0
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+SEMICN ;
+IDENFR i
+<因子>
+<项>
+<表达式>
+LSS <
+INTCON 10
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+SEMICN ;
+IDENFR i
+ASSIGN =
+IDENFR i
+PLUS +
+INTCON 1
+<无符号整数>
+<步长>
+RPARENT )
+LBRACE {
+IDENFR b
+ASSIGN =
+IDENFR b
+<因子>
+<项>
+PLUS +
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+<语句列>
+RBRACE }
+<语句>
+<循环语句>
+<语句>
+FORTK for
+LPARENT (
+IDENFR i
+ASSIGN =
+INTCON 0
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+SEMICN ;
+IDENFR i
+<因子>
+<项>
+<表达式>
+LSS <
+INTCON 10
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+SEMICN ;
+IDENFR i
+ASSIGN =
+IDENFR i
+MINU -
+INTCON 1
+<无符号整数>
+<步长>
+RPARENT )
+LBRACE {
+IDENFR b
+ASSIGN =
+IDENFR b
+<因子>
+<项>
+PLUS +
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+<语句列>
+RBRACE }
+<语句>
+<循环语句>
+<语句>
+IDENFR a
+ASSIGN =
+IDENFR b
+<因子>
+<项>
+PLUS +
+IDENFR c
+<因子>
+<项>
+MINU -
+LPARENT (
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+MULT *
+INTCON 5
+<无符号整数>
+<整数>
+<因子>
+DIV /
+INTCON 2
+<无符号整数>
+<整数>
+<因子>
+<项>
+PLUS +
+INTCON 0
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RPARENT )
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR a
+ASSIGN =
+IDENFR b
+<因子>
+<项>
+PLUS +
+IDENFR c
+<因子>
+<项>
+MINU -
+LPARENT (
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+MULT *
+INTCON 5
+<无符号整数>
+<整数>
+<因子>
+DIV /
+INTCON 2
+<无符号整数>
+<整数>
+<因子>
+<项>
+PLUS +
+INTCON 0
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RPARENT )
+<因子>
+MULT *
+LPARENT (
+IDENFR b
+<因子>
+<项>
+PLUS +
+IDENFR c
+<因子>
+<项>
+MINU -
+LPARENT (
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+MULT *
+INTCON 5
+<无符号整数>
+<整数>
+<因子>
+DIV /
+INTCON 2
+<无符号整数>
+<整数>
+<因子>
+<项>
+PLUS +
+INTCON 0
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RPARENT )
+<因子>
+<项>
+<表达式>
+RPARENT )
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR a2
+LBRACK [
+INTCON 5
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RBRACK ]
+ASSIGN =
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR a2
+LBRACK [
+INTCON 3
+<无符号整数>
+<整数>
+<因子>
+<项>
+PLUS +
+INTCON 8
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RBRACK ]
+ASSIGN =
+INTCON 11
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR a2
+LBRACK [
+IDENFR a2
+LBRACK [
+INTCON 5
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RBRACK ]
+<因子>
+<项>
+<表达式>
+RBRACK ]
+ASSIGN =
+INTCON 4
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR a2
+LBRACK [
+PLUS +
+IDENFR a2
+LBRACK [
+INTCON 5
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RBRACK ]
+<因子>
+<项>
+PLUS +
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RBRACK ]
+ASSIGN =
+IDENFR a2
+LBRACK [
+INTCON 5
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RBRACK ]
+<因子>
+<项>
+PLUS +
+IDENFR a
+<因子>
+<项>
+PLUS +
+IDENFR b
+<因子>
+MULT *
+LPARENT (
+IDENFR a
+<因子>
+<项>
+PLUS +
+LPARENT (
+IDENFR b
+<因子>
+MULT *
+IDENFR c
+<因子>
+<项>
+<表达式>
+RPARENT )
+<因子>
+<项>
+<表达式>
+RPARENT )
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR a2
+LBRACK [
+IDENFR testInt
+LPARENT (
+<值参数表>
+RPARENT )
+<有返回值函数调用语句>
+<因子>
+<项>
+<表达式>
+RBRACK ]
+ASSIGN =
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR j
+ASSIGN =
+INTCON 0
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+WHILETK while
+LPARENT (
+IDENFR j
+<因子>
+<项>
+<表达式>
+LSS <
+INTCON 10
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+RPARENT )
+LBRACE {
+IDENFR a
+ASSIGN =
+IDENFR a
+<因子>
+<项>
+PLUS +
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR j
+ASSIGN =
+IDENFR j
+<因子>
+<项>
+PLUS +
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+<语句列>
+RBRACE }
+<语句>
+<循环语句>
+<语句>
+DOTK do
+LBRACE {
+IDENFR a
+ASSIGN =
+IDENFR a
+<因子>
+<项>
+PLUS +
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR j
+ASSIGN =
+IDENFR j
+<因子>
+<项>
+PLUS +
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+IDENFR a
+ASSIGN =
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+PLUS +
+INTCON 2
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<赋值语句>
+SEMICN ;
+<语句>
+<语句列>
+RBRACE }
+<语句>
+WHILETK while
+LPARENT (
+IDENFR j
+<因子>
+<项>
+<表达式>
+LSS <
+INTCON 100
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+RPARENT )
+<循环语句>
+<语句>
+DOTK do
+LBRACE {
+LBRACE {
+LBRACE {
+<语句列>
+RBRACE }
+<语句>
+<语句列>
+RBRACE }
+<语句>
+<语句列>
+RBRACE }
+<语句>
+WHILETK while
+LPARENT (
+INTCON 0
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+RPARENT )
+<循环语句>
+<语句>
+WHILETK while
+LPARENT (
+INTCON 0
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+RPARENT )
+LBRACE {
+<语句列>
+RBRACE }
+<语句>
+<循环语句>
+<语句>
+SEMICN ;
+<语句>
+IDENFR merge
+LPARENT (
+IDENFR a
+<因子>
+<项>
+<表达式>
+COMMA ,
+IDENFR b
+<因子>
+<项>
+<表达式>
+<值参数表>
+RPARENT )
+<无返回值函数调用语句>
+SEMICN ;
+<语句>
+IDENFR merge1
+LPARENT (
+IDENFR a
+<因子>
+<项>
+<表达式>
+COMMA ,
+IDENFR b
+<因子>
+<项>
+<表达式>
+<值参数表>
+RPARENT )
+<无返回值函数调用语句>
+SEMICN ;
+<语句>
+IDENFR add
+LPARENT (
+IDENFR a
+<因子>
+<项>
+<表达式>
+COMMA ,
+IDENFR b
+<因子>
+<项>
+<表达式>
+<值参数表>
+RPARENT )
+<有返回值函数调用语句>
+SEMICN ;
+<语句>
+SCANFTK scanf
+LPARENT (
+IDENFR a
+RPARENT )
+<读语句>
+SEMICN ;
+<语句>
+SCANFTK scanf
+LPARENT (
+IDENFR a
+COMMA ,
+IDENFR b
+RPARENT )
+<读语句>
+SEMICN ;
+<语句>
+PRINTFTK printf
+LPARENT (
+PLUS +
+IDENFR a2
+LBRACK [
+INTCON 5
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RBRACK ]
+<因子>
+<项>
+PLUS +
+INTCON 1
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RPARENT )
+<写语句>
+SEMICN ;
+<语句>
+WHILETK while
+LPARENT (
+IDENFR a
+<因子>
+<项>
+<表达式>
+GEQ >=
+INTCON 10
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+RPARENT )
+LBRACE {
+IFTK if
+LPARENT (
+IDENFR b
+<因子>
+<项>
+<表达式>
+EQL ==
+INTCON 10
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+RPARENT )
+LBRACE {
+<语句列>
+RBRACE }
+<语句>
+<条件语句>
+<语句>
+<语句列>
+RBRACE }
+<语句>
+<循环语句>
+<语句>
+SEMICN ;
+<语句>
+PRINTFTK printf
+LPARENT (
+IDENFR a
+<因子>
+MULT *
+IDENFR a
+<因子>
+<项>
+<表达式>
+RPARENT )
+<写语句>
+SEMICN ;
+<语句>
+WHILETK while
+LPARENT (
+IDENFR a
+<因子>
+<项>
+<表达式>
+LSS <
+PLUS +
+INTCON 10
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+RPARENT )
+LBRACE {
+IFTK if
+LPARENT (
+IDENFR c
+<因子>
+<项>
+<表达式>
+NEQ !=
+INTCON 0
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+<条件>
+RPARENT )
+LBRACE {
+<语句列>
+RBRACE }
+<语句>
+<条件语句>
+<语句>
+<语句列>
+RBRACE }
+<语句>
+<循环语句>
+<语句>
+SEMICN ;
+<语句>
+SCANFTK scanf
+LPARENT (
+IDENFR ac
+RPARENT )
+<读语句>
+SEMICN ;
+<语句>
+<语句列>
+<复合语句>
+RBRACE }
+<主函数>
+<程序>

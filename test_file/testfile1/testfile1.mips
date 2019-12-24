@@ -1,0 +1,221 @@
+.data
+str$1: .asciiz "This is answer "
+str$0: .asciiz "\n"
+
+.text
+jal main
+li $v0, 10
+syscall
+
+main:
+# $s3 : main_tmp_a
+# $s2 : main_tmp_b
+# $s0 : main_tmp_d
+# $s1 : main_tmp_c
+# $s0 : main_#7
+# $s0 : main_#8
+# $s0 : main_#9
+# $s0 : main_#10
+# $s0 : main_#14
+# $s0 : main_#15
+sub $sp, $sp, 1352
+sw $s0, 1268($sp)
+sw $s1, 1272($sp)
+sw $s2, 1276($sp)
+sw $s3, 1280($sp)
+
+# input global_var_a:
+li $v0, 5
+syscall
+move $t0, $v0
+
+# input main_tmp_b:
+li $v0, 5
+syscall
+move $s2, $v0
+
+# input main_tmp_c:
+li $v0, 12
+syscall
+move $s1, $v0
+
+# main_tmp_d = global_var_a:
+move $s0, $t0
+
+# global_var_a = global_int$130:
+li $t0, 130
+
+# global_var_b = global_int$258:
+li $t1, 258
+
+# global_var_c = global_int$-28:
+li $t2, -28
+
+# global_var_c = global_int$-4222:
+li $t2, -4222
+
+# global_var_b = global_int$34325:
+li $t1, 34325
+
+# output global_int$130:
+move $t8, $a0
+li $a0, 130
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$34325:
+move $t8, $a0
+li $a0, 34325
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "This is answer " :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# main_#7 = global_int$30103 + main_tmp_d:
+add $s0, $s0, 30103
+
+# output main_#7:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output main_tmp_c:
+move $t8, $a0
+move $a0, $s1
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_c:
+move $t8, $a0
+li $a0, 100
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_a:
+move $t8, $a0
+li $a0, 10
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# main_arr_a[global_int$3] = global_int$3:
+li $t9, 3
+sw $t9, 28($sp)
+
+# main_#8 = main_tmp_a + main_tmp_b:
+add $s0, $s3, $s2
+
+# main_arr_a[global_int$8] = main_#8:
+sw $s0, 48($sp)
+
+# main_arr_a[global_int$234] = global_int$543:
+li $t9, 543
+sw $t9, 952($sp)
+
+# main_#9 = main_arr_a[global_int$234]:
+lw $s0, 952($sp)
+
+# main_#10 = main_#9 + global_int$3:
+add $s0, $s0, 3
+
+# output main_#10:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# main_arr_a[global_int$198] = global_int$324:
+li $t9, 324
+sw $t9, 808($sp)
+
+# main_#14 = main_arr_a[global_int$198]:
+lw $s0, 808($sp)
+
+# main_#15 = main_#14 + global_int$3:
+add $s0, $s0, 3
+
+# output main_#15:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# return:
+sw $t0, 0($gp)
+sw $t1, 4($gp)
+sw $t2, 8($gp)
+lw $s0, 1268($sp)
+lw $s1, 1272($sp)
+lw $s2, 1276($sp)
+lw $s3, 1280($sp)
+add $sp, $sp, 1352
+jr $ra

@@ -1,0 +1,1077 @@
+
+func main()
+push global_int$5
+main_#42 = call factorial
+main_n = main_#42
+output "5 != " 
+output main_n
+output "\n" 
+push global_int$5
+push global_int$10
+call swap
+call complete_flower_num
+return
+
+func factorial()
+if factorial_n > global_int$1 branch to "label$1"
+return global_int$1
+label$1:
+factorial_#2 = factorial_n - global_int$1
+push factorial_#2
+factorial_#3 = call factorial
+factorial_#1 = factorial_n * factorial_#3
+return factorial_#1
+
+func mod()
+mod_#5 = mod_x / mod_y
+mod_#5 = mod_#5 * mod_y
+mod_#4 = mod_x - mod_#5
+mod_x = mod_#4
+return mod_x
+
+func swap()
+output "x = " 
+output swap_x
+output "\n" 
+output "y = " 
+output swap_y
+output "\n" 
+swap_temp = swap_x
+swap_x = swap_y
+swap_y = swap_temp
+output "SWAP x = " 
+output swap_x
+output "\n" 
+output "SWAP y = " 
+output swap_y
+output "\n" 
+return
+
+func full_num()
+full_num_#6 = full_num_n * global_int$100
+full_num_#8 = full_num_j * global_int$10
+full_num_#7 = full_num_#6 + full_num_#8
+full_num_#7 = full_num_#7 + full_num_a
+return full_num_#7
+
+func flower_num()
+flower_num_#9 = flower_num_n * flower_num_n
+flower_num_#9 = flower_num_#9 * flower_num_n
+flower_num_#11 = flower_num_j * flower_num_j
+flower_num_#11 = flower_num_#11 * flower_num_j
+flower_num_#10 = flower_num_#9 + flower_num_#11
+flower_num_#12 = flower_num_a * flower_num_a
+flower_num_#12 = flower_num_#12 * flower_num_a
+flower_num_#10 = flower_num_#10 + flower_num_#12
+return flower_num_#10
+
+func complete_flower_num()
+complete_flower_num_j = global_int$2
+if complete_flower_num_j >= global_MAX_NUM branch to "label$2"
+label$3:
+complete_flower_num_#13 = global_int$0 - global_int$1
+complete_flower_num_n = complete_flower_num_#13
+complete_flower_num_s = complete_flower_num_j
+complete_flower_num_i = global_int$1
+if complete_flower_num_i >= complete_flower_num_j branch to "label$4"
+label$5:
+complete_flower_num_#15 = complete_flower_num_j / complete_flower_num_i
+complete_flower_num_#14 = complete_flower_num_#15
+complete_flower_num_#16 = complete_flower_num_#14 * complete_flower_num_i
+complete_flower_num_x1 = complete_flower_num_#16
+push complete_flower_num_j
+push complete_flower_num_i
+complete_flower_num_#17 = call mod
+if complete_flower_num_#17 != global_int$0 branch to "label$6"
+complete_flower_num_#18 = complete_flower_num_n + global_int$1
+complete_flower_num_n = complete_flower_num_#18
+complete_flower_num_#19 = complete_flower_num_s - complete_flower_num_i
+complete_flower_num_s = complete_flower_num_#19
+if complete_flower_num_n < global_int$128 branch to "label$7"
+output "OVERFLOW!" 
+output "\n" 
+goto label$8
+label$7:
+complete_flower_num_k[complete_flower_num_n] = complete_flower_num_i
+label$8:
+label$6:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < complete_flower_num_j branch to "label$5"
+label$4:
+if complete_flower_num_s != global_int$0 branch to "label$9"
+output "complete number: " 
+output complete_flower_num_j
+output "\n" 
+complete_flower_num_i = global_int$0
+if complete_flower_num_i > complete_flower_num_n branch to "label$10"
+label$11:
+output "  " 
+complete_flower_num_#20 = complete_flower_num_k[complete_flower_num_i]
+output complete_flower_num_#20
+output "\n" 
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i <= complete_flower_num_n branch to "label$11"
+label$10:
+output " " 
+output "\n" 
+label$9:
+complete_flower_num_j = complete_flower_num_j + global_int$1
+if complete_flower_num_j < global_MAX_NUM branch to "label$3"
+label$2:
+output "---------------------------------------------------------------" 
+output "\n" 
+output "'water flower'number is:" 
+output "\n" 
+complete_flower_num_y = global_int$0
+complete_flower_num_i = global_int$100
+complete_flower_num_#21 = global_int$100 + global_MAX_NUM
+if complete_flower_num_i >= complete_flower_num_#21 branch to "label$12"
+label$13:
+complete_flower_num_#22 = complete_flower_num_i / global_int$100
+complete_flower_num_n = complete_flower_num_#22
+output complete_flower_num_n
+output "\n" 
+complete_flower_num_#23 = complete_flower_num_i / global_int$10
+push complete_flower_num_#23
+push global_int$10
+complete_flower_num_#24 = call mod
+complete_flower_num_j = complete_flower_num_#24
+output complete_flower_num_j
+output "\n" 
+push complete_flower_num_i
+push global_int$10
+complete_flower_num_#25 = call mod
+complete_flower_num_a = complete_flower_num_#25
+output complete_flower_num_a
+output "\n" 
+output "full_num = " 
+push complete_flower_num_n
+push complete_flower_num_j
+push complete_flower_num_a
+complete_flower_num_#26 = call full_num
+output complete_flower_num_#26
+output "\n" 
+output "flower_num = " 
+push complete_flower_num_n
+push complete_flower_num_j
+push complete_flower_num_a
+complete_flower_num_#27 = call flower_num
+output complete_flower_num_#27
+output "\n" 
+push complete_flower_num_n
+push complete_flower_num_j
+push complete_flower_num_a
+complete_flower_num_#28 = call full_num
+push complete_flower_num_n
+push complete_flower_num_j
+push complete_flower_num_a
+complete_flower_num_#29 = call flower_num
+if complete_flower_num_#28 != complete_flower_num_#29 branch to "label$14"
+complete_flower_num_k[complete_flower_num_y] = complete_flower_num_i
+complete_flower_num_#30 = complete_flower_num_y + global_int$1
+complete_flower_num_y = complete_flower_num_#30
+output complete_flower_num_y
+output "\n" 
+label$14:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+complete_flower_num_#21 = global_int$100 + global_MAX_NUM
+if complete_flower_num_i < complete_flower_num_#21 branch to "label$13"
+label$12:
+output complete_flower_num_y
+output "\n" 
+complete_flower_num_i = global_int$0
+if complete_flower_num_i >= complete_flower_num_y branch to "label$15"
+label$16:
+output "  " 
+complete_flower_num_#31 = complete_flower_num_k[complete_flower_num_i]
+output complete_flower_num_#31
+output "\n" 
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < complete_flower_num_y branch to "label$16"
+label$15:
+output " " 
+output "\n" 
+output "---------------------------------------------------------------" 
+output "\n" 
+complete_flower_num_h = global_int$0
+complete_flower_num_leap = global_int$1
+complete_flower_num_m = global_int$2
+if complete_flower_num_m > global_MAX_NUM branch to "label$17"
+label$18:
+complete_flower_num_#32 = complete_flower_num_m / global_int$2
+complete_flower_num_k2 = complete_flower_num_#32
+complete_flower_num_i = global_int$2
+if complete_flower_num_i > complete_flower_num_k2 branch to "label$19"
+label$20:
+complete_flower_num_#34 = complete_flower_num_m / complete_flower_num_i
+complete_flower_num_#33 = complete_flower_num_#34
+complete_flower_num_#35 = complete_flower_num_#33 * complete_flower_num_i
+complete_flower_num_x2 = complete_flower_num_#35
+output "mod = " 
+push complete_flower_num_m
+push complete_flower_num_i
+complete_flower_num_#36 = call mod
+output complete_flower_num_#36
+output "\n" 
+push complete_flower_num_m
+push complete_flower_num_i
+complete_flower_num_#37 = call mod
+if complete_flower_num_#37 != global_int$0 branch to "label$21"
+complete_flower_num_leap = global_int$0
+label$21:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i <= complete_flower_num_k2 branch to "label$20"
+label$19:
+if complete_flower_num_leap != global_int$1 branch to "label$22"
+output " " 
+output complete_flower_num_m
+output "\n" 
+complete_flower_num_#38 = complete_flower_num_h + global_int$1
+complete_flower_num_h = complete_flower_num_#38
+complete_flower_num_#40 = complete_flower_num_h / global_int$10
+complete_flower_num_#39 = complete_flower_num_#40
+complete_flower_num_#41 = complete_flower_num_#39 * global_int$10
+complete_flower_num_x2 = complete_flower_num_#41
+if complete_flower_num_x2 != complete_flower_num_h branch to "label$23"
+output " " 
+output "\n" 
+label$23:
+label$22:
+complete_flower_num_leap = global_int$1
+complete_flower_num_m = complete_flower_num_m + global_int$1
+if complete_flower_num_m <= global_MAX_NUM branch to "label$18"
+label$17:
+output "The total is " 
+output complete_flower_num_h
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+push global_int$5
+main_#42 = call factorial
+output "5 != " 
+output main_#42
+output "\n" 
+output "x = " 
+output global_int$5
+output "\n" 
+output "y = " 
+output global_int$10
+output "\n" 
+output "SWAP x = " 
+output global_int$10
+output "\n" 
+output "SWAP y = " 
+output global_int$5
+output "\n" 
+complete_flower_num_j = global_int$2
+if global_int$2 >= global_MAX_NUM branch to "label$26"
+label$27:
+complete_flower_num_n = global_int$-1
+complete_flower_num_s = complete_flower_num_j
+complete_flower_num_i = global_int$1
+if global_int$1 >= complete_flower_num_j branch to "label$28"
+label$29:
+complete_flower_num_#15 = complete_flower_num_j / complete_flower_num_i
+complete_flower_num_#16 = complete_flower_num_#15 * complete_flower_num_i
+push complete_flower_num_j
+push complete_flower_num_i
+complete_flower_num_#17 = call mod
+if complete_flower_num_#17 != global_int$0 branch to "label$30"
+complete_flower_num_#18 = complete_flower_num_n + global_int$1
+complete_flower_num_n = complete_flower_num_#18
+complete_flower_num_#19 = complete_flower_num_s - complete_flower_num_i
+complete_flower_num_s = complete_flower_num_#19
+if complete_flower_num_#18 < global_int$128 branch to "label$31"
+output "OVERFLOW!" 
+output "\n" 
+goto label$32
+label$31:
+complete_flower_num_k[complete_flower_num_n] = complete_flower_num_i
+label$32:
+label$30:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < complete_flower_num_j branch to "label$29"
+label$28:
+if complete_flower_num_s != global_int$0 branch to "label$33"
+output "complete number: " 
+output complete_flower_num_j
+output "\n" 
+complete_flower_num_i = global_int$0
+if global_int$0 > complete_flower_num_n branch to "label$34"
+label$35:
+output "  " 
+complete_flower_num_#20 = complete_flower_num_k[complete_flower_num_i]
+output complete_flower_num_#20
+output "\n" 
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i <= complete_flower_num_n branch to "label$35"
+label$34:
+output " " 
+output "\n" 
+label$33:
+complete_flower_num_j = complete_flower_num_j + global_int$1
+if complete_flower_num_j < global_MAX_NUM branch to "label$27"
+label$26:
+output "---------------------------------------------------------------" 
+output "\n" 
+output "'water flower'number is:" 
+output "\n" 
+complete_flower_num_y = global_int$0
+complete_flower_num_i = global_int$100
+if global_int$100 >= global_int$228 branch to "label$36"
+label$37:
+complete_flower_num_#22 = complete_flower_num_i / global_int$100
+complete_flower_num_n = complete_flower_num_#22
+output complete_flower_num_#22
+output "\n" 
+complete_flower_num_#23 = complete_flower_num_i / global_int$10
+push complete_flower_num_#23
+push global_int$10
+complete_flower_num_#24 = call mod
+complete_flower_num_j = complete_flower_num_#24
+output complete_flower_num_#24
+output "\n" 
+push complete_flower_num_i
+push global_int$10
+complete_flower_num_#25 = call mod
+complete_flower_num_a = complete_flower_num_#25
+output complete_flower_num_#25
+output "\n" 
+output "full_num = " 
+push complete_flower_num_n
+push complete_flower_num_j
+push complete_flower_num_a
+complete_flower_num_#26 = call full_num
+output complete_flower_num_#26
+output "\n" 
+output "flower_num = " 
+push complete_flower_num_n
+push complete_flower_num_j
+push complete_flower_num_a
+complete_flower_num_#27 = call flower_num
+output complete_flower_num_#27
+output "\n" 
+push complete_flower_num_n
+push complete_flower_num_j
+push complete_flower_num_a
+complete_flower_num_#28 = call full_num
+push complete_flower_num_n
+push complete_flower_num_j
+push complete_flower_num_a
+complete_flower_num_#29 = call flower_num
+if complete_flower_num_#28 != complete_flower_num_#29 branch to "label$38"
+complete_flower_num_k[complete_flower_num_y] = complete_flower_num_i
+complete_flower_num_#30 = complete_flower_num_y + global_int$1
+complete_flower_num_y = complete_flower_num_#30
+output complete_flower_num_#30
+output "\n" 
+label$38:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < global_int$228 branch to "label$37"
+label$36:
+output complete_flower_num_y
+output "\n" 
+complete_flower_num_i = global_int$0
+if global_int$0 >= complete_flower_num_y branch to "label$39"
+label$40:
+output "  " 
+complete_flower_num_#31 = complete_flower_num_k[complete_flower_num_i]
+output complete_flower_num_#31
+output "\n" 
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < complete_flower_num_y branch to "label$40"
+label$39:
+output " " 
+output "\n" 
+output "---------------------------------------------------------------" 
+output "\n" 
+complete_flower_num_h = global_int$0
+complete_flower_num_leap = global_int$1
+complete_flower_num_m = global_int$2
+if global_int$2 > global_MAX_NUM branch to "label$41"
+label$42:
+complete_flower_num_#32 = complete_flower_num_m / global_int$2
+complete_flower_num_k2 = complete_flower_num_#32
+complete_flower_num_i = global_int$2
+if global_int$2 > complete_flower_num_#32 branch to "label$43"
+label$44:
+complete_flower_num_#34 = complete_flower_num_m / complete_flower_num_i
+complete_flower_num_#35 = complete_flower_num_#34 * complete_flower_num_i
+output "mod = " 
+push complete_flower_num_m
+push complete_flower_num_i
+complete_flower_num_#36 = call mod
+output complete_flower_num_#36
+output "\n" 
+push complete_flower_num_m
+push complete_flower_num_i
+complete_flower_num_#37 = call mod
+if complete_flower_num_#37 != global_int$0 branch to "label$45"
+complete_flower_num_leap = global_int$0
+label$45:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i <= complete_flower_num_k2 branch to "label$44"
+label$43:
+if complete_flower_num_leap != global_int$1 branch to "label$46"
+output " " 
+output complete_flower_num_m
+output "\n" 
+complete_flower_num_#38 = complete_flower_num_h + global_int$1
+complete_flower_num_h = complete_flower_num_#38
+complete_flower_num_#40 = complete_flower_num_#38 / global_int$10
+complete_flower_num_#41 = complete_flower_num_#40 * global_int$10
+if complete_flower_num_#41 != complete_flower_num_#38 branch to "label$47"
+output " " 
+output "\n" 
+label$47:
+label$46:
+complete_flower_num_leap = global_int$1
+complete_flower_num_m = complete_flower_num_m + global_int$1
+if complete_flower_num_m <= global_MAX_NUM branch to "label$42"
+label$41:
+output "The total is " 
+output complete_flower_num_h
+output "\n" 
+return
+
+func factorial()
+if factorial_n > global_int$1 branch to "label$1"
+return global_int$1
+label$1:
+factorial_#2 = factorial_n - global_int$1
+push factorial_#2
+factorial_#3 = call factorial
+factorial_#1 = factorial_n * factorial_#3
+return factorial_#1
+
+func mod()
+mod_#5 = mod_x / mod_y
+mod_#5 = mod_#5 * mod_y
+mod_#4 = mod_x - mod_#5
+return mod_#4
+
+func full_num()
+full_num_#6 = full_num_n * global_int$100
+full_num_#8 = full_num_j * global_int$10
+full_num_#7 = full_num_#6 + full_num_#8
+full_num_#7 = full_num_#7 + full_num_a
+return full_num_#7
+
+func flower_num()
+flower_num_#9 = flower_num_n * flower_num_n
+flower_num_#9 = flower_num_#9 * flower_num_n
+flower_num_#11 = flower_num_j * flower_num_j
+flower_num_#11 = flower_num_#11 * flower_num_j
+flower_num_#10 = flower_num_#9 + flower_num_#11
+flower_num_#12 = flower_num_a * flower_num_a
+flower_num_#12 = flower_num_#12 * flower_num_a
+flower_num_#10 = flower_num_#10 + flower_num_#12
+return flower_num_#10
+
+<!--anchor-->
+
+func main()
+push global_int$5
+main_#42 = call factorial
+output "5 != " 
+output main_#42
+output "\n" 
+output "x = " 
+output global_int$5
+output "\n" 
+output "y = " 
+output global_int$10
+output "\n" 
+output "SWAP x = " 
+output global_int$10
+output "\n" 
+output "SWAP y = " 
+output global_int$5
+output "\n" 
+complete_flower_num_j = global_int$2
+label$27:
+complete_flower_num_n = global_int$-1
+complete_flower_num_s = complete_flower_num_j
+complete_flower_num_i = global_int$1
+if global_int$1 >= complete_flower_num_j branch to "label$28"
+label$29:
+complete_flower_num_#15 = complete_flower_num_j / complete_flower_num_i
+mod_#5 = complete_flower_num_j / complete_flower_num_i
+mod_#5 = mod_#5 * complete_flower_num_i
+mod_#4 = complete_flower_num_j - mod_#5
+complete_flower_num_#17 = mod_#4
+if complete_flower_num_#17 != global_int$0 branch to "label$30"
+complete_flower_num_#18 = complete_flower_num_n + global_int$1
+complete_flower_num_n = complete_flower_num_#18
+complete_flower_num_#19 = complete_flower_num_s - complete_flower_num_i
+complete_flower_num_s = complete_flower_num_#19
+if complete_flower_num_#18 < global_int$128 branch to "label$31"
+output "OVERFLOW!" 
+output "\n" 
+goto label$32
+label$31:
+complete_flower_num_k[complete_flower_num_n] = complete_flower_num_i
+label$32:
+label$30:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < complete_flower_num_j branch to "label$29"
+label$28:
+if complete_flower_num_s != global_int$0 branch to "label$33"
+output "complete number: " 
+output complete_flower_num_j
+output "\n" 
+complete_flower_num_i = global_int$0
+if global_int$0 > complete_flower_num_n branch to "label$34"
+label$35:
+output "  " 
+complete_flower_num_#20 = complete_flower_num_k[complete_flower_num_i]
+output complete_flower_num_#20
+output "\n" 
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i <= complete_flower_num_n branch to "label$35"
+label$34:
+output " " 
+output "\n" 
+label$33:
+complete_flower_num_j = complete_flower_num_j + global_int$1
+if complete_flower_num_j < global_MAX_NUM branch to "label$27"
+output "---------------------------------------------------------------" 
+output "\n" 
+output "'water flower'number is:" 
+output "\n" 
+complete_flower_num_y = global_int$0
+complete_flower_num_i = global_int$100
+label$37:
+complete_flower_num_#22 = complete_flower_num_i / global_int$100
+complete_flower_num_n = complete_flower_num_#22
+output complete_flower_num_#22
+output "\n" 
+complete_flower_num_#23 = complete_flower_num_i / global_int$10
+mod_#5 = complete_flower_num_#23 / global_int$10
+mod_#5 = mod_#5 * global_int$10
+mod_#4 = complete_flower_num_#23 - mod_#5
+complete_flower_num_#24 = mod_#4
+complete_flower_num_j = complete_flower_num_#24
+output complete_flower_num_#24
+output "\n" 
+mod_#5 = complete_flower_num_i / global_int$10
+mod_#5 = mod_#5 * global_int$10
+mod_#4 = complete_flower_num_i - mod_#5
+complete_flower_num_#25 = mod_#4
+complete_flower_num_a = complete_flower_num_#25
+output complete_flower_num_#25
+output "\n" 
+output "full_num = " 
+full_num_#6 = complete_flower_num_n * global_int$100
+full_num_#8 = complete_flower_num_j * global_int$10
+full_num_#7 = full_num_#6 + full_num_#8
+full_num_#7 = full_num_#7 + complete_flower_num_#25
+complete_flower_num_#26 = full_num_#7
+output complete_flower_num_#26
+output "\n" 
+output "flower_num = " 
+flower_num_#9 = complete_flower_num_n * complete_flower_num_n
+flower_num_#9 = flower_num_#9 * complete_flower_num_n
+flower_num_#11 = complete_flower_num_j * complete_flower_num_j
+flower_num_#11 = flower_num_#11 * complete_flower_num_j
+flower_num_#10 = flower_num_#9 + flower_num_#11
+flower_num_#12 = complete_flower_num_a * complete_flower_num_a
+flower_num_#12 = flower_num_#12 * complete_flower_num_a
+flower_num_#10 = flower_num_#10 + flower_num_#12
+complete_flower_num_#27 = flower_num_#10
+output complete_flower_num_#27
+output "\n" 
+full_num_#6 = complete_flower_num_n * global_int$100
+full_num_#8 = complete_flower_num_j * global_int$10
+full_num_#7 = full_num_#6 + full_num_#8
+full_num_#7 = full_num_#7 + complete_flower_num_a
+complete_flower_num_#28 = full_num_#7
+flower_num_#9 = complete_flower_num_n * complete_flower_num_n
+flower_num_#9 = flower_num_#9 * complete_flower_num_n
+flower_num_#11 = complete_flower_num_j * complete_flower_num_j
+flower_num_#11 = flower_num_#11 * complete_flower_num_j
+flower_num_#10 = flower_num_#9 + flower_num_#11
+flower_num_#12 = complete_flower_num_a * complete_flower_num_a
+flower_num_#12 = flower_num_#12 * complete_flower_num_a
+flower_num_#10 = flower_num_#10 + flower_num_#12
+complete_flower_num_#29 = flower_num_#10
+if complete_flower_num_#28 != complete_flower_num_#29 branch to "label$38"
+complete_flower_num_k[complete_flower_num_y] = complete_flower_num_i
+complete_flower_num_#30 = complete_flower_num_y + global_int$1
+complete_flower_num_y = complete_flower_num_#30
+output complete_flower_num_#30
+output "\n" 
+label$38:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < global_int$228 branch to "label$37"
+output complete_flower_num_y
+output "\n" 
+complete_flower_num_i = global_int$0
+if global_int$0 >= complete_flower_num_y branch to "label$39"
+label$40:
+output "  " 
+complete_flower_num_#31 = complete_flower_num_k[complete_flower_num_i]
+output complete_flower_num_#31
+output "\n" 
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < complete_flower_num_y branch to "label$40"
+label$39:
+output " " 
+output "\n" 
+output "---------------------------------------------------------------" 
+output "\n" 
+complete_flower_num_h = global_int$0
+complete_flower_num_leap = global_int$1
+complete_flower_num_m = global_int$2
+label$42:
+complete_flower_num_#32 = complete_flower_num_m / global_int$2
+complete_flower_num_k2 = complete_flower_num_#32
+complete_flower_num_i = global_int$2
+if global_int$2 > complete_flower_num_#32 branch to "label$43"
+label$44:
+complete_flower_num_#34 = complete_flower_num_m / complete_flower_num_i
+output "mod = " 
+mod_#5 = complete_flower_num_m / complete_flower_num_i
+mod_#5 = mod_#5 * complete_flower_num_i
+mod_#4 = complete_flower_num_m - mod_#5
+complete_flower_num_#36 = mod_#4
+output complete_flower_num_#36
+output "\n" 
+mod_#5 = complete_flower_num_m / complete_flower_num_i
+mod_#5 = mod_#5 * complete_flower_num_i
+mod_#4 = complete_flower_num_m - mod_#5
+complete_flower_num_#37 = mod_#4
+if complete_flower_num_#37 != global_int$0 branch to "label$45"
+complete_flower_num_leap = global_int$0
+label$45:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i <= complete_flower_num_k2 branch to "label$44"
+label$43:
+if complete_flower_num_leap != global_int$1 branch to "label$46"
+output " " 
+output complete_flower_num_m
+output "\n" 
+complete_flower_num_#38 = complete_flower_num_h + global_int$1
+complete_flower_num_h = complete_flower_num_#38
+complete_flower_num_#40 = complete_flower_num_#38 / global_int$10
+complete_flower_num_#41 = complete_flower_num_#40 * global_int$10
+if complete_flower_num_#41 != complete_flower_num_#38 branch to "label$47"
+output " " 
+output "\n" 
+label$47:
+label$46:
+complete_flower_num_leap = global_int$1
+complete_flower_num_m = complete_flower_num_m + global_int$1
+if complete_flower_num_m <= global_MAX_NUM branch to "label$42"
+output "The total is " 
+output complete_flower_num_h
+output "\n" 
+return
+
+func factorial()
+if factorial_n > global_int$1 branch to "label$1"
+return global_int$1
+label$1:
+factorial_#2 = factorial_n - global_int$1
+push factorial_#2
+factorial_#3 = call factorial
+factorial_#1 = factorial_n * factorial_#3
+return factorial_#1
+
+<!--anchor-->
+
+func main()
+push global_int$5
+main_#42 = call factorial
+output "5 != " 
+output main_#42
+output "\n" 
+output "x = " 
+output global_int$5
+output "\n" 
+output "y = " 
+output global_int$10
+output "\n" 
+output "SWAP x = " 
+output global_int$10
+output "\n" 
+output "SWAP y = " 
+output global_int$5
+output "\n" 
+complete_flower_num_j = global_int$2
+label$27:
+complete_flower_num_n = global_int$-1
+complete_flower_num_s = complete_flower_num_j
+complete_flower_num_i = global_int$1
+if global_int$1 >= complete_flower_num_j branch to "label$28"
+label$29:
+mod_#5 = complete_flower_num_j / complete_flower_num_i
+mod_#5 = mod_#5 * complete_flower_num_i
+mod_#4 = complete_flower_num_j - mod_#5
+if mod_#4 != global_int$0 branch to "label$30"
+complete_flower_num_#18 = complete_flower_num_n + global_int$1
+complete_flower_num_n = complete_flower_num_#18
+complete_flower_num_#19 = complete_flower_num_s - complete_flower_num_i
+complete_flower_num_s = complete_flower_num_#19
+if complete_flower_num_#18 < global_int$128 branch to "label$31"
+output "OVERFLOW!" 
+output "\n" 
+goto label$32
+label$31:
+complete_flower_num_k[complete_flower_num_n] = complete_flower_num_i
+label$32:
+label$30:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < complete_flower_num_j branch to "label$29"
+label$28:
+if complete_flower_num_s != global_int$0 branch to "label$33"
+output "complete number: " 
+output complete_flower_num_j
+output "\n" 
+complete_flower_num_i = global_int$0
+if global_int$0 > complete_flower_num_n branch to "label$34"
+label$35:
+output "  " 
+complete_flower_num_#20 = complete_flower_num_k[complete_flower_num_i]
+output complete_flower_num_#20
+output "\n" 
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i <= complete_flower_num_n branch to "label$35"
+label$34:
+output " " 
+output "\n" 
+label$33:
+complete_flower_num_j = complete_flower_num_j + global_int$1
+if complete_flower_num_j < global_MAX_NUM branch to "label$27"
+output "---------------------------------------------------------------" 
+output "\n" 
+output "'water flower'number is:" 
+output "\n" 
+complete_flower_num_y = global_int$0
+complete_flower_num_i = global_int$100
+label$37:
+complete_flower_num_#22 = complete_flower_num_i / global_int$100
+output complete_flower_num_#22
+output "\n" 
+complete_flower_num_#23 = complete_flower_num_i / global_int$10
+mod_#5 = complete_flower_num_#23 / global_int$10
+mod_#5 = mod_#5 * global_int$10
+mod_#4 = complete_flower_num_#23 - mod_#5
+complete_flower_num_j = mod_#4
+output mod_#4
+output "\n" 
+mod_#5 = complete_flower_num_i / global_int$10
+mod_#5 = mod_#5 * global_int$10
+mod_#4 = complete_flower_num_i - mod_#5
+output mod_#4
+output "\n" 
+output "full_num = " 
+full_num_#6 = complete_flower_num_#22 * global_int$100
+full_num_#8 = complete_flower_num_j * global_int$10
+full_num_#7 = full_num_#6 + full_num_#8
+full_num_#7 = full_num_#7 + mod_#4
+output full_num_#7
+output "\n" 
+output "flower_num = " 
+flower_num_#9 = complete_flower_num_#22 * complete_flower_num_#22
+flower_num_#9 = flower_num_#9 * complete_flower_num_#22
+flower_num_#11 = complete_flower_num_j * complete_flower_num_j
+flower_num_#11 = flower_num_#11 * complete_flower_num_j
+flower_num_#10 = flower_num_#9 + flower_num_#11
+flower_num_#12 = mod_#4 * mod_#4
+flower_num_#12 = flower_num_#12 * mod_#4
+flower_num_#10 = flower_num_#10 + flower_num_#12
+output flower_num_#10
+output "\n" 
+full_num_#6 = complete_flower_num_#22 * global_int$100
+full_num_#8 = complete_flower_num_j * global_int$10
+full_num_#7 = full_num_#6 + full_num_#8
+full_num_#7 = full_num_#7 + mod_#4
+flower_num_#9 = complete_flower_num_#22 * complete_flower_num_#22
+flower_num_#9 = flower_num_#9 * complete_flower_num_#22
+flower_num_#11 = complete_flower_num_j * complete_flower_num_j
+flower_num_#11 = flower_num_#11 * complete_flower_num_j
+flower_num_#10 = flower_num_#9 + flower_num_#11
+flower_num_#12 = mod_#4 * mod_#4
+flower_num_#12 = flower_num_#12 * mod_#4
+flower_num_#10 = flower_num_#10 + flower_num_#12
+if full_num_#7 != flower_num_#10 branch to "label$38"
+complete_flower_num_k[complete_flower_num_y] = complete_flower_num_i
+complete_flower_num_#30 = complete_flower_num_y + global_int$1
+complete_flower_num_y = complete_flower_num_#30
+output complete_flower_num_#30
+output "\n" 
+label$38:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < global_int$228 branch to "label$37"
+output complete_flower_num_y
+output "\n" 
+complete_flower_num_i = global_int$0
+if global_int$0 >= complete_flower_num_y branch to "label$39"
+label$40:
+output "  " 
+complete_flower_num_#31 = complete_flower_num_k[complete_flower_num_i]
+output complete_flower_num_#31
+output "\n" 
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < complete_flower_num_y branch to "label$40"
+label$39:
+output " " 
+output "\n" 
+output "---------------------------------------------------------------" 
+output "\n" 
+complete_flower_num_h = global_int$0
+complete_flower_num_leap = global_int$1
+complete_flower_num_m = global_int$2
+label$42:
+complete_flower_num_#32 = complete_flower_num_m / global_int$2
+complete_flower_num_k2 = complete_flower_num_#32
+complete_flower_num_i = global_int$2
+if global_int$2 > complete_flower_num_#32 branch to "label$43"
+label$44:
+output "mod = " 
+mod_#5 = complete_flower_num_m / complete_flower_num_i
+mod_#5 = mod_#5 * complete_flower_num_i
+mod_#4 = complete_flower_num_m - mod_#5
+output mod_#4
+output "\n" 
+mod_#5 = complete_flower_num_m / complete_flower_num_i
+mod_#5 = mod_#5 * complete_flower_num_i
+mod_#4 = complete_flower_num_m - mod_#5
+if mod_#4 != global_int$0 branch to "label$45"
+complete_flower_num_leap = global_int$0
+label$45:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i <= complete_flower_num_k2 branch to "label$44"
+label$43:
+if complete_flower_num_leap != global_int$1 branch to "label$46"
+output " " 
+output complete_flower_num_m
+output "\n" 
+complete_flower_num_#38 = complete_flower_num_h + global_int$1
+complete_flower_num_h = complete_flower_num_#38
+complete_flower_num_#40 = complete_flower_num_#38 / global_int$10
+complete_flower_num_#41 = complete_flower_num_#40 * global_int$10
+if complete_flower_num_#41 != complete_flower_num_#38 branch to "label$47"
+output " " 
+output "\n" 
+label$47:
+label$46:
+complete_flower_num_leap = global_int$1
+complete_flower_num_m = complete_flower_num_m + global_int$1
+if complete_flower_num_m <= global_MAX_NUM branch to "label$42"
+output "The total is " 
+output complete_flower_num_h
+output "\n" 
+return
+
+func factorial()
+if factorial_n > global_int$1 branch to "label$1"
+return global_int$1
+label$1:
+factorial_#2 = factorial_n - global_int$1
+push factorial_#2
+factorial_#3 = call factorial
+factorial_#1 = factorial_n * factorial_#3
+return factorial_#1
+
+<!--anchor-->
+
+func main()
+push global_int$5
+main_#42 = call factorial
+output "5 != " 
+output main_#42
+output "\n" 
+output "x = " 
+output global_int$5
+output "\n" 
+output "y = " 
+output global_int$10
+output "\n" 
+output "SWAP x = " 
+output global_int$10
+output "\n" 
+output "SWAP y = " 
+output global_int$5
+output "\n" 
+complete_flower_num_j = global_int$2
+label$27:
+complete_flower_num_n = global_int$-1
+complete_flower_num_s = complete_flower_num_j
+complete_flower_num_i = global_int$1
+if global_int$1 >= complete_flower_num_j branch to "label$28"
+label$29:
+mod_#5 = complete_flower_num_j / complete_flower_num_i
+mod_#5 = mod_#5 * complete_flower_num_i
+mod_#4 = complete_flower_num_j - mod_#5
+if mod_#4 != global_int$0 branch to "label$30"
+complete_flower_num_#18 = complete_flower_num_n + global_int$1
+complete_flower_num_n = complete_flower_num_#18
+complete_flower_num_#19 = complete_flower_num_s - complete_flower_num_i
+complete_flower_num_s = complete_flower_num_#19
+if complete_flower_num_#18 < global_int$128 branch to "label$31"
+output "OVERFLOW!" 
+output "\n" 
+goto label$32
+label$31:
+complete_flower_num_k[complete_flower_num_n] = complete_flower_num_i
+label$32:
+label$30:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < complete_flower_num_j branch to "label$29"
+label$28:
+if complete_flower_num_s != global_int$0 branch to "label$33"
+output "complete number: " 
+output complete_flower_num_j
+output "\n" 
+complete_flower_num_i = global_int$0
+if global_int$0 > complete_flower_num_n branch to "label$34"
+label$35:
+output "  " 
+complete_flower_num_#20 = complete_flower_num_k[complete_flower_num_i]
+output complete_flower_num_#20
+output "\n" 
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i <= complete_flower_num_n branch to "label$35"
+label$34:
+output " " 
+output "\n" 
+label$33:
+complete_flower_num_j = complete_flower_num_j + global_int$1
+if complete_flower_num_j < global_MAX_NUM branch to "label$27"
+output "---------------------------------------------------------------" 
+output "\n" 
+output "'water flower'number is:" 
+output "\n" 
+complete_flower_num_y = global_int$0
+complete_flower_num_i = global_int$100
+label$37:
+complete_flower_num_#22 = complete_flower_num_i / global_int$100
+output complete_flower_num_#22
+output "\n" 
+complete_flower_num_#23 = complete_flower_num_i / global_int$10
+mod_#5 = complete_flower_num_#23 / global_int$10
+mod_#5 = mod_#5 * global_int$10
+mod_#4 = complete_flower_num_#23 - mod_#5
+complete_flower_num_j = mod_#4
+output mod_#4
+output "\n" 
+mod_#5 = complete_flower_num_i / global_int$10
+mod_#5 = mod_#5 * global_int$10
+mod_#4 = complete_flower_num_i - mod_#5
+output mod_#4
+output "\n" 
+output "full_num = " 
+full_num_#6 = complete_flower_num_#22 * global_int$100
+full_num_#8 = complete_flower_num_j * global_int$10
+full_num_#7 = full_num_#6 + full_num_#8
+full_num_#7 = full_num_#7 + mod_#4
+output full_num_#7
+output "\n" 
+output "flower_num = " 
+flower_num_#9 = complete_flower_num_#22 * complete_flower_num_#22
+flower_num_#9 = flower_num_#9 * complete_flower_num_#22
+flower_num_#11 = complete_flower_num_j * complete_flower_num_j
+flower_num_#11 = flower_num_#11 * complete_flower_num_j
+flower_num_#10 = flower_num_#9 + flower_num_#11
+flower_num_#12 = mod_#4 * mod_#4
+flower_num_#12 = flower_num_#12 * mod_#4
+flower_num_#10 = flower_num_#10 + flower_num_#12
+output flower_num_#10
+output "\n" 
+full_num_#6 = complete_flower_num_#22 * global_int$100
+full_num_#8 = complete_flower_num_j * global_int$10
+full_num_#7 = full_num_#6 + full_num_#8
+full_num_#7 = full_num_#7 + mod_#4
+flower_num_#9 = complete_flower_num_#22 * complete_flower_num_#22
+flower_num_#9 = flower_num_#9 * complete_flower_num_#22
+flower_num_#11 = complete_flower_num_j * complete_flower_num_j
+flower_num_#11 = flower_num_#11 * complete_flower_num_j
+flower_num_#10 = flower_num_#9 + flower_num_#11
+flower_num_#12 = mod_#4 * mod_#4
+flower_num_#12 = flower_num_#12 * mod_#4
+flower_num_#10 = flower_num_#10 + flower_num_#12
+if full_num_#7 != flower_num_#10 branch to "label$38"
+complete_flower_num_k[complete_flower_num_y] = complete_flower_num_i
+complete_flower_num_#30 = complete_flower_num_y + global_int$1
+complete_flower_num_y = complete_flower_num_#30
+output complete_flower_num_#30
+output "\n" 
+label$38:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < global_int$228 branch to "label$37"
+output complete_flower_num_y
+output "\n" 
+complete_flower_num_i = global_int$0
+if global_int$0 >= complete_flower_num_y branch to "label$39"
+label$40:
+output "  " 
+complete_flower_num_#31 = complete_flower_num_k[complete_flower_num_i]
+output complete_flower_num_#31
+output "\n" 
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i < complete_flower_num_y branch to "label$40"
+label$39:
+output " " 
+output "\n" 
+output "---------------------------------------------------------------" 
+output "\n" 
+complete_flower_num_h = global_int$0
+complete_flower_num_leap = global_int$1
+complete_flower_num_m = global_int$2
+label$42:
+complete_flower_num_#32 = complete_flower_num_m / global_int$2
+complete_flower_num_k2 = complete_flower_num_#32
+complete_flower_num_i = global_int$2
+if global_int$2 > complete_flower_num_#32 branch to "label$43"
+label$44:
+output "mod = " 
+mod_#5 = complete_flower_num_m / complete_flower_num_i
+mod_#5 = mod_#5 * complete_flower_num_i
+mod_#4 = complete_flower_num_m - mod_#5
+output mod_#4
+output "\n" 
+mod_#5 = complete_flower_num_m / complete_flower_num_i
+mod_#5 = mod_#5 * complete_flower_num_i
+mod_#4 = complete_flower_num_m - mod_#5
+if mod_#4 != global_int$0 branch to "label$45"
+complete_flower_num_leap = global_int$0
+label$45:
+complete_flower_num_i = complete_flower_num_i + global_int$1
+if complete_flower_num_i <= complete_flower_num_k2 branch to "label$44"
+label$43:
+if complete_flower_num_leap != global_int$1 branch to "label$46"
+output " " 
+output complete_flower_num_m
+output "\n" 
+complete_flower_num_#38 = complete_flower_num_h + global_int$1
+complete_flower_num_h = complete_flower_num_#38
+complete_flower_num_#40 = complete_flower_num_#38 / global_int$10
+complete_flower_num_#41 = complete_flower_num_#40 * global_int$10
+if complete_flower_num_#41 != complete_flower_num_#38 branch to "label$47"
+output " " 
+output "\n" 
+label$47:
+label$46:
+complete_flower_num_leap = global_int$1
+complete_flower_num_m = complete_flower_num_m + global_int$1
+if complete_flower_num_m <= global_MAX_NUM branch to "label$42"
+output "The total is " 
+output complete_flower_num_h
+output "\n" 
+return
+
+func factorial()
+if factorial_n > global_int$1 branch to "label$1"
+return global_int$1
+label$1:
+factorial_#2 = factorial_n - global_int$1
+push factorial_#2
+factorial_#3 = call factorial
+factorial_#1 = factorial_n * factorial_#3
+return factorial_#1
+

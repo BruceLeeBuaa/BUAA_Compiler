@@ -1,0 +1,339 @@
+const int MAX_NUM = 128
+int factorial()
+para int n
+#1 = n
+#2 = 1
+bgt #1,#2,Label0
+#3 = 1
+#ret #3
+Label0:
+#4 = n
+#5 = n
+#6 = 1
+#7 = #5 - #6
+push #7
+call factorial()
+#8 = #ret
+#9 = #4 * #8
+#ret #9
+int mod()
+para int x
+para int y
+#1 = x
+#2 = x
+#3 = y
+#4 = #2 / #3
+#5 = y
+#6 = #4 * #5
+#7 = #1 - #6
+x = #7
+#8 = x
+#ret #8
+void swap()
+para int x
+para int y
+var int temp
+output string x = 
+#1 = x
+output #1
+output string y = 
+#2 = y
+output #2
+#3 = x
+temp = #3
+#4 = y
+x = #4
+#5 = temp
+y = #5
+output string SWAP x = 
+#6 = x
+output #6
+output string SWAP y = 
+#7 = y
+output #7
+#ret 
+int full_num()
+para int n
+para int j
+para int a
+#1 = n
+#2 = 100
+#3 = #1 * #2
+#4 = j
+#5 = 10
+#6 = #4 * #5
+#7 = #3 + #6
+#8 = a
+#9 = #7 + #8
+#ret #9
+int flower_num()
+para int n
+para int j
+para int a
+#1 = n
+#2 = n
+#3 = #1 * #2
+#4 = n
+#5 = #3 * #4
+#6 = j
+#7 = j
+#8 = #6 * #7
+#9 = j
+#10 = #8 * #9
+#11 = #5 + #10
+#12 = a
+#13 = a
+#14 = #12 * #13
+#15 = a
+#16 = #14 * #15
+#17 = #11 + #16
+#ret #17
+void complete_flower_num()
+array int k[128]
+var int i
+var int j
+var int n
+var int s
+var int x1
+var int y
+var int m
+var int k2
+var int h
+var int leap
+var int x2
+var int a
+var int b
+var int c
+#1 = 2
+j = #1
+#2 = j
+#3 = 128
+bge #2,#3,Label3
+Label2:
+#4 = 1
+#5 = - #4
+n = #5
+#6 = j
+s = #6
+#7 = 1
+i = #7
+#8 = i
+#9 = j
+bge #8,#9,Label5
+Label4:
+#10 = j
+#11 = i
+#12 = #10 / #11
+#13 = i
+#14 = #12 * #13
+x1 = #14
+#15 = j
+#16 = i
+push #15
+push #16
+call mod()
+#17 = #ret
+#18 = 0
+bne #17,#18,Label6
+#19 = n
+#20 = 1
+#21 = #19 + #20
+n = #21
+#22 = s
+#23 = i
+#24 = #22 - #23
+s = #24
+#25 = n
+#26 = 128
+blt #25,#26,Label8
+output string OVERFLOW!
+goto Label9
+Label8:
+#27 = n
+#28 = i
+k[#27] = #28
+Label9:
+Label6:
+addi i,i,1
+Label5:
+#29 = s
+#30 = 0
+bne #29,#30,Label10
+output string complete number: 
+#31 = j
+output #31
+#32 = 0
+i = #32
+#33 = i
+#34 = n
+bgt #33,#34,Label13
+Label12:
+output string   
+#35 = i
+#36 = k[#35]
+output #36
+addi i,i,1
+Label13:
+output string  
+Label10:
+addi j,j,1
+Label3:
+output string ---------------------------------------------------------------
+output string 'water flower'number is:
+#37 = 0
+y = #37
+#38 = 100
+i = #38
+#39 = i
+#40 = 100
+#41 = 128
+#42 = #40 + #41
+bge #39,#42,Label15
+Label14:
+#43 = i
+#44 = 100
+#45 = #43 / #44
+n = #45
+#46 = i
+#47 = 10
+#48 = #46 / #47
+#49 = 10
+push #48
+push #49
+call mod()
+#50 = #ret
+j = #50
+#51 = i
+#52 = 10
+push #51
+push #52
+call mod()
+#53 = #ret
+a = #53
+#54 = n
+#55 = j
+#56 = a
+push #54
+push #55
+push #56
+call full_num()
+#57 = #ret
+#58 = n
+#59 = j
+#60 = a
+push #58
+push #59
+push #60
+call flower_num()
+#61 = #ret
+bne #57,#61,Label16
+#62 = y
+#63 = i
+k[#62] = #63
+#64 = y
+#65 = 1
+#66 = #64 + #65
+y = #66
+Label16:
+addi i,i,1
+Label15:
+#67 = 0
+i = #67
+#68 = i
+#69 = y
+bge #68,#69,Label19
+Label18:
+output string   
+#70 = i
+#71 = k[#70]
+output #71
+addi i,i,1
+Label19:
+output string  
+output string ---------------------------------------------------------------
+#72 = 0
+h = #72
+#73 = 1
+leap = #73
+#74 = 2
+m = #74
+#75 = m
+#76 = 128
+bgt #75,#76,Label21
+Label20:
+#77 = m
+#78 = 2
+#79 = #77 / #78
+k2 = #79
+#80 = 2
+i = #80
+#81 = i
+#82 = k2
+bgt #81,#82,Label23
+Label22:
+#83 = m
+#84 = i
+#85 = #83 / #84
+#86 = i
+#87 = #85 * #86
+x2 = #87
+#88 = m
+#89 = i
+push #88
+push #89
+call mod()
+#90 = #ret
+#91 = 0
+bne #90,#91,Label24
+#92 = 0
+leap = #92
+Label24:
+addi i,i,1
+Label23:
+#93 = leap
+#94 = 1
+bne #93,#94,Label26
+output string  
+#95 = m
+output #95
+#96 = h
+#97 = 1
+#98 = #96 + #97
+h = #98
+#99 = h
+#100 = 10
+#101 = #99 / #100
+#102 = 10
+#103 = #101 * #102
+x2 = #103
+#104 = x2
+#105 = h
+bne #104,#105,Label28
+output string  
+Label28:
+Label26:
+#106 = 1
+leap = #106
+addi m,m,1
+Label21:
+output string The total is 
+#107 = h
+output #107
+#ret 
+void main()
+var int n
+#1 = 5
+push #1
+call factorial()
+#2 = #ret
+n = #2
+output string 5 != 
+#3 = n
+output #3
+#4 = 5
+#5 = 10
+push #4
+push #5
+call swap()
+call complete_flower_num()
+#ret 

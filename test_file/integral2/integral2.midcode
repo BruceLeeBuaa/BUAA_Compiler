@@ -1,0 +1,1138 @@
+
+func main()
+call testmean
+call testpick
+call test1
+call test2
+call test3
+return
+
+func mean()
+if mean_n <= mean_MAX_N branch to "label$1"
+output "Too much input " 
+output mean_n
+output "\n" 
+return mean_ERR
+label$1:
+mean_i = global_int$0
+if mean_i >= mean_n branch to "label$2"
+label$3:
+input mean_tmp
+mean_num[mean_i] = mean_tmp
+mean_i = mean_i + global_int$1
+if mean_i < mean_n branch to "label$3"
+label$2:
+mean_result = global_int$0
+mean_i = global_int$0
+if mean_i >= mean_n branch to "label$4"
+label$5:
+mean_#1 = mean_result + mean_i
+mean_result = mean_#1
+mean_i = mean_i + global_int$1
+if mean_i < mean_n branch to "label$5"
+label$4:
+mean_#2 = mean_result / mean_n
+mean_result = mean_#2
+return mean_result
+
+func testmean()
+if global_int$1 == global_int$0 branch to "label$6"
+label$7:
+input testmean_n
+if testmean_n != global_int$0 branch to "label$8"
+return
+label$8:
+output "please input numbers to calc mean" 
+output "\n" 
+push testmean_n
+testmean_#3 = call mean
+testmean_n = testmean_#3
+output "mean value is " 
+output testmean_n
+output "\n" 
+if global_int$1 != global_int$0 branch to "label$7"
+label$6:
+return
+
+func isOdd()
+isOdd_#4 = isOdd_num / isOdd_TWO
+isOdd_half = isOdd_#4
+isOdd_#6 = isOdd_half * global_int$2
+isOdd_#5 = isOdd_num - isOdd_#6
+return isOdd_#5
+
+func isEven()
+isEven_#7 = isEven_num / isEven_TWO
+isEven_half = isEven_#7
+isEven_#11 = isEven_half * global_int$2
+isEven_#10 = isEven_num - isEven_#11
+isEven_#9 = isEven_#10
+isEven_#8 = global_int$1 - isEven_#9
+return isEven_#8
+
+func pick()
+if pick_num != global_int$1 branch to "label$9"
+return global_int$1
+label$9:
+if pick_num > global_int$1 branch to "label$10"
+output "unexpected error happened" 
+output "\n" 
+pick_#12 = global_int$0 - global_int$1
+return pick_#12
+label$10:
+if pick_odd == global_int$0 branch to "label$11"
+pick_#13 = pick_num / global_int$2
+push pick_num
+pick_#14 = call isEven
+push pick_#13
+push pick_#14
+pick_#15 = call pick
+pick_#16 = pick_#15 * global_int$2
+return pick_#16
+goto label$12
+label$11:
+pick_#18 = pick_num + global_int$1
+pick_#17 = pick_#18
+pick_#19 = pick_#17 / global_int$2
+push pick_num
+pick_#20 = call isOdd
+push pick_#19
+push pick_#20
+pick_#21 = call pick
+pick_#22 = pick_#21 * global_int$2
+pick_#23 = pick_#22 - global_int$1
+return pick_#23
+label$12:
+
+func pick2()
+pick2_i = global_int$1
+pick2_#24 = pick2_i * global_int$2
+pick2_j = pick2_#24
+if pick2_j > pick2_num branch to "label$13"
+label$14:
+pick2_i = pick2_j
+pick2_#25 = pick2_i * global_int$2
+pick2_j = pick2_#25
+pick2_j = pick2_j + global_int$0
+if pick2_j <= pick2_num branch to "label$14"
+label$13:
+pick2_#27 = pick2_num - pick2_i
+pick2_#26 = pick2_#27
+pick2_#28 = pick2_#26 * global_int$2
+pick2_#29 = pick2_#28 + global_int$1
+return pick2_#29
+
+func testpick()
+if global_int$2 == global_int$0 branch to "label$15"
+label$16:
+input testpick_base
+input testpick_exp
+if testpick_base != global_int$0 branch to "label$17"
+if testpick_exp != global_int$0 branch to "label$18"
+return
+label$18:
+label$17:
+testpick_tmp = global_int$0
+if testpick_exp <= global_int$0 branch to "label$19"
+label$20:
+testpick_#30 = testpick_base * global_int$10
+testpick_base = testpick_#30
+testpick_exp = testpick_exp - global_int$1
+if testpick_exp > global_int$0 branch to "label$20"
+label$19:
+push testpick_base
+push global_int$0
+testpick_#31 = call pick
+output testpick_#31
+output "\n" 
+push testpick_base
+testpick_#32 = call pick2
+output testpick_#32
+output "\n" 
+if global_int$2 != global_int$0 branch to "label$16"
+label$15:
+return
+
+func test1()
+output "" 
+output "\n" 
+test1_i = global_int$1
+if test1_i >= global_int$5 branch to "label$21"
+label$22:
+test1_j = global_int$1
+if test1_j >= global_int$5 branch to "label$23"
+label$24:
+test1_k = global_int$1
+if test1_k >= global_int$5 branch to "label$25"
+label$26:
+if test1_i == test1_k branch to "label$27"
+if test1_i == test1_j branch to "label$28"
+if test1_j == test1_k branch to "label$29"
+output test1_i
+output "\n" 
+output test1_j
+output "\n" 
+output test1_k
+output "\n" 
+label$29:
+label$28:
+label$27:
+test1_k = test1_k + global_int$1
+if test1_k < global_int$5 branch to "label$26"
+label$25:
+test1_j = test1_j + global_int$1
+if test1_j < global_int$5 branch to "label$24"
+label$23:
+test1_i = test1_i + global_int$1
+if test1_i < global_int$5 branch to "label$22"
+label$21:
+return
+
+func mod()
+mod_#34 = mod_a / mod_b
+mod_#34 = mod_#34 * mod_b
+mod_#33 = mod_a - mod_#34
+return mod_#33
+
+func test2()
+if global_int$1 == global_int$0 branch to "label$30"
+label$31:
+test2_reversedInteger = global_int$0
+output "input an integer please:" 
+output "\n" 
+input test2_n
+if test2_n != global_int$0 branch to "label$32"
+return
+label$32:
+test2_originalInteger = test2_n
+if test2_n == global_int$0 branch to "label$33"
+label$34:
+push test2_n
+push global_int$10
+test2_#35 = call mod
+test2_remainder = test2_#35
+test2_#36 = test2_reversedInteger * global_int$10
+test2_#37 = test2_#36 + test2_remainder
+test2_reversedInteger = test2_#37
+test2_#38 = test2_n / global_int$10
+test2_n = test2_#38
+if test2_n != global_int$0 branch to "label$34"
+label$33:
+if test2_originalInteger != test2_reversedInteger branch to "label$35"
+output "is palindrome" 
+output test2_originalInteger
+output "\n" 
+goto label$36
+label$35:
+output "not palindrome" 
+output test2_originalInteger
+output "\n" 
+label$36:
+if global_int$1 != global_int$0 branch to "label$31"
+label$30:
+return
+
+func test3()
+if global_int$1 == global_int$0 branch to "label$37"
+label$38:
+test3_flag = global_int$0
+output "input a positive integer please:" 
+output "\n" 
+input test3_n
+if test3_n != global_int$0 branch to "label$39"
+return
+label$39:
+test3_i = global_int$2
+test3_#39 = test3_n / global_int$2
+if test3_i > test3_#39 branch to "label$40"
+label$41:
+push test3_n
+push test3_i
+test3_#40 = call mod
+if test3_#40 != global_int$0 branch to "label$42"
+test3_flag = global_int$1
+test3_i = test3_n
+label$42:
+test3_i = test3_i + global_int$1
+test3_#39 = test3_n / global_int$2
+if test3_i <= test3_#39 branch to "label$41"
+label$40:
+if test3_flag != global_int$0 branch to "label$43"
+output "is prime" 
+output test3_n
+output "\n" 
+goto label$44
+label$43:
+output "not prime" 
+output test3_n
+output "\n" 
+label$44:
+if global_int$1 != global_int$0 branch to "label$38"
+label$37:
+return
+
+<!--anchor-->
+
+func main()
+label$47:
+input testmean_n
+if testmean_n != global_int$0 branch to "label$48"
+goto label$45
+label$48:
+output "please input numbers to calc mean" 
+output "\n" 
+push testmean_n
+testmean_#3 = call mean
+output "mean value is " 
+output testmean_#3
+output "\n" 
+goto label$47
+label$45:
+label$51:
+input testpick_base
+input testpick_exp
+if testpick_base != global_int$0 branch to "label$52"
+if testpick_exp != global_int$0 branch to "label$53"
+goto label$49
+label$53:
+label$52:
+if testpick_exp <= global_int$0 branch to "label$54"
+label$55:
+testpick_#30 = testpick_base * global_int$10
+testpick_base = testpick_#30
+testpick_exp = testpick_exp - global_int$1
+if testpick_exp > global_int$0 branch to "label$55"
+label$54:
+push testpick_base
+push global_int$0
+testpick_#31 = call pick
+output testpick_#31
+output "\n" 
+push testpick_base
+testpick_#32 = call pick2
+output testpick_#32
+output "\n" 
+goto label$51
+label$49:
+output "" 
+output "\n" 
+test1_i = global_int$1
+if global_int$1 >= global_int$5 branch to "label$57"
+label$58:
+test1_j = global_int$1
+if global_int$1 >= global_int$5 branch to "label$59"
+label$60:
+test1_k = global_int$1
+if global_int$1 >= global_int$5 branch to "label$61"
+label$62:
+if test1_i == test1_k branch to "label$63"
+if test1_i == test1_j branch to "label$64"
+if test1_j == test1_k branch to "label$65"
+output test1_i
+output "\n" 
+output test1_j
+output "\n" 
+output test1_k
+output "\n" 
+label$65:
+label$64:
+label$63:
+test1_k = test1_k + global_int$1
+if test1_k < global_int$5 branch to "label$62"
+label$61:
+test1_j = test1_j + global_int$1
+if test1_j < global_int$5 branch to "label$60"
+label$59:
+test1_i = test1_i + global_int$1
+if test1_i < global_int$5 branch to "label$58"
+label$57:
+label$68:
+test2_reversedInteger = global_int$0
+output "input an integer please:" 
+output "\n" 
+input test2_n
+if test2_n != global_int$0 branch to "label$69"
+goto label$66
+label$69:
+test2_originalInteger = test2_n
+if test2_n == global_int$0 branch to "label$70"
+label$71:
+push test2_n
+push global_int$10
+test2_#35 = call mod
+test2_#36 = test2_reversedInteger * global_int$10
+test2_#37 = test2_#36 + test2_#35
+test2_reversedInteger = test2_#37
+test2_#38 = test2_n / global_int$10
+test2_n = test2_#38
+if test2_#38 != global_int$0 branch to "label$71"
+label$70:
+if test2_originalInteger != test2_reversedInteger branch to "label$72"
+output "is palindrome" 
+output test2_originalInteger
+output "\n" 
+goto label$73
+label$72:
+output "not palindrome" 
+output test2_originalInteger
+output "\n" 
+label$73:
+goto label$68
+label$66:
+label$76:
+test3_flag = global_int$0
+output "input a positive integer please:" 
+output "\n" 
+input test3_n
+if test3_n != global_int$0 branch to "label$77"
+goto label$74
+label$77:
+test3_i = global_int$2
+test3_#39 = test3_n / global_int$2
+if global_int$2 > test3_#39 branch to "label$78"
+label$79:
+push test3_n
+push test3_i
+test3_#40 = call mod
+if test3_#40 != global_int$0 branch to "label$80"
+test3_flag = global_int$1
+test3_i = test3_n
+label$80:
+test3_i = test3_i + global_int$1
+test3_#39 = test3_n / global_int$2
+if test3_i <= test3_#39 branch to "label$79"
+label$78:
+if test3_flag != global_int$0 branch to "label$81"
+output "is prime" 
+output test3_n
+output "\n" 
+goto label$82
+label$81:
+output "not prime" 
+output test3_n
+output "\n" 
+label$82:
+goto label$76
+label$74:
+return
+
+func mean()
+if mean_n <= mean_MAX_N branch to "label$1"
+output "Too much input " 
+output mean_n
+output "\n" 
+return mean_ERR
+label$1:
+mean_i = global_int$0
+if global_int$0 >= mean_n branch to "label$2"
+label$3:
+input mean_tmp
+mean_num[mean_i] = mean_tmp
+mean_i = mean_i + global_int$1
+if mean_i < mean_n branch to "label$3"
+label$2:
+mean_result = global_int$0
+mean_i = global_int$0
+if global_int$0 >= mean_n branch to "label$4"
+label$5:
+mean_#1 = mean_result + mean_i
+mean_result = mean_#1
+mean_i = mean_i + global_int$1
+if mean_i < mean_n branch to "label$5"
+label$4:
+mean_#2 = mean_result / mean_n
+return mean_#2
+
+func pick()
+if pick_num != global_int$1 branch to "label$9"
+return global_int$1
+label$9:
+if pick_num > global_int$1 branch to "label$10"
+output "unexpected error happened" 
+output "\n" 
+return global_int$-1
+label$10:
+if pick_odd == global_int$0 branch to "label$11"
+pick_#13 = pick_num / global_int$2
+isEven_#7 = pick_num / isEven_TWO
+isEven_#11 = isEven_#7 * global_int$2
+isEven_#10 = pick_num - isEven_#11
+isEven_#8 = global_int$1 - isEven_#10
+pick_#14 = isEven_#8
+push pick_#13
+push pick_#14
+pick_#15 = call pick
+pick_#16 = pick_#15 * global_int$2
+return pick_#16
+label$11:
+pick_#18 = pick_num + global_int$1
+pick_#19 = pick_#18 / global_int$2
+isOdd_#4 = pick_num / isOdd_TWO
+isOdd_#6 = isOdd_#4 * global_int$2
+isOdd_#5 = pick_num - isOdd_#6
+pick_#20 = isOdd_#5
+push pick_#19
+push pick_#20
+pick_#21 = call pick
+pick_#22 = pick_#21 * global_int$2
+pick_#23 = pick_#22 - global_int$1
+return pick_#23
+
+func pick2()
+pick2_i = global_int$1
+pick2_#24 = global_int$1 * global_int$2
+pick2_j = pick2_#24
+if pick2_#24 > pick2_num branch to "label$13"
+label$14:
+pick2_i = pick2_j
+pick2_#25 = pick2_j * global_int$2
+pick2_j = pick2_#25 + global_int$0
+if pick2_j <= pick2_num branch to "label$14"
+label$13:
+pick2_#27 = pick2_num - pick2_i
+pick2_#28 = pick2_#27 * global_int$2
+pick2_#29 = pick2_#28 + global_int$1
+return pick2_#29
+
+func mod()
+mod_#34 = mod_a / mod_b
+mod_#34 = mod_#34 * mod_b
+mod_#33 = mod_a - mod_#34
+return mod_#33
+
+<!--anchor-->
+
+func main()
+label$47:
+input testmean_n
+if testmean_n != global_int$0 branch to "label$48"
+goto label$45
+label$48:
+output "please input numbers to calc mean" 
+output "\n" 
+mean_n = testmean_n
+if testmean_n <= mean_MAX_N branch to "label$97"
+output "Too much input " 
+output mean_n
+output "\n" 
+testmean_#3 = mean_ERR
+goto label$96
+label$97:
+mean_i = global_int$0
+if global_int$0 >= mean_n branch to "label$98"
+label$99:
+input mean_tmp
+mean_num[mean_i] = mean_tmp
+mean_i = mean_i + global_int$1
+if mean_i < mean_n branch to "label$99"
+label$98:
+mean_result = global_int$0
+mean_i = global_int$0
+if global_int$0 >= mean_n branch to "label$100"
+label$101:
+mean_#1 = mean_result + mean_i
+mean_result = mean_#1
+mean_i = mean_i + global_int$1
+if mean_i < mean_n branch to "label$101"
+label$100:
+mean_#2 = mean_result / mean_n
+testmean_#3 = mean_#2
+label$96:
+output "mean value is " 
+output testmean_#3
+output "\n" 
+goto label$47
+label$45:
+label$51:
+input testpick_base
+input testpick_exp
+if testpick_base != global_int$0 branch to "label$52"
+if testpick_exp != global_int$0 branch to "label$53"
+goto label$49
+label$53:
+label$52:
+if testpick_exp <= global_int$0 branch to "label$54"
+label$55:
+testpick_#30 = testpick_base * global_int$10
+testpick_base = testpick_#30
+testpick_exp = testpick_exp - global_int$1
+if testpick_exp > global_int$0 branch to "label$55"
+label$54:
+push testpick_base
+push global_int$0
+testpick_#31 = call pick
+output testpick_#31
+output "\n" 
+pick2_num = testpick_base
+pick2_i = global_int$1
+pick2_j = global_int$2
+if global_int$2 > testpick_base branch to "label$103"
+label$104:
+pick2_i = pick2_j
+pick2_#25 = pick2_j * global_int$2
+pick2_j = pick2_#25 + global_int$0
+if pick2_j <= pick2_num branch to "label$104"
+label$103:
+pick2_#27 = pick2_num - pick2_i
+pick2_#28 = pick2_#27 * global_int$2
+pick2_#29 = pick2_#28 + global_int$1
+testpick_#32 = pick2_#29
+output testpick_#32
+output "\n" 
+goto label$51
+label$49:
+output "" 
+output "\n" 
+test1_i = global_int$1
+label$58:
+test1_j = global_int$1
+label$60:
+test1_k = global_int$1
+label$62:
+if test1_i == test1_k branch to "label$63"
+if test1_i == test1_j branch to "label$64"
+if test1_j == test1_k branch to "label$65"
+output test1_i
+output "\n" 
+output test1_j
+output "\n" 
+output test1_k
+output "\n" 
+label$65:
+label$64:
+label$63:
+test1_k = test1_k + global_int$1
+if test1_k < global_int$5 branch to "label$62"
+test1_j = test1_j + global_int$1
+if test1_j < global_int$5 branch to "label$60"
+test1_i = test1_i + global_int$1
+if test1_i < global_int$5 branch to "label$58"
+label$68:
+test2_reversedInteger = global_int$0
+output "input an integer please:" 
+output "\n" 
+input test2_n
+if test2_n != global_int$0 branch to "label$69"
+goto label$66
+label$69:
+test2_originalInteger = test2_n
+if test2_n == global_int$0 branch to "label$70"
+label$71:
+mod_#34 = test2_n / global_int$10
+mod_#34 = mod_#34 * global_int$10
+mod_#33 = test2_n - mod_#34
+test2_#35 = mod_#33
+test2_#36 = test2_reversedInteger * global_int$10
+test2_#37 = test2_#36 + test2_#35
+test2_reversedInteger = test2_#37
+test2_#38 = test2_n / global_int$10
+test2_n = test2_#38
+if test2_#38 != global_int$0 branch to "label$71"
+label$70:
+if test2_originalInteger != test2_reversedInteger branch to "label$72"
+output "is palindrome" 
+output test2_originalInteger
+output "\n" 
+goto label$73
+label$72:
+output "not palindrome" 
+output test2_originalInteger
+output "\n" 
+label$73:
+goto label$68
+label$66:
+label$76:
+test3_flag = global_int$0
+output "input a positive integer please:" 
+output "\n" 
+input test3_n
+if test3_n != global_int$0 branch to "label$77"
+goto label$74
+label$77:
+test3_i = global_int$2
+test3_#39 = test3_n / global_int$2
+if global_int$2 > test3_#39 branch to "label$78"
+label$79:
+mod_#34 = test3_n / test3_i
+mod_#34 = mod_#34 * test3_i
+mod_#33 = test3_n - mod_#34
+test3_#40 = mod_#33
+if test3_#40 != global_int$0 branch to "label$80"
+test3_flag = global_int$1
+test3_i = test3_n
+label$80:
+test3_i = test3_i + global_int$1
+test3_#39 = test3_n / global_int$2
+if test3_i <= test3_#39 branch to "label$79"
+label$78:
+if test3_flag != global_int$0 branch to "label$81"
+output "is prime" 
+output test3_n
+output "\n" 
+goto label$82
+label$81:
+output "not prime" 
+output test3_n
+output "\n" 
+label$82:
+goto label$76
+label$74:
+return
+
+func pick()
+if pick_num != global_int$1 branch to "label$9"
+return global_int$1
+label$9:
+if pick_num > global_int$1 branch to "label$10"
+output "unexpected error happened" 
+output "\n" 
+return global_int$-1
+label$10:
+if pick_odd == global_int$0 branch to "label$11"
+pick_#13 = pick_num / global_int$2
+isEven_#7 = pick_num / isEven_TWO
+isEven_#11 = isEven_#7 * global_int$2
+isEven_#10 = pick_num - isEven_#11
+isEven_#8 = global_int$1 - isEven_#10
+pick_#14 = isEven_#8
+push pick_#13
+push pick_#14
+pick_#15 = call pick
+pick_#16 = pick_#15 * global_int$2
+return pick_#16
+label$11:
+pick_#18 = pick_num + global_int$1
+pick_#19 = pick_#18 / global_int$2
+isOdd_#4 = pick_num / isOdd_TWO
+isOdd_#6 = isOdd_#4 * global_int$2
+isOdd_#5 = pick_num - isOdd_#6
+pick_#20 = isOdd_#5
+push pick_#19
+push pick_#20
+pick_#21 = call pick
+pick_#22 = pick_#21 * global_int$2
+pick_#23 = pick_#22 - global_int$1
+return pick_#23
+
+<!--anchor-->
+
+func main()
+label$47:
+input testmean_n
+if testmean_n != global_int$0 branch to "label$48"
+goto label$45
+label$48:
+output "please input numbers to calc mean" 
+output "\n" 
+mean_n = testmean_n
+if testmean_n <= mean_MAX_N branch to "label$97"
+output "Too much input " 
+output mean_n
+output "\n" 
+testmean_#3 = mean_ERR
+goto label$96
+label$97:
+mean_i = global_int$0
+if global_int$0 >= mean_n branch to "label$98"
+label$99:
+input mean_tmp
+mean_num[mean_i] = mean_tmp
+mean_i = mean_i + global_int$1
+if mean_i < mean_n branch to "label$99"
+label$98:
+mean_result = global_int$0
+mean_i = global_int$0
+if global_int$0 >= mean_n branch to "label$100"
+label$101:
+mean_#1 = mean_result + mean_i
+mean_result = mean_#1
+mean_i = mean_i + global_int$1
+if mean_i < mean_n branch to "label$101"
+label$100:
+mean_#2 = mean_result / mean_n
+testmean_#3 = mean_#2
+label$96:
+output "mean value is " 
+output testmean_#3
+output "\n" 
+goto label$47
+label$45:
+label$51:
+input testpick_base
+input testpick_exp
+if testpick_base != global_int$0 branch to "label$52"
+if testpick_exp != global_int$0 branch to "label$53"
+goto label$49
+label$53:
+label$52:
+if testpick_exp <= global_int$0 branch to "label$54"
+label$55:
+testpick_#30 = testpick_base * global_int$10
+testpick_base = testpick_#30
+testpick_exp = testpick_exp - global_int$1
+if testpick_exp > global_int$0 branch to "label$55"
+label$54:
+push testpick_base
+push global_int$0
+testpick_#31 = call pick
+output testpick_#31
+output "\n" 
+pick2_num = testpick_base
+pick2_i = global_int$1
+pick2_j = global_int$2
+if global_int$2 > testpick_base branch to "label$103"
+label$104:
+pick2_i = pick2_j
+pick2_#25 = pick2_j * global_int$2
+pick2_j = pick2_#25 + global_int$0
+if pick2_j <= pick2_num branch to "label$104"
+label$103:
+pick2_#27 = pick2_num - pick2_i
+pick2_#28 = pick2_#27 * global_int$2
+pick2_#29 = pick2_#28 + global_int$1
+output pick2_#29
+output "\n" 
+goto label$51
+label$49:
+output "" 
+output "\n" 
+test1_i = global_int$1
+label$58:
+test1_j = global_int$1
+label$60:
+test1_k = global_int$1
+label$62:
+if test1_i == test1_k branch to "label$63"
+if test1_i == test1_j branch to "label$64"
+if test1_j == test1_k branch to "label$65"
+output test1_i
+output "\n" 
+output test1_j
+output "\n" 
+output test1_k
+output "\n" 
+label$65:
+label$64:
+label$63:
+test1_k = test1_k + global_int$1
+if test1_k < global_int$5 branch to "label$62"
+test1_j = test1_j + global_int$1
+if test1_j < global_int$5 branch to "label$60"
+test1_i = test1_i + global_int$1
+if test1_i < global_int$5 branch to "label$58"
+label$68:
+test2_reversedInteger = global_int$0
+output "input an integer please:" 
+output "\n" 
+input test2_n
+if test2_n != global_int$0 branch to "label$69"
+goto label$66
+label$69:
+test2_originalInteger = test2_n
+if test2_n == global_int$0 branch to "label$70"
+label$71:
+mod_#34 = test2_n / global_int$10
+mod_#34 = mod_#34 * global_int$10
+mod_#33 = test2_n - mod_#34
+test2_#36 = test2_reversedInteger * global_int$10
+test2_#37 = test2_#36 + mod_#33
+test2_reversedInteger = test2_#37
+test2_#38 = test2_n / global_int$10
+test2_n = test2_#38
+if test2_#38 != global_int$0 branch to "label$71"
+label$70:
+if test2_originalInteger != test2_reversedInteger branch to "label$72"
+output "is palindrome" 
+output test2_originalInteger
+output "\n" 
+goto label$73
+label$72:
+output "not palindrome" 
+output test2_originalInteger
+output "\n" 
+label$73:
+goto label$68
+label$66:
+label$76:
+test3_flag = global_int$0
+output "input a positive integer please:" 
+output "\n" 
+input test3_n
+if test3_n != global_int$0 branch to "label$77"
+goto label$74
+label$77:
+test3_i = global_int$2
+test3_#39 = test3_n / global_int$2
+if global_int$2 > test3_#39 branch to "label$78"
+label$79:
+mod_#34 = test3_n / test3_i
+mod_#34 = mod_#34 * test3_i
+mod_#33 = test3_n - mod_#34
+if mod_#33 != global_int$0 branch to "label$80"
+test3_flag = global_int$1
+test3_i = test3_n
+label$80:
+test3_i = test3_i + global_int$1
+test3_#39 = test3_n / global_int$2
+if test3_i <= test3_#39 branch to "label$79"
+label$78:
+if test3_flag != global_int$0 branch to "label$81"
+output "is prime" 
+output test3_n
+output "\n" 
+goto label$82
+label$81:
+output "not prime" 
+output test3_n
+output "\n" 
+label$82:
+goto label$76
+label$74:
+return
+
+func pick()
+if pick_num != global_int$1 branch to "label$9"
+return global_int$1
+label$9:
+if pick_num > global_int$1 branch to "label$10"
+output "unexpected error happened" 
+output "\n" 
+return global_int$-1
+label$10:
+if pick_odd == global_int$0 branch to "label$11"
+pick_#13 = pick_num / global_int$2
+isEven_#7 = pick_num / isEven_TWO
+isEven_#11 = isEven_#7 * global_int$2
+isEven_#10 = pick_num - isEven_#11
+isEven_#8 = global_int$1 - isEven_#10
+pick_#14 = isEven_#8
+push pick_#13
+push pick_#14
+pick_#15 = call pick
+pick_#16 = pick_#15 * global_int$2
+return pick_#16
+label$11:
+pick_#18 = pick_num + global_int$1
+pick_#19 = pick_#18 / global_int$2
+isOdd_#4 = pick_num / isOdd_TWO
+isOdd_#6 = isOdd_#4 * global_int$2
+isOdd_#5 = pick_num - isOdd_#6
+pick_#20 = isOdd_#5
+push pick_#19
+push pick_#20
+pick_#21 = call pick
+pick_#22 = pick_#21 * global_int$2
+pick_#23 = pick_#22 - global_int$1
+return pick_#23
+
+<!--anchor-->
+
+func main()
+label$47:
+input testmean_n
+if testmean_n != global_int$0 branch to "label$48"
+goto label$45
+label$48:
+output "please input numbers to calc mean" 
+output "\n" 
+mean_n = testmean_n
+if testmean_n <= mean_MAX_N branch to "label$97"
+output "Too much input " 
+output mean_n
+output "\n" 
+testmean_#3 = mean_ERR
+goto label$96
+label$97:
+mean_i = global_int$0
+if global_int$0 >= mean_n branch to "label$98"
+label$99:
+input mean_tmp
+mean_num[mean_i] = mean_tmp
+mean_i = mean_i + global_int$1
+if mean_i < mean_n branch to "label$99"
+label$98:
+mean_result = global_int$0
+mean_i = global_int$0
+if global_int$0 >= mean_n branch to "label$100"
+label$101:
+mean_#1 = mean_result + mean_i
+mean_result = mean_#1
+mean_i = mean_i + global_int$1
+if mean_i < mean_n branch to "label$101"
+label$100:
+mean_#2 = mean_result / mean_n
+testmean_#3 = mean_#2
+label$96:
+output "mean value is " 
+output testmean_#3
+output "\n" 
+goto label$47
+label$45:
+label$51:
+input testpick_base
+input testpick_exp
+if testpick_base != global_int$0 branch to "label$52"
+if testpick_exp != global_int$0 branch to "label$53"
+goto label$49
+label$53:
+label$52:
+if testpick_exp <= global_int$0 branch to "label$54"
+label$55:
+testpick_#30 = testpick_base * global_int$10
+testpick_base = testpick_#30
+testpick_exp = testpick_exp - global_int$1
+if testpick_exp > global_int$0 branch to "label$55"
+label$54:
+push testpick_base
+push global_int$0
+testpick_#31 = call pick
+output testpick_#31
+output "\n" 
+pick2_num = testpick_base
+pick2_i = global_int$1
+pick2_j = global_int$2
+if global_int$2 > testpick_base branch to "label$103"
+label$104:
+pick2_i = pick2_j
+pick2_#25 = pick2_j * global_int$2
+pick2_j = pick2_#25 + global_int$0
+if pick2_j <= pick2_num branch to "label$104"
+label$103:
+pick2_#27 = pick2_num - pick2_i
+pick2_#28 = pick2_#27 * global_int$2
+pick2_#29 = pick2_#28 + global_int$1
+output pick2_#29
+output "\n" 
+goto label$51
+label$49:
+output "" 
+output "\n" 
+test1_i = global_int$1
+label$58:
+test1_j = global_int$1
+label$60:
+test1_k = global_int$1
+label$62:
+if test1_i == test1_k branch to "label$63"
+if test1_i == test1_j branch to "label$64"
+if test1_j == test1_k branch to "label$65"
+output test1_i
+output "\n" 
+output test1_j
+output "\n" 
+output test1_k
+output "\n" 
+label$65:
+label$64:
+label$63:
+test1_k = test1_k + global_int$1
+if test1_k < global_int$5 branch to "label$62"
+test1_j = test1_j + global_int$1
+if test1_j < global_int$5 branch to "label$60"
+test1_i = test1_i + global_int$1
+if test1_i < global_int$5 branch to "label$58"
+label$68:
+test2_reversedInteger = global_int$0
+output "input an integer please:" 
+output "\n" 
+input test2_n
+if test2_n != global_int$0 branch to "label$69"
+goto label$66
+label$69:
+test2_originalInteger = test2_n
+if test2_n == global_int$0 branch to "label$70"
+label$71:
+mod_#34 = test2_n / global_int$10
+mod_#34 = mod_#34 * global_int$10
+mod_#33 = test2_n - mod_#34
+test2_#36 = test2_reversedInteger * global_int$10
+test2_#37 = test2_#36 + mod_#33
+test2_reversedInteger = test2_#37
+test2_#38 = test2_n / global_int$10
+test2_n = test2_#38
+if test2_#38 != global_int$0 branch to "label$71"
+label$70:
+if test2_originalInteger != test2_reversedInteger branch to "label$72"
+output "is palindrome" 
+output test2_originalInteger
+output "\n" 
+goto label$73
+label$72:
+output "not palindrome" 
+output test2_originalInteger
+output "\n" 
+label$73:
+goto label$68
+label$66:
+label$76:
+test3_flag = global_int$0
+output "input a positive integer please:" 
+output "\n" 
+input test3_n
+if test3_n != global_int$0 branch to "label$77"
+goto label$74
+label$77:
+test3_i = global_int$2
+test3_#39 = test3_n / global_int$2
+if global_int$2 > test3_#39 branch to "label$78"
+label$79:
+mod_#34 = test3_n / test3_i
+mod_#34 = mod_#34 * test3_i
+mod_#33 = test3_n - mod_#34
+if mod_#33 != global_int$0 branch to "label$80"
+test3_flag = global_int$1
+test3_i = test3_n
+label$80:
+test3_i = test3_i + global_int$1
+test3_#39 = test3_n / global_int$2
+if test3_i <= test3_#39 branch to "label$79"
+label$78:
+if test3_flag != global_int$0 branch to "label$81"
+output "is prime" 
+output test3_n
+output "\n" 
+goto label$82
+label$81:
+output "not prime" 
+output test3_n
+output "\n" 
+label$82:
+goto label$76
+label$74:
+return
+
+func pick()
+if pick_num != global_int$1 branch to "label$9"
+return global_int$1
+label$9:
+if pick_num > global_int$1 branch to "label$10"
+output "unexpected error happened" 
+output "\n" 
+return global_int$-1
+label$10:
+if pick_odd == global_int$0 branch to "label$11"
+pick_#13 = pick_num / global_int$2
+isEven_#7 = pick_num / isEven_TWO
+isEven_#11 = isEven_#7 * global_int$2
+isEven_#10 = pick_num - isEven_#11
+isEven_#8 = global_int$1 - isEven_#10
+pick_#14 = isEven_#8
+push pick_#13
+push pick_#14
+pick_#15 = call pick
+pick_#16 = pick_#15 * global_int$2
+return pick_#16
+label$11:
+pick_#18 = pick_num + global_int$1
+pick_#19 = pick_#18 / global_int$2
+isOdd_#4 = pick_num / isOdd_TWO
+isOdd_#6 = isOdd_#4 * global_int$2
+isOdd_#5 = pick_num - isOdd_#6
+pick_#20 = isOdd_#5
+push pick_#19
+push pick_#20
+pick_#21 = call pick
+pick_#22 = pick_#21 * global_int$2
+pick_#23 = pick_#22 - global_int$1
+return pick_#23
+

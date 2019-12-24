@@ -1,0 +1,13 @@
+N8symtable9FuncTableE          : main                          <void>
+N8symtable5EntryE              : main_a                        <int>
+N8symtable5EntryE              : main_b                        <int>
+N8symtable5EntryE              : main_c                        <int>
+N8symtable5EntryE              : main_d                        <int>
+N8symtable5EntryE              : main_e                        <int>
+N8symtable5EntryE              : main_f                        <int>
+N8symtable5EntryE              : global_int$1                  <const int(1)>
+N8symtable5EntryE              : main_#1                       <int>
+N8symtable5EntryE              : global_int$2                  <const int(2)>
+N8symtable5EntryE              : main_#2                       <int>
+N8symtable5EntryE              : global_int$3                  <const int(3)>
+N8symtable5EntryE              : global_int$6                  <const int(6)>

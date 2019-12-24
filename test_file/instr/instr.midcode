@@ -1,0 +1,1736 @@
+
+func main()
+call integral
+main_#95 = call funcif
+call funcloop
+call funcio
+call funcarray
+return
+
+func func1()
+output "def" 
+output "\n" 
+return
+
+func func2()
+input func2_a
+input func2_b
+input func2_c
+func2_#1 = func2_a + func2_b
+func2_#1 = func2_#1 + func2_c
+output func2_#1
+output "\n" 
+return
+
+func func3()
+output "in" 
+output func3_a
+output "\n" 
+output "def" 
+output "\n" 
+return func3_a
+
+func integral()
+output "abc" 
+output "\n" 
+integral_#2 = integral_a + global_int$1
+output integral_#2
+output "\n" 
+integral_#3 = global_int$1 + integral_a
+output integral_#3
+output "\n" 
+integral_#4 = integral_a - global_int$1
+output integral_#4
+output "\n" 
+integral_#5 = global_int$1 - integral_a
+output integral_#5
+output "\n" 
+integral_#6 = integral_a * global_int$2
+output integral_#6
+output "\n" 
+integral_#7 = integral_a / global_int$2
+output integral_#7
+output "\n" 
+integral_b[global_int$0] = global_int$2
+integral_#8 = integral_b[global_int$0]
+output integral_#8
+output "\n" 
+integral_#9 = integral_b[global_int$0]
+integral_c = integral_#9
+output integral_c
+output "\n" 
+integral_c = integral_a
+output integral_c
+output "\n" 
+if integral_a <= global_int$1 branch to "label$1"
+output global_int$1
+output "\n" 
+goto label$2
+label$1:
+output global_int$2
+output "\n" 
+label$2:
+if integral_a < global_int$1 branch to "label$3"
+output global_int$1
+output "\n" 
+goto label$4
+label$3:
+output global_int$2
+output "\n" 
+label$4:
+if integral_a >= global_int$1 branch to "label$5"
+output global_int$1
+output "\n" 
+goto label$6
+label$5:
+output global_int$2
+output "\n" 
+label$6:
+if integral_a > global_int$1 branch to "label$7"
+output global_int$1
+output "\n" 
+goto label$8
+label$7:
+output global_int$2
+output "\n" 
+label$8:
+if integral_a != global_int$1 branch to "label$9"
+output global_int$1
+output "\n" 
+goto label$10
+label$9:
+output global_int$2
+output "\n" 
+label$10:
+call func1
+push global_int$8
+call func2
+push global_int$9
+integral_#10 = call func3
+output integral_#10
+output "\n" 
+return
+
+func funcif()
+funcif_c = global_char$53
+if funcif_a <= funcif_b branch to "label$11"
+output "a > b" 
+output "\n" 
+goto label$12
+label$11:
+output "a <= b" 
+output "\n" 
+label$12:
+if funcif_a >= funcif_b branch to "label$13"
+goto label$14
+label$13:
+output "a not less than b" 
+output "\n" 
+label$14:
+if funcif_a < funcif_a branch to "label$15"
+output "1self yes" 
+output "\n" 
+goto label$16
+label$15:
+output "1self no" 
+output "\n" 
+label$16:
+if funcif_b > funcif_a branch to "label$17"
+output "2222 yes" 
+output "\n" 
+goto label$18
+label$17:
+output "2222 no" 
+output "\n" 
+label$18:
+funcif_#11 = funcif_a - funcif_b
+funcif_#12 = funcif_b - funcif_a
+if funcif_#11 >= funcif_#12 branch to "label$19"
+output "-aaa" 
+output "\n" 
+goto label$20
+label$19:
+output "-bbb" 
+output "\n" 
+label$20:
+funcif_#13 = global_int$0 - funcif_a
+if funcif_#13 <= funcif_b branch to "label$21"
+output "-a > b" 
+output "\n" 
+goto label$22
+label$21:
+output "-a <= b" 
+output "\n" 
+label$22:
+funcif_#14 = funcif_c - global_char$48
+if funcif_b != funcif_#14 branch to "label$23"
+output "line21 y" 
+output "\n" 
+goto label$24
+label$23:
+output "line23 n" 
+output "\n" 
+label$24:
+return funcif_a
+
+func funcloop()
+funcloop_i = global_int$10
+if funcloop_i < global_int$0 branch to "label$25"
+label$26:
+funcloop_#15 = funcloop_i - global_int$2
+funcloop_i = funcloop_#15
+output funcloop_i
+output "\n" 
+if funcloop_i >= global_int$0 branch to "label$26"
+label$25:
+if funcloop_i <= global_int$10 branch to "label$27"
+label$28:
+output "w r o n g" 
+output "\n" 
+if funcloop_i > global_int$10 branch to "label$28"
+label$27:
+funcloop_i = global_int$0
+if funcloop_i >= global_int$20 branch to "label$29"
+label$30:
+output ">>>" 
+output funcloop_i
+output "\n" 
+funcloop_i = funcloop_i + global_int$1
+if funcloop_i < global_int$20 branch to "label$30"
+label$29:
+funcloop_i = global_int$20
+if funcloop_i < global_int$0 branch to "label$31"
+label$32:
+output "***" 
+output funcloop_i
+output "\n" 
+funcloop_i = funcloop_i - global_int$1
+if funcloop_i >= global_int$0 branch to "label$32"
+label$31:
+funcloop_i = global_int$1
+label$33:
+output ")))" 
+output funcloop_i
+output "\n" 
+funcloop_#16 = funcloop_i + global_int$2
+funcloop_i = funcloop_#16
+if funcloop_i <= global_int$1 branch to "label$33"
+output "end" 
+output "\n" 
+return
+
+func funcio()
+global_io_e = global_int$20
+global_io_f = global_int$30
+global_io_g = global_char$103
+global_io_h = global_char$104
+output "test1" 
+output "\n" 
+output "test2" 
+funcio_#17 = global_char$103 + global_char$104
+output funcio_#17
+output "\n" 
+funcio_#18 = global_io_g + global_io_h
+output funcio_#18
+output "\n" 
+output "test3" 
+funcio_#24 = global_io_c
+funcio_#23 = funcio_#24
+funcio_#22 = funcio_#23
+funcio_#21 = global_io_b - funcio_#22
+funcio_#20 = funcio_#21
+funcio_#19 = global_io_a * funcio_#20
+output funcio_#19
+output "\n" 
+funcio_#27 = global_io_b - global_io_c
+funcio_#26 = funcio_#27
+funcio_#25 = global_io_a * funcio_#26
+output funcio_#25
+output "\n" 
+output "t e s t 4" 
+output "\n" 
+funcio_sum = global_int$0
+funcio_i = global_int$0
+if funcio_i >= global_int$3 branch to "label$34"
+label$35:
+input funcio_tmp
+funcio_aa[funcio_i] = funcio_tmp
+funcio_#29 = funcio_aa[funcio_i]
+funcio_#28 = funcio_sum + funcio_#29
+funcio_sum = funcio_#28
+funcio_i = funcio_i + global_int$1
+if funcio_i < global_int$3 branch to "label$35"
+label$34:
+output funcio_sum
+output "\n" 
+funcio_#30 = global_io_e + global_io_f
+output funcio_#30
+output "\n" 
+input global_io_e
+input global_io_f
+output global_io_e
+output "\n" 
+output global_io_f
+output "\n" 
+input global_io_e
+input global_io_f
+input global_io_g
+input global_io_h
+output global_io_e
+output "\n" 
+output global_io_f
+output "\n" 
+output global_io_g
+output "\n" 
+output global_io_h
+output "\n" 
+return
+
+func funcarray()
+global_array_a[global_int$0] = global_int$1
+funcarray_#31 = global_array_a[global_int$0]
+funcarray_#32 = funcarray_#31 - global_int$1
+funcarray_b[funcarray_#32] = global_int$2
+funcarray_#33 = global_array_a[global_int$0]
+funcarray_#34 = funcarray_#33 - global_int$1
+funcarray_#35 = funcarray_b[funcarray_#34]
+funcarray_#36 = funcarray_#35 - global_int$1
+global_array_a[funcarray_#36] = global_int$3
+funcarray_#37 = global_array_a[global_int$0]
+funcarray_#38 = funcarray_#37 - global_int$1
+funcarray_#39 = funcarray_b[funcarray_#38]
+funcarray_#40 = funcarray_#39 - global_int$1
+funcarray_#41 = global_array_a[funcarray_#40]
+funcarray_#42 = funcarray_#41 - global_int$2
+funcarray_b[funcarray_#42] = global_int$4
+funcarray_#43 = global_array_a[global_int$0]
+funcarray_#44 = funcarray_#43 - global_int$1
+funcarray_#45 = funcarray_b[funcarray_#44]
+funcarray_#46 = funcarray_#45 - global_int$1
+funcarray_#47 = global_array_a[funcarray_#46]
+funcarray_#48 = funcarray_#47 - global_int$2
+funcarray_#49 = funcarray_b[funcarray_#48]
+funcarray_#50 = funcarray_#49 - global_int$2
+global_array_a[funcarray_#50] = global_int$5
+funcarray_#51 = global_array_a[global_int$0]
+funcarray_#52 = funcarray_#51 - global_int$1
+funcarray_#53 = funcarray_b[funcarray_#52]
+funcarray_#54 = funcarray_#53 - global_int$1
+funcarray_#55 = global_array_a[funcarray_#54]
+funcarray_#56 = funcarray_#55 - global_int$2
+funcarray_#57 = funcarray_b[funcarray_#56]
+funcarray_#58 = funcarray_#57 - global_int$2
+funcarray_#59 = global_array_a[funcarray_#58]
+funcarray_#60 = funcarray_#59 - global_int$3
+funcarray_b[funcarray_#60] = global_int$6
+funcarray_#61 = global_array_a[global_int$0]
+funcarray_#62 = funcarray_#61 - global_int$1
+funcarray_#63 = funcarray_b[funcarray_#62]
+funcarray_#64 = funcarray_#63 - global_int$1
+funcarray_#65 = global_array_a[funcarray_#64]
+funcarray_#66 = funcarray_#65 - global_int$2
+funcarray_#67 = funcarray_b[funcarray_#66]
+funcarray_#68 = funcarray_#67 - global_int$2
+funcarray_#69 = global_array_a[funcarray_#68]
+funcarray_#70 = funcarray_#69 - global_int$3
+funcarray_#71 = funcarray_b[funcarray_#70]
+funcarray_#72 = funcarray_#71 - global_int$3
+global_array_a[funcarray_#72] = global_int$7
+funcarray_#73 = global_array_a[global_int$0]
+funcarray_#74 = funcarray_#73 - global_int$1
+funcarray_#75 = funcarray_b[funcarray_#74]
+funcarray_#76 = funcarray_#75 - global_int$1
+funcarray_#77 = global_array_a[funcarray_#76]
+funcarray_#78 = funcarray_#77 - global_int$2
+funcarray_#79 = funcarray_b[funcarray_#78]
+funcarray_#80 = funcarray_#79 - global_int$2
+funcarray_#81 = global_array_a[funcarray_#80]
+funcarray_#82 = funcarray_#81 - global_int$3
+funcarray_#83 = funcarray_b[funcarray_#82]
+funcarray_#84 = funcarray_#83 - global_int$3
+funcarray_#85 = global_array_a[funcarray_#84]
+funcarray_#86 = funcarray_#85 - global_int$4
+funcarray_b[funcarray_#86] = global_int$8
+output "array_a[0] = " 
+funcarray_#87 = global_array_a[global_int$0]
+output funcarray_#87
+output "\n" 
+output "array_a[1] = " 
+funcarray_#88 = global_array_a[global_int$1]
+output funcarray_#88
+output "\n" 
+output "array_a[2] = " 
+funcarray_#89 = global_array_a[global_int$2]
+output funcarray_#89
+output "\n" 
+output "array_a[3] = " 
+funcarray_#90 = global_array_a[global_int$3]
+output funcarray_#90
+output "\n" 
+output "b[0] = " 
+funcarray_#91 = funcarray_b[global_int$0]
+output funcarray_#91
+output "\n" 
+output "b[1] = " 
+funcarray_#92 = funcarray_b[global_int$1]
+output funcarray_#92
+output "\n" 
+output "b[2] = " 
+funcarray_#93 = funcarray_b[global_int$2]
+output funcarray_#93
+output "\n" 
+output "b[3] = " 
+funcarray_#94 = funcarray_b[global_int$3]
+output funcarray_#94
+output "\n" 
+output "e" 
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+output "abc" 
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$0
+output "\n" 
+output global_int$0
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$0
+output "\n" 
+integral_b[global_int$0] = global_int$2
+integral_#8 = integral_b[global_int$0]
+output integral_#8
+output "\n" 
+integral_#9 = integral_b[global_int$0]
+output integral_#9
+output "\n" 
+output integral_a
+output "\n" 
+goto label$37
+label$37:
+output global_int$2
+output "\n" 
+output global_int$1
+output "\n" 
+goto label$40
+label$40:
+goto label$41
+label$41:
+output global_int$2
+output "\n" 
+output global_int$1
+output "\n" 
+goto label$44
+label$44:
+output global_int$1
+output "\n" 
+goto label$46
+label$46:
+call func1
+push global_int$8
+call func2
+push global_int$9
+integral_#10 = call func3
+output integral_#10
+output "\n" 
+output "a > b" 
+output "\n" 
+goto label$49
+label$49:
+goto label$50
+label$50:
+output "a not less than b" 
+output "\n" 
+output "1self yes" 
+output "\n" 
+goto label$53
+label$53:
+output "2222 yes" 
+output "\n" 
+goto label$55
+label$55:
+if global_int$5 >= global_int$-5 branch to "label$56"
+output "-aaa" 
+output "\n" 
+goto label$57
+label$56:
+output "-bbb" 
+output "\n" 
+label$57:
+if global_int$-10 <= funcif_b branch to "label$58"
+output "-a > b" 
+output "\n" 
+goto label$59
+label$58:
+output "-a <= b" 
+output "\n" 
+label$59:
+funcif_#14 = global_char$53 - global_char$48
+if funcif_b != funcif_#14 branch to "label$60"
+output "line21 y" 
+output "\n" 
+goto label$61
+label$60:
+output "line23 n" 
+output "\n" 
+label$61:
+funcloop_i = global_int$10
+if global_int$10 < global_int$0 branch to "label$63"
+label$64:
+funcloop_#15 = funcloop_i - global_int$2
+funcloop_i = funcloop_#15
+output funcloop_#15
+output "\n" 
+if funcloop_#15 >= global_int$0 branch to "label$64"
+label$63:
+if funcloop_i <= global_int$10 branch to "label$65"
+label$66:
+output "w r o n g" 
+output "\n" 
+if funcloop_i > global_int$10 branch to "label$66"
+label$65:
+funcloop_i = global_int$0
+if global_int$0 >= global_int$20 branch to "label$67"
+label$68:
+output ">>>" 
+output funcloop_i
+output "\n" 
+funcloop_i = funcloop_i + global_int$1
+if funcloop_i < global_int$20 branch to "label$68"
+label$67:
+funcloop_i = global_int$20
+if global_int$20 < global_int$0 branch to "label$69"
+label$70:
+output "***" 
+output funcloop_i
+output "\n" 
+funcloop_i = funcloop_i - global_int$1
+if funcloop_i >= global_int$0 branch to "label$70"
+label$69:
+funcloop_i = global_int$1
+label$71:
+output ")))" 
+output funcloop_i
+output "\n" 
+funcloop_#16 = funcloop_i + global_int$2
+funcloop_i = funcloop_#16
+if funcloop_#16 <= global_int$1 branch to "label$71"
+output "end" 
+output "\n" 
+global_io_e = global_int$20
+global_io_f = global_int$30
+global_io_g = global_char$103
+global_io_h = global_char$104
+output "test1" 
+output "\n" 
+output "test2" 
+output global_int$207
+output "\n" 
+funcio_#18 = global_char$103 + global_char$104
+output funcio_#18
+output "\n" 
+output "test3" 
+funcio_#21 = global_io_b - global_io_c
+funcio_#19 = global_io_a * funcio_#21
+output funcio_#19
+output "\n" 
+funcio_#25 = global_io_a * global_int$-71
+output funcio_#25
+output "\n" 
+output "t e s t 4" 
+output "\n" 
+funcio_sum = global_int$0
+funcio_i = global_int$0
+if global_int$0 >= global_int$3 branch to "label$73"
+label$74:
+input funcio_tmp
+funcio_aa[funcio_i] = funcio_tmp
+funcio_#29 = funcio_aa[funcio_i]
+funcio_#28 = funcio_sum + funcio_#29
+funcio_sum = funcio_#28
+funcio_i = funcio_i + global_int$1
+if funcio_i < global_int$3 branch to "label$74"
+label$73:
+output funcio_sum
+output "\n" 
+funcio_#30 = global_io_e + global_io_f
+output funcio_#30
+output "\n" 
+input global_io_e
+input global_io_f
+output global_io_e
+output "\n" 
+output global_io_f
+output "\n" 
+input global_io_e
+input global_io_f
+input global_io_g
+input global_io_h
+output global_io_e
+output "\n" 
+output global_io_f
+output "\n" 
+output global_io_g
+output "\n" 
+output global_io_h
+output "\n" 
+global_array_a[global_int$0] = global_int$1
+funcarray_#31 = global_array_a[global_int$0]
+funcarray_#32 = funcarray_#31 - global_int$1
+funcarray_b[funcarray_#32] = global_int$2
+funcarray_#33 = global_array_a[global_int$0]
+funcarray_#34 = funcarray_#33 - global_int$1
+funcarray_#35 = funcarray_b[funcarray_#34]
+funcarray_#36 = funcarray_#35 - global_int$1
+global_array_a[funcarray_#36] = global_int$3
+funcarray_#37 = global_array_a[global_int$0]
+funcarray_#38 = funcarray_#37 - global_int$1
+funcarray_#39 = funcarray_b[funcarray_#38]
+funcarray_#40 = funcarray_#39 - global_int$1
+funcarray_#41 = global_array_a[funcarray_#40]
+funcarray_#42 = funcarray_#41 - global_int$2
+funcarray_b[funcarray_#42] = global_int$4
+funcarray_#43 = global_array_a[global_int$0]
+funcarray_#44 = funcarray_#43 - global_int$1
+funcarray_#45 = funcarray_b[funcarray_#44]
+funcarray_#46 = funcarray_#45 - global_int$1
+funcarray_#47 = global_array_a[funcarray_#46]
+funcarray_#48 = funcarray_#47 - global_int$2
+funcarray_#49 = funcarray_b[funcarray_#48]
+funcarray_#50 = funcarray_#49 - global_int$2
+global_array_a[funcarray_#50] = global_int$5
+funcarray_#51 = global_array_a[global_int$0]
+funcarray_#52 = funcarray_#51 - global_int$1
+funcarray_#53 = funcarray_b[funcarray_#52]
+funcarray_#54 = funcarray_#53 - global_int$1
+funcarray_#55 = global_array_a[funcarray_#54]
+funcarray_#56 = funcarray_#55 - global_int$2
+funcarray_#57 = funcarray_b[funcarray_#56]
+funcarray_#58 = funcarray_#57 - global_int$2
+funcarray_#59 = global_array_a[funcarray_#58]
+funcarray_#60 = funcarray_#59 - global_int$3
+funcarray_b[funcarray_#60] = global_int$6
+funcarray_#61 = global_array_a[global_int$0]
+funcarray_#62 = funcarray_#61 - global_int$1
+funcarray_#63 = funcarray_b[funcarray_#62]
+funcarray_#64 = funcarray_#63 - global_int$1
+funcarray_#65 = global_array_a[funcarray_#64]
+funcarray_#66 = funcarray_#65 - global_int$2
+funcarray_#67 = funcarray_b[funcarray_#66]
+funcarray_#68 = funcarray_#67 - global_int$2
+funcarray_#69 = global_array_a[funcarray_#68]
+funcarray_#70 = funcarray_#69 - global_int$3
+funcarray_#71 = funcarray_b[funcarray_#70]
+funcarray_#72 = funcarray_#71 - global_int$3
+global_array_a[funcarray_#72] = global_int$7
+funcarray_#73 = global_array_a[global_int$0]
+funcarray_#74 = funcarray_#73 - global_int$1
+funcarray_#75 = funcarray_b[funcarray_#74]
+funcarray_#76 = funcarray_#75 - global_int$1
+funcarray_#77 = global_array_a[funcarray_#76]
+funcarray_#78 = funcarray_#77 - global_int$2
+funcarray_#79 = funcarray_b[funcarray_#78]
+funcarray_#80 = funcarray_#79 - global_int$2
+funcarray_#81 = global_array_a[funcarray_#80]
+funcarray_#82 = funcarray_#81 - global_int$3
+funcarray_#83 = funcarray_b[funcarray_#82]
+funcarray_#84 = funcarray_#83 - global_int$3
+funcarray_#85 = global_array_a[funcarray_#84]
+funcarray_#86 = funcarray_#85 - global_int$4
+funcarray_b[funcarray_#86] = global_int$8
+output "array_a[0] = " 
+funcarray_#87 = global_array_a[global_int$0]
+output funcarray_#87
+output "\n" 
+output "array_a[1] = " 
+funcarray_#88 = global_array_a[global_int$1]
+output funcarray_#88
+output "\n" 
+output "array_a[2] = " 
+funcarray_#89 = global_array_a[global_int$2]
+output funcarray_#89
+output "\n" 
+output "array_a[3] = " 
+funcarray_#90 = global_array_a[global_int$3]
+output funcarray_#90
+output "\n" 
+output "b[0] = " 
+funcarray_#91 = funcarray_b[global_int$0]
+output funcarray_#91
+output "\n" 
+output "b[1] = " 
+funcarray_#92 = funcarray_b[global_int$1]
+output funcarray_#92
+output "\n" 
+output "b[2] = " 
+funcarray_#93 = funcarray_b[global_int$2]
+output funcarray_#93
+output "\n" 
+output "b[3] = " 
+funcarray_#94 = funcarray_b[global_int$3]
+output funcarray_#94
+output "\n" 
+output "e" 
+output "\n" 
+return
+
+func func1()
+output "def" 
+output "\n" 
+return
+
+func func2()
+input func2_a
+input func2_b
+input func2_c
+func2_#1 = func2_a + func2_b
+func2_#1 = func2_#1 + func2_c
+output func2_#1
+output "\n" 
+return
+
+func func3()
+output "in" 
+output func3_a
+output "\n" 
+output "def" 
+output "\n" 
+return func3_a
+
+<!--anchor-->
+
+func main()
+output "abc" 
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$0
+output "\n" 
+output global_int$0
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$0
+output "\n" 
+integral_b[global_int$0] = global_int$2
+integral_#8 = integral_b[global_int$0]
+output integral_#8
+output "\n" 
+integral_#9 = integral_b[global_int$0]
+output integral_#9
+output "\n" 
+output integral_a
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$1
+output "\n" 
+output "def" 
+output "\n" 
+input func2_a
+input func2_b
+input func2_c
+func2_#1 = func2_a + func2_b
+func2_#1 = func2_#1 + func2_c
+output func2_#1
+output "\n" 
+output "in" 
+output global_int$9
+output "\n" 
+output "def" 
+output "\n" 
+integral_#10 = global_int$9
+output integral_#10
+output "\n" 
+output "a > b" 
+output "\n" 
+output "a not less than b" 
+output "\n" 
+output "1self yes" 
+output "\n" 
+output "2222 yes" 
+output "\n" 
+goto label$56
+label$56:
+output "-bbb" 
+output "\n" 
+goto label$58
+label$58:
+output "-a <= b" 
+output "\n" 
+if funcif_b != global_int$5 branch to "label$60"
+output "line21 y" 
+output "\n" 
+goto label$61
+label$60:
+output "line23 n" 
+output "\n" 
+label$61:
+funcloop_i = global_int$10
+label$64:
+funcloop_#15 = funcloop_i - global_int$2
+funcloop_i = funcloop_#15
+output funcloop_#15
+output "\n" 
+if funcloop_#15 >= global_int$0 branch to "label$64"
+if funcloop_i <= global_int$10 branch to "label$65"
+label$66:
+output "w r o n g" 
+output "\n" 
+if funcloop_i > global_int$10 branch to "label$66"
+label$65:
+funcloop_i = global_int$0
+label$68:
+output ">>>" 
+output funcloop_i
+output "\n" 
+funcloop_i = funcloop_i + global_int$1
+if funcloop_i < global_int$20 branch to "label$68"
+funcloop_i = global_int$20
+label$70:
+output "***" 
+output funcloop_i
+output "\n" 
+funcloop_i = funcloop_i - global_int$1
+if funcloop_i >= global_int$0 branch to "label$70"
+funcloop_i = global_int$1
+label$71:
+output ")))" 
+output funcloop_i
+output "\n" 
+funcloop_#16 = funcloop_i + global_int$2
+funcloop_i = funcloop_#16
+if funcloop_#16 <= global_int$1 branch to "label$71"
+output "end" 
+output "\n" 
+global_io_e = global_int$20
+global_io_f = global_int$30
+global_io_g = global_char$103
+global_io_h = global_char$104
+output "test1" 
+output "\n" 
+output "test2" 
+output global_int$207
+output "\n" 
+output global_int$207
+output "\n" 
+output "test3" 
+funcio_#19 = global_io_a * global_int$-71
+output funcio_#19
+output "\n" 
+output global_int$-994
+output "\n" 
+output "t e s t 4" 
+output "\n" 
+funcio_sum = global_int$0
+funcio_i = global_int$0
+label$74:
+input funcio_tmp
+funcio_aa[funcio_i] = funcio_tmp
+funcio_#29 = funcio_aa[funcio_i]
+funcio_#28 = funcio_sum + funcio_#29
+funcio_sum = funcio_#28
+funcio_i = funcio_i + global_int$1
+if funcio_i < global_int$3 branch to "label$74"
+output funcio_sum
+output "\n" 
+funcio_#30 = global_io_e + global_io_f
+output funcio_#30
+output "\n" 
+input global_io_e
+input global_io_f
+output global_io_e
+output "\n" 
+output global_io_f
+output "\n" 
+input global_io_e
+input global_io_f
+input global_io_g
+input global_io_h
+output global_io_e
+output "\n" 
+output global_io_f
+output "\n" 
+output global_io_g
+output "\n" 
+output global_io_h
+output "\n" 
+global_array_a[global_int$0] = global_int$1
+funcarray_#31 = global_array_a[global_int$0]
+funcarray_#32 = funcarray_#31 - global_int$1
+funcarray_b[funcarray_#32] = global_int$2
+funcarray_#33 = global_array_a[global_int$0]
+funcarray_#34 = funcarray_#33 - global_int$1
+funcarray_#35 = funcarray_b[funcarray_#34]
+funcarray_#36 = funcarray_#35 - global_int$1
+global_array_a[funcarray_#36] = global_int$3
+funcarray_#37 = global_array_a[global_int$0]
+funcarray_#38 = funcarray_#37 - global_int$1
+funcarray_#39 = funcarray_b[funcarray_#38]
+funcarray_#40 = funcarray_#39 - global_int$1
+funcarray_#41 = global_array_a[funcarray_#40]
+funcarray_#42 = funcarray_#41 - global_int$2
+funcarray_b[funcarray_#42] = global_int$4
+funcarray_#43 = global_array_a[global_int$0]
+funcarray_#44 = funcarray_#43 - global_int$1
+funcarray_#45 = funcarray_b[funcarray_#44]
+funcarray_#46 = funcarray_#45 - global_int$1
+funcarray_#47 = global_array_a[funcarray_#46]
+funcarray_#48 = funcarray_#47 - global_int$2
+funcarray_#49 = funcarray_b[funcarray_#48]
+funcarray_#50 = funcarray_#49 - global_int$2
+global_array_a[funcarray_#50] = global_int$5
+funcarray_#51 = global_array_a[global_int$0]
+funcarray_#52 = funcarray_#51 - global_int$1
+funcarray_#53 = funcarray_b[funcarray_#52]
+funcarray_#54 = funcarray_#53 - global_int$1
+funcarray_#55 = global_array_a[funcarray_#54]
+funcarray_#56 = funcarray_#55 - global_int$2
+funcarray_#57 = funcarray_b[funcarray_#56]
+funcarray_#58 = funcarray_#57 - global_int$2
+funcarray_#59 = global_array_a[funcarray_#58]
+funcarray_#60 = funcarray_#59 - global_int$3
+funcarray_b[funcarray_#60] = global_int$6
+funcarray_#61 = global_array_a[global_int$0]
+funcarray_#62 = funcarray_#61 - global_int$1
+funcarray_#63 = funcarray_b[funcarray_#62]
+funcarray_#64 = funcarray_#63 - global_int$1
+funcarray_#65 = global_array_a[funcarray_#64]
+funcarray_#66 = funcarray_#65 - global_int$2
+funcarray_#67 = funcarray_b[funcarray_#66]
+funcarray_#68 = funcarray_#67 - global_int$2
+funcarray_#69 = global_array_a[funcarray_#68]
+funcarray_#70 = funcarray_#69 - global_int$3
+funcarray_#71 = funcarray_b[funcarray_#70]
+funcarray_#72 = funcarray_#71 - global_int$3
+global_array_a[funcarray_#72] = global_int$7
+funcarray_#73 = global_array_a[global_int$0]
+funcarray_#74 = funcarray_#73 - global_int$1
+funcarray_#75 = funcarray_b[funcarray_#74]
+funcarray_#76 = funcarray_#75 - global_int$1
+funcarray_#77 = global_array_a[funcarray_#76]
+funcarray_#78 = funcarray_#77 - global_int$2
+funcarray_#79 = funcarray_b[funcarray_#78]
+funcarray_#80 = funcarray_#79 - global_int$2
+funcarray_#81 = global_array_a[funcarray_#80]
+funcarray_#82 = funcarray_#81 - global_int$3
+funcarray_#83 = funcarray_b[funcarray_#82]
+funcarray_#84 = funcarray_#83 - global_int$3
+funcarray_#85 = global_array_a[funcarray_#84]
+funcarray_#86 = funcarray_#85 - global_int$4
+funcarray_b[funcarray_#86] = global_int$8
+output "array_a[0] = " 
+funcarray_#87 = global_array_a[global_int$0]
+output funcarray_#87
+output "\n" 
+output "array_a[1] = " 
+funcarray_#88 = global_array_a[global_int$1]
+output funcarray_#88
+output "\n" 
+output "array_a[2] = " 
+funcarray_#89 = global_array_a[global_int$2]
+output funcarray_#89
+output "\n" 
+output "array_a[3] = " 
+funcarray_#90 = global_array_a[global_int$3]
+output funcarray_#90
+output "\n" 
+output "b[0] = " 
+funcarray_#91 = funcarray_b[global_int$0]
+output funcarray_#91
+output "\n" 
+output "b[1] = " 
+funcarray_#92 = funcarray_b[global_int$1]
+output funcarray_#92
+output "\n" 
+output "b[2] = " 
+funcarray_#93 = funcarray_b[global_int$2]
+output funcarray_#93
+output "\n" 
+output "b[3] = " 
+funcarray_#94 = funcarray_b[global_int$3]
+output funcarray_#94
+output "\n" 
+output "e" 
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+output "abc" 
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$0
+output "\n" 
+output global_int$0
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$0
+output "\n" 
+integral_b[global_int$0] = global_int$2
+integral_#8 = integral_b[global_int$0]
+output integral_#8
+output "\n" 
+integral_#9 = integral_b[global_int$0]
+output integral_#9
+output "\n" 
+output integral_a
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$1
+output "\n" 
+output "def" 
+output "\n" 
+input func2_a
+input func2_b
+input func2_c
+func2_#1 = func2_a + func2_b
+func2_#1 = func2_#1 + func2_c
+output func2_#1
+output "\n" 
+output "in" 
+output global_int$9
+output "\n" 
+output "def" 
+output "\n" 
+output global_int$9
+output "\n" 
+output "a > b" 
+output "\n" 
+output "a not less than b" 
+output "\n" 
+output "1self yes" 
+output "\n" 
+output "2222 yes" 
+output "\n" 
+output "-bbb" 
+output "\n" 
+output "-a <= b" 
+output "\n" 
+output "line21 y" 
+output "\n" 
+goto label$61
+label$61:
+funcloop_i = global_int$10
+label$64:
+funcloop_#15 = funcloop_i - global_int$2
+funcloop_i = funcloop_#15
+output funcloop_#15
+output "\n" 
+if funcloop_#15 >= global_int$0 branch to "label$64"
+if funcloop_i <= global_int$10 branch to "label$65"
+label$66:
+output "w r o n g" 
+output "\n" 
+if funcloop_i > global_int$10 branch to "label$66"
+label$65:
+funcloop_i = global_int$0
+label$68:
+output ">>>" 
+output funcloop_i
+output "\n" 
+funcloop_i = funcloop_i + global_int$1
+if funcloop_i < global_int$20 branch to "label$68"
+funcloop_i = global_int$20
+label$70:
+output "***" 
+output funcloop_i
+output "\n" 
+funcloop_i = funcloop_i - global_int$1
+if funcloop_i >= global_int$0 branch to "label$70"
+funcloop_i = global_int$1
+label$71:
+output ")))" 
+output funcloop_i
+output "\n" 
+funcloop_#16 = funcloop_i + global_int$2
+funcloop_i = funcloop_#16
+if funcloop_#16 <= global_int$1 branch to "label$71"
+output "end" 
+output "\n" 
+global_io_e = global_int$20
+global_io_f = global_int$30
+global_io_g = global_char$103
+global_io_h = global_char$104
+output "test1" 
+output "\n" 
+output "test2" 
+output global_int$207
+output "\n" 
+output global_int$207
+output "\n" 
+output "test3" 
+output global_int$-994
+output "\n" 
+output global_int$-994
+output "\n" 
+output "t e s t 4" 
+output "\n" 
+funcio_sum = global_int$0
+funcio_i = global_int$0
+label$74:
+input funcio_tmp
+funcio_aa[funcio_i] = funcio_tmp
+funcio_#29 = funcio_aa[funcio_i]
+funcio_#28 = funcio_sum + funcio_#29
+funcio_sum = funcio_#28
+funcio_i = funcio_i + global_int$1
+if funcio_i < global_int$3 branch to "label$74"
+output funcio_sum
+output "\n" 
+funcio_#30 = global_io_e + global_io_f
+output funcio_#30
+output "\n" 
+input global_io_e
+input global_io_f
+output global_io_e
+output "\n" 
+output global_io_f
+output "\n" 
+input global_io_e
+input global_io_f
+input global_io_g
+input global_io_h
+output global_io_e
+output "\n" 
+output global_io_f
+output "\n" 
+output global_io_g
+output "\n" 
+output global_io_h
+output "\n" 
+global_array_a[global_int$0] = global_int$1
+funcarray_#31 = global_array_a[global_int$0]
+funcarray_#32 = funcarray_#31 - global_int$1
+funcarray_b[funcarray_#32] = global_int$2
+funcarray_#33 = global_array_a[global_int$0]
+funcarray_#34 = funcarray_#33 - global_int$1
+funcarray_#35 = funcarray_b[funcarray_#34]
+funcarray_#36 = funcarray_#35 - global_int$1
+global_array_a[funcarray_#36] = global_int$3
+funcarray_#37 = global_array_a[global_int$0]
+funcarray_#38 = funcarray_#37 - global_int$1
+funcarray_#39 = funcarray_b[funcarray_#38]
+funcarray_#40 = funcarray_#39 - global_int$1
+funcarray_#41 = global_array_a[funcarray_#40]
+funcarray_#42 = funcarray_#41 - global_int$2
+funcarray_b[funcarray_#42] = global_int$4
+funcarray_#43 = global_array_a[global_int$0]
+funcarray_#44 = funcarray_#43 - global_int$1
+funcarray_#45 = funcarray_b[funcarray_#44]
+funcarray_#46 = funcarray_#45 - global_int$1
+funcarray_#47 = global_array_a[funcarray_#46]
+funcarray_#48 = funcarray_#47 - global_int$2
+funcarray_#49 = funcarray_b[funcarray_#48]
+funcarray_#50 = funcarray_#49 - global_int$2
+global_array_a[funcarray_#50] = global_int$5
+funcarray_#51 = global_array_a[global_int$0]
+funcarray_#52 = funcarray_#51 - global_int$1
+funcarray_#53 = funcarray_b[funcarray_#52]
+funcarray_#54 = funcarray_#53 - global_int$1
+funcarray_#55 = global_array_a[funcarray_#54]
+funcarray_#56 = funcarray_#55 - global_int$2
+funcarray_#57 = funcarray_b[funcarray_#56]
+funcarray_#58 = funcarray_#57 - global_int$2
+funcarray_#59 = global_array_a[funcarray_#58]
+funcarray_#60 = funcarray_#59 - global_int$3
+funcarray_b[funcarray_#60] = global_int$6
+funcarray_#61 = global_array_a[global_int$0]
+funcarray_#62 = funcarray_#61 - global_int$1
+funcarray_#63 = funcarray_b[funcarray_#62]
+funcarray_#64 = funcarray_#63 - global_int$1
+funcarray_#65 = global_array_a[funcarray_#64]
+funcarray_#66 = funcarray_#65 - global_int$2
+funcarray_#67 = funcarray_b[funcarray_#66]
+funcarray_#68 = funcarray_#67 - global_int$2
+funcarray_#69 = global_array_a[funcarray_#68]
+funcarray_#70 = funcarray_#69 - global_int$3
+funcarray_#71 = funcarray_b[funcarray_#70]
+funcarray_#72 = funcarray_#71 - global_int$3
+global_array_a[funcarray_#72] = global_int$7
+funcarray_#73 = global_array_a[global_int$0]
+funcarray_#74 = funcarray_#73 - global_int$1
+funcarray_#75 = funcarray_b[funcarray_#74]
+funcarray_#76 = funcarray_#75 - global_int$1
+funcarray_#77 = global_array_a[funcarray_#76]
+funcarray_#78 = funcarray_#77 - global_int$2
+funcarray_#79 = funcarray_b[funcarray_#78]
+funcarray_#80 = funcarray_#79 - global_int$2
+funcarray_#81 = global_array_a[funcarray_#80]
+funcarray_#82 = funcarray_#81 - global_int$3
+funcarray_#83 = funcarray_b[funcarray_#82]
+funcarray_#84 = funcarray_#83 - global_int$3
+funcarray_#85 = global_array_a[funcarray_#84]
+funcarray_#86 = funcarray_#85 - global_int$4
+funcarray_b[funcarray_#86] = global_int$8
+output "array_a[0] = " 
+funcarray_#87 = global_array_a[global_int$0]
+output funcarray_#87
+output "\n" 
+output "array_a[1] = " 
+funcarray_#88 = global_array_a[global_int$1]
+output funcarray_#88
+output "\n" 
+output "array_a[2] = " 
+funcarray_#89 = global_array_a[global_int$2]
+output funcarray_#89
+output "\n" 
+output "array_a[3] = " 
+funcarray_#90 = global_array_a[global_int$3]
+output funcarray_#90
+output "\n" 
+output "b[0] = " 
+funcarray_#91 = funcarray_b[global_int$0]
+output funcarray_#91
+output "\n" 
+output "b[1] = " 
+funcarray_#92 = funcarray_b[global_int$1]
+output funcarray_#92
+output "\n" 
+output "b[2] = " 
+funcarray_#93 = funcarray_b[global_int$2]
+output funcarray_#93
+output "\n" 
+output "b[3] = " 
+funcarray_#94 = funcarray_b[global_int$3]
+output funcarray_#94
+output "\n" 
+output "e" 
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+output "abc" 
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$0
+output "\n" 
+output global_int$0
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$0
+output "\n" 
+integral_b[global_int$0] = global_int$2
+integral_#8 = integral_b[global_int$0]
+output integral_#8
+output "\n" 
+integral_#9 = integral_b[global_int$0]
+output integral_#9
+output "\n" 
+output integral_a
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$1
+output "\n" 
+output "def" 
+output "\n" 
+input func2_a
+input func2_b
+input func2_c
+func2_#1 = func2_a + func2_b
+func2_#1 = func2_#1 + func2_c
+output func2_#1
+output "\n" 
+output "in" 
+output global_int$9
+output "\n" 
+output "def" 
+output "\n" 
+output global_int$9
+output "\n" 
+output "a > b" 
+output "\n" 
+output "a not less than b" 
+output "\n" 
+output "1self yes" 
+output "\n" 
+output "2222 yes" 
+output "\n" 
+output "-bbb" 
+output "\n" 
+output "-a <= b" 
+output "\n" 
+output "line21 y" 
+output "\n" 
+funcloop_i = global_int$10
+label$64:
+funcloop_#15 = funcloop_i - global_int$2
+funcloop_i = funcloop_#15
+output funcloop_#15
+output "\n" 
+if funcloop_#15 >= global_int$0 branch to "label$64"
+if funcloop_i <= global_int$10 branch to "label$65"
+label$66:
+output "w r o n g" 
+output "\n" 
+if funcloop_i > global_int$10 branch to "label$66"
+label$65:
+funcloop_i = global_int$0
+label$68:
+output ">>>" 
+output funcloop_i
+output "\n" 
+funcloop_i = funcloop_i + global_int$1
+if funcloop_i < global_int$20 branch to "label$68"
+funcloop_i = global_int$20
+label$70:
+output "***" 
+output funcloop_i
+output "\n" 
+funcloop_i = funcloop_i - global_int$1
+if funcloop_i >= global_int$0 branch to "label$70"
+funcloop_i = global_int$1
+label$71:
+output ")))" 
+output funcloop_i
+output "\n" 
+funcloop_#16 = funcloop_i + global_int$2
+funcloop_i = funcloop_#16
+if funcloop_#16 <= global_int$1 branch to "label$71"
+output "end" 
+output "\n" 
+global_io_e = global_int$20
+global_io_f = global_int$30
+global_io_g = global_char$103
+global_io_h = global_char$104
+output "test1" 
+output "\n" 
+output "test2" 
+output global_int$207
+output "\n" 
+output global_int$207
+output "\n" 
+output "test3" 
+output global_int$-994
+output "\n" 
+output global_int$-994
+output "\n" 
+output "t e s t 4" 
+output "\n" 
+funcio_sum = global_int$0
+funcio_i = global_int$0
+label$74:
+input funcio_tmp
+funcio_aa[funcio_i] = funcio_tmp
+funcio_#29 = funcio_aa[funcio_i]
+funcio_#28 = funcio_sum + funcio_#29
+funcio_sum = funcio_#28
+funcio_i = funcio_i + global_int$1
+if funcio_i < global_int$3 branch to "label$74"
+output funcio_sum
+output "\n" 
+funcio_#30 = global_io_e + global_io_f
+output funcio_#30
+output "\n" 
+input global_io_e
+input global_io_f
+output global_io_e
+output "\n" 
+output global_io_f
+output "\n" 
+input global_io_e
+input global_io_f
+input global_io_g
+input global_io_h
+output global_io_e
+output "\n" 
+output global_io_f
+output "\n" 
+output global_io_g
+output "\n" 
+output global_io_h
+output "\n" 
+global_array_a[global_int$0] = global_int$1
+funcarray_#31 = global_array_a[global_int$0]
+funcarray_#32 = funcarray_#31 - global_int$1
+funcarray_b[funcarray_#32] = global_int$2
+funcarray_#33 = global_array_a[global_int$0]
+funcarray_#34 = funcarray_#33 - global_int$1
+funcarray_#35 = funcarray_b[funcarray_#34]
+funcarray_#36 = funcarray_#35 - global_int$1
+global_array_a[funcarray_#36] = global_int$3
+funcarray_#37 = global_array_a[global_int$0]
+funcarray_#38 = funcarray_#37 - global_int$1
+funcarray_#39 = funcarray_b[funcarray_#38]
+funcarray_#40 = funcarray_#39 - global_int$1
+funcarray_#41 = global_array_a[funcarray_#40]
+funcarray_#42 = funcarray_#41 - global_int$2
+funcarray_b[funcarray_#42] = global_int$4
+funcarray_#43 = global_array_a[global_int$0]
+funcarray_#44 = funcarray_#43 - global_int$1
+funcarray_#45 = funcarray_b[funcarray_#44]
+funcarray_#46 = funcarray_#45 - global_int$1
+funcarray_#47 = global_array_a[funcarray_#46]
+funcarray_#48 = funcarray_#47 - global_int$2
+funcarray_#49 = funcarray_b[funcarray_#48]
+funcarray_#50 = funcarray_#49 - global_int$2
+global_array_a[funcarray_#50] = global_int$5
+funcarray_#51 = global_array_a[global_int$0]
+funcarray_#52 = funcarray_#51 - global_int$1
+funcarray_#53 = funcarray_b[funcarray_#52]
+funcarray_#54 = funcarray_#53 - global_int$1
+funcarray_#55 = global_array_a[funcarray_#54]
+funcarray_#56 = funcarray_#55 - global_int$2
+funcarray_#57 = funcarray_b[funcarray_#56]
+funcarray_#58 = funcarray_#57 - global_int$2
+funcarray_#59 = global_array_a[funcarray_#58]
+funcarray_#60 = funcarray_#59 - global_int$3
+funcarray_b[funcarray_#60] = global_int$6
+funcarray_#61 = global_array_a[global_int$0]
+funcarray_#62 = funcarray_#61 - global_int$1
+funcarray_#63 = funcarray_b[funcarray_#62]
+funcarray_#64 = funcarray_#63 - global_int$1
+funcarray_#65 = global_array_a[funcarray_#64]
+funcarray_#66 = funcarray_#65 - global_int$2
+funcarray_#67 = funcarray_b[funcarray_#66]
+funcarray_#68 = funcarray_#67 - global_int$2
+funcarray_#69 = global_array_a[funcarray_#68]
+funcarray_#70 = funcarray_#69 - global_int$3
+funcarray_#71 = funcarray_b[funcarray_#70]
+funcarray_#72 = funcarray_#71 - global_int$3
+global_array_a[funcarray_#72] = global_int$7
+funcarray_#73 = global_array_a[global_int$0]
+funcarray_#74 = funcarray_#73 - global_int$1
+funcarray_#75 = funcarray_b[funcarray_#74]
+funcarray_#76 = funcarray_#75 - global_int$1
+funcarray_#77 = global_array_a[funcarray_#76]
+funcarray_#78 = funcarray_#77 - global_int$2
+funcarray_#79 = funcarray_b[funcarray_#78]
+funcarray_#80 = funcarray_#79 - global_int$2
+funcarray_#81 = global_array_a[funcarray_#80]
+funcarray_#82 = funcarray_#81 - global_int$3
+funcarray_#83 = funcarray_b[funcarray_#82]
+funcarray_#84 = funcarray_#83 - global_int$3
+funcarray_#85 = global_array_a[funcarray_#84]
+funcarray_#86 = funcarray_#85 - global_int$4
+funcarray_b[funcarray_#86] = global_int$8
+output "array_a[0] = " 
+funcarray_#87 = global_array_a[global_int$0]
+output funcarray_#87
+output "\n" 
+output "array_a[1] = " 
+funcarray_#88 = global_array_a[global_int$1]
+output funcarray_#88
+output "\n" 
+output "array_a[2] = " 
+funcarray_#89 = global_array_a[global_int$2]
+output funcarray_#89
+output "\n" 
+output "array_a[3] = " 
+funcarray_#90 = global_array_a[global_int$3]
+output funcarray_#90
+output "\n" 
+output "b[0] = " 
+funcarray_#91 = funcarray_b[global_int$0]
+output funcarray_#91
+output "\n" 
+output "b[1] = " 
+funcarray_#92 = funcarray_b[global_int$1]
+output funcarray_#92
+output "\n" 
+output "b[2] = " 
+funcarray_#93 = funcarray_b[global_int$2]
+output funcarray_#93
+output "\n" 
+output "b[3] = " 
+funcarray_#94 = funcarray_b[global_int$3]
+output funcarray_#94
+output "\n" 
+output "e" 
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+output "abc" 
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$0
+output "\n" 
+output global_int$0
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$0
+output "\n" 
+integral_b[global_int$0] = global_int$2
+integral_#8 = integral_b[global_int$0]
+output integral_#8
+output "\n" 
+integral_#9 = integral_b[global_int$0]
+output integral_#9
+output "\n" 
+output integral_a
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$1
+output "\n" 
+output "def" 
+output "\n" 
+input func2_a
+input func2_b
+input func2_c
+func2_#1 = func2_a + func2_b
+func2_#1 = func2_#1 + func2_c
+output func2_#1
+output "\n" 
+output "in" 
+output global_int$9
+output "\n" 
+output "def" 
+output "\n" 
+output global_int$9
+output "\n" 
+output "a > b" 
+output "\n" 
+output "a not less than b" 
+output "\n" 
+output "1self yes" 
+output "\n" 
+output "2222 yes" 
+output "\n" 
+output "-bbb" 
+output "\n" 
+output "-a <= b" 
+output "\n" 
+output "line21 y" 
+output "\n" 
+funcloop_i = global_int$10
+label$64:
+funcloop_#15 = funcloop_i - global_int$2
+funcloop_i = funcloop_#15
+output funcloop_#15
+output "\n" 
+if funcloop_#15 >= global_int$0 branch to "label$64"
+if funcloop_i <= global_int$10 branch to "label$65"
+label$66:
+output "w r o n g" 
+output "\n" 
+if funcloop_i > global_int$10 branch to "label$66"
+label$65:
+funcloop_i = global_int$0
+label$68:
+output ">>>" 
+output funcloop_i
+output "\n" 
+funcloop_i = funcloop_i + global_int$1
+if funcloop_i < global_int$20 branch to "label$68"
+funcloop_i = global_int$20
+label$70:
+output "***" 
+output funcloop_i
+output "\n" 
+funcloop_i = funcloop_i - global_int$1
+if funcloop_i >= global_int$0 branch to "label$70"
+funcloop_i = global_int$1
+label$71:
+output ")))" 
+output funcloop_i
+output "\n" 
+funcloop_#16 = funcloop_i + global_int$2
+funcloop_i = funcloop_#16
+if funcloop_#16 <= global_int$1 branch to "label$71"
+output "end" 
+output "\n" 
+global_io_e = global_int$20
+global_io_f = global_int$30
+global_io_g = global_char$103
+global_io_h = global_char$104
+output "test1" 
+output "\n" 
+output "test2" 
+output global_int$207
+output "\n" 
+output global_int$207
+output "\n" 
+output "test3" 
+output global_int$-994
+output "\n" 
+output global_int$-994
+output "\n" 
+output "t e s t 4" 
+output "\n" 
+funcio_sum = global_int$0
+funcio_i = global_int$0
+label$74:
+input funcio_tmp
+funcio_aa[funcio_i] = funcio_tmp
+funcio_#29 = funcio_aa[funcio_i]
+funcio_#28 = funcio_sum + funcio_#29
+funcio_sum = funcio_#28
+funcio_i = funcio_i + global_int$1
+if funcio_i < global_int$3 branch to "label$74"
+output funcio_sum
+output "\n" 
+funcio_#30 = global_io_e + global_io_f
+output funcio_#30
+output "\n" 
+input global_io_e
+input global_io_f
+output global_io_e
+output "\n" 
+output global_io_f
+output "\n" 
+input global_io_e
+input global_io_f
+input global_io_g
+input global_io_h
+output global_io_e
+output "\n" 
+output global_io_f
+output "\n" 
+output global_io_g
+output "\n" 
+output global_io_h
+output "\n" 
+global_array_a[global_int$0] = global_int$1
+funcarray_#31 = global_array_a[global_int$0]
+funcarray_#32 = funcarray_#31 - global_int$1
+funcarray_b[funcarray_#32] = global_int$2
+funcarray_#33 = global_array_a[global_int$0]
+funcarray_#34 = funcarray_#33 - global_int$1
+funcarray_#35 = funcarray_b[funcarray_#34]
+funcarray_#36 = funcarray_#35 - global_int$1
+global_array_a[funcarray_#36] = global_int$3
+funcarray_#37 = global_array_a[global_int$0]
+funcarray_#38 = funcarray_#37 - global_int$1
+funcarray_#39 = funcarray_b[funcarray_#38]
+funcarray_#40 = funcarray_#39 - global_int$1
+funcarray_#41 = global_array_a[funcarray_#40]
+funcarray_#42 = funcarray_#41 - global_int$2
+funcarray_b[funcarray_#42] = global_int$4
+funcarray_#43 = global_array_a[global_int$0]
+funcarray_#44 = funcarray_#43 - global_int$1
+funcarray_#45 = funcarray_b[funcarray_#44]
+funcarray_#46 = funcarray_#45 - global_int$1
+funcarray_#47 = global_array_a[funcarray_#46]
+funcarray_#48 = funcarray_#47 - global_int$2
+funcarray_#49 = funcarray_b[funcarray_#48]
+funcarray_#50 = funcarray_#49 - global_int$2
+global_array_a[funcarray_#50] = global_int$5
+funcarray_#51 = global_array_a[global_int$0]
+funcarray_#52 = funcarray_#51 - global_int$1
+funcarray_#53 = funcarray_b[funcarray_#52]
+funcarray_#54 = funcarray_#53 - global_int$1
+funcarray_#55 = global_array_a[funcarray_#54]
+funcarray_#56 = funcarray_#55 - global_int$2
+funcarray_#57 = funcarray_b[funcarray_#56]
+funcarray_#58 = funcarray_#57 - global_int$2
+funcarray_#59 = global_array_a[funcarray_#58]
+funcarray_#60 = funcarray_#59 - global_int$3
+funcarray_b[funcarray_#60] = global_int$6
+funcarray_#61 = global_array_a[global_int$0]
+funcarray_#62 = funcarray_#61 - global_int$1
+funcarray_#63 = funcarray_b[funcarray_#62]
+funcarray_#64 = funcarray_#63 - global_int$1
+funcarray_#65 = global_array_a[funcarray_#64]
+funcarray_#66 = funcarray_#65 - global_int$2
+funcarray_#67 = funcarray_b[funcarray_#66]
+funcarray_#68 = funcarray_#67 - global_int$2
+funcarray_#69 = global_array_a[funcarray_#68]
+funcarray_#70 = funcarray_#69 - global_int$3
+funcarray_#71 = funcarray_b[funcarray_#70]
+funcarray_#72 = funcarray_#71 - global_int$3
+global_array_a[funcarray_#72] = global_int$7
+funcarray_#73 = global_array_a[global_int$0]
+funcarray_#74 = funcarray_#73 - global_int$1
+funcarray_#75 = funcarray_b[funcarray_#74]
+funcarray_#76 = funcarray_#75 - global_int$1
+funcarray_#77 = global_array_a[funcarray_#76]
+funcarray_#78 = funcarray_#77 - global_int$2
+funcarray_#79 = funcarray_b[funcarray_#78]
+funcarray_#80 = funcarray_#79 - global_int$2
+funcarray_#81 = global_array_a[funcarray_#80]
+funcarray_#82 = funcarray_#81 - global_int$3
+funcarray_#83 = funcarray_b[funcarray_#82]
+funcarray_#84 = funcarray_#83 - global_int$3
+funcarray_#85 = global_array_a[funcarray_#84]
+funcarray_#86 = funcarray_#85 - global_int$4
+funcarray_b[funcarray_#86] = global_int$8
+output "array_a[0] = " 
+funcarray_#87 = global_array_a[global_int$0]
+output funcarray_#87
+output "\n" 
+output "array_a[1] = " 
+funcarray_#88 = global_array_a[global_int$1]
+output funcarray_#88
+output "\n" 
+output "array_a[2] = " 
+funcarray_#89 = global_array_a[global_int$2]
+output funcarray_#89
+output "\n" 
+output "array_a[3] = " 
+funcarray_#90 = global_array_a[global_int$3]
+output funcarray_#90
+output "\n" 
+output "b[0] = " 
+funcarray_#91 = funcarray_b[global_int$0]
+output funcarray_#91
+output "\n" 
+output "b[1] = " 
+funcarray_#92 = funcarray_b[global_int$1]
+output funcarray_#92
+output "\n" 
+output "b[2] = " 
+funcarray_#93 = funcarray_b[global_int$2]
+output funcarray_#93
+output "\n" 
+output "b[3] = " 
+funcarray_#94 = funcarray_b[global_int$3]
+output funcarray_#94
+output "\n" 
+output "e" 
+output "\n" 
+return
+

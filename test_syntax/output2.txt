@@ -1,0 +1,124 @@
+CONSTTK const
+CHARTK char
+IDENFR s
+ASSIGN =
+CHARCON h
+<常量定义>
+SEMICN ;
+CONSTTK const
+INTTK int
+IDENFR a
+ASSIGN =
+MINU -
+INTCON 1
+<无符号整数>
+<整数>
+<常量定义>
+SEMICN ;
+CONSTTK const
+INTTK int
+IDENFR b
+ASSIGN =
+PLUS +
+INTCON 2
+<无符号整数>
+<整数>
+<常量定义>
+SEMICN ;
+<常量说明>
+VOIDTK void
+IDENFR func1
+LPARENT (
+<参数表>
+RPARENT )
+LBRACE {
+INTTK int
+IDENFR c
+<变量定义>
+SEMICN ;
+<变量说明>
+<语句列>
+<复合语句>
+RBRACE }
+<无返回值函数定义>
+VOIDTK void
+MAINTK main
+LPARENT (
+RPARENT )
+LBRACE {
+CONSTTK const
+INTTK int
+IDENFR MIN
+ASSIGN =
+INTCON 0
+<无符号整数>
+<整数>
+<常量定义>
+SEMICN ;
+<常量说明>
+PRINTFTK printf
+LPARENT (
+MINU -
+IDENFR a
+<因子>
+MULT *
+IDENFR b
+<因子>
+<项>
+PLUS +
+IDENFR a
+<因子>
+<项>
+PLUS +
+CHARCON c
+<因子>
+<项>
+PLUS +
+LPARENT (
+MINU -
+INTCON 9
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RPARENT )
+<因子>
+<项>
+<表达式>
+RPARENT )
+<写语句>
+SEMICN ;
+<语句>
+PRINTFTK printf
+LPARENT (
+PLUS +
+IDENFR a
+<因子>
+MULT *
+IDENFR b
+<因子>
+<项>
+PLUS +
+PLUS +
+INTCON 2
+<无符号整数>
+<整数>
+<因子>
+<项>
+MINU -
+INTCON 8
+<无符号整数>
+<整数>
+<因子>
+<项>
+<表达式>
+RPARENT )
+<写语句>
+SEMICN ;
+<语句>
+<语句列>
+<复合语句>
+RBRACE }
+<主函数>
+<程序>

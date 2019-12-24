@@ -1,0 +1,415 @@
+const int num1 = 10
+const int num2 = 1
+const int num3 = 10
+const int num4 = -19
+const char char1 = 'a'
+const char char2 = 'b'
+const int chAr2 = -109
+var int num5
+var int num6
+array int array1[9]
+var char char3
+var char char4
+array char array2[10]
+array char testresult[10]
+int return1()
+#1 = 1
+#ret #1
+int factorial()
+para int n
+#1 = n
+#2 = 1
+bne #1,#2,Label0
+#3 = n
+#ret #3
+goto Label1
+Label0:
+#4 = n
+#5 = n
+#6 = 1
+#7 = #5 - #6
+push #7
+call factorial()
+#8 = #ret
+#9 = #4 * #8
+#ret #9
+Label1:
+int testfor()
+para int a
+para char b
+para int c
+para int d
+para int f
+para char e
+var int i
+#1 = 9
+a = #1
+#2 = 0
+c = #2
+#3 = 100
+i = #3
+Label2:
+#4 = i
+#5 = 10
+bge #4,#5,Label3
+#6 = a
+#7 = 1
+#8 = #6 + #7
+a = #8
+subi i,i,1
+goto Label2
+Label3:
+#9 = 0
+i = #9
+Label4:
+#10 = i
+#11 = 10
+bge #10,#11,Label5
+#12 = c
+#13 = 1
+#14 = #12 + #13
+c = #14
+addi i,i,1
+goto Label4
+Label5:
+#15 = a
+#16 = 10
+bne #15,#16,Label6
+#17 = c
+#18 = 10
+bne #17,#18,Label8
+#19 = 1
+#ret #19
+Label8:
+Label6:
+#20 = 0
+#ret #20
+int testwhile()
+var int num1
+var int num2
+var int num3
+var int num4
+31 j
+#1 = 0
+num1 = #1
+32 j
+#2 = 10
+num2 = #2
+33 j
+#3 = 1
+#4 = - #3
+num3 = #4
+34 j
+#5 = 0
+num4 = #5
+Label10:
+#6 = num1
+#7 = 10
+beq #6,#7,Label11
+36 j
+#8 = num2
+#9 = 1
+#10 = #8 - #9
+num2 = #10
+37 j
+#11 = num1
+#12 = 1
+#13 = #11 + #12
+num1 = #13
+goto Label10
+Label11:
+Label12:
+#14 = num3
+#15 = 0
+ble #14,#15,Label13
+40 j
+#16 = num4
+#17 = 10
+#18 = #16 + #17
+num4 = #18
+41 j
+#19 = num3
+#20 = 10
+#21 = #19 - #20
+num3 = #21
+goto Label12
+Label13:
+#22 = num2
+#23 = 0
+bne #22,#23,Label14
+#24 = num4
+#25 = 0
+bne #24,#25,Label16
+#26 = 1
+#ret #26
+Label16:
+goto Label15
+Label14:
+#27 = 0
+#ret #27
+Label15:
+int testexpression()
+var int a
+var int c
+var char b
+#1 = 10
+a = #1
+#2 = 97
+b = #2
+#3 = 0
+#4 = 100
+array1[#3] = #4
+#5 = 1
+#6 = 99
+array1[#5] = #6
+#7 = a
+#8 = b
+#9 = #7 - #8
+#10 = 97
+#11 = #9 + #10
+call return1()
+#12 = #ret
+#13 = #11 * #12
+#14 = 0
+#15 = array1[#14]
+#16 = 10
+#17 = #15 / #16
+#18 = #13 - #17
+#19 = 1
+#20 = #18 + #19
+c = #20
+#21 = c
+#22 = array1[#21]
+#23 = 99
+bne #22,#23,Label18
+#24 = 1
+#ret #24
+Label18:
+#25 = 0
+#ret #25
+int testarray()
+var int a
+var int b
+var int c
+#1 = 1
+a = #1
+#2 = 2
+b = #2
+#3 = 3
+c = #3
+#4 = 0
+#5 = 1
+array1[#4] = #5
+#6 = 4
+#7 = 0
+#8 = array1[#7]
+array1[#6] = #8
+#9 = c
+#10 = a
+#11 = b
+call return1()
+#12 = #ret
+#13 = #11 + #12
+#14 = #10 * #13
+#15 = #9 + #14
+#16 = 0
+#17 = array1[#16]
+#18 = 2
+#19 = #17 * #18
+#20 = #15 - #19
+#21 = 10
+array1[#20] = #21
+#22 = 4
+#23 = array1[#22]
+#24 = 10
+bne #23,#24,Label20
+#25 = 1
+#ret #25
+Label20:
+#26 = 0
+#ret #26
+void testprintf()
+para int flag
+#1 = flag
+#2 = 0
+bgt #1,#2,Label22
+output string this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\]^_`{|}~|
+goto Label23
+Label22:
+#3 = flag
+#4 = 2
+blt #3,#4,Label24
+#5 = 97
+output char #5
+#6 = 50
+output char #6
+#7 = 42
+output char #7
+goto Label25
+Label24:
+output string this is a string 
+#8 = 10
+#9 = 5
+#10 = #8 - #9
+output #10
+Label25:
+Label23:
+#ret 
+char testfactorial()
+#1 = 1
+push #1
+call factorial()
+#2 = #ret
+#3 = 1
+bne #2,#3,Label26
+#4 = 3
+push #4
+call factorial()
+#5 = #ret
+#6 = 6
+bne #5,#6,Label28
+#7 = 84
+#ret #7
+Label28:
+Label26:
+#8 = 70
+#ret #8
+void main()
+var int i
+var int flag
+#1 = 9
+num5 = #1
+#2 = 8
+num6 = #2
+#3 = 97
+char3 = #3
+#4 = 98
+char4 = #4
+input flag
+#5 = 0
+i = #5
+Label30:
+#6 = i
+#7 = 10
+bge #6,#7,Label31
+#8 = i
+#9 = 84
+testresult[#8] = #9
+addi i,i,1
+goto Label30
+Label31:
+#10 = 9
+num5 = #10
+Label32:
+#11 = num5
+#12 = 0
+blt #11,#12,Label33
+#13 = num5
+#14 = num5
+#15 = testresult[#14]
+array2[#13] = #15
+subi num5,num5,1
+goto Label32
+Label33:
+#16 = 0
+num6 = #16
+Label34:
+#17 = num6
+#18 = 8
+beq #17,#18,Label35
+#19 = num6
+#20 = 0
+array1[#19] = #20
+addi num6,num6,1
+goto Label34
+Label35:
+#21 = num5
+push #21
+#22 = 97
+push #22
+#23 = num6
+push #23
+#24 = -109
+push #24
+#25 = 10
+push #25
+#26 = char4
+push #26
+call testfor()
+#27 = #ret
+#28 = 1
+bne #27,#28,Label36
+#29 = 0
+#30 = 84
+testresult[#29] = #30
+goto Label37
+Label36:
+#31 = 0
+#32 = 70
+testresult[#31] = #32
+Label37:
+call testwhile()
+#33 = #ret
+beqz #33,Label38
+#34 = 1
+#35 = 84
+testresult[#34] = #35
+goto Label39
+Label38:
+#36 = 1
+#37 = 70
+testresult[#36] = #37
+Label39:
+call testfactorial()
+#38 = #ret
+#39 = 84
+bne #38,#39,Label40
+#40 = 2
+#41 = 84
+testresult[#40] = #41
+goto Label41
+Label40:
+#42 = 2
+#43 = 70
+testresult[#42] = #43
+Label41:
+call testexpression()
+#44 = #ret
+beqz #44,Label42
+#45 = 3
+#46 = 84
+testresult[#45] = #46
+goto Label43
+Label42:
+#47 = 3
+#48 = 70
+testresult[#47] = #48
+Label43:
+call testarray()
+#49 = #ret
+beqz #49,Label44
+#50 = 4
+#51 = 84
+testresult[#50] = #51
+goto Label45
+Label44:
+#52 = 4
+#53 = 70
+testresult[#52] = #53
+Label45:
+#54 = flag
+push #54
+call testprintf()
+#55 = 0
+i = #55
+Label46:
+#56 = i
+#57 = 5
+bge #56,#57,Label47
+#58 = i
+#59 = testresult[#58]
+output char #59
+addi i,i,1
+goto Label46
+Label47:
+#ret 

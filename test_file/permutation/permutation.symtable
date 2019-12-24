@@ -1,0 +1,15 @@
+N8symtable5EntryE              : global_array                  <int[10]>
+N8symtable5EntryE              : global_symbol                 <int[10]>
+N8symtable5EntryE              : global_n                      <int>
+N8symtable9FuncTableE          : permutation                   <void>
+N8symtable5EntryE              : permutation_index             <int>
+N8symtable5EntryE              : permutation_i                 <int>
+N8symtable5EntryE              : global_int$0                  <const int(0)>
+N8symtable5EntryE              : global_int$1                  <const int(1)>
+N8symtable5EntryE              : permutation_#1                <int>
+N8symtable5EntryE              : permutation_#2                <int>
+N8symtable5EntryE              : permutation_#3                <int>
+N8symtable5EntryE              : permutation_#4                <int>
+N8symtable5EntryE              : permutation_#5                <int>
+N8symtable9FuncTableE          : main                          <void>
+N8symtable5EntryE              : global_int$6                  <const int(6)>

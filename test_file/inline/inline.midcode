@@ -1,0 +1,1708 @@
+
+func main()
+call testinline
+call testcall
+call testpara
+return
+
+func inline1()
+input inline1_a
+if inline1_a == global_int$0 branch to "label$1"
+output "inline1 " 
+output inline1_a
+output "\n" 
+goto label$2
+label$1:
+output "no input" 
+output "\n" 
+label$2:
+label$3:
+output "inline1 iter " 
+output inline1_a
+output "\n" 
+inline1_#1 = inline1_a + global_int$1
+inline1_a = inline1_#1
+if inline1_a < global_int$10 branch to "label$3"
+return
+
+func recur1()
+recur1_#2 = global_rec1 + global_int$1
+global_rec1 = recur1_#2
+if global_rec1 <= global_int$10 branch to "label$4"
+output "recur1 exit" 
+output "\n" 
+return
+recur1_#3 = global_rec1 + global_int$10
+global_rec1 = recur1_#3
+output "unreachable" 
+output "\n" 
+return
+call recur1
+input global_rec1
+label$4:
+output "recur1 iter " 
+output global_rec1
+output "\n" 
+call recur1
+output "recur1 return" 
+output "\n" 
+return
+
+func recur2()
+recur2_#4 = global_rec2 - global_int$1
+global_rec2 = recur2_#4
+recur2_#5 = global_int$0 - global_int$20
+if global_rec2 >= recur2_#5 branch to "label$5"
+output "recur2 exit" 
+output "\n" 
+return
+label$5:
+call recur2
+call inline1
+return
+
+func inline2()
+inline2_a = global_int$3
+inline2_b = global_char$102
+output inline2_a
+output "\n" 
+output inline2_b
+output "\n" 
+output inline2_c
+output "\n" 
+return inline2_a
+
+func testinline()
+global_rec1 = global_int$5
+testinline_#6 = global_int$0 - global_int$11
+global_rec2 = testinline_#6
+call inline1
+call recur1
+call recur2
+push global_rec1
+push global_char$100
+push global_rec2
+testinline_#7 = call inline2
+output testinline_#7
+output "\n" 
+return
+
+func f0()
+f0_#8 = f0_a + global_int$1
+output f0_#8
+output "\n" 
+f0_#9 = f0_a + global_int$1
+return f0_#9
+
+func f1()
+push f1_a
+f1_#10 = call f0
+push f1_#10
+f1_#11 = call f0
+output f1_#11
+output "\n" 
+return
+
+func cbase()
+output cbase_b
+output "\n" 
+return global_char$122
+
+func ibase()
+output ibase_a
+output "\n" 
+ibase_#12 = ibase_a + global_int$1
+return ibase_#12
+
+func cv()
+push cv_a
+cv_#13 = call ibase
+push cv_#13
+cv_#14 = call ibase
+output cv_#14
+output "\n" 
+push cv_b
+cv_#15 = call cbase
+output cv_#15
+output "\n" 
+return
+
+func testcall()
+input testcall_a
+push testcall_a
+testcall_#16 = call f0
+output testcall_#16
+output "\n" 
+push global_int$1
+call f1
+push global_int$6
+push global_char$100
+call cv
+push global_int$5
+push global_char$99
+call cv
+return
+
+func fun1()
+fun1_c[global_int$0] = global_char$81
+fun1_c[global_int$2] = global_char$70
+fun1_c[global_int$9] = global_char$45
+fun1_s1 = global_int$12
+fun1_s2 = global_int$123
+fun1_s3 = global_int$1234
+fun1_s4 = global_int$12345
+fun1_s5 = global_int$123456
+fun1_s6 = global_int$1234567
+fun1_s7 = global_int$1234567
+fun1_s8 = global_int$12345467
+fun1_s9 = global_int$12343567
+fun1_s10 = global_int$12234567
+output "s1: " 
+output fun1_s1
+output "\n" 
+output "s2: " 
+output fun1_s2
+output "\n" 
+output "s3: " 
+output fun1_s3
+output "\n" 
+output "s4: " 
+output fun1_s4
+output "\n" 
+output "s5: " 
+output fun1_s5
+output "\n" 
+output "s6: " 
+output fun1_s6
+output "\n" 
+output "s7: " 
+output fun1_s7
+output "\n" 
+output "s8: " 
+output fun1_s8
+output "\n" 
+output "s9: " 
+output fun1_s9
+output "\n" 
+output "s10: " 
+output fun1_s10
+output "\n" 
+output "s6: " 
+output fun1_s6
+output "\n" 
+output "c0: " 
+fun1_#17 = fun1_c[global_int$0]
+output fun1_#17
+output "\n" 
+output "c2: " 
+fun1_#18 = fun1_c[global_int$2]
+output fun1_#18
+output "\n" 
+output "c9: " 
+fun1_#19 = fun1_c[global_int$9]
+output fun1_#19
+output "\n" 
+output fun1_p1
+output "\n" 
+output fun1_p2
+output "\n" 
+output fun1_p3
+output "\n" 
+output fun1_p4
+output "\n" 
+output fun1_p5
+output "\n" 
+output fun1_p6
+output "\n" 
+output fun1_p7
+output "\n" 
+output fun1_p8
+output "\n" 
+output fun1_p9
+output "\n" 
+output fun1_p10
+output "\n" 
+output fun1_p11
+output "\n" 
+output fun1_p12
+output "\n" 
+output fun1_p13
+output "\n" 
+output fun1_y
+output "\n" 
+output fun1_x
+output "\n" 
+output "I am fun1 with a parameter" 
+output "\n" 
+return
+
+func testpara()
+testpara_c = global_char$101
+testpara_ch[global_int$9] = testpara_c
+testpara_#20 = testpara_ch[global_int$9]
+testpara_c1 = testpara_#20
+global_a = global_int$2
+global_b = global_int$4
+testpara_#21 = global_a + global_int$78
+testpara_array[global_int$2] = testpara_#21
+testpara_#22 = testpara_array[global_int$2]
+push global_int$5
+push global_int$7
+push global_int$1
+push global_int$3
+push global_char$57
+push global_int$1234
+push global_int$321
+push global_int$345
+push global_int$1231
+push global_int$5345
+push global_int$1321
+push testpara_#22
+push global_int$123
+call fun1
+testpara_#23 = testpara_array[global_int$2]
+push global_int$5
+push global_int$7
+push global_int$1
+push global_int$3
+push global_char$56
+push global_int$1234
+push global_int$321
+push global_int$345
+push global_int$1231
+push global_int$5345
+push global_int$1321
+push testpara_#23
+push global_int$123
+call fun1
+testpara_#24 = testpara_array[global_int$2]
+output testpara_#24
+output "\n" 
+output testpara_c1
+output "\n" 
+output "hello world" 
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+global_rec1 = global_int$5
+global_rec2 = global_int$-11
+call inline1
+call recur1
+call recur2
+push global_rec1
+push global_char$100
+push global_rec2
+testinline_#7 = call inline2
+output testinline_#7
+output "\n" 
+input testcall_a
+push testcall_a
+testcall_#16 = call f0
+output testcall_#16
+output "\n" 
+push global_int$1
+call f1
+push global_int$6
+push global_char$100
+call cv
+push global_int$5
+push global_char$99
+call cv
+testpara_ch[global_int$9] = global_char$101
+testpara_#20 = testpara_ch[global_int$9]
+testpara_c1 = testpara_#20
+global_a = global_int$2
+global_b = global_int$4
+testpara_#21 = global_int$2 + global_int$78
+testpara_array[global_int$2] = testpara_#21
+testpara_#22 = testpara_array[global_int$2]
+push global_int$5
+push global_int$7
+push global_int$1
+push global_int$3
+push global_char$57
+push global_int$1234
+push global_int$321
+push global_int$345
+push global_int$1231
+push global_int$5345
+push global_int$1321
+push testpara_#22
+push global_int$123
+call fun1
+testpara_#23 = testpara_array[global_int$2]
+push global_int$5
+push global_int$7
+push global_int$1
+push global_int$3
+push global_char$56
+push global_int$1234
+push global_int$321
+push global_int$345
+push global_int$1231
+push global_int$5345
+push global_int$1321
+push testpara_#23
+push global_int$123
+call fun1
+testpara_#24 = testpara_array[global_int$2]
+output testpara_#24
+output "\n" 
+output testpara_c1
+output "\n" 
+output "hello world" 
+output "\n" 
+return
+
+func inline1()
+input inline1_a
+if inline1_a == global_int$0 branch to "label$1"
+output "inline1 " 
+output inline1_a
+output "\n" 
+goto label$2
+label$1:
+output "no input" 
+output "\n" 
+label$2:
+label$3:
+output "inline1 iter " 
+output inline1_a
+output "\n" 
+inline1_#1 = inline1_a + global_int$1
+inline1_a = inline1_#1
+if inline1_#1 < global_int$10 branch to "label$3"
+return
+
+func recur1()
+recur1_#2 = global_rec1 + global_int$1
+global_rec1 = recur1_#2
+if recur1_#2 <= global_int$10 branch to "label$4"
+output "recur1 exit" 
+output "\n" 
+return
+label$4:
+output "recur1 iter " 
+output global_rec1
+output "\n" 
+call recur1
+output "recur1 return" 
+output "\n" 
+return
+
+func recur2()
+recur2_#4 = global_rec2 - global_int$1
+global_rec2 = recur2_#4
+if recur2_#4 >= global_int$-20 branch to "label$5"
+output "recur2 exit" 
+output "\n" 
+return
+label$5:
+call recur2
+input inline1_a
+if inline1_a == global_int$0 branch to "label$10"
+output "inline1 " 
+output inline1_a
+output "\n" 
+goto label$11
+label$10:
+output "no input" 
+output "\n" 
+label$11:
+label$12:
+output "inline1 iter " 
+output inline1_a
+output "\n" 
+inline1_#1 = inline1_a + global_int$1
+inline1_a = inline1_#1
+if inline1_#1 < global_int$10 branch to "label$12"
+return
+
+func inline2()
+output global_int$3
+output "\n" 
+output global_char$102
+output "\n" 
+output inline2_c
+output "\n" 
+return global_int$3
+
+func f0()
+f0_#8 = f0_a + global_int$1
+output f0_#8
+output "\n" 
+f0_#9 = f0_a + global_int$1
+return f0_#9
+
+func f1()
+f0_#8 = f1_a + global_int$1
+output f0_#8
+output "\n" 
+f0_#9 = f1_a + global_int$1
+f1_#10 = f0_#9
+f0_#8 = f1_#10 + global_int$1
+output f0_#8
+output "\n" 
+f0_#9 = f1_#10 + global_int$1
+f1_#11 = f0_#9
+output f1_#11
+output "\n" 
+return
+
+func cv()
+output cv_a
+output "\n" 
+ibase_#12 = cv_a + global_int$1
+cv_#13 = ibase_#12
+output cv_#13
+output "\n" 
+ibase_#12 = cv_#13 + global_int$1
+cv_#14 = ibase_#12
+output cv_#14
+output "\n" 
+output cv_b
+output "\n" 
+output global_char$122
+output "\n" 
+return
+
+func fun1()
+fun1_c[global_int$0] = global_char$81
+fun1_c[global_int$2] = global_char$70
+fun1_c[global_int$9] = global_char$45
+output "s1: " 
+output global_int$12
+output "\n" 
+output "s2: " 
+output global_int$123
+output "\n" 
+output "s3: " 
+output global_int$1234
+output "\n" 
+output "s4: " 
+output global_int$12345
+output "\n" 
+output "s5: " 
+output global_int$123456
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "s7: " 
+output global_int$1234567
+output "\n" 
+output "s8: " 
+output global_int$12345467
+output "\n" 
+output "s9: " 
+output global_int$12343567
+output "\n" 
+output "s10: " 
+output global_int$12234567
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "c0: " 
+fun1_#17 = fun1_c[global_int$0]
+output fun1_#17
+output "\n" 
+output "c2: " 
+fun1_#18 = fun1_c[global_int$2]
+output fun1_#18
+output "\n" 
+output "c9: " 
+fun1_#19 = fun1_c[global_int$9]
+output fun1_#19
+output "\n" 
+output fun1_p1
+output "\n" 
+output fun1_p2
+output "\n" 
+output fun1_p3
+output "\n" 
+output fun1_p4
+output "\n" 
+output fun1_p5
+output "\n" 
+output fun1_p6
+output "\n" 
+output fun1_p7
+output "\n" 
+output fun1_p8
+output "\n" 
+output fun1_p9
+output "\n" 
+output fun1_p10
+output "\n" 
+output fun1_p11
+output "\n" 
+output fun1_p12
+output "\n" 
+output fun1_p13
+output "\n" 
+output fun1_y
+output "\n" 
+output fun1_x
+output "\n" 
+output "I am fun1 with a parameter" 
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+global_rec1 = global_int$5
+global_rec2 = global_int$-11
+input inline1_a
+if inline1_a == global_int$0 branch to "label$38"
+output "inline1 " 
+output inline1_a
+output "\n" 
+goto label$39
+label$38:
+output "no input" 
+output "\n" 
+label$39:
+label$40:
+output "inline1 iter " 
+output inline1_a
+output "\n" 
+inline1_#1 = inline1_a + global_int$1
+inline1_a = inline1_#1
+if inline1_#1 < global_int$10 branch to "label$40"
+call recur1
+call recur2
+output global_int$3
+output "\n" 
+output global_char$102
+output "\n" 
+output global_rec2
+output "\n" 
+output global_int$3
+output "\n" 
+input testcall_a
+f0_#8 = testcall_a + global_int$1
+output f0_#8
+output "\n" 
+f0_#9 = testcall_a + global_int$1
+testcall_#16 = f0_#9
+output testcall_#16
+output "\n" 
+f0_#8 = global_int$1 + global_int$1
+output f0_#8
+output "\n" 
+f0_#9 = global_int$1 + global_int$1
+f0_#8 = f0_#9 + global_int$1
+output f0_#8
+output "\n" 
+f0_#9 = f0_#9 + global_int$1
+output f0_#9
+output "\n" 
+output global_int$6
+output "\n" 
+ibase_#12 = global_int$6 + global_int$1
+output ibase_#12
+output "\n" 
+ibase_#12 = ibase_#12 + global_int$1
+output ibase_#12
+output "\n" 
+output global_char$100
+output "\n" 
+output global_char$122
+output "\n" 
+output global_int$5
+output "\n" 
+ibase_#12 = global_int$5 + global_int$1
+output ibase_#12
+output "\n" 
+ibase_#12 = ibase_#12 + global_int$1
+output ibase_#12
+output "\n" 
+output global_char$99
+output "\n" 
+output global_char$122
+output "\n" 
+testpara_ch[global_int$9] = global_char$101
+testpara_#20 = testpara_ch[global_int$9]
+testpara_c1 = testpara_#20
+global_a = global_int$2
+global_b = global_int$4
+testpara_array[global_int$2] = global_int$80
+testpara_#22 = testpara_array[global_int$2]
+fun1_c[global_int$0] = global_char$81
+fun1_c[global_int$2] = global_char$70
+fun1_c[global_int$9] = global_char$45
+output "s1: " 
+output global_int$12
+output "\n" 
+output "s2: " 
+output global_int$123
+output "\n" 
+output "s3: " 
+output global_int$1234
+output "\n" 
+output "s4: " 
+output global_int$12345
+output "\n" 
+output "s5: " 
+output global_int$123456
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "s7: " 
+output global_int$1234567
+output "\n" 
+output "s8: " 
+output global_int$12345467
+output "\n" 
+output "s9: " 
+output global_int$12343567
+output "\n" 
+output "s10: " 
+output global_int$12234567
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "c0: " 
+fun1_#17 = fun1_c[global_int$0]
+output fun1_#17
+output "\n" 
+output "c2: " 
+fun1_#18 = fun1_c[global_int$2]
+output fun1_#18
+output "\n" 
+output "c9: " 
+fun1_#19 = fun1_c[global_int$9]
+output fun1_#19
+output "\n" 
+output global_int$5
+output "\n" 
+output global_int$7
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$3
+output "\n" 
+output global_char$57
+output "\n" 
+output global_int$1234
+output "\n" 
+output global_int$321
+output "\n" 
+output global_int$345
+output "\n" 
+output global_int$1231
+output "\n" 
+output global_int$5345
+output "\n" 
+output global_int$1321
+output "\n" 
+output testpara_#22
+output "\n" 
+output global_int$123
+output "\n" 
+output fun1_y
+output "\n" 
+output fun1_x
+output "\n" 
+output "I am fun1 with a parameter" 
+output "\n" 
+testpara_#23 = testpara_array[global_int$2]
+fun1_c[global_int$0] = global_char$81
+fun1_c[global_int$2] = global_char$70
+fun1_c[global_int$9] = global_char$45
+output "s1: " 
+output global_int$12
+output "\n" 
+output "s2: " 
+output global_int$123
+output "\n" 
+output "s3: " 
+output global_int$1234
+output "\n" 
+output "s4: " 
+output global_int$12345
+output "\n" 
+output "s5: " 
+output global_int$123456
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "s7: " 
+output global_int$1234567
+output "\n" 
+output "s8: " 
+output global_int$12345467
+output "\n" 
+output "s9: " 
+output global_int$12343567
+output "\n" 
+output "s10: " 
+output global_int$12234567
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "c0: " 
+fun1_#17 = fun1_c[global_int$0]
+output fun1_#17
+output "\n" 
+output "c2: " 
+fun1_#18 = fun1_c[global_int$2]
+output fun1_#18
+output "\n" 
+output "c9: " 
+fun1_#19 = fun1_c[global_int$9]
+output fun1_#19
+output "\n" 
+output global_int$5
+output "\n" 
+output global_int$7
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$3
+output "\n" 
+output global_char$56
+output "\n" 
+output global_int$1234
+output "\n" 
+output global_int$321
+output "\n" 
+output global_int$345
+output "\n" 
+output global_int$1231
+output "\n" 
+output global_int$5345
+output "\n" 
+output global_int$1321
+output "\n" 
+output testpara_#23
+output "\n" 
+output global_int$123
+output "\n" 
+output fun1_y
+output "\n" 
+output fun1_x
+output "\n" 
+output "I am fun1 with a parameter" 
+output "\n" 
+testpara_#24 = testpara_array[global_int$2]
+output testpara_#24
+output "\n" 
+output testpara_c1
+output "\n" 
+output "hello world" 
+output "\n" 
+return
+
+func recur1()
+recur1_#2 = global_rec1 + global_int$1
+global_rec1 = recur1_#2
+if recur1_#2 <= global_int$10 branch to "label$4"
+output "recur1 exit" 
+output "\n" 
+return
+label$4:
+output "recur1 iter " 
+output global_rec1
+output "\n" 
+call recur1
+output "recur1 return" 
+output "\n" 
+return
+
+func recur2()
+recur2_#4 = global_rec2 - global_int$1
+global_rec2 = recur2_#4
+if recur2_#4 >= global_int$-20 branch to "label$5"
+output "recur2 exit" 
+output "\n" 
+return
+label$5:
+call recur2
+input inline1_a
+if inline1_a == global_int$0 branch to "label$10"
+output "inline1 " 
+output inline1_a
+output "\n" 
+goto label$11
+label$10:
+output "no input" 
+output "\n" 
+label$11:
+label$12:
+output "inline1 iter " 
+output inline1_a
+output "\n" 
+inline1_#1 = inline1_a + global_int$1
+inline1_a = inline1_#1
+if inline1_#1 < global_int$10 branch to "label$12"
+return
+
+<!--anchor-->
+
+func main()
+global_rec1 = global_int$5
+global_rec2 = global_int$-11
+input inline1_a
+if inline1_a == global_int$0 branch to "label$38"
+output "inline1 " 
+output inline1_a
+output "\n" 
+goto label$39
+label$38:
+output "no input" 
+output "\n" 
+label$39:
+label$40:
+output "inline1 iter " 
+output inline1_a
+output "\n" 
+inline1_#1 = inline1_a + global_int$1
+inline1_a = inline1_#1
+if inline1_#1 < global_int$10 branch to "label$40"
+call recur1
+call recur2
+output global_int$3
+output "\n" 
+output global_char$102
+output "\n" 
+output global_rec2
+output "\n" 
+output global_int$3
+output "\n" 
+input testcall_a
+f0_#8 = testcall_a + global_int$1
+output f0_#8
+output "\n" 
+f0_#9 = testcall_a + global_int$1
+output f0_#9
+output "\n" 
+output global_int$2
+output "\n" 
+f0_#8 = global_int$2 + global_int$1
+output f0_#8
+output "\n" 
+f0_#9 = global_int$2 + global_int$1
+output f0_#9
+output "\n" 
+output global_int$6
+output "\n" 
+output global_int$7
+output "\n" 
+ibase_#12 = global_int$7 + global_int$1
+output ibase_#12
+output "\n" 
+output global_char$100
+output "\n" 
+output global_char$122
+output "\n" 
+output global_int$5
+output "\n" 
+output global_int$6
+output "\n" 
+ibase_#12 = global_int$6 + global_int$1
+output ibase_#12
+output "\n" 
+output global_char$99
+output "\n" 
+output global_char$122
+output "\n" 
+testpara_ch[global_int$9] = global_char$101
+testpara_#20 = testpara_ch[global_int$9]
+global_a = global_int$2
+global_b = global_int$4
+testpara_array[global_int$2] = global_int$80
+testpara_#22 = testpara_array[global_int$2]
+fun1_c[global_int$0] = global_char$81
+fun1_c[global_int$2] = global_char$70
+fun1_c[global_int$9] = global_char$45
+output "s1: " 
+output global_int$12
+output "\n" 
+output "s2: " 
+output global_int$123
+output "\n" 
+output "s3: " 
+output global_int$1234
+output "\n" 
+output "s4: " 
+output global_int$12345
+output "\n" 
+output "s5: " 
+output global_int$123456
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "s7: " 
+output global_int$1234567
+output "\n" 
+output "s8: " 
+output global_int$12345467
+output "\n" 
+output "s9: " 
+output global_int$12343567
+output "\n" 
+output "s10: " 
+output global_int$12234567
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "c0: " 
+fun1_#17 = fun1_c[global_int$0]
+output fun1_#17
+output "\n" 
+output "c2: " 
+fun1_#18 = fun1_c[global_int$2]
+output fun1_#18
+output "\n" 
+output "c9: " 
+fun1_#19 = fun1_c[global_int$9]
+output fun1_#19
+output "\n" 
+output global_int$5
+output "\n" 
+output global_int$7
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$3
+output "\n" 
+output global_char$57
+output "\n" 
+output global_int$1234
+output "\n" 
+output global_int$321
+output "\n" 
+output global_int$345
+output "\n" 
+output global_int$1231
+output "\n" 
+output global_int$5345
+output "\n" 
+output global_int$1321
+output "\n" 
+output testpara_#22
+output "\n" 
+output global_int$123
+output "\n" 
+output fun1_y
+output "\n" 
+output fun1_x
+output "\n" 
+output "I am fun1 with a parameter" 
+output "\n" 
+testpara_#23 = testpara_array[global_int$2]
+fun1_c[global_int$0] = global_char$81
+fun1_c[global_int$2] = global_char$70
+fun1_c[global_int$9] = global_char$45
+output "s1: " 
+output global_int$12
+output "\n" 
+output "s2: " 
+output global_int$123
+output "\n" 
+output "s3: " 
+output global_int$1234
+output "\n" 
+output "s4: " 
+output global_int$12345
+output "\n" 
+output "s5: " 
+output global_int$123456
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "s7: " 
+output global_int$1234567
+output "\n" 
+output "s8: " 
+output global_int$12345467
+output "\n" 
+output "s9: " 
+output global_int$12343567
+output "\n" 
+output "s10: " 
+output global_int$12234567
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "c0: " 
+fun1_#17 = fun1_c[global_int$0]
+output fun1_#17
+output "\n" 
+output "c2: " 
+fun1_#18 = fun1_c[global_int$2]
+output fun1_#18
+output "\n" 
+output "c9: " 
+fun1_#19 = fun1_c[global_int$9]
+output fun1_#19
+output "\n" 
+output global_int$5
+output "\n" 
+output global_int$7
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$3
+output "\n" 
+output global_char$56
+output "\n" 
+output global_int$1234
+output "\n" 
+output global_int$321
+output "\n" 
+output global_int$345
+output "\n" 
+output global_int$1231
+output "\n" 
+output global_int$5345
+output "\n" 
+output global_int$1321
+output "\n" 
+output testpara_#23
+output "\n" 
+output global_int$123
+output "\n" 
+output fun1_y
+output "\n" 
+output fun1_x
+output "\n" 
+output "I am fun1 with a parameter" 
+output "\n" 
+testpara_#24 = testpara_array[global_int$2]
+output testpara_#24
+output "\n" 
+output testpara_#20
+output "\n" 
+output "hello world" 
+output "\n" 
+return
+
+func recur1()
+recur1_#2 = global_rec1 + global_int$1
+global_rec1 = recur1_#2
+if recur1_#2 <= global_int$10 branch to "label$4"
+output "recur1 exit" 
+output "\n" 
+return
+label$4:
+output "recur1 iter " 
+output global_rec1
+output "\n" 
+call recur1
+output "recur1 return" 
+output "\n" 
+return
+
+func recur2()
+recur2_#4 = global_rec2 - global_int$1
+global_rec2 = recur2_#4
+if recur2_#4 >= global_int$-20 branch to "label$5"
+output "recur2 exit" 
+output "\n" 
+return
+label$5:
+call recur2
+input inline1_a
+if inline1_a == global_int$0 branch to "label$10"
+output "inline1 " 
+output inline1_a
+output "\n" 
+goto label$11
+label$10:
+output "no input" 
+output "\n" 
+label$11:
+label$12:
+output "inline1 iter " 
+output inline1_a
+output "\n" 
+inline1_#1 = inline1_a + global_int$1
+inline1_a = inline1_#1
+if inline1_#1 < global_int$10 branch to "label$12"
+return
+
+<!--anchor-->
+
+func main()
+global_rec1 = global_int$5
+global_rec2 = global_int$-11
+input inline1_a
+if inline1_a == global_int$0 branch to "label$38"
+output "inline1 " 
+output inline1_a
+output "\n" 
+goto label$39
+label$38:
+output "no input" 
+output "\n" 
+label$39:
+label$40:
+output "inline1 iter " 
+output inline1_a
+output "\n" 
+inline1_#1 = inline1_a + global_int$1
+inline1_a = inline1_#1
+if inline1_#1 < global_int$10 branch to "label$40"
+call recur1
+call recur2
+output global_int$3
+output "\n" 
+output global_char$102
+output "\n" 
+output global_rec2
+output "\n" 
+output global_int$3
+output "\n" 
+input testcall_a
+f0_#8 = testcall_a + global_int$1
+output f0_#8
+output "\n" 
+f0_#9 = testcall_a + global_int$1
+output f0_#9
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$3
+output "\n" 
+output global_int$3
+output "\n" 
+output global_int$6
+output "\n" 
+output global_int$7
+output "\n" 
+output global_int$8
+output "\n" 
+output global_char$100
+output "\n" 
+output global_char$122
+output "\n" 
+output global_int$5
+output "\n" 
+output global_int$6
+output "\n" 
+output global_int$7
+output "\n" 
+output global_char$99
+output "\n" 
+output global_char$122
+output "\n" 
+testpara_ch[global_int$9] = global_char$101
+testpara_#20 = testpara_ch[global_int$9]
+global_a = global_int$2
+global_b = global_int$4
+testpara_array[global_int$2] = global_int$80
+testpara_#22 = testpara_array[global_int$2]
+fun1_c[global_int$0] = global_char$81
+fun1_c[global_int$2] = global_char$70
+fun1_c[global_int$9] = global_char$45
+output "s1: " 
+output global_int$12
+output "\n" 
+output "s2: " 
+output global_int$123
+output "\n" 
+output "s3: " 
+output global_int$1234
+output "\n" 
+output "s4: " 
+output global_int$12345
+output "\n" 
+output "s5: " 
+output global_int$123456
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "s7: " 
+output global_int$1234567
+output "\n" 
+output "s8: " 
+output global_int$12345467
+output "\n" 
+output "s9: " 
+output global_int$12343567
+output "\n" 
+output "s10: " 
+output global_int$12234567
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "c0: " 
+fun1_#17 = fun1_c[global_int$0]
+output fun1_#17
+output "\n" 
+output "c2: " 
+fun1_#18 = fun1_c[global_int$2]
+output fun1_#18
+output "\n" 
+output "c9: " 
+fun1_#19 = fun1_c[global_int$9]
+output fun1_#19
+output "\n" 
+output global_int$5
+output "\n" 
+output global_int$7
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$3
+output "\n" 
+output global_char$57
+output "\n" 
+output global_int$1234
+output "\n" 
+output global_int$321
+output "\n" 
+output global_int$345
+output "\n" 
+output global_int$1231
+output "\n" 
+output global_int$5345
+output "\n" 
+output global_int$1321
+output "\n" 
+output testpara_#22
+output "\n" 
+output global_int$123
+output "\n" 
+output fun1_y
+output "\n" 
+output fun1_x
+output "\n" 
+output "I am fun1 with a parameter" 
+output "\n" 
+testpara_#23 = testpara_array[global_int$2]
+fun1_c[global_int$0] = global_char$81
+fun1_c[global_int$2] = global_char$70
+fun1_c[global_int$9] = global_char$45
+output "s1: " 
+output global_int$12
+output "\n" 
+output "s2: " 
+output global_int$123
+output "\n" 
+output "s3: " 
+output global_int$1234
+output "\n" 
+output "s4: " 
+output global_int$12345
+output "\n" 
+output "s5: " 
+output global_int$123456
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "s7: " 
+output global_int$1234567
+output "\n" 
+output "s8: " 
+output global_int$12345467
+output "\n" 
+output "s9: " 
+output global_int$12343567
+output "\n" 
+output "s10: " 
+output global_int$12234567
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "c0: " 
+fun1_#17 = fun1_c[global_int$0]
+output fun1_#17
+output "\n" 
+output "c2: " 
+fun1_#18 = fun1_c[global_int$2]
+output fun1_#18
+output "\n" 
+output "c9: " 
+fun1_#19 = fun1_c[global_int$9]
+output fun1_#19
+output "\n" 
+output global_int$5
+output "\n" 
+output global_int$7
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$3
+output "\n" 
+output global_char$56
+output "\n" 
+output global_int$1234
+output "\n" 
+output global_int$321
+output "\n" 
+output global_int$345
+output "\n" 
+output global_int$1231
+output "\n" 
+output global_int$5345
+output "\n" 
+output global_int$1321
+output "\n" 
+output testpara_#23
+output "\n" 
+output global_int$123
+output "\n" 
+output fun1_y
+output "\n" 
+output fun1_x
+output "\n" 
+output "I am fun1 with a parameter" 
+output "\n" 
+testpara_#24 = testpara_array[global_int$2]
+output testpara_#24
+output "\n" 
+output testpara_#20
+output "\n" 
+output "hello world" 
+output "\n" 
+return
+
+func recur1()
+recur1_#2 = global_rec1 + global_int$1
+global_rec1 = recur1_#2
+if recur1_#2 <= global_int$10 branch to "label$4"
+output "recur1 exit" 
+output "\n" 
+return
+label$4:
+output "recur1 iter " 
+output global_rec1
+output "\n" 
+call recur1
+output "recur1 return" 
+output "\n" 
+return
+
+func recur2()
+recur2_#4 = global_rec2 - global_int$1
+global_rec2 = recur2_#4
+if recur2_#4 >= global_int$-20 branch to "label$5"
+output "recur2 exit" 
+output "\n" 
+return
+label$5:
+call recur2
+input inline1_a
+if inline1_a == global_int$0 branch to "label$10"
+output "inline1 " 
+output inline1_a
+output "\n" 
+goto label$11
+label$10:
+output "no input" 
+output "\n" 
+label$11:
+label$12:
+output "inline1 iter " 
+output inline1_a
+output "\n" 
+inline1_#1 = inline1_a + global_int$1
+inline1_a = inline1_#1
+if inline1_#1 < global_int$10 branch to "label$12"
+return
+
+<!--anchor-->
+
+func main()
+global_rec1 = global_int$5
+global_rec2 = global_int$-11
+input inline1_a
+if inline1_a == global_int$0 branch to "label$38"
+output "inline1 " 
+output inline1_a
+output "\n" 
+goto label$39
+label$38:
+output "no input" 
+output "\n" 
+label$39:
+label$40:
+output "inline1 iter " 
+output inline1_a
+output "\n" 
+inline1_#1 = inline1_a + global_int$1
+inline1_a = inline1_#1
+if inline1_#1 < global_int$10 branch to "label$40"
+call recur1
+call recur2
+output global_int$3
+output "\n" 
+output global_char$102
+output "\n" 
+output global_rec2
+output "\n" 
+output global_int$3
+output "\n" 
+input testcall_a
+f0_#8 = testcall_a + global_int$1
+output f0_#8
+output "\n" 
+f0_#9 = testcall_a + global_int$1
+output f0_#9
+output "\n" 
+output global_int$2
+output "\n" 
+output global_int$3
+output "\n" 
+output global_int$3
+output "\n" 
+output global_int$6
+output "\n" 
+output global_int$7
+output "\n" 
+output global_int$8
+output "\n" 
+output global_char$100
+output "\n" 
+output global_char$122
+output "\n" 
+output global_int$5
+output "\n" 
+output global_int$6
+output "\n" 
+output global_int$7
+output "\n" 
+output global_char$99
+output "\n" 
+output global_char$122
+output "\n" 
+testpara_ch[global_int$9] = global_char$101
+testpara_#20 = testpara_ch[global_int$9]
+global_a = global_int$2
+global_b = global_int$4
+testpara_array[global_int$2] = global_int$80
+testpara_#22 = testpara_array[global_int$2]
+fun1_c[global_int$0] = global_char$81
+fun1_c[global_int$2] = global_char$70
+fun1_c[global_int$9] = global_char$45
+output "s1: " 
+output global_int$12
+output "\n" 
+output "s2: " 
+output global_int$123
+output "\n" 
+output "s3: " 
+output global_int$1234
+output "\n" 
+output "s4: " 
+output global_int$12345
+output "\n" 
+output "s5: " 
+output global_int$123456
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "s7: " 
+output global_int$1234567
+output "\n" 
+output "s8: " 
+output global_int$12345467
+output "\n" 
+output "s9: " 
+output global_int$12343567
+output "\n" 
+output "s10: " 
+output global_int$12234567
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "c0: " 
+fun1_#17 = fun1_c[global_int$0]
+output fun1_#17
+output "\n" 
+output "c2: " 
+fun1_#18 = fun1_c[global_int$2]
+output fun1_#18
+output "\n" 
+output "c9: " 
+fun1_#19 = fun1_c[global_int$9]
+output fun1_#19
+output "\n" 
+output global_int$5
+output "\n" 
+output global_int$7
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$3
+output "\n" 
+output global_char$57
+output "\n" 
+output global_int$1234
+output "\n" 
+output global_int$321
+output "\n" 
+output global_int$345
+output "\n" 
+output global_int$1231
+output "\n" 
+output global_int$5345
+output "\n" 
+output global_int$1321
+output "\n" 
+output testpara_#22
+output "\n" 
+output global_int$123
+output "\n" 
+output fun1_y
+output "\n" 
+output fun1_x
+output "\n" 
+output "I am fun1 with a parameter" 
+output "\n" 
+testpara_#23 = testpara_array[global_int$2]
+fun1_c[global_int$0] = global_char$81
+fun1_c[global_int$2] = global_char$70
+fun1_c[global_int$9] = global_char$45
+output "s1: " 
+output global_int$12
+output "\n" 
+output "s2: " 
+output global_int$123
+output "\n" 
+output "s3: " 
+output global_int$1234
+output "\n" 
+output "s4: " 
+output global_int$12345
+output "\n" 
+output "s5: " 
+output global_int$123456
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "s7: " 
+output global_int$1234567
+output "\n" 
+output "s8: " 
+output global_int$12345467
+output "\n" 
+output "s9: " 
+output global_int$12343567
+output "\n" 
+output "s10: " 
+output global_int$12234567
+output "\n" 
+output "s6: " 
+output global_int$1234567
+output "\n" 
+output "c0: " 
+fun1_#17 = fun1_c[global_int$0]
+output fun1_#17
+output "\n" 
+output "c2: " 
+fun1_#18 = fun1_c[global_int$2]
+output fun1_#18
+output "\n" 
+output "c9: " 
+fun1_#19 = fun1_c[global_int$9]
+output fun1_#19
+output "\n" 
+output global_int$5
+output "\n" 
+output global_int$7
+output "\n" 
+output global_int$1
+output "\n" 
+output global_int$3
+output "\n" 
+output global_char$56
+output "\n" 
+output global_int$1234
+output "\n" 
+output global_int$321
+output "\n" 
+output global_int$345
+output "\n" 
+output global_int$1231
+output "\n" 
+output global_int$5345
+output "\n" 
+output global_int$1321
+output "\n" 
+output testpara_#23
+output "\n" 
+output global_int$123
+output "\n" 
+output fun1_y
+output "\n" 
+output fun1_x
+output "\n" 
+output "I am fun1 with a parameter" 
+output "\n" 
+testpara_#24 = testpara_array[global_int$2]
+output testpara_#24
+output "\n" 
+output testpara_#20
+output "\n" 
+output "hello world" 
+output "\n" 
+return
+
+func recur1()
+recur1_#2 = global_rec1 + global_int$1
+global_rec1 = recur1_#2
+if recur1_#2 <= global_int$10 branch to "label$4"
+output "recur1 exit" 
+output "\n" 
+return
+label$4:
+output "recur1 iter " 
+output global_rec1
+output "\n" 
+call recur1
+output "recur1 return" 
+output "\n" 
+return
+
+func recur2()
+recur2_#4 = global_rec2 - global_int$1
+global_rec2 = recur2_#4
+if recur2_#4 >= global_int$-20 branch to "label$5"
+output "recur2 exit" 
+output "\n" 
+return
+label$5:
+call recur2
+input inline1_a
+if inline1_a == global_int$0 branch to "label$10"
+output "inline1 " 
+output inline1_a
+output "\n" 
+goto label$11
+label$10:
+output "no input" 
+output "\n" 
+label$11:
+label$12:
+output "inline1 iter " 
+output inline1_a
+output "\n" 
+inline1_#1 = inline1_a + global_int$1
+inline1_a = inline1_#1
+if inline1_#1 < global_int$10 branch to "label$12"
+return
+

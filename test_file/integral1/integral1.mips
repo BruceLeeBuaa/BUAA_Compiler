@@ -1,0 +1,2930 @@
+.data
+str$35: .asciiz "******"
+str$34: .asciiz "333333"
+str$1: .asciiz "\n"
+str$11: .asciiz "char1:"
+str$12: .asciiz "char2:"
+str$13: .asciiz "char3:"
+str$14: .asciiz "char4:"
+str$15: .asciiz "char5:"
+str$30: .asciiz "char:"
+str$18: .asciiz "doublevar:"
+str$33: .asciiz "fibo:"
+str$27: .asciiz "global"
+str$25: .asciiz "input globals"
+str$26: .asciiz "input locals"
+str$28: .asciiz "local"
+str$23: .asciiz "n:"
+str$29: .asciiz "new int:"
+str$17: .asciiz "not remain:"
+str$20: .asciiz "numb double:"
+str$32: .asciiz "pro:"
+str$16: .asciiz "remain:"
+str$22: .asciiz "square:"
+str$9: .asciiz "sum of int array1:"
+str$10: .asciiz "sum of int array2:"
+str$24: .asciiz "sum:"
+str$5: .asciiz "test1 in ascii:"
+str$0: .asciiz "test1:"
+str$6: .asciiz "test2 in ascii:"
+str$2: .asciiz "test2:"
+str$7: .asciiz "test3 in ascii:"
+str$3: .asciiz "test3:"
+str$8: .asciiz "test4 in ascii:"
+str$4: .asciiz "test4:"
+str$37: .asciiz "this is a string "
+str$36: .asciiz "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|"
+str$31: .asciiz "tmp:"
+str$21: .asciiz "triple:"
+str$19: .asciiz "while finish"
+
+.text
+jal main
+li $v0, 10
+syscall
+
+factorial:
+# $a0 : factorial_n
+# $s0 : factorial_#68
+# $s0 : factorial_#66
+# $s0 : factorial_#67
+sub $sp, $sp, 96
+sw $s0, 12($sp)
+
+# if factorial_n != global_int$1 branch to "label$53":
+bne $a0, 1, label$53
+
+# return factorial_n:
+move $v0, $a0
+lw $s0, 12($sp)
+add $sp, $sp, 96
+jr $ra
+
+# label$53::
+label$53:
+
+# factorial_#67 = factorial_n - global_int$1:
+sub $s0, $a0, 1
+
+# <!-- call block begin -->:
+sw $a0, 80($sp)
+sw $ra, 76($sp)
+move $a0, $s0
+jal factorial
+lw $ra, 76($sp)
+lw $a0, 80($sp)
+move $s0, $v0
+# <!-- call block end -->:
+
+# factorial_#66 = factorial_n * factorial_#68:
+mul $s0, $a0, $s0
+
+# return factorial_#66:
+move $v0, $s0
+lw $s0, 12($sp)
+add $sp, $sp, 96
+jr $ra
+
+fibo:
+# $a0 : fibo_n
+# $s1 : fibo_#56
+# $s0 : fibo_#55
+# $s0 : fibo_#57
+# $s0 : fibo_#58
+# $s0 : fibo_#59
+sub $sp, $sp, 104
+sw $s0, 20($sp)
+sw $s1, 24($sp)
+
+# if fibo_n > global_int$2 branch to "label$30":
+bgt $a0, 2, label$30
+
+# return global_int$1:
+li $v0, 1
+lw $s0, 20($sp)
+lw $s1, 24($sp)
+add $sp, $sp, 104
+jr $ra
+
+# label$30::
+label$30:
+
+# fibo_#55 = fibo_n - global_int$1:
+sub $s0, $a0, 1
+
+# <!-- call block begin -->:
+sw $a0, 88($sp)
+sw $ra, 84($sp)
+move $a0, $s0
+jal fibo
+lw $ra, 84($sp)
+lw $a0, 88($sp)
+move $s1, $v0
+# <!-- call block end -->:
+
+# fibo_#58 = fibo_n - global_int$2:
+sub $s0, $a0, 2
+
+# <!-- call block begin -->:
+sw $a0, 88($sp)
+sw $ra, 84($sp)
+move $a0, $s0
+jal fibo
+lw $ra, 84($sp)
+lw $a0, 88($sp)
+move $s0, $v0
+# <!-- call block end -->:
+
+# fibo_#57 = fibo_#56 + fibo_#59:
+add $s0, $s1, $s0
+
+# return fibo_#57:
+move $v0, $s0
+lw $s0, 20($sp)
+lw $s1, 24($sp)
+add $sp, $sp, 104
+jr $ra
+
+main:
+# $s0 : testbranch_#24
+# $s0 : testbubble_tmp
+# $s2 : testbubble_i
+# $s3 : testbubble_j
+# $s1 : testbubble_#30
+# $s1 : testbubble_#31
+# $s1 : testbubble_#32
+# $s0 : testbubble_#25
+# $s1 : testbubble_#26
+# $s0 : testbubble_#27
+# $s0 : testbubble_#28
+# $s0 : testbubble_#29
+# $s0 : testbubble_#40
+# $s0 : testbubble_#33
+# $s1 : testbubble_#34
+# $s0 : testbubble_#35
+# $s0 : testbubble_#36
+# $s1 : testbubble_#37
+# $s0 : testbubble_#38
+# $s0 : testbubble_#39
+# $s0 : testbubble_#41
+# $s0 : testbubble_#42
+# $s3 : sum_#47
+# $s2 : testembed_a
+# $s1 : testembed_b
+# $s0 : testembed_c
+# $s1 : testrec_n
+# $s0 : testrec_#60
+# $s0 : testrec_#61
+# $s3 : testwhile_num1
+# $s4 : testwhile_num2
+# $s3 : testwhile_num3
+# $s1 : testwhile_num4
+# $s0 : testwhile_#72
+# $s0 : testwhile_#73
+# $s0 : testwhile_#74
+# $s0 : testwhile_#75
+# $s0 : testexpression_#81
+# $s0 : testexpression_#82
+# $s0 : testexpression_#83
+# $s0 : testexpression_#84
+# $s0 : testarray_#86
+# $s0 : testarray_#85
+# $s0 : testarray_#91
+# $s0 : testarray_#92
+# $s0 : testarray_#93
+# $s0 : testprintf_flag
+# $s0 : testfactorial_#95
+# $s0 : testfactorial_#96
+# $s1 : testfunc1_i
+# $s2 : testfunc1_flag
+# $s0 : testfunc1_#97
+# $s0 : testfunc1_#98
+# $s1 : testchar_#2
+# $s0 : testchar_#4
+# $s7 : testarray1_i3
+# $s6 : testarray1_i4
+# $s5 : testarray1_i5
+# $s4 : testarray1_c1
+# $s3 : testarray1_c2
+# $s2 : testarray1_c3
+# $s1 : testarray1_c4
+# $s0 : testarray1_c5
+# $s1 : testarray1_#5
+# $s0 : testarray1_#6
+# $s0 : testarray1_#7
+# $s1 : testarray1_#8
+# $s1 : testarray1_#9
+# $s2 : testbranch_#21
+# $s2 : testbranch_#22
+# $s2 : testbranch_#23
+# $s4 : testfor_a
+# $s3 : testfor_c
+# $s1 : testfor_i
+# $s0 : testfor_#69
+# $s0 : testfor_#70
+# $s0 : testfunc1_#99
+# $s0 : testfunc1_#101
+# $s0 : testfunc1_#103
+# $s0 : testfunc1_#104
+# $s0 : testfunc1_#106
+# $s0 : testchar_test4
+# $s0 : testarray1_#10
+# $s0 : testarray1_#11
+# $s0 : testarray1_#12
+# $s0 : testarray1_#13
+# $s0 : testarray1_#14
+# $s0 : testarray1_#15
+# $s0 : testarray1_#16
+# $s7 : teststack_i2
+# $s6 : teststack_i3
+# $s5 : teststack_i4
+# $s4 : teststack_i5
+# $s3 : teststack_i6
+# $s2 : teststack_i7
+# $s1 : teststack_i8
+# $s0 : teststack_i9
+# $s6 : teststack_#17
+# $s0 : teststack_#18
+# $s2 : testbranch_in
+# $s1 : testbranch_num
+# $s0 : testbranch_n
+# $s0 : testbranch_#19
+# $s0 : testbranch_#20
+sub $sp, $sp, 820
+sw $s0, 736($sp)
+sw $s1, 740($sp)
+sw $s2, 744($sp)
+sw $s3, 748($sp)
+sw $s4, 752($sp)
+sw $s5, 756($sp)
+sw $s6, 760($sp)
+sw $s7, 764($sp)
+
+# input global_test2:
+li $v0, 12
+syscall
+move $t0, $v0
+
+# input testchar_test4:
+li $v0, 12
+syscall
+move $s0, $v0
+
+# output "test1:" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testchar_test1:
+move $t8, $a0
+li $a0, 97
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "test2:" :
+move $t8, $a0
+la $a0, str$2
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_test2:
+move $t8, $a0
+move $a0, $t0
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "test3:" :
+move $t8, $a0
+la $a0, str$3
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testchar_test3:
+move $t8, $a0
+li $a0, 99
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "test4:" :
+move $t8, $a0
+la $a0, str$4
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testchar_test4:
+move $t8, $a0
+move $a0, $s0
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "test1 in ascii:" :
+move $t8, $a0
+la $a0, str$5
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$97:
+move $t8, $a0
+li $a0, 97
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "test2 in ascii:" :
+move $t8, $a0
+la $a0, str$6
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testchar_#2 = global_test2 + global_int$0:
+add $s1, $t0, $zero
+
+# output testchar_#2:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "test3 in ascii:" :
+move $t8, $a0
+la $a0, str$7
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$99:
+move $t8, $a0
+li $a0, 99
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "test4 in ascii:" :
+move $t8, $a0
+la $a0, str$8
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testchar_#4 = testchar_test4 + global_int$0:
+add $s0, $s0, $zero
+
+# output testchar_#4:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# input testarray1_c1:
+li $v0, 12
+syscall
+move $s4, $v0
+
+# input testarray1_i1:
+li $v0, 5
+syscall
+move $t1, $v0
+
+# input testarray1_c2:
+li $v0, 12
+syscall
+move $s3, $v0
+
+# input testarray1_i2:
+li $v0, 5
+syscall
+move $t2, $v0
+
+# input testarray1_c3:
+li $v0, 12
+syscall
+move $s2, $v0
+
+# input testarray1_i3:
+li $v0, 5
+syscall
+move $s7, $v0
+
+# input testarray1_c4:
+li $v0, 12
+syscall
+move $s1, $v0
+
+# input testarray1_i4:
+li $v0, 5
+syscall
+move $s6, $v0
+
+# input testarray1_c5:
+li $v0, 12
+syscall
+move $s0, $v0
+
+# input testarray1_i5:
+li $v0, 5
+syscall
+move $s5, $v0
+
+# global_int_array1[global_int$0] = testarray1_i1:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+sw $t1, 140($t8)
+
+# global_int_array1[global_int$1] = testarray1_i2:
+sw $t2, 144($gp)
+
+# testarray1_int_array2[global_int$0] = testarray1_i3:
+sll $t8, $zero, 2
+add $t8, $t8, $sp
+sw $s7, 352($t8)
+
+# testarray1_int_array2[global_int$1] = testarray1_i4:
+sw $s6, 356($sp)
+
+# testarray1_int_array2[global_int$2] = testarray1_i5:
+sw $s5, 360($sp)
+
+# global_char_array1[global_int$0] = testarray1_c1:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+sw $s4, 148($t8)
+
+# global_char_array1[global_int$1] = testarray1_c2:
+sw $s3, 152($gp)
+
+# testarray1_char_array2[global_int$0] = testarray1_c3:
+sll $t8, $zero, 2
+add $t8, $t8, $sp
+sw $s2, 364($t8)
+
+# testarray1_char_array2[global_int$1] = testarray1_c4:
+sw $s1, 368($sp)
+
+# testarray1_char_array2[global_int$2] = testarray1_c5:
+sw $s0, 372($sp)
+
+# output "sum of int array1:" :
+move $t8, $a0
+la $a0, str$9
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testarray1_#5 = global_int_array1[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+lw $s1, 140($t8)
+
+# testarray1_#7 = global_int_array1[global_int$1]:
+lw $s0, 144($gp)
+
+# testarray1_#6 = testarray1_#5 + testarray1_#7:
+add $s0, $s1, $s0
+
+# output testarray1_#6:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "sum of int array2:" :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testarray1_#8 = testarray1_int_array2[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $sp
+lw $s1, 352($t8)
+
+# testarray1_#10 = testarray1_int_array2[global_int$1]:
+lw $s0, 356($sp)
+
+# testarray1_#9 = testarray1_#8 + testarray1_#10:
+add $s1, $s1, $s0
+
+# testarray1_#11 = testarray1_int_array2[global_int$2]:
+lw $s0, 360($sp)
+
+# testarray1_#9 = testarray1_#9 + testarray1_#11:
+add $s1, $s1, $s0
+
+# output testarray1_#9:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "char1:" :
+move $t8, $a0
+la $a0, str$11
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testarray1_#12 = global_char_array1[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+lw $s0, 148($t8)
+
+# output testarray1_#12:
+move $t8, $a0
+move $a0, $s0
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "char2:" :
+move $t8, $a0
+la $a0, str$12
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testarray1_#13 = global_char_array1[global_int$1]:
+lw $s0, 152($gp)
+
+# output testarray1_#13:
+move $t8, $a0
+move $a0, $s0
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "char3:" :
+move $t8, $a0
+la $a0, str$13
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testarray1_#14 = testarray1_char_array2[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $sp
+lw $s0, 364($t8)
+
+# output testarray1_#14:
+move $t8, $a0
+move $a0, $s0
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "char4:" :
+move $t8, $a0
+la $a0, str$14
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testarray1_#15 = testarray1_char_array2[global_int$1]:
+lw $s0, 368($sp)
+
+# output testarray1_#15:
+move $t8, $a0
+move $a0, $s0
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "char5:" :
+move $t8, $a0
+la $a0, str$15
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testarray1_#16 = testarray1_char_array2[global_int$2]:
+lw $s0, 372($sp)
+
+# output testarray1_#16:
+move $t8, $a0
+move $a0, $s0
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# input teststack_i0:
+li $v0, 5
+syscall
+move $t3, $v0
+
+# input teststack_i1:
+li $v0, 5
+syscall
+move $t4, $v0
+
+# input teststack_i2:
+li $v0, 5
+syscall
+move $s7, $v0
+
+# input teststack_i3:
+li $v0, 5
+syscall
+move $s6, $v0
+
+# input teststack_i4:
+li $v0, 5
+syscall
+move $s5, $v0
+
+# input teststack_i5:
+li $v0, 5
+syscall
+move $s4, $v0
+
+# input teststack_i6:
+li $v0, 5
+syscall
+move $s3, $v0
+
+# input teststack_i7:
+li $v0, 5
+syscall
+move $s2, $v0
+
+# input teststack_i8:
+li $v0, 5
+syscall
+move $s1, $v0
+
+# input teststack_i9:
+li $v0, 5
+syscall
+move $s0, $v0
+
+# output "remain:" :
+move $t8, $a0
+la $a0, str$16
+li $v0, 4
+syscall
+move $a0, $t8
+
+# teststack_#17 = teststack_i2 + teststack_i3:
+add $s6, $s7, $s6
+
+# teststack_#17 = teststack_#17 + teststack_i4:
+add $s6, $s6, $s5
+
+# teststack_#17 = teststack_#17 + teststack_i5:
+add $s6, $s6, $s4
+
+# teststack_#17 = teststack_#17 + teststack_i6:
+add $s6, $s6, $s3
+
+# teststack_#17 = teststack_#17 + teststack_i7:
+add $s6, $s6, $s2
+
+# teststack_#17 = teststack_#17 + teststack_i8:
+add $s6, $s6, $s1
+
+# teststack_#17 = teststack_#17 + teststack_i9:
+add $s6, $s6, $s0
+
+# output teststack_#17:
+move $t8, $a0
+move $a0, $s6
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "not remain:" :
+move $t8, $a0
+la $a0, str$17
+li $v0, 4
+syscall
+move $a0, $t8
+
+# teststack_#18 = teststack_i0 + teststack_i1:
+add $s0, $t3, $t4
+
+# output teststack_#18:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# input testbranch_num:
+li $v0, 5
+syscall
+move $s1, $v0
+
+# input testbranch_in:
+li $v0, 5
+syscall
+move $s2, $v0
+
+# if testbranch_in == global_int$0 branch to "label$99":
+sw $t0, 132($gp)
+sw $t1, 376($sp)
+sw $t2, 380($sp)
+sw $t3, 656($sp)
+sw $t4, 660($sp)
+beqz $s2, label$99
+
+# label$100::
+label$100:
+
+# if testbranch_in >= global_int$2 branch to "label$101":
+bge $s2, 2, label$101
+
+# testbranch_#19 = testbranch_num * global_int$2:
+mul $s0, $s1, 2
+
+# testbranch_doublevar = testbranch_#19:
+move $t0, $s0
+
+# goto label$102:
+sw $t0, 716($sp)
+j label$102
+
+# label$101::
+label$101:
+
+# testbranch_#20 = testbranch_in * global_int$2:
+mul $s0, $s2, 2
+
+# testbranch_doublevar = testbranch_#20:
+move $t0, $s0
+sw $t0, 716($sp)
+
+# label$102::
+label$102:
+
+# output "doublevar:" :
+move $t8, $a0
+la $a0, str$18
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testbranch_doublevar:
+move $t8, $a0
+lw $t0, 716($sp)
+move $a0, $t0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "while finish" :
+move $t8, $a0
+la $a0, str$19
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# input testbranch_in:
+li $v0, 5
+syscall
+move $s2, $v0
+
+# if testbranch_in != global_int$0 branch to "label$100":
+bnez $s2, label$100
+
+# label$99::
+label$99:
+
+# input testbranch_in:
+li $v0, 5
+syscall
+move $s2, $v0
+
+# testbranch_n = global_int$0:
+move $s0, $zero
+
+# if testbranch_in <= global_int$0 branch to "label$103":
+blez $s2, label$103
+
+# label$104::
+label$104:
+
+# if testbranch_in != global_int$1 branch to "label$105":
+bne $s2, 1, label$105
+
+# output "numb double:" :
+move $t8, $a0
+la $a0, str$20
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testbranch_#21 = testbranch_num * global_int$2:
+mul $s2, $s1, 2
+
+# output testbranch_#21:
+move $t8, $a0
+move $a0, $s2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$106:
+j label$106
+
+# label$105::
+label$105:
+
+# if testbranch_in != global_int$2 branch to "label$107":
+bne $s2, 2, label$107
+
+# testbranch_#22 = testbranch_num * global_int$3:
+mul $s2, $s1, 3
+
+# testbranch_triple = testbranch_#22:
+move $t0, $s2
+
+# output "triple:" :
+move $t8, $a0
+la $a0, str$21
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testbranch_#22:
+move $t8, $a0
+move $a0, $s2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$108:
+sw $t0, 720($sp)
+j label$108
+
+# label$107::
+label$107:
+
+# testbranch_#23 = testbranch_num * testbranch_num:
+mul $s2, $s1, $s1
+
+# testbranch_square = testbranch_#23:
+move $t0, $s2
+
+# output "square:" :
+move $t8, $a0
+la $a0, str$22
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testbranch_#23:
+move $t8, $a0
+move $a0, $s2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+sw $t0, 724($sp)
+
+# label$108::
+label$108:
+
+# label$106::
+label$106:
+
+# input testbranch_in:
+li $v0, 5
+syscall
+move $s2, $v0
+
+# testbranch_n = testbranch_n + global_int$1:
+add $s0, $s0, 1
+
+# if testbranch_in > global_int$0 branch to "label$104":
+bgtz $s2, label$104
+
+# label$103::
+label$103:
+
+# output "n:" :
+move $t8, $a0
+la $a0, str$23
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testbranch_n:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "doublevar:" :
+move $t8, $a0
+la $a0, str$18
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testbranch_doublevar:
+move $t8, $a0
+lw $t0, 716($sp)
+move $a0, $t0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "triple:" :
+move $t8, $a0
+la $a0, str$21
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testbranch_triple:
+move $t8, $a0
+lw $t1, 720($sp)
+move $a0, $t1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "square:" :
+move $t8, $a0
+la $a0, str$22
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testbranch_square:
+move $t8, $a0
+lw $t2, 724($sp)
+move $a0, $t2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "sum:" :
+move $t8, $a0
+la $a0, str$24
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testbranch_#24 = testbranch_doublevar + testbranch_triple:
+add $s0, $t0, $t1
+
+# testbranch_#24 = testbranch_#24 + testbranch_square:
+add $s0, $s0, $t2
+
+# output testbranch_#24:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "input globals" :
+move $t8, $a0
+la $a0, str$25
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testbubble_i = global_int$0:
+move $s2, $zero
+
+# label$111::
+label$111:
+
+# input testbubble_tmp:
+li $v0, 5
+syscall
+move $s0, $v0
+
+# global_global[testbubble_i] = testbubble_tmp:
+sll $t8, $s2, 2
+add $t8, $t8, $gp
+sw $s0, 164($t8)
+
+# testbubble_i = testbubble_i + global_int$1:
+add $s2, $s2, 1
+
+# if testbubble_i < global_int$4 branch to "label$111":
+blt $s2, 4, label$111
+
+# output "input locals" :
+move $t8, $a0
+la $a0, str$26
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testbubble_i = global_int$0:
+move $s2, $zero
+
+# label$113::
+label$113:
+
+# input testbubble_tmp:
+li $v0, 5
+syscall
+move $s0, $v0
+
+# testbubble_local[testbubble_i] = testbubble_tmp:
+sll $t8, $s2, 2
+add $t8, $t8, $sp
+sw $s0, 4($t8)
+
+# testbubble_i = testbubble_i + global_int$1:
+add $s2, $s2, 1
+
+# if testbubble_i < global_int$5 branch to "label$113":
+blt $s2, 5, label$113
+
+# testbubble_i = global_int$0:
+move $s2, $zero
+
+# label$115::
+label$115:
+
+# testbubble_j = global_int$0:
+move $s3, $zero
+
+# testbubble_#25 = global_int$4 - testbubble_i:
+sub $s0, $s2, 4
+neg $s0, $s0
+
+# testbubble_#25 = testbubble_#25 - global_int$1:
+sub $s0, $s0, 1
+
+# if global_int$0 >= testbubble_#25 branch to "label$116":
+blez $s0, label$116
+
+# label$117::
+label$117:
+
+# testbubble_#26 = global_global[testbubble_j]:
+sll $t8, $s3, 2
+add $t8, $t8, $gp
+lw $s1, 164($t8)
+
+# testbubble_#27 = testbubble_j + global_int$1:
+add $s0, $s3, 1
+
+# testbubble_#28 = global_global[testbubble_#27]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 164($t8)
+
+# if testbubble_#26 <= testbubble_#28 branch to "label$118":
+ble $s1, $s0, label$118
+
+# testbubble_#29 = global_global[testbubble_j]:
+sll $t8, $s3, 2
+add $t8, $t8, $gp
+lw $s0, 164($t8)
+
+# testbubble_#30 = testbubble_j + global_int$1:
+add $s1, $s3, 1
+
+# testbubble_#31 = global_global[testbubble_#30]:
+sll $t8, $s1, 2
+add $t8, $t8, $gp
+lw $s1, 164($t8)
+
+# global_global[testbubble_j] = testbubble_#31:
+sll $t8, $s3, 2
+add $t8, $t8, $gp
+sw $s1, 164($t8)
+
+# testbubble_#32 = testbubble_j + global_int$1:
+add $s1, $s3, 1
+
+# global_global[testbubble_#32] = testbubble_#29:
+sll $t8, $s1, 2
+add $t8, $t8, $gp
+sw $s0, 164($t8)
+
+# label$118::
+label$118:
+
+# testbubble_j = testbubble_j + global_int$1:
+add $s3, $s3, 1
+
+# testbubble_#25 = global_int$4 - testbubble_i:
+sub $s0, $s2, 4
+neg $s0, $s0
+
+# testbubble_#25 = testbubble_#25 - global_int$1:
+sub $s0, $s0, 1
+
+# if testbubble_j < testbubble_#25 branch to "label$117":
+blt $s3, $s0, label$117
+
+# label$116::
+label$116:
+
+# testbubble_i = testbubble_i + global_int$1:
+add $s2, $s2, 1
+
+# if testbubble_i < global_int$4 branch to "label$115":
+blt $s2, 4, label$115
+
+# testbubble_i = global_int$0:
+move $s2, $zero
+
+# label$120::
+label$120:
+
+# testbubble_j = global_int$0:
+move $s3, $zero
+
+# testbubble_#33 = global_int$5 - testbubble_i:
+sub $s0, $s2, 5
+neg $s0, $s0
+
+# testbubble_#33 = testbubble_#33 - global_int$1:
+sub $s0, $s0, 1
+
+# if global_int$0 >= testbubble_#33 branch to "label$121":
+blez $s0, label$121
+
+# label$122::
+label$122:
+
+# testbubble_#34 = testbubble_local[testbubble_j]:
+sll $t8, $s3, 2
+add $t8, $t8, $sp
+lw $s1, 4($t8)
+
+# testbubble_#35 = testbubble_j + global_int$1:
+add $s0, $s3, 1
+
+# testbubble_#36 = testbubble_local[testbubble_#35]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 4($t8)
+
+# if testbubble_#34 <= testbubble_#36 branch to "label$123":
+ble $s1, $s0, label$123
+
+# testbubble_#37 = testbubble_local[testbubble_j]:
+sll $t8, $s3, 2
+add $t8, $t8, $sp
+lw $s1, 4($t8)
+
+# testbubble_#38 = testbubble_j + global_int$1:
+add $s0, $s3, 1
+
+# testbubble_#39 = testbubble_local[testbubble_#38]:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+lw $s0, 4($t8)
+
+# testbubble_local[testbubble_j] = testbubble_#39:
+sll $t8, $s3, 2
+add $t8, $t8, $sp
+sw $s0, 4($t8)
+
+# testbubble_#40 = testbubble_j + global_int$1:
+add $s0, $s3, 1
+
+# testbubble_local[testbubble_#40] = testbubble_#37:
+sll $t8, $s0, 2
+add $t8, $t8, $sp
+sw $s1, 4($t8)
+
+# label$123::
+label$123:
+
+# testbubble_j = testbubble_j + global_int$1:
+add $s3, $s3, 1
+
+# testbubble_#33 = global_int$5 - testbubble_i:
+sub $s0, $s2, 5
+neg $s0, $s0
+
+# testbubble_#33 = testbubble_#33 - global_int$1:
+sub $s0, $s0, 1
+
+# if testbubble_j < testbubble_#33 branch to "label$122":
+blt $s3, $s0, label$122
+
+# label$121::
+label$121:
+
+# testbubble_i = testbubble_i + global_int$1:
+add $s2, $s2, 1
+
+# if testbubble_i < global_int$5 branch to "label$120":
+blt $s2, 5, label$120
+
+# output "global" :
+move $t8, $a0
+la $a0, str$27
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testbubble_i = global_int$0:
+move $s2, $zero
+
+# label$125::
+label$125:
+
+# testbubble_#41 = global_global[testbubble_i]:
+sll $t8, $s2, 2
+add $t8, $t8, $gp
+lw $s0, 164($t8)
+
+# output testbubble_#41:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testbubble_i = testbubble_i + global_int$1:
+add $s2, $s2, 1
+
+# if testbubble_i < global_int$4 branch to "label$125":
+blt $s2, 4, label$125
+
+# output "local" :
+move $t8, $a0
+la $a0, str$28
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testbubble_i = global_int$0:
+move $s2, $zero
+
+# label$127::
+label$127:
+
+# testbubble_#42 = testbubble_local[testbubble_i]:
+sll $t8, $s2, 2
+add $t8, $t8, $sp
+lw $s0, 4($t8)
+
+# output testbubble_#42:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testbubble_i = testbubble_i + global_int$1:
+add $s2, $s2, 1
+
+# if testbubble_i < global_int$5 branch to "label$127":
+blt $s2, 5, label$127
+
+# global_global_int = global_int$0:
+move $t0, $zero
+
+# global_global_int = global_int$1:
+li $t0, 1
+
+# output "new int:" :
+move $t8, $a0
+la $a0, str$29
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1:
+move $t8, $a0
+li $a0, 1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "doublevar:" :
+move $t8, $a0
+la $a0, str$18
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$2:
+move $t8, $a0
+li $a0, 2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "char:" :
+move $t8, $a0
+la $a0, str$30
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$97:
+move $t8, $a0
+li $a0, 97
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "tmp:" :
+move $t8, $a0
+la $a0, str$31
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$1:
+move $t8, $a0
+li $a0, 1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# input testembed_a:
+li $v0, 5
+syscall
+move $s2, $v0
+
+# input testembed_b:
+li $v0, 5
+syscall
+move $s1, $v0
+
+# input testembed_c:
+li $v0, 5
+syscall
+move $s0, $v0
+
+# output "sum:" :
+move $t8, $a0
+la $a0, str$24
+li $v0, 4
+syscall
+move $a0, $t8
+
+# sum_#47 = testembed_a + testembed_b:
+add $s3, $s2, $s1
+
+# sum_#47 = sum_#47 + testembed_c:
+add $s3, $s3, $s0
+
+# output sum_#47:
+move $t8, $a0
+move $a0, $s3
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "sum:" :
+move $t8, $a0
+la $a0, str$24
+li $v0, 4
+syscall
+move $a0, $t8
+
+# sum_#47 = testembed_b + testembed_c:
+add $s3, $s1, $s0
+
+# sum_#47 = testembed_a + sum_#47:
+add $s3, $s2, $s3
+
+# output sum_#47:
+move $t8, $a0
+move $a0, $s3
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# input testrec_n:
+li $v0, 5
+syscall
+move $s1, $v0
+sw $t0, 180($gp)
+
+# label$131::
+label$131:
+
+# output "pro:" :
+move $t8, $a0
+la $a0, str$32
+li $v0, 4
+syscall
+move $a0, $t8
+
+# <!-- call block begin -->:
+sw $ra, 800($sp)
+move $a0, $s1
+jal product
+lw $ra, 800($sp)
+move $s0, $v0
+# <!-- call block end -->:
+
+# output testrec_#60:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "fibo:" :
+move $t8, $a0
+la $a0, str$33
+li $v0, 4
+syscall
+move $a0, $t8
+
+# <!-- call block begin -->:
+sw $ra, 800($sp)
+move $a0, $s1
+jal fibo
+lw $ra, 800($sp)
+move $s0, $v0
+# <!-- call block end -->:
+
+# output testrec_#61:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# input testrec_n:
+li $v0, 5
+syscall
+move $s1, $v0
+
+# if testrec_n != global_int$0 branch to "label$131":
+bnez $s1, label$131
+
+# global_i = global_int$10:
+li $t0, 10
+
+# global_j = global_int$20:
+li $t1, 20
+
+# global_k = global_int$30:
+li $t2, 30
+
+# global_i = global_int$0:
+move $t0, $zero
+sw $t0, 196($gp)
+sw $t1, 200($gp)
+sw $t2, 204($gp)
+
+# label$135::
+label$135:
+
+# if global_i == global_int$3 branch to "label$136":
+lw $t0, 196($gp)
+beq $t0, 3, label$136
+
+# output global_i:
+move $t8, $a0
+lw $t0, 196($gp)
+move $a0, $t0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$137:
+j label$137
+
+# label$136::
+label$136:
+
+# global_k = global_int$0:
+move $t0, $zero
+sw $t0, 204($gp)
+
+# label$139::
+label$139:
+
+# output "333333" :
+move $t8, $a0
+la $a0, str$34
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# global_k = global_k + global_int$1:
+lw $t0, 204($gp)
+add $t0, $t0, 1
+
+# if global_k < global_int$3 branch to "label$139":
+sw $t0, 204($gp)
+blt $t0, 3, label$139
+
+# label$137::
+label$137:
+
+# global_i = global_i + global_int$1:
+lw $t0, 196($gp)
+add $t0, $t0, 1
+
+# if global_i < global_int$10 branch to "label$135":
+sw $t0, 196($gp)
+blt $t0, 10, label$135
+
+# goto label$140:
+j label$140
+
+# label$142::
+label$142:
+
+# output global_i:
+move $t8, $a0
+lw $t0, 196($gp)
+move $a0, $t0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# global_i = global_i - global_int$1:
+sub $t0, $t0, 1
+
+# if global_i >= global_int$0 branch to "label$142":
+sw $t0, 196($gp)
+bgez $t0, label$142
+
+# label$140::
+label$140:
+
+# output "******" :
+move $t8, $a0
+la $a0, str$35
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_i:
+move $t8, $a0
+lw $t0, 196($gp)
+move $a0, $t0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_j:
+move $t8, $a0
+lw $t1, 200($gp)
+move $a0, $t1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_k:
+move $t8, $a0
+lw $t2, 204($gp)
+move $a0, $t2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# if global_i < global_j branch to "label$249":
+blt $t0, $t1, label$249
+
+# global_i = global_int$0:
+move $t0, $zero
+sw $t0, 196($gp)
+
+# label$251::
+label$251:
+
+# if global_i == global_int$3 branch to "label$252":
+lw $t0, 196($gp)
+beq $t0, 3, label$252
+
+# output global_i:
+move $t8, $a0
+lw $t0, 196($gp)
+move $a0, $t0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$253:
+j label$253
+
+# label$252::
+label$252:
+
+# global_k = global_int$0:
+move $t0, $zero
+sw $t0, 204($gp)
+
+# label$255::
+label$255:
+
+# output "333333" :
+move $t8, $a0
+la $a0, str$34
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# global_k = global_k + global_int$1:
+lw $t0, 204($gp)
+add $t0, $t0, 1
+
+# if global_k < global_int$3 branch to "label$255":
+sw $t0, 204($gp)
+blt $t0, 3, label$255
+
+# label$253::
+label$253:
+
+# global_i = global_i + global_int$1:
+lw $t0, 196($gp)
+add $t0, $t0, 1
+
+# if global_i < global_int$10 branch to "label$251":
+sw $t0, 196($gp)
+blt $t0, 10, label$251
+
+# goto label$256:
+j label$256
+
+# label$249::
+label$249:
+
+# global_i = global_int$9:
+li $t0, 9
+sw $t0, 196($gp)
+
+# label$258::
+label$258:
+
+# output global_i:
+move $t8, $a0
+lw $t0, 196($gp)
+move $a0, $t0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# global_i = global_i - global_int$1:
+sub $t0, $t0, 1
+
+# if global_i >= global_int$0 branch to "label$258":
+sw $t0, 196($gp)
+bgez $t0, label$258
+
+# label$256::
+label$256:
+
+# output global_int$-5:
+move $t8, $a0
+li $a0, -5
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# global_num5 = global_int$9:
+li $t0, 9
+
+# global_num6 = global_int$8:
+li $t1, 8
+
+# global_char3 = global_char$97:
+li $t2, 97
+
+# global_char4 = global_char$98:
+li $t3, 98
+
+# input testfunc1_flag:
+li $v0, 5
+syscall
+move $s2, $v0
+
+# testfunc1_i = global_int$0:
+move $s1, $zero
+sw $t0, 0($gp)
+sw $t1, 4($gp)
+sw $t2, 44($gp)
+sw $t3, 48($gp)
+
+# label$145::
+label$145:
+
+# global_testresult[testfunc1_i] = global_char$84:
+sll $t8, $s1, 2
+li $t9, 84
+add $t8, $t8, $gp
+sw $t9, 92($t8)
+
+# testfunc1_i = testfunc1_i + global_int$1:
+add $s1, $s1, 1
+
+# if testfunc1_i < global_int$10 branch to "label$145":
+blt $s1, 10, label$145
+
+# global_num5 = global_int$9:
+li $t0, 9
+sw $t0, 0($gp)
+
+# label$147::
+label$147:
+
+# testfunc1_#97 = global_testresult[global_num5]:
+lw $t0, 0($gp)
+sll $t8, $t0, 2
+add $t8, $t8, $gp
+lw $s0, 92($t8)
+
+# global_array2[global_num5] = testfunc1_#97:
+sll $t8, $t0, 2
+add $t8, $t8, $gp
+sw $s0, 52($t8)
+
+# global_num5 = global_num5 - global_int$1:
+sub $t0, $t0, 1
+
+# if global_num5 >= global_int$0 branch to "label$147":
+sw $t0, 0($gp)
+bgez $t0, label$147
+
+# global_num6 = global_int$0:
+move $t0, $zero
+sw $t0, 4($gp)
+
+# label$149::
+label$149:
+
+# global_array1[global_num6] = global_int$0:
+lw $t0, 4($gp)
+sll $t8, $t0, 2
+add $t8, $t8, $gp
+sw $zero, 8($t8)
+
+# global_num6 = global_num6 + global_int$1:
+add $t0, $t0, 1
+
+# if global_num6 != global_int$8 branch to "label$149":
+sw $t0, 4($gp)
+bne $t0, 8, label$149
+
+# testfor_a = global_int$9:
+li $s4, 9
+
+# testfor_c = global_int$0:
+move $s3, $zero
+
+# goto label$260:
+j label$260
+
+# label$261::
+label$261:
+
+# testfor_#69 = testfor_a + global_int$1:
+add $s0, $s4, 1
+
+# testfor_a = testfor_#69:
+move $s4, $s0
+
+# testfor_i = testfor_i - global_int$1:
+sub $s1, $s1, 1
+
+# if testfor_i < global_int$10 branch to "label$261":
+blt $s1, 10, label$261
+
+# label$260::
+label$260:
+
+# testfor_i = global_int$0:
+move $s1, $zero
+
+# label$263::
+label$263:
+
+# testfor_#70 = testfor_c + global_int$1:
+add $s0, $s3, 1
+
+# testfor_c = testfor_#70:
+move $s3, $s0
+
+# testfor_i = testfor_i + global_int$1:
+add $s1, $s1, 1
+
+# if testfor_i < global_int$10 branch to "label$263":
+blt $s1, 10, label$263
+
+# if testfor_a != global_int$10 branch to "label$264":
+bne $s4, 10, label$264
+
+# if testfor_c != global_int$10 branch to "label$265":
+bne $s3, 10, label$265
+
+# testfunc1_#98 = global_int$1:
+li $s0, 1
+
+# goto label$259:
+j label$259
+
+# label$265::
+label$265:
+
+# label$264::
+label$264:
+
+# testfunc1_#98 = global_int$0:
+move $s0, $zero
+
+# label$259::
+label$259:
+
+# if testfunc1_#98 != global_int$1 branch to "label$150":
+bne $s0, 1, label$150
+
+# global_testresult[global_int$0] = global_char$84:
+sll $t8, $zero, 2
+li $t9, 84
+add $t8, $t8, $gp
+sw $t9, 92($t8)
+
+# goto label$151:
+j label$151
+
+# label$150::
+label$150:
+
+# global_testresult[global_int$0] = global_char$70:
+sll $t8, $zero, 2
+li $t9, 70
+add $t8, $t8, $gp
+sw $t9, 92($t8)
+
+# label$151::
+label$151:
+
+# testwhile_num1 = global_int$0:
+move $s3, $zero
+
+# testwhile_num2 = global_int$10:
+li $s4, 10
+
+# testwhile_num4 = global_int$0:
+move $s1, $zero
+
+# label$268::
+label$268:
+
+# testwhile_#72 = testwhile_num2 - global_int$1:
+sub $s0, $s4, 1
+
+# testwhile_num2 = testwhile_#72:
+move $s4, $s0
+
+# testwhile_#73 = testwhile_num1 + global_int$1:
+add $s0, $s3, 1
+
+# testwhile_num1 = testwhile_#73:
+move $s3, $s0
+
+# if testwhile_#73 != global_int$10 branch to "label$268":
+bne $s0, 10, label$268
+
+# goto label$269:
+j label$269
+
+# label$270::
+label$270:
+
+# testwhile_#74 = testwhile_num4 + global_int$10:
+add $s0, $s1, 10
+
+# testwhile_num4 = testwhile_#74:
+move $s1, $s0
+
+# testwhile_#75 = testwhile_num3 - global_int$10:
+sub $s0, $s3, 10
+
+# testwhile_num3 = testwhile_#75:
+move $s3, $s0
+
+# if testwhile_#75 > global_int$0 branch to "label$270":
+bgtz $s0, label$270
+
+# label$269::
+label$269:
+
+# if testwhile_num2 != global_int$0 branch to "label$271":
+bnez $s4, label$271
+
+# if testwhile_num4 != global_int$0 branch to "label$272":
+bnez $s1, label$272
+
+# testfunc1_#99 = global_int$1:
+li $s0, 1
+
+# goto label$266:
+j label$266
+
+# label$272::
+label$272:
+
+# testfunc1_#99 = global_int$-1:
+li $s0, -1
+
+# goto label$266:
+j label$266
+
+# label$271::
+label$271:
+
+# testfunc1_#99 = global_int$0:
+move $s0, $zero
+
+# label$266::
+label$266:
+
+# if testfunc1_#99 == global_int$0 branch to "label$152":
+beqz $s0, label$152
+
+# global_testresult[global_int$1] = global_char$84:
+li $t9, 84
+sw $t9, 96($gp)
+
+# goto label$153:
+j label$153
+
+# label$152::
+label$152:
+
+# global_testresult[global_int$1] = global_char$70:
+li $t9, 70
+sw $t9, 96($gp)
+
+# label$153::
+label$153:
+
+# <!-- call block begin -->:
+sw $ra, 800($sp)
+li $a0, 1
+jal factorial
+lw $ra, 800($sp)
+move $s0, $v0
+# <!-- call block end -->:
+
+# if testfactorial_#95 != global_int$1 branch to "label$274":
+bne $s0, 1, label$274
+
+# <!-- call block begin -->:
+sw $ra, 800($sp)
+li $a0, 3
+jal factorial
+lw $ra, 800($sp)
+move $s0, $v0
+# <!-- call block end -->:
+
+# if testfactorial_#96 != global_int$6 branch to "label$275":
+bne $s0, 6, label$275
+
+# testfunc1_#101 = global_char$84:
+li $s0, 84
+
+# goto label$273:
+j label$273
+
+# label$275::
+label$275:
+
+# label$274::
+label$274:
+
+# testfunc1_#101 = global_char$70:
+li $s0, 70
+
+# label$273::
+label$273:
+
+# if testfunc1_#101 != global_char$84 branch to "label$154":
+bne $s0, 84, label$154
+
+# global_testresult[global_int$2] = global_char$84:
+li $t9, 84
+sw $t9, 100($gp)
+
+# goto label$155:
+j label$155
+
+# label$154::
+label$154:
+
+# global_testresult[global_int$2] = global_char$70:
+li $t9, 70
+sw $t9, 100($gp)
+
+# label$155::
+label$155:
+
+# global_array1[global_int$0] = global_int$100:
+sll $t8, $zero, 2
+li $t9, 100
+add $t8, $t8, $gp
+sw $t9, 8($t8)
+
+# global_array1[global_int$1] = global_int$99:
+li $t9, 99
+sw $t9, 12($gp)
+
+# testexpression_#82 = global_array1[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+lw $s0, 8($t8)
+
+# testexpression_#83 = testexpression_#82 / global_int$10:
+li $t8, 10
+div $s0, $t8
+mflo $s0
+
+# testexpression_#81 = global_int$10 - testexpression_#83:
+sub $s0, $s0, 10
+neg $s0, $s0
+
+# testexpression_#81 = testexpression_#81 + global_int$1:
+add $s0, $s0, 1
+
+# testexpression_#84 = global_array1[testexpression_#81]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s0, 8($t8)
+
+# if testexpression_#84 != global_int$99 branch to "label$277":
+bne $s0, 99, label$277
+
+# testfunc1_#103 = global_int$1:
+li $s0, 1
+
+# goto label$276:
+j label$276
+
+# label$277::
+label$277:
+
+# testfunc1_#103 = global_int$0:
+move $s0, $zero
+
+# label$276::
+label$276:
+
+# if testfunc1_#103 == global_int$0 branch to "label$156":
+beqz $s0, label$156
+
+# global_testresult[global_int$3] = global_char$84:
+li $t9, 84
+sw $t9, 104($gp)
+
+# goto label$157:
+j label$157
+
+# label$156::
+label$156:
+
+# global_testresult[global_int$3] = global_char$70:
+li $t9, 70
+sw $t9, 104($gp)
+
+# label$157::
+label$157:
+
+# global_array1[global_int$0] = global_int$1:
+sll $t8, $zero, 2
+li $t9, 1
+add $t8, $t8, $gp
+sw $t9, 8($t8)
+
+# testarray_#85 = global_array1[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+lw $s0, 8($t8)
+
+# global_array1[global_int$4] = testarray_#85:
+sw $s0, 24($gp)
+
+# testarray_#91 = global_array1[global_int$0]:
+sll $t8, $zero, 2
+add $t8, $t8, $gp
+lw $s0, 8($t8)
+
+# testarray_#92 = testarray_#91 * global_int$2:
+mul $s0, $s0, 2
+
+# testarray_#86 = global_int$6 - testarray_#92:
+sub $s0, $s0, 6
+neg $s0, $s0
+
+# global_array1[testarray_#86] = global_int$10:
+sll $t8, $s0, 2
+li $t9, 10
+add $t8, $t8, $gp
+sw $t9, 8($t8)
+
+# testarray_#93 = global_array1[global_int$4]:
+lw $s0, 24($gp)
+
+# if testarray_#93 != global_int$10 branch to "label$279":
+bne $s0, 10, label$279
+
+# testfunc1_#104 = global_int$1:
+li $s0, 1
+
+# goto label$278:
+j label$278
+
+# label$279::
+label$279:
+
+# testfunc1_#104 = global_int$0:
+move $s0, $zero
+
+# label$278::
+label$278:
+
+# if testfunc1_#104 == global_int$0 branch to "label$158":
+beqz $s0, label$158
+
+# global_testresult[global_int$4] = global_char$84:
+li $t9, 84
+sw $t9, 108($gp)
+
+# goto label$159:
+j label$159
+
+# label$158::
+label$158:
+
+# global_testresult[global_int$4] = global_char$70:
+li $t9, 70
+sw $t9, 108($gp)
+
+# label$159::
+label$159:
+
+# testprintf_flag = testfunc1_flag:
+move $s0, $s2
+
+# if testfunc1_flag > global_int$0 branch to "label$281":
+bgtz $s2, label$281
+
+# output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" :
+move $t8, $a0
+la $a0, str$36
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$282:
+j label$282
+
+# label$281::
+label$281:
+
+# if testprintf_flag < global_int$2 branch to "label$283":
+blt $s0, 2, label$283
+
+# output global_char$97:
+move $t8, $a0
+li $a0, 97
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$50:
+move $t8, $a0
+li $a0, 50
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$42:
+move $t8, $a0
+li $a0, 42
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$284:
+j label$284
+
+# label$283::
+label$283:
+
+# output "this is a string " :
+move $t8, $a0
+la $a0, str$37
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$5:
+move $t8, $a0
+li $a0, 5
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$284::
+label$284:
+
+# label$282::
+label$282:
+
+# output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" :
+move $t8, $a0
+la $a0, str$36
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "this is a string, !#$%&'()*+,-./0123456789:;<=>?@[\\]^_`{|}~|" :
+move $t8, $a0
+la $a0, str$36
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "this is a string " :
+move $t8, $a0
+la $a0, str$37
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$5:
+move $t8, $a0
+li $a0, 5
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$97:
+move $t8, $a0
+li $a0, 97
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$50:
+move $t8, $a0
+li $a0, 50
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$42:
+move $t8, $a0
+li $a0, 42
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$97:
+move $t8, $a0
+li $a0, 97
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$50:
+move $t8, $a0
+li $a0, 50
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$42:
+move $t8, $a0
+li $a0, 42
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testfunc1_i = global_int$0:
+move $s1, $zero
+
+# label$161::
+label$161:
+
+# testfunc1_#106 = global_testresult[testfunc1_i]:
+sll $t8, $s1, 2
+add $t8, $t8, $gp
+lw $s0, 92($t8)
+
+# output testfunc1_#106:
+move $t8, $a0
+move $a0, $s0
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testfunc1_i = testfunc1_i + global_int$1:
+add $s1, $s1, 1
+
+# if testfunc1_i < global_int$5 branch to "label$161":
+blt $s1, 5, label$161
+
+# output global_int$-64:
+move $t8, $a0
+li $a0, -64
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testfunc2_b:
+move $t8, $a0
+li $a0, 122
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$16:
+move $t8, $a0
+li $a0, 16
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_int$9:
+move $t8, $a0
+li $a0, 9
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output global_char$118:
+move $t8, $a0
+li $a0, 118
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# return:
+lw $s0, 736($sp)
+lw $s1, 740($sp)
+lw $s2, 744($sp)
+lw $s3, 748($sp)
+lw $s4, 752($sp)
+lw $s5, 756($sp)
+lw $s6, 760($sp)
+lw $s7, 764($sp)
+add $sp, $sp, 820
+jr $ra
+
+product:
+# $a0 : product_n
+# $s0 : product_#53
+# $s0 : product_#54
+# $s0 : product_#52
+sub $sp, $sp, 96
+sw $s0, 12($sp)
+
+# if product_n > global_int$1 branch to "label$29":
+bgt $a0, 1, label$29
+
+# return product_n:
+move $v0, $a0
+lw $s0, 12($sp)
+add $sp, $sp, 96
+jr $ra
+
+# label$29::
+label$29:
+
+# product_#53 = product_n - global_int$1:
+sub $s0, $a0, 1
+
+# <!-- call block begin -->:
+sw $a0, 80($sp)
+sw $ra, 76($sp)
+move $a0, $s0
+jal product
+lw $ra, 76($sp)
+lw $a0, 80($sp)
+move $s0, $v0
+# <!-- call block end -->:
+
+# product_#52 = product_n * product_#54:
+mul $s0, $a0, $s0
+
+# return product_#52:
+move $v0, $s0
+lw $s0, 12($sp)
+add $sp, $sp, 96
+jr $ra

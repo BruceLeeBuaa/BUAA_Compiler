@@ -1,0 +1,373 @@
+
+func merge()
+merge_i = global_int$0
+merge_j = global_int$0
+merge_k = merge_s1
+if merge_i >= merge_l1 branch to "label$1"
+label$2:
+if merge_j >= merge_l2 branch to "label$3"
+merge_#1 = merge_s1 + merge_i
+merge_#2 = global_arr[merge_#1]
+merge_#3 = merge_s2 + merge_j
+merge_#4 = global_arr[merge_#3]
+if merge_#2 <= merge_#4 branch to "label$4"
+merge_#5 = merge_s2 + merge_j
+merge_#6 = global_arr[merge_#5]
+global_tmp[merge_k] = merge_#6
+merge_#7 = merge_j + global_int$1
+merge_j = merge_#7
+goto label$5
+label$4:
+merge_#8 = merge_s1 + merge_i
+merge_#9 = global_arr[merge_#8]
+global_tmp[merge_k] = merge_#9
+merge_#10 = merge_i + global_int$1
+merge_i = merge_#10
+label$5:
+merge_#11 = merge_k + global_int$1
+merge_k = merge_#11
+goto label$6
+label$3:
+if merge_i >= merge_l1 branch to "label$7"
+label$8:
+merge_#12 = merge_s1 + merge_i
+merge_#13 = global_arr[merge_#12]
+global_tmp[merge_k] = merge_#13
+merge_#14 = merge_k + global_int$1
+merge_k = merge_#14
+merge_#15 = merge_i + global_int$1
+merge_i = merge_#15
+if merge_i < merge_l1 branch to "label$8"
+label$7:
+label$6:
+if merge_i < merge_l1 branch to "label$2"
+label$1:
+if merge_j >= merge_l2 branch to "label$9"
+label$10:
+merge_#16 = merge_s2 + merge_j
+merge_#17 = global_arr[merge_#16]
+global_tmp[merge_k] = merge_#17
+merge_#18 = merge_k + global_int$1
+merge_k = merge_#18
+merge_#19 = merge_j + global_int$1
+merge_j = merge_#19
+if merge_j < merge_l2 branch to "label$10"
+label$9:
+merge_i = merge_s1
+if merge_i >= merge_k branch to "label$11"
+label$12:
+merge_#20 = global_tmp[merge_i]
+global_arr[merge_i] = merge_#20
+merge_i = merge_i + global_int$1
+if merge_i < merge_k branch to "label$12"
+label$11:
+return
+
+func main()
+input main_n
+main_i = global_int$0
+if main_i >= main_n branch to "label$16"
+label$17:
+input main_a
+global_arr[main_i] = main_a
+main_i = main_i + global_int$1
+if main_i < main_n branch to "label$17"
+label$16:
+push global_int$0
+push main_n
+call inner_merge_sort
+main_i = global_int$0
+if main_i >= main_n branch to "label$18"
+label$19:
+main_#33 = global_arr[main_i]
+output main_#33
+output "\n" 
+main_i = main_i + global_int$1
+if main_i < main_n branch to "label$19"
+label$18:
+return
+
+func inner_merge_sort()
+if inner_merge_sort_length > global_int$1 branch to "label$13"
+return
+label$13:
+if inner_merge_sort_length != global_int$2 branch to "label$14"
+inner_merge_sort_#21 = global_arr[inner_merge_sort_start]
+inner_merge_sort_#22 = inner_merge_sort_start + global_int$1
+inner_merge_sort_#23 = global_arr[inner_merge_sort_#22]
+if inner_merge_sort_#21 <= inner_merge_sort_#23 branch to "label$15"
+inner_merge_sort_#24 = global_arr[inner_merge_sort_start]
+inner_merge_sort_tmp = inner_merge_sort_#24
+inner_merge_sort_#25 = inner_merge_sort_start + global_int$1
+inner_merge_sort_#26 = global_arr[inner_merge_sort_#25]
+global_arr[inner_merge_sort_start] = inner_merge_sort_#26
+inner_merge_sort_#27 = inner_merge_sort_start + global_int$1
+global_arr[inner_merge_sort_#27] = inner_merge_sort_tmp
+label$15:
+return
+label$14:
+inner_merge_sort_#28 = inner_merge_sort_length / global_int$2
+inner_merge_sort_mid = inner_merge_sort_#28
+push inner_merge_sort_start
+push inner_merge_sort_mid
+call inner_merge_sort
+inner_merge_sort_#29 = inner_merge_sort_start + inner_merge_sort_mid
+inner_merge_sort_#30 = inner_merge_sort_length - inner_merge_sort_mid
+push inner_merge_sort_#29
+push inner_merge_sort_#30
+call inner_merge_sort
+inner_merge_sort_#31 = inner_merge_sort_start + inner_merge_sort_mid
+inner_merge_sort_#32 = inner_merge_sort_length - inner_merge_sort_mid
+push inner_merge_sort_start
+push inner_merge_sort_mid
+push inner_merge_sort_#31
+push inner_merge_sort_#32
+call merge
+return
+
+<!--anchor-->
+
+func main()
+input main_n
+main_i = global_int$0
+if global_int$0 >= main_n branch to "label$16"
+label$17:
+input main_a
+global_arr[main_i] = main_a
+main_i = main_i + global_int$1
+if main_i < main_n branch to "label$17"
+label$16:
+push global_int$0
+push main_n
+call inner_merge_sort
+main_i = global_int$0
+if global_int$0 >= main_n branch to "label$18"
+label$19:
+main_#33 = global_arr[main_i]
+output main_#33
+output "\n" 
+main_i = main_i + global_int$1
+if main_i < main_n branch to "label$19"
+label$18:
+return
+
+func inner_merge_sort()
+if inner_merge_sort_length > global_int$1 branch to "label$13"
+return
+label$13:
+if inner_merge_sort_length != global_int$2 branch to "label$14"
+inner_merge_sort_#21 = global_arr[inner_merge_sort_start]
+inner_merge_sort_#22 = inner_merge_sort_start + global_int$1
+inner_merge_sort_#23 = global_arr[inner_merge_sort_#22]
+if inner_merge_sort_#21 <= inner_merge_sort_#23 branch to "label$15"
+inner_merge_sort_#24 = global_arr[inner_merge_sort_start]
+inner_merge_sort_#25 = inner_merge_sort_start + global_int$1
+inner_merge_sort_#26 = global_arr[inner_merge_sort_#25]
+global_arr[inner_merge_sort_start] = inner_merge_sort_#26
+inner_merge_sort_#27 = inner_merge_sort_start + global_int$1
+global_arr[inner_merge_sort_#27] = inner_merge_sort_#24
+label$15:
+return
+label$14:
+inner_merge_sort_#28 = inner_merge_sort_length / global_int$2
+inner_merge_sort_mid = inner_merge_sort_#28
+push inner_merge_sort_start
+push inner_merge_sort_mid
+call inner_merge_sort
+inner_merge_sort_#29 = inner_merge_sort_start + inner_merge_sort_mid
+inner_merge_sort_#30 = inner_merge_sort_length - inner_merge_sort_mid
+push inner_merge_sort_#29
+push inner_merge_sort_#30
+call inner_merge_sort
+inner_merge_sort_#31 = inner_merge_sort_start + inner_merge_sort_mid
+inner_merge_sort_#32 = inner_merge_sort_length - inner_merge_sort_mid
+merge_s1 = inner_merge_sort_start
+merge_l1 = inner_merge_sort_mid
+merge_s2 = inner_merge_sort_#31
+merge_l2 = inner_merge_sort_#32
+merge_i = global_int$0
+merge_j = global_int$0
+merge_k = inner_merge_sort_start
+if global_int$0 >= inner_merge_sort_mid branch to "label$21"
+label$22:
+if merge_j >= merge_l2 branch to "label$23"
+merge_#1 = merge_s1 + merge_i
+merge_#2 = global_arr[merge_#1]
+merge_#3 = merge_s2 + merge_j
+merge_#4 = global_arr[merge_#3]
+if merge_#2 <= merge_#4 branch to "label$24"
+merge_#5 = merge_s2 + merge_j
+merge_#6 = global_arr[merge_#5]
+global_tmp[merge_k] = merge_#6
+merge_#7 = merge_j + global_int$1
+merge_j = merge_#7
+goto label$25
+label$24:
+merge_#8 = merge_s1 + merge_i
+merge_#9 = global_arr[merge_#8]
+global_tmp[merge_k] = merge_#9
+merge_#10 = merge_i + global_int$1
+merge_i = merge_#10
+label$25:
+merge_#11 = merge_k + global_int$1
+merge_k = merge_#11
+goto label$26
+label$23:
+if merge_i >= merge_l1 branch to "label$27"
+label$28:
+merge_#12 = merge_s1 + merge_i
+merge_#13 = global_arr[merge_#12]
+global_tmp[merge_k] = merge_#13
+merge_#14 = merge_k + global_int$1
+merge_k = merge_#14
+merge_#15 = merge_i + global_int$1
+merge_i = merge_#15
+if merge_#15 < merge_l1 branch to "label$28"
+label$27:
+label$26:
+if merge_i < merge_l1 branch to "label$22"
+label$21:
+if merge_j >= merge_l2 branch to "label$29"
+label$30:
+merge_#16 = merge_s2 + merge_j
+merge_#17 = global_arr[merge_#16]
+global_tmp[merge_k] = merge_#17
+merge_#18 = merge_k + global_int$1
+merge_k = merge_#18
+merge_#19 = merge_j + global_int$1
+merge_j = merge_#19
+if merge_#19 < merge_l2 branch to "label$30"
+label$29:
+merge_i = merge_s1
+if merge_s1 >= merge_k branch to "label$31"
+label$32:
+merge_#20 = global_tmp[merge_i]
+global_arr[merge_i] = merge_#20
+merge_i = merge_i + global_int$1
+if merge_i < merge_k branch to "label$32"
+label$31:
+return
+
+<!--anchor-->
+
+func main()
+input main_n
+main_i = global_int$0
+if global_int$0 >= main_n branch to "label$16"
+label$17:
+input main_a
+global_arr[main_i] = main_a
+main_i = main_i + global_int$1
+if main_i < main_n branch to "label$17"
+label$16:
+push global_int$0
+push main_n
+call inner_merge_sort
+main_i = global_int$0
+if global_int$0 >= main_n branch to "label$18"
+label$19:
+main_#33 = global_arr[main_i]
+output main_#33
+output "\n" 
+main_i = main_i + global_int$1
+if main_i < main_n branch to "label$19"
+label$18:
+return
+
+func inner_merge_sort()
+if inner_merge_sort_length > global_int$1 branch to "label$13"
+return
+label$13:
+if inner_merge_sort_length != global_int$2 branch to "label$14"
+inner_merge_sort_#21 = global_arr[inner_merge_sort_start]
+inner_merge_sort_#22 = inner_merge_sort_start + global_int$1
+inner_merge_sort_#23 = global_arr[inner_merge_sort_#22]
+if inner_merge_sort_#21 <= inner_merge_sort_#23 branch to "label$15"
+inner_merge_sort_#24 = global_arr[inner_merge_sort_start]
+inner_merge_sort_#25 = inner_merge_sort_start + global_int$1
+inner_merge_sort_#26 = global_arr[inner_merge_sort_#25]
+global_arr[inner_merge_sort_start] = inner_merge_sort_#26
+inner_merge_sort_#27 = inner_merge_sort_start + global_int$1
+global_arr[inner_merge_sort_#27] = inner_merge_sort_#24
+label$15:
+return
+label$14:
+inner_merge_sort_#28 = inner_merge_sort_length / global_int$2
+inner_merge_sort_mid = inner_merge_sort_#28
+push inner_merge_sort_start
+push inner_merge_sort_mid
+call inner_merge_sort
+inner_merge_sort_#29 = inner_merge_sort_start + inner_merge_sort_mid
+inner_merge_sort_#30 = inner_merge_sort_length - inner_merge_sort_mid
+push inner_merge_sort_#29
+push inner_merge_sort_#30
+call inner_merge_sort
+inner_merge_sort_#31 = inner_merge_sort_start + inner_merge_sort_mid
+inner_merge_sort_#32 = inner_merge_sort_length - inner_merge_sort_mid
+merge_s1 = inner_merge_sort_start
+merge_l1 = inner_merge_sort_mid
+merge_s2 = inner_merge_sort_#31
+merge_l2 = inner_merge_sort_#32
+merge_i = global_int$0
+merge_j = global_int$0
+merge_k = inner_merge_sort_start
+if global_int$0 >= inner_merge_sort_mid branch to "label$21"
+label$22:
+if merge_j >= merge_l2 branch to "label$23"
+merge_#1 = merge_s1 + merge_i
+merge_#2 = global_arr[merge_#1]
+merge_#3 = merge_s2 + merge_j
+merge_#4 = global_arr[merge_#3]
+if merge_#2 <= merge_#4 branch to "label$24"
+merge_#5 = merge_s2 + merge_j
+merge_#6 = global_arr[merge_#5]
+global_tmp[merge_k] = merge_#6
+merge_#7 = merge_j + global_int$1
+merge_j = merge_#7
+goto label$25
+label$24:
+merge_#8 = merge_s1 + merge_i
+merge_#9 = global_arr[merge_#8]
+global_tmp[merge_k] = merge_#9
+merge_#10 = merge_i + global_int$1
+merge_i = merge_#10
+label$25:
+merge_#11 = merge_k + global_int$1
+merge_k = merge_#11
+goto label$26
+label$23:
+if merge_i >= merge_l1 branch to "label$27"
+label$28:
+merge_#12 = merge_s1 + merge_i
+merge_#13 = global_arr[merge_#12]
+global_tmp[merge_k] = merge_#13
+merge_#14 = merge_k + global_int$1
+merge_k = merge_#14
+merge_#15 = merge_i + global_int$1
+merge_i = merge_#15
+if merge_#15 < merge_l1 branch to "label$28"
+label$27:
+label$26:
+if merge_i < merge_l1 branch to "label$22"
+label$21:
+if merge_j >= merge_l2 branch to "label$29"
+label$30:
+merge_#16 = merge_s2 + merge_j
+merge_#17 = global_arr[merge_#16]
+global_tmp[merge_k] = merge_#17
+merge_#18 = merge_k + global_int$1
+merge_k = merge_#18
+merge_#19 = merge_j + global_int$1
+merge_j = merge_#19
+if merge_#19 < merge_l2 branch to "label$30"
+label$29:
+merge_i = merge_s1
+if merge_s1 >= merge_k branch to "label$31"
+label$32:
+merge_#20 = global_tmp[merge_i]
+global_arr[merge_i] = merge_#20
+merge_i = merge_i + global_int$1
+if merge_i < merge_k branch to "label$32"
+label$31:
+return
+

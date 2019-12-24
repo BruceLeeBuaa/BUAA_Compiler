@@ -1,0 +1,729 @@
+
+func main()
+call testglobal
+return
+
+func assignGlobal()
+global_global_int_1 = assignGlobal_a
+global_global_char_1 = assignGlobal_b
+global_global_int_2 = assignGlobal_c
+global_global_char_2 = assignGlobal_d
+global_num5 = global_int$0
+if global_num5 >= global_int$100 branch to "label$1"
+label$2:
+global_global_array_1[global_num5] = global_num5
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$2"
+label$1:
+global_num5 = global_int$100
+if global_int$0 > global_num5 branch to "label$3"
+label$4:
+assignGlobal_#1 = global_int$10000 - global_num5
+global_global_array_2[global_num5] = assignGlobal_#1
+global_num5 = global_num5 - global_int$1
+if global_int$0 <= global_num5 branch to "label$4"
+label$3:
+global_num5 = global_int$100
+assignGlobal_#2 = global_int$100 + global_int$100
+if global_num5 >= assignGlobal_#2 branch to "label$5"
+label$6:
+assignGlobal_#3 = global_num5 - global_int$100
+global_global_array_3[assignGlobal_#3] = global_const_char_1
+global_num5 = global_num5 + global_int$1
+assignGlobal_#2 = global_int$100 + global_int$100
+if global_num5 < assignGlobal_#2 branch to "label$6"
+label$5:
+global_num5 = global_int$0
+if global_num5 >= global_int$100 branch to "label$7"
+label$8:
+global_global_array_4[global_num5] = global_const_char_2
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$8"
+label$7:
+return
+
+func printGlobal()
+output "global_int_1 = " 
+output global_global_int_1
+output "\n" 
+output "global_int_2 = " 
+output global_global_int_2
+output "\n" 
+output "global_char_1 = " 
+output global_global_char_1
+output "\n" 
+output "global_char_2 = " 
+output global_global_char_2
+output "\n" 
+output "num5 = " 
+output global_num5
+output "\n" 
+global_num5 = global_int$9
+global_num5 = global_int$9
+if global_num5 < global_int$0 branch to "label$9"
+label$10:
+output global_num5
+output "\n" 
+global_num5 = global_num5 - global_int$1
+if global_num5 >= global_int$0 branch to "label$10"
+label$9:
+output "const_int_1 = " 
+output global_const_int_1
+output "\n" 
+output "const_int_2 = " 
+output global_const_int_2
+output "\n" 
+output "const_int_3 = " 
+output global_const_int_3
+output "\n" 
+output "const_int_4 = " 
+output global_const_int_4
+output "\n" 
+output "const_char_1 = " 
+output global_const_char_1
+output "\n" 
+output "const_char_2 = " 
+output global_const_char_2
+output "\n" 
+output "const_char_3 = " 
+output global_const_char_3
+output "\n" 
+output "const_char_4 = " 
+output global_const_char_4
+output "\n" 
+global_num5 = global_int$0
+if global_num5 >= global_int$100 branch to "label$11"
+label$12:
+printGlobal_#4 = global_global_array_1[global_num5]
+output printGlobal_#4
+output "\n" 
+printGlobal_#5 = global_global_array_2[global_num5]
+output printGlobal_#5
+output "\n" 
+printGlobal_#6 = global_global_array_3[global_num5]
+output printGlobal_#6
+output "\n" 
+printGlobal_#7 = global_global_array_4[global_num5]
+output printGlobal_#7
+output "\n" 
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$12"
+label$11:
+return
+
+func globalPara()
+output "a = " 
+output globalPara_a
+output "\n" 
+output "b = " 
+output globalPara_b
+output "\n" 
+output "c = " 
+output globalPara_c
+output "\n" 
+output "d = " 
+output globalPara_d
+output "\n" 
+output "e = " 
+output globalPara_e
+output "\n" 
+output "f = " 
+output globalPara_f
+output "\n" 
+globalPara_a = global_int$1
+globalPara_b = global_char$99
+globalPara_c = global_int$1
+globalPara_d = global_char$99
+globalPara_e = global_int$1
+globalPara_f = global_char$99
+output "a = " 
+output globalPara_a
+output "\n" 
+output "b = " 
+output globalPara_b
+output "\n" 
+output "c = " 
+output globalPara_c
+output "\n" 
+output "d = " 
+output globalPara_d
+output "\n" 
+output "e = " 
+output globalPara_e
+output "\n" 
+output "f = " 
+output globalPara_f
+output "\n" 
+return global_num5
+
+func testglobal()
+push global_const_int_1
+push global_const_char_1
+push global_const_int_4
+push global_const_char_4
+call assignGlobal
+call printGlobal
+testglobal_#8 = global_global_array_1[global_int$30]
+testglobal_#9 = global_global_array_3[global_int$50]
+push global_const_int_1
+push global_const_char_1
+push global_global_int_1
+push global_global_char_1
+push testglobal_#8
+push testglobal_#9
+testglobal_#10 = call globalPara
+call printGlobal
+return
+
+<!--anchor-->
+
+func main()
+push global_const_int_1
+push global_const_char_1
+push global_const_int_4
+push global_const_char_4
+call assignGlobal
+call printGlobal
+testglobal_#8 = global_global_array_1[global_int$30]
+testglobal_#9 = global_global_array_3[global_int$50]
+push global_const_int_1
+push global_const_char_1
+push global_global_int_1
+push global_global_char_1
+push testglobal_#8
+push testglobal_#9
+testglobal_#10 = call globalPara
+call printGlobal
+return
+
+func assignGlobal()
+global_global_int_1 = assignGlobal_a
+global_global_char_1 = assignGlobal_b
+global_global_int_2 = assignGlobal_c
+global_global_char_2 = assignGlobal_d
+global_num5 = global_int$0
+if global_int$0 >= global_int$100 branch to "label$1"
+label$2:
+global_global_array_1[global_num5] = global_num5
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$2"
+label$1:
+global_num5 = global_int$100
+if global_int$0 > global_int$100 branch to "label$3"
+label$4:
+assignGlobal_#1 = global_int$10000 - global_num5
+global_global_array_2[global_num5] = assignGlobal_#1
+global_num5 = global_num5 - global_int$1
+if global_int$0 <= global_num5 branch to "label$4"
+label$3:
+global_num5 = global_int$100
+if global_int$100 >= global_int$200 branch to "label$5"
+label$6:
+assignGlobal_#3 = global_num5 - global_int$100
+global_global_array_3[assignGlobal_#3] = global_const_char_1
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$200 branch to "label$6"
+label$5:
+global_num5 = global_int$0
+if global_int$0 >= global_int$100 branch to "label$7"
+label$8:
+global_global_array_4[global_num5] = global_const_char_2
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$8"
+label$7:
+return
+
+func printGlobal()
+output "global_int_1 = " 
+output global_global_int_1
+output "\n" 
+output "global_int_2 = " 
+output global_global_int_2
+output "\n" 
+output "global_char_1 = " 
+output global_global_char_1
+output "\n" 
+output "global_char_2 = " 
+output global_global_char_2
+output "\n" 
+output "num5 = " 
+output global_num5
+output "\n" 
+global_num5 = global_int$9
+global_num5 = global_int$9
+if global_int$9 < global_int$0 branch to "label$9"
+label$10:
+output global_num5
+output "\n" 
+global_num5 = global_num5 - global_int$1
+if global_num5 >= global_int$0 branch to "label$10"
+label$9:
+output "const_int_1 = " 
+output global_const_int_1
+output "\n" 
+output "const_int_2 = " 
+output global_const_int_2
+output "\n" 
+output "const_int_3 = " 
+output global_const_int_3
+output "\n" 
+output "const_int_4 = " 
+output global_const_int_4
+output "\n" 
+output "const_char_1 = " 
+output global_const_char_1
+output "\n" 
+output "const_char_2 = " 
+output global_const_char_2
+output "\n" 
+output "const_char_3 = " 
+output global_const_char_3
+output "\n" 
+output "const_char_4 = " 
+output global_const_char_4
+output "\n" 
+global_num5 = global_int$0
+if global_int$0 >= global_int$100 branch to "label$11"
+label$12:
+printGlobal_#4 = global_global_array_1[global_num5]
+output printGlobal_#4
+output "\n" 
+printGlobal_#5 = global_global_array_2[global_num5]
+output printGlobal_#5
+output "\n" 
+printGlobal_#6 = global_global_array_3[global_num5]
+output printGlobal_#6
+output "\n" 
+printGlobal_#7 = global_global_array_4[global_num5]
+output printGlobal_#7
+output "\n" 
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$12"
+label$11:
+return
+
+func globalPara()
+output "a = " 
+output globalPara_a
+output "\n" 
+output "b = " 
+output globalPara_b
+output "\n" 
+output "c = " 
+output globalPara_c
+output "\n" 
+output "d = " 
+output globalPara_d
+output "\n" 
+output "e = " 
+output globalPara_e
+output "\n" 
+output "f = " 
+output globalPara_f
+output "\n" 
+output "a = " 
+output global_int$1
+output "\n" 
+output "b = " 
+output global_char$99
+output "\n" 
+output "c = " 
+output global_int$1
+output "\n" 
+output "d = " 
+output global_char$99
+output "\n" 
+output "e = " 
+output global_int$1
+output "\n" 
+output "f = " 
+output global_char$99
+output "\n" 
+return global_num5
+
+<!--anchor-->
+
+func main()
+global_global_int_1 = global_const_int_1
+global_global_char_1 = global_const_char_1
+global_global_int_2 = global_const_int_4
+global_global_char_2 = global_const_char_4
+global_num5 = global_int$0
+label$36:
+global_global_array_1[global_num5] = global_num5
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$36"
+global_num5 = global_int$100
+label$38:
+assignGlobal_#1 = global_int$10000 - global_num5
+global_global_array_2[global_num5] = assignGlobal_#1
+global_num5 = global_num5 - global_int$1
+if global_int$0 <= global_num5 branch to "label$38"
+global_num5 = global_int$100
+label$40:
+assignGlobal_#3 = global_num5 - global_int$100
+global_global_array_3[assignGlobal_#3] = global_const_char_1
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$200 branch to "label$40"
+global_num5 = global_int$0
+label$42:
+global_global_array_4[global_num5] = global_const_char_2
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$42"
+output "global_int_1 = " 
+output global_global_int_1
+output "\n" 
+output "global_int_2 = " 
+output global_global_int_2
+output "\n" 
+output "global_char_1 = " 
+output global_global_char_1
+output "\n" 
+output "global_char_2 = " 
+output global_global_char_2
+output "\n" 
+output "num5 = " 
+output global_num5
+output "\n" 
+global_num5 = global_int$9
+global_num5 = global_int$9
+label$45:
+output global_num5
+output "\n" 
+global_num5 = global_num5 - global_int$1
+if global_num5 >= global_int$0 branch to "label$45"
+output "const_int_1 = " 
+output global_const_int_1
+output "\n" 
+output "const_int_2 = " 
+output global_const_int_2
+output "\n" 
+output "const_int_3 = " 
+output global_const_int_3
+output "\n" 
+output "const_int_4 = " 
+output global_const_int_4
+output "\n" 
+output "const_char_1 = " 
+output global_const_char_1
+output "\n" 
+output "const_char_2 = " 
+output global_const_char_2
+output "\n" 
+output "const_char_3 = " 
+output global_const_char_3
+output "\n" 
+output "const_char_4 = " 
+output global_const_char_4
+output "\n" 
+global_num5 = global_int$0
+label$47:
+printGlobal_#4 = global_global_array_1[global_num5]
+output printGlobal_#4
+output "\n" 
+printGlobal_#5 = global_global_array_2[global_num5]
+output printGlobal_#5
+output "\n" 
+printGlobal_#6 = global_global_array_3[global_num5]
+output printGlobal_#6
+output "\n" 
+printGlobal_#7 = global_global_array_4[global_num5]
+output printGlobal_#7
+output "\n" 
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$47"
+testglobal_#8 = global_global_array_1[global_int$30]
+testglobal_#9 = global_global_array_3[global_int$50]
+output "a = " 
+output global_const_int_1
+output "\n" 
+output "b = " 
+output global_const_char_1
+output "\n" 
+output "c = " 
+output global_global_int_1
+output "\n" 
+output "d = " 
+output global_global_char_1
+output "\n" 
+output "e = " 
+output testglobal_#8
+output "\n" 
+output "f = " 
+output testglobal_#9
+output "\n" 
+output "a = " 
+output global_int$1
+output "\n" 
+output "b = " 
+output global_char$99
+output "\n" 
+output "c = " 
+output global_int$1
+output "\n" 
+output "d = " 
+output global_char$99
+output "\n" 
+output "e = " 
+output global_int$1
+output "\n" 
+output "f = " 
+output global_char$99
+output "\n" 
+output "global_int_1 = " 
+output global_global_int_1
+output "\n" 
+output "global_int_2 = " 
+output global_global_int_2
+output "\n" 
+output "global_char_1 = " 
+output global_global_char_1
+output "\n" 
+output "global_char_2 = " 
+output global_global_char_2
+output "\n" 
+output "num5 = " 
+output global_num5
+output "\n" 
+global_num5 = global_int$9
+global_num5 = global_int$9
+label$51:
+output global_num5
+output "\n" 
+global_num5 = global_num5 - global_int$1
+if global_num5 >= global_int$0 branch to "label$51"
+output "const_int_1 = " 
+output global_const_int_1
+output "\n" 
+output "const_int_2 = " 
+output global_const_int_2
+output "\n" 
+output "const_int_3 = " 
+output global_const_int_3
+output "\n" 
+output "const_int_4 = " 
+output global_const_int_4
+output "\n" 
+output "const_char_1 = " 
+output global_const_char_1
+output "\n" 
+output "const_char_2 = " 
+output global_const_char_2
+output "\n" 
+output "const_char_3 = " 
+output global_const_char_3
+output "\n" 
+output "const_char_4 = " 
+output global_const_char_4
+output "\n" 
+global_num5 = global_int$0
+label$53:
+printGlobal_#4 = global_global_array_1[global_num5]
+output printGlobal_#4
+output "\n" 
+printGlobal_#5 = global_global_array_2[global_num5]
+output printGlobal_#5
+output "\n" 
+printGlobal_#6 = global_global_array_3[global_num5]
+output printGlobal_#6
+output "\n" 
+printGlobal_#7 = global_global_array_4[global_num5]
+output printGlobal_#7
+output "\n" 
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$53"
+return
+
+<!--anchor-->
+
+func main()
+global_global_int_1 = global_const_int_1
+global_global_char_1 = global_const_char_1
+global_global_int_2 = global_const_int_4
+global_global_char_2 = global_const_char_4
+global_num5 = global_int$0
+label$36:
+global_global_array_1[global_num5] = global_num5
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$36"
+global_num5 = global_int$100
+label$38:
+assignGlobal_#1 = global_int$10000 - global_num5
+global_global_array_2[global_num5] = assignGlobal_#1
+global_num5 = global_num5 - global_int$1
+if global_int$0 <= global_num5 branch to "label$38"
+global_num5 = global_int$100
+label$40:
+assignGlobal_#3 = global_num5 - global_int$100
+global_global_array_3[assignGlobal_#3] = global_const_char_1
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$200 branch to "label$40"
+global_num5 = global_int$0
+label$42:
+global_global_array_4[global_num5] = global_const_char_2
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$42"
+output "global_int_1 = " 
+output global_global_int_1
+output "\n" 
+output "global_int_2 = " 
+output global_global_int_2
+output "\n" 
+output "global_char_1 = " 
+output global_global_char_1
+output "\n" 
+output "global_char_2 = " 
+output global_global_char_2
+output "\n" 
+output "num5 = " 
+output global_num5
+output "\n" 
+global_num5 = global_int$9
+global_num5 = global_int$9
+label$45:
+output global_num5
+output "\n" 
+global_num5 = global_num5 - global_int$1
+if global_num5 >= global_int$0 branch to "label$45"
+output "const_int_1 = " 
+output global_const_int_1
+output "\n" 
+output "const_int_2 = " 
+output global_const_int_2
+output "\n" 
+output "const_int_3 = " 
+output global_const_int_3
+output "\n" 
+output "const_int_4 = " 
+output global_const_int_4
+output "\n" 
+output "const_char_1 = " 
+output global_const_char_1
+output "\n" 
+output "const_char_2 = " 
+output global_const_char_2
+output "\n" 
+output "const_char_3 = " 
+output global_const_char_3
+output "\n" 
+output "const_char_4 = " 
+output global_const_char_4
+output "\n" 
+global_num5 = global_int$0
+label$47:
+printGlobal_#4 = global_global_array_1[global_num5]
+output printGlobal_#4
+output "\n" 
+printGlobal_#5 = global_global_array_2[global_num5]
+output printGlobal_#5
+output "\n" 
+printGlobal_#6 = global_global_array_3[global_num5]
+output printGlobal_#6
+output "\n" 
+printGlobal_#7 = global_global_array_4[global_num5]
+output printGlobal_#7
+output "\n" 
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$47"
+testglobal_#8 = global_global_array_1[global_int$30]
+testglobal_#9 = global_global_array_3[global_int$50]
+output "a = " 
+output global_const_int_1
+output "\n" 
+output "b = " 
+output global_const_char_1
+output "\n" 
+output "c = " 
+output global_global_int_1
+output "\n" 
+output "d = " 
+output global_global_char_1
+output "\n" 
+output "e = " 
+output testglobal_#8
+output "\n" 
+output "f = " 
+output testglobal_#9
+output "\n" 
+output "a = " 
+output global_int$1
+output "\n" 
+output "b = " 
+output global_char$99
+output "\n" 
+output "c = " 
+output global_int$1
+output "\n" 
+output "d = " 
+output global_char$99
+output "\n" 
+output "e = " 
+output global_int$1
+output "\n" 
+output "f = " 
+output global_char$99
+output "\n" 
+output "global_int_1 = " 
+output global_global_int_1
+output "\n" 
+output "global_int_2 = " 
+output global_global_int_2
+output "\n" 
+output "global_char_1 = " 
+output global_global_char_1
+output "\n" 
+output "global_char_2 = " 
+output global_global_char_2
+output "\n" 
+output "num5 = " 
+output global_num5
+output "\n" 
+global_num5 = global_int$9
+global_num5 = global_int$9
+label$51:
+output global_num5
+output "\n" 
+global_num5 = global_num5 - global_int$1
+if global_num5 >= global_int$0 branch to "label$51"
+output "const_int_1 = " 
+output global_const_int_1
+output "\n" 
+output "const_int_2 = " 
+output global_const_int_2
+output "\n" 
+output "const_int_3 = " 
+output global_const_int_3
+output "\n" 
+output "const_int_4 = " 
+output global_const_int_4
+output "\n" 
+output "const_char_1 = " 
+output global_const_char_1
+output "\n" 
+output "const_char_2 = " 
+output global_const_char_2
+output "\n" 
+output "const_char_3 = " 
+output global_const_char_3
+output "\n" 
+output "const_char_4 = " 
+output global_const_char_4
+output "\n" 
+global_num5 = global_int$0
+label$53:
+printGlobal_#4 = global_global_array_1[global_num5]
+output printGlobal_#4
+output "\n" 
+printGlobal_#5 = global_global_array_2[global_num5]
+output printGlobal_#5
+output "\n" 
+printGlobal_#6 = global_global_array_3[global_num5]
+output printGlobal_#6
+output "\n" 
+printGlobal_#7 = global_global_array_4[global_num5]
+output printGlobal_#7
+output "\n" 
+global_num5 = global_num5 + global_int$1
+if global_num5 < global_int$100 branch to "label$53"
+return
+

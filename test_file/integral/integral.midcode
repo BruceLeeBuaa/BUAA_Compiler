@@ -1,0 +1,224 @@
+
+func main()
+if main_a <= main_a branch to "label$3"
+return
+main_a = global_int$1
+main_a = global_int$2
+main_c = global_char$100
+label$3:
+call printDefault
+main_a = global_int$0
+main_#4 = global_int$0 - global_int$5
+if main_a <= main_#4 branch to "label$4"
+label$5:
+main_#5 = global_int$0 - main_a
+global_queue[main_#5] = global_int$1
+main_a = main_a - global_int$1
+main_#4 = global_int$0 - global_int$5
+if main_a > main_#4 branch to "label$5"
+label$4:
+main_a = global_int$0
+if main_a >= global_int$5 branch to "label$6"
+label$7:
+global_queue[main_a] = global_int$1
+main_a = main_a + global_int$1
+if main_a < global_int$5 branch to "label$7"
+label$6:
+input main_c
+return
+
+func subPi()
+subPi_#1 = subPi_x1 + subPi_x2
+subPi_#1 = subPi_#1 - global_PI
+return subPi_#1
+
+func shiftPlus()
+return global_PLUS
+
+func printShift()
+if printShift_key < global_int$1 branch to "label$1"
+output "def" 
+push printShift_s1
+push printShift_s2
+printShift_#2 = call shiftPlus
+output printShift_#2
+output "\n" 
+goto label$2
+label$1:
+output "ghi" 
+push printShift_s2
+push printShift_s1
+printShift_#3 = call shiftPlus
+output printShift_#3
+output "\n" 
+label$2:
+return
+
+func printDefault()
+push global_int$1
+push global_int$2
+push global_int$0
+call printShift
+printDefault_c = global_char$100
+output "abc" 
+output printDefault_c
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+if main_a <= main_a branch to "label$3"
+return
+label$3:
+push global_int$1
+push global_int$2
+push global_int$0
+call printShift
+output "abc" 
+output global_char$100
+output "\n" 
+main_a = global_int$0
+if global_int$0 <= global_int$-5 branch to "label$4"
+label$5:
+main_#5 = global_int$0 - main_a
+global_queue[main_#5] = global_int$1
+main_a = main_a - global_int$1
+if main_a > global_int$-5 branch to "label$5"
+label$4:
+main_a = global_int$0
+if global_int$0 >= global_int$5 branch to "label$6"
+label$7:
+global_queue[main_a] = global_int$1
+main_a = main_a + global_int$1
+if main_a < global_int$5 branch to "label$7"
+label$6:
+input main_c
+return
+
+func printShift()
+if printShift_key < global_int$1 branch to "label$1"
+output "def" 
+output global_PLUS
+output "\n" 
+goto label$2
+label$1:
+output "ghi" 
+output global_PLUS
+output "\n" 
+label$2:
+return
+
+<!--anchor-->
+
+func main()
+if main_a <= main_a branch to "label$3"
+return
+label$3:
+if global_int$1 < global_int$1 branch to "label$17"
+output "def" 
+output global_PLUS
+output "\n" 
+goto label$18
+label$17:
+output "ghi" 
+output global_PLUS
+output "\n" 
+label$18:
+output "abc" 
+output global_char$100
+output "\n" 
+main_a = global_int$0
+label$5:
+main_#5 = global_int$0 - main_a
+global_queue[main_#5] = global_int$1
+main_a = main_a - global_int$1
+if main_a > global_int$-5 branch to "label$5"
+main_a = global_int$0
+label$7:
+global_queue[main_a] = global_int$1
+main_a = main_a + global_int$1
+if main_a < global_int$5 branch to "label$7"
+input main_c
+return
+
+<!--anchor-->
+
+func main()
+if main_a <= main_a branch to "label$3"
+return
+label$3:
+output "def" 
+output global_PLUS
+output "\n" 
+goto label$18
+label$18:
+output "abc" 
+output global_char$100
+output "\n" 
+main_a = global_int$0
+label$5:
+main_#5 = global_int$0 - main_a
+global_queue[main_#5] = global_int$1
+main_a = main_a - global_int$1
+if main_a > global_int$-5 branch to "label$5"
+main_a = global_int$0
+label$7:
+global_queue[main_a] = global_int$1
+main_a = main_a + global_int$1
+if main_a < global_int$5 branch to "label$7"
+input main_c
+return
+
+<!--anchor-->
+
+func main()
+if main_a <= main_a branch to "label$3"
+return
+label$3:
+output "def" 
+output global_PLUS
+output "\n" 
+output "abc" 
+output global_char$100
+output "\n" 
+main_a = global_int$0
+label$5:
+main_#5 = global_int$0 - main_a
+global_queue[main_#5] = global_int$1
+main_a = main_a - global_int$1
+if main_a > global_int$-5 branch to "label$5"
+main_a = global_int$0
+label$7:
+global_queue[main_a] = global_int$1
+main_a = main_a + global_int$1
+if main_a < global_int$5 branch to "label$7"
+input main_c
+return
+
+<!--anchor-->
+
+func main()
+if main_a <= main_a branch to "label$3"
+return
+label$3:
+output "def" 
+output global_PLUS
+output "\n" 
+output "abc" 
+output global_char$100
+output "\n" 
+main_a = global_int$0
+label$5:
+main_#5 = global_int$0 - main_a
+global_queue[main_#5] = global_int$1
+main_a = main_a - global_int$1
+if main_a > global_int$-5 branch to "label$5"
+main_a = global_int$0
+label$7:
+global_queue[main_a] = global_int$1
+main_a = main_a + global_int$1
+if main_a < global_int$5 branch to "label$7"
+input main_c
+return
+

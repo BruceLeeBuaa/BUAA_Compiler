@@ -1,0 +1,914 @@
+.data
+str$4: .asciiz ""
+str$2: .asciiz "Too much input "
+str$1: .asciiz "\n"
+str$8: .asciiz "input a positive integer please:"
+str$5: .asciiz "input an integer please:"
+str$6: .asciiz "is palindrome"
+str$9: .asciiz "is prime"
+str$3: .asciiz "mean value is "
+str$7: .asciiz "not palindrome"
+str$10: .asciiz "not prime"
+str$0: .asciiz "please input numbers to calc mean"
+str$11: .asciiz "unexpected error happened"
+
+.text
+jal main
+li $v0, 10
+syscall
+
+main:
+# $s3 : test3_#39
+# $s2 : mean_n
+# $s0 : mean_result
+# $s1 : mean_i
+# $s0 : mean_tmp
+# $s0 : mean_#1
+# $s0 : mean_#2
+# $s0 : testmean_n
+# $s0 : testmean_#3
+# $s3 : pick2_num
+# $s1 : pick2_i
+# $s0 : pick2_j
+# $s0 : pick2_#25
+# $s0 : pick2_#27
+# $s0 : pick2_#28
+# $s0 : pick2_#29
+# $s2 : testpick_base
+# $s1 : testpick_exp
+# $s0 : testpick_#31
+# $s0 : testpick_#30
+# $s2 : test1_i
+# $s1 : test1_j
+# $s0 : test1_k
+# $s4 : mod_#33
+# $s4 : mod_#34
+# $s3 : test2_n
+# $s2 : test2_reversedInteger
+# $s1 : test2_originalInteger
+# $s0 : test2_#36
+# $s0 : test2_#37
+# $s2 : test3_n
+# $s0 : test2_#38
+# $s1 : test3_i
+# $s0 : test3_flag
+sub $sp, $sp, 40256
+sw $s0, 40172($sp)
+sw $s1, 40176($sp)
+sw $s2, 40180($sp)
+sw $s3, 40184($sp)
+sw $s4, 40188($sp)
+
+# label$47::
+label$47:
+
+# input testmean_n:
+li $v0, 5
+syscall
+move $s0, $v0
+
+# if testmean_n != global_int$0 branch to "label$48":
+bnez $s0, label$48
+
+# goto label$45:
+j label$45
+
+# label$48::
+label$48:
+
+# output "please input numbers to calc mean" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# mean_n = testmean_n:
+move $s2, $s0
+
+# if testmean_n <= mean_MAX_N branch to "label$97":
+ble $s0, 10000, label$97
+
+# output "Too much input " :
+move $t8, $a0
+la $a0, str$2
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output mean_n:
+move $t8, $a0
+move $a0, $s2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# testmean_#3 = mean_ERR:
+li $s0, -1
+
+# goto label$96:
+j label$96
+
+# label$97::
+label$97:
+
+# mean_i = global_int$0:
+move $s1, $zero
+
+# if global_int$0 >= mean_n branch to "label$98":
+blez $s2, label$98
+
+# label$99::
+label$99:
+
+# input mean_tmp:
+li $v0, 5
+syscall
+move $s0, $v0
+
+# mean_num[mean_i] = mean_tmp:
+sll $t8, $s1, 2
+add $t8, $t8, $sp
+sw $s0, 24($t8)
+
+# mean_i = mean_i + global_int$1:
+add $s1, $s1, 1
+
+# if mean_i < mean_n branch to "label$99":
+blt $s1, $s2, label$99
+
+# label$98::
+label$98:
+
+# mean_result = global_int$0:
+move $s0, $zero
+
+# mean_i = global_int$0:
+move $s1, $zero
+
+# if global_int$0 >= mean_n branch to "label$100":
+blez $s2, label$100
+
+# label$101::
+label$101:
+
+# mean_#1 = mean_result + mean_i:
+add $s0, $s0, $s1
+
+# mean_result = mean_#1:
+move $s0, $s0
+
+# mean_i = mean_i + global_int$1:
+add $s1, $s1, 1
+
+# if mean_i < mean_n branch to "label$101":
+blt $s1, $s2, label$101
+
+# label$100::
+label$100:
+
+# mean_#2 = mean_result / mean_n:
+div $s0, $s2
+mflo $s0
+
+# testmean_#3 = mean_#2:
+move $s0, $s0
+
+# label$96::
+label$96:
+
+# output "mean value is " :
+move $t8, $a0
+la $a0, str$3
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output testmean_#3:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$47:
+j label$47
+
+# label$45::
+label$45:
+
+# label$51::
+label$51:
+
+# input testpick_base:
+li $v0, 5
+syscall
+move $s2, $v0
+
+# input testpick_exp:
+li $v0, 5
+syscall
+move $s1, $v0
+
+# if testpick_base != global_int$0 branch to "label$52":
+bnez $s2, label$52
+
+# if testpick_exp != global_int$0 branch to "label$53":
+bnez $s1, label$53
+
+# goto label$49:
+j label$49
+
+# label$53::
+label$53:
+
+# label$52::
+label$52:
+
+# if testpick_exp <= global_int$0 branch to "label$54":
+blez $s1, label$54
+
+# label$55::
+label$55:
+
+# testpick_#30 = testpick_base * global_int$10:
+mul $s0, $s2, 10
+
+# testpick_base = testpick_#30:
+move $s2, $s0
+
+# testpick_exp = testpick_exp - global_int$1:
+sub $s1, $s1, 1
+
+# if testpick_exp > global_int$0 branch to "label$55":
+bgtz $s1, label$55
+
+# label$54::
+label$54:
+
+# <!-- call block begin -->:
+sw $ra, 40236($sp)
+move $a0, $s2
+move $a1, $zero
+jal pick
+lw $ra, 40236($sp)
+move $s0, $v0
+# <!-- call block end -->:
+
+# output testpick_#31:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# pick2_num = testpick_base:
+move $s3, $s2
+
+# pick2_i = global_int$1:
+li $s1, 1
+
+# pick2_j = global_int$2:
+li $s0, 2
+
+# if global_int$2 > testpick_base branch to "label$103":
+blt $s2, 2, label$103
+
+# label$104::
+label$104:
+
+# pick2_i = pick2_j:
+move $s1, $s0
+
+# pick2_#25 = pick2_j * global_int$2:
+mul $s0, $s0, 2
+
+# pick2_j = pick2_#25 + global_int$0:
+add $s0, $s0, $zero
+
+# if pick2_j <= pick2_num branch to "label$104":
+ble $s0, $s3, label$104
+
+# label$103::
+label$103:
+
+# pick2_#27 = pick2_num - pick2_i:
+sub $s0, $s3, $s1
+
+# pick2_#28 = pick2_#27 * global_int$2:
+mul $s0, $s0, 2
+
+# pick2_#29 = pick2_#28 + global_int$1:
+add $s0, $s0, 1
+
+# output pick2_#29:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$51:
+j label$51
+
+# label$49::
+label$49:
+
+# output "" :
+move $t8, $a0
+la $a0, str$4
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# test1_i = global_int$1:
+li $s2, 1
+
+# label$58::
+label$58:
+
+# test1_j = global_int$1:
+li $s1, 1
+
+# label$60::
+label$60:
+
+# test1_k = global_int$1:
+li $s0, 1
+
+# label$62::
+label$62:
+
+# if test1_i == test1_k branch to "label$63":
+beq $s2, $s0, label$63
+
+# if test1_i == test1_j branch to "label$64":
+beq $s2, $s1, label$64
+
+# if test1_j == test1_k branch to "label$65":
+beq $s1, $s0, label$65
+
+# output test1_i:
+move $t8, $a0
+move $a0, $s2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output test1_j:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output test1_k:
+move $t8, $a0
+move $a0, $s0
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$65::
+label$65:
+
+# label$64::
+label$64:
+
+# label$63::
+label$63:
+
+# test1_k = test1_k + global_int$1:
+add $s0, $s0, 1
+
+# if test1_k < global_int$5 branch to "label$62":
+blt $s0, 5, label$62
+
+# test1_j = test1_j + global_int$1:
+add $s1, $s1, 1
+
+# if test1_j < global_int$5 branch to "label$60":
+blt $s1, 5, label$60
+
+# test1_i = test1_i + global_int$1:
+add $s2, $s2, 1
+
+# if test1_i < global_int$5 branch to "label$58":
+blt $s2, 5, label$58
+
+# label$68::
+label$68:
+
+# test2_reversedInteger = global_int$0:
+move $s2, $zero
+
+# output "input an integer please:" :
+move $t8, $a0
+la $a0, str$5
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# input test2_n:
+li $v0, 5
+syscall
+move $s3, $v0
+
+# if test2_n != global_int$0 branch to "label$69":
+bnez $s3, label$69
+
+# goto label$66:
+j label$66
+
+# label$69::
+label$69:
+
+# test2_originalInteger = test2_n:
+move $s1, $s3
+
+# if test2_n == global_int$0 branch to "label$70":
+beqz $s3, label$70
+
+# label$71::
+label$71:
+
+# mod_#34 = test2_n / global_int$10:
+li $t8, 10
+div $s3, $t8
+mflo $s4
+
+# mod_#34 = mod_#34 * global_int$10:
+mul $s4, $s4, 10
+
+# mod_#33 = test2_n - mod_#34:
+sub $s4, $s3, $s4
+
+# test2_#36 = test2_reversedInteger * global_int$10:
+mul $s0, $s2, 10
+
+# test2_#37 = test2_#36 + mod_#33:
+add $s0, $s0, $s4
+
+# test2_reversedInteger = test2_#37:
+move $s2, $s0
+
+# test2_#38 = test2_n / global_int$10:
+li $t8, 10
+div $s3, $t8
+mflo $s0
+
+# test2_n = test2_#38:
+move $s3, $s0
+
+# if test2_#38 != global_int$0 branch to "label$71":
+bnez $s0, label$71
+
+# label$70::
+label$70:
+
+# if test2_originalInteger != test2_reversedInteger branch to "label$72":
+bne $s1, $s2, label$72
+
+# output "is palindrome" :
+move $t8, $a0
+la $a0, str$6
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output test2_originalInteger:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$73:
+j label$73
+
+# label$72::
+label$72:
+
+# output "not palindrome" :
+move $t8, $a0
+la $a0, str$7
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output test2_originalInteger:
+move $t8, $a0
+move $a0, $s1
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$73::
+label$73:
+
+# goto label$68:
+j label$68
+
+# label$66::
+label$66:
+
+# label$76::
+label$76:
+
+# test3_flag = global_int$0:
+move $s0, $zero
+
+# output "input a positive integer please:" :
+move $t8, $a0
+la $a0, str$8
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# input test3_n:
+li $v0, 5
+syscall
+move $s2, $v0
+
+# if test3_n != global_int$0 branch to "label$77":
+bnez $s2, label$77
+
+# goto label$74:
+j label$74
+
+# label$77::
+label$77:
+
+# test3_i = global_int$2:
+li $s1, 2
+
+# test3_#39 = test3_n / global_int$2:
+li $t8, 2
+div $s2, $t8
+mflo $s3
+
+# if global_int$2 > test3_#39 branch to "label$78":
+blt $s3, 2, label$78
+
+# label$79::
+label$79:
+
+# mod_#34 = test3_n / test3_i:
+div $s2, $s1
+mflo $s4
+
+# mod_#34 = mod_#34 * test3_i:
+mul $s4, $s4, $s1
+
+# mod_#33 = test3_n - mod_#34:
+sub $s4, $s2, $s4
+
+# if mod_#33 != global_int$0 branch to "label$80":
+bnez $s4, label$80
+
+# test3_flag = global_int$1:
+li $s0, 1
+
+# test3_i = test3_n:
+move $s1, $s2
+
+# label$80::
+label$80:
+
+# test3_i = test3_i + global_int$1:
+add $s1, $s1, 1
+
+# test3_#39 = test3_n / global_int$2:
+li $t8, 2
+div $s2, $t8
+mflo $s3
+
+# if test3_i <= test3_#39 branch to "label$79":
+ble $s1, $s3, label$79
+
+# label$78::
+label$78:
+
+# if test3_flag != global_int$0 branch to "label$81":
+bnez $s0, label$81
+
+# output "is prime" :
+move $t8, $a0
+la $a0, str$9
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output test3_n:
+move $t8, $a0
+move $a0, $s2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$82:
+j label$82
+
+# label$81::
+label$81:
+
+# output "not prime" :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output test3_n:
+move $t8, $a0
+move $a0, $s2
+li $v0, 1
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$82::
+label$82:
+
+# goto label$76:
+j label$76
+
+# label$74::
+label$74:
+
+# return:
+lw $s0, 40172($sp)
+lw $s1, 40176($sp)
+lw $s2, 40180($sp)
+lw $s3, 40184($sp)
+lw $s4, 40188($sp)
+add $sp, $sp, 40256
+jr $ra
+
+pick:
+# $a0 : pick_num
+# $a1 : pick_odd
+# $s0 : isOdd_#4
+# $s0 : isOdd_#5
+# $s0 : isOdd_#6
+# $s0 : isEven_#7
+# $s0 : isEven_#8
+# $s0 : isEven_#10
+# $s0 : isEven_#11
+# $s1 : pick_#13
+# $s0 : pick_#14
+# $s0 : pick_#15
+# $s0 : pick_#16
+# $s0 : pick_#18
+# $s1 : pick_#19
+# $s0 : pick_#20
+# $s0 : pick_#21
+# $s0 : pick_#22
+# $s0 : pick_#23
+sub $sp, $sp, 180
+sw $s0, 96($sp)
+sw $s1, 100($sp)
+
+# if pick_num != global_int$1 branch to "label$9":
+bne $a0, 1, label$9
+
+# return global_int$1:
+li $v0, 1
+lw $s0, 96($sp)
+lw $s1, 100($sp)
+add $sp, $sp, 180
+jr $ra
+
+# label$9::
+label$9:
+
+# if pick_num > global_int$1 branch to "label$10":
+bgt $a0, 1, label$10
+
+# output "unexpected error happened" :
+move $t8, $a0
+la $a0, str$11
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# return global_int$-1:
+li $v0, -1
+lw $s0, 96($sp)
+lw $s1, 100($sp)
+add $sp, $sp, 180
+jr $ra
+
+# label$10::
+label$10:
+
+# if pick_odd == global_int$0 branch to "label$11":
+beqz $a1, label$11
+
+# pick_#13 = pick_num / global_int$2:
+li $t8, 2
+div $a0, $t8
+mflo $s1
+
+# isEven_#7 = pick_num / isEven_TWO:
+li $t8, 2
+div $a0, $t8
+mflo $s0
+
+# isEven_#11 = isEven_#7 * global_int$2:
+mul $s0, $s0, 2
+
+# isEven_#10 = pick_num - isEven_#11:
+sub $s0, $a0, $s0
+
+# isEven_#8 = global_int$1 - isEven_#10:
+sub $s0, $s0, 1
+neg $s0, $s0
+
+# pick_#14 = isEven_#8:
+move $s0, $s0
+
+# <!-- call block begin -->:
+sw $a0, 164($sp)
+sw $a1, 168($sp)
+sw $ra, 160($sp)
+move $a0, $s1
+move $a1, $s0
+jal pick
+lw $ra, 160($sp)
+lw $a0, 164($sp)
+lw $a1, 168($sp)
+move $s0, $v0
+# <!-- call block end -->:
+
+# pick_#16 = pick_#15 * global_int$2:
+mul $s0, $s0, 2
+
+# return pick_#16:
+move $v0, $s0
+lw $s0, 96($sp)
+lw $s1, 100($sp)
+add $sp, $sp, 180
+jr $ra
+
+# label$11::
+label$11:
+
+# pick_#18 = pick_num + global_int$1:
+add $s0, $a0, 1
+
+# pick_#19 = pick_#18 / global_int$2:
+li $t8, 2
+div $s0, $t8
+mflo $s1
+
+# isOdd_#4 = pick_num / isOdd_TWO:
+li $t8, 2
+div $a0, $t8
+mflo $s0
+
+# isOdd_#6 = isOdd_#4 * global_int$2:
+mul $s0, $s0, 2
+
+# isOdd_#5 = pick_num - isOdd_#6:
+sub $s0, $a0, $s0
+
+# pick_#20 = isOdd_#5:
+move $s0, $s0
+
+# <!-- call block begin -->:
+sw $a0, 164($sp)
+sw $a1, 168($sp)
+sw $ra, 160($sp)
+move $a0, $s1
+move $a1, $s0
+jal pick
+lw $ra, 160($sp)
+lw $a0, 164($sp)
+lw $a1, 168($sp)
+move $s0, $v0
+# <!-- call block end -->:
+
+# pick_#22 = pick_#21 * global_int$2:
+mul $s0, $s0, 2
+
+# pick_#23 = pick_#22 - global_int$1:
+sub $s0, $s0, 1
+
+# return pick_#23:
+move $v0, $s0
+lw $s0, 96($sp)
+lw $s1, 100($sp)
+add $sp, $sp, 180
+jr $ra

@@ -1,0 +1,192 @@
+
+func main()
+main_a = global_int$3
+main_b = global_int$34
+main_c = global_int$3254
+main_#10 = global_int$0 - global_int$35
+main_d = main_#10
+main_e = global_int$33247
+main_#11 = global_int$0 - global_int$654
+main_f = main_#11
+main_g = global_int$33422
+main_#12 = main_b + main_c
+main_#12 = main_#12 + main_d
+main_#12 = main_#12 + main_e
+main_#14 = main_f * main_g
+main_#17 = main_a + main_g
+main_#17 = main_#17 - main_e
+main_#17 = main_#17 + main_f
+main_#16 = main_#17
+main_#18 = main_#16 * main_d
+main_#20 = main_f - main_a
+main_#21 = main_g
+main_#20 = main_#20 + main_#21
+main_#19 = main_#20
+main_#18 = main_#18 * main_#19
+main_#15 = main_#14 + main_#18
+main_#13 = main_#15
+main_#12 = main_#12 + main_#13
+main_a = main_#12
+main_#22 = global_const_2 + global_const_1
+main_#22 = main_#22 + global_var_1
+global_var_2 = main_#22
+output main_a
+output "\n" 
+output global_var_2
+output "\n" 
+return
+
+func aa()
+aa_#3 = global_int$1 + global_int$3
+aa_#2 = aa_#3
+aa_#1 = aa_d + aa_#2
+aa_#6 = global_int$3 + global_int$4423
+aa_#5 = aa_#6
+aa_#4 = aa_f * aa_#5
+aa_#1 = aa_#1 + aa_#4
+aa_#7 = global_int$324
+aa_#1 = aa_#1 + aa_#7
+aa_#9 = aa_g + aa_e
+aa_#8 = aa_#9
+aa_#1 = aa_#1 + aa_#8
+aa_#1 = aa_#1 + aa_ppg
+aa_c = aa_#1
+return aa_c
+
+<!--anchor-->
+
+func main()
+main_#12 = global_int$34 + global_int$3254
+main_#12 = main_#12 + global_int$-35
+main_#12 = main_#12 + global_int$33247
+main_#14 = global_int$-654 * global_int$33422
+main_#17 = global_int$3 + global_int$33422
+main_#17 = main_#17 - global_int$33247
+main_#17 = main_#17 + global_int$-654
+main_#18 = main_#17 * global_int$-35
+main_#20 = global_int$-654 - global_int$3
+main_#20 = main_#20 + global_int$33422
+main_#18 = main_#18 * main_#20
+main_#15 = main_#14 + main_#18
+main_#12 = main_#12 + main_#15
+main_#22 = global_int$-4222920 + global_var_1
+global_var_2 = main_#22
+output main_#12
+output "\n" 
+output main_#22
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+main_#12 = global_int$3288 + global_int$-35
+main_#12 = main_#12 + global_int$33247
+main_#17 = global_int$33425 - global_int$33247
+main_#17 = main_#17 + global_int$-654
+main_#18 = main_#17 * global_int$-35
+main_#20 = global_int$-657 + global_int$33422
+main_#18 = main_#18 * main_#20
+main_#15 = global_int$-21857988 + main_#18
+main_#12 = main_#12 + main_#15
+main_#22 = global_int$-4222920 + global_var_1
+global_var_2 = main_#22
+output main_#12
+output "\n" 
+output main_#22
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+main_#12 = global_int$3253 + global_int$33247
+main_#17 = global_int$178 + global_int$-654
+main_#18 = main_#17 * global_int$-35
+main_#18 = main_#18 * global_int$32765
+main_#15 = global_int$-21857988 + main_#18
+main_#12 = main_#12 + main_#15
+main_#22 = global_int$-4222920 + global_var_1
+global_var_2 = main_#22
+output main_#12
+output "\n" 
+output main_#22
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+main_#18 = global_int$-476 * global_int$-35
+main_#18 = main_#18 * global_int$32765
+main_#15 = global_int$-21857988 + main_#18
+main_#12 = global_int$36500 + main_#15
+main_#22 = global_int$-4222920 + global_var_1
+global_var_2 = main_#22
+output main_#12
+output "\n" 
+output main_#22
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+main_#18 = global_int$16660 * global_int$32765
+main_#15 = global_int$-21857988 + main_#18
+main_#12 = global_int$36500 + main_#15
+main_#22 = global_int$-4222920 + global_var_1
+global_var_2 = main_#22
+output main_#12
+output "\n" 
+output main_#22
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+main_#15 = global_int$-21857988 + global_int$545864900
+main_#12 = global_int$36500 + main_#15
+main_#22 = global_int$-4222920 + global_var_1
+global_var_2 = main_#22
+output main_#12
+output "\n" 
+output main_#22
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+main_#12 = global_int$36500 + global_int$524006912
+main_#22 = global_int$-4222920 + global_var_1
+global_var_2 = main_#22
+output main_#12
+output "\n" 
+output main_#22
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+main_#22 = global_int$-4222920 + global_var_1
+global_var_2 = main_#22
+output global_int$524043412
+output "\n" 
+output main_#22
+output "\n" 
+return
+
+<!--anchor-->
+
+func main()
+main_#22 = global_int$-4222920 + global_var_1
+global_var_2 = main_#22
+output global_int$524043412
+output "\n" 
+output main_#22
+output "\n" 
+return
+

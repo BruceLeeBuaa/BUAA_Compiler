@@ -1,0 +1,11 @@
+const char s='h';
+const int a=-1;
+const int b=+2;
+void func1(){
+	int c;
+}
+void main(){
+	const int MIN=0;
+	printf(-a*b+a+'c'+(-9));
+	printf(+a*b++2-8);
+}

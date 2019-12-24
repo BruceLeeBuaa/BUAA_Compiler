@@ -1,0 +1,1141 @@
+.data
+str$10: .asciiz " "
+str$18: .asciiz "-1 > a - c"
+str$13: .asciiz "1 <= b"
+str$20: .asciiz "56 >= a + c + b"
+str$14: .asciiz "8 == c"
+str$11: .asciiz "85 < b"
+str$16: .asciiz "9 != b"
+str$1: .asciiz "\n"
+str$21: .asciiz "a + b - c >= 5"
+str$17: .asciiz "a + c != 15"
+str$9: .asciiz "a < 10"
+str$15: .asciiz "a == 7"
+str$0: .asciiz "assumption1 confirmed 1"
+str$6: .asciiz "assumption1 confirmed 2"
+str$7: .asciiz "assumption2 confirmed 1"
+str$8: .asciiz "assumption2 confirmed 2"
+str$12: .asciiz "b <= 5"
+str$19: .asciiz "c - a > -8"
+str$3: .asciiz "no situation 1"
+str$5: .asciiz "no situation 2"
+str$2: .asciiz "situation 1"
+str$4: .asciiz "situation 2"
+
+.text
+jal main
+li $v0, 10
+syscall
+
+main:
+# $s7 : distance_res
+# $s6 : distance_#1
+# $s6 : distance_#2
+# $s5 : compare_#10
+# $s5 : compare_#11
+# $s4 : compare_to_num_c
+# $s3 : compare_to_num_a
+# $s1 : compare_to_num_b
+# $s3 : compare_b
+# $s5 : compare_c
+# $s4 : compare_edage1
+# $s3 : compare_edage2
+# $s6 : compare_edage3
+# $s5 : compare_#7
+# $s5 : compare_#8
+# $s5 : compare_#9
+# $s5 : compare_#12
+# $s5 : compare_#13
+# $s5 : compare_#14
+# $s5 : compare_#15
+# $s5 : compare_#16
+# $s5 : compare_#17
+# $s3 : compare_#18
+# $s0 : compare_to_num_#19
+# $s0 : compare_to_num_#21
+# $s0 : compare_to_num_#22
+# $s0 : compare_to_num_#24
+# $s0 : compare_to_num_#25
+# $s2 : main_a
+# $s1 : main_b
+# $s0 : main_c
+sub $sp, $sp, 240
+sw $s0, 156($sp)
+sw $s1, 160($sp)
+sw $s2, 164($sp)
+sw $s3, 168($sp)
+sw $s4, 172($sp)
+sw $s5, 176($sp)
+sw $s6, 180($sp)
+sw $s7, 184($sp)
+
+# label$49::
+label$49:
+
+# input main_a:
+li $v0, 5
+syscall
+move $s2, $v0
+
+# input main_b:
+li $v0, 5
+syscall
+move $s1, $v0
+
+# input main_c:
+li $v0, 5
+syscall
+move $s0, $v0
+
+# if main_a != global_int$0 branch to "label$50":
+bnez $s2, label$50
+
+# if main_b != global_int$0 branch to "label$51":
+bnez $s1, label$51
+
+# if main_c != global_int$0 branch to "label$52":
+bnez $s0, label$52
+
+# return:
+lw $s0, 156($sp)
+lw $s1, 160($sp)
+lw $s2, 164($sp)
+lw $s3, 168($sp)
+lw $s4, 172($sp)
+lw $s5, 176($sp)
+lw $s6, 180($sp)
+lw $s7, 184($sp)
+add $sp, $sp, 240
+jr $ra
+
+# label$52::
+label$52:
+
+# label$51::
+label$51:
+
+# label$50::
+label$50:
+
+# compare_a = main_a:
+move $t0, $s2
+
+# compare_b = main_b:
+move $s3, $s1
+
+# compare_c = main_c:
+move $s5, $s0
+
+# distance_#1 = main_a - main_b:
+sub $s6, $s2, $s1
+
+# distance_res = distance_#1:
+move $s7, $s6
+
+# if distance_#1 >= global_int$0 branch to "label$106":
+sw $t0, 20($sp)
+bgez $s6, label$106
+
+# distance_#2 = global_int$0 - distance_res:
+sub $s6, $zero, $s7
+
+# distance_res = distance_#2:
+move $s7, $s6
+
+# label$106::
+label$106:
+
+# compare_edage1 = distance_res:
+move $s4, $s7
+
+# distance_#1 = compare_b - compare_c:
+sub $s6, $s3, $s5
+
+# distance_res = distance_#1:
+move $s7, $s6
+
+# if distance_#1 >= global_int$0 branch to "label$108":
+bgez $s6, label$108
+
+# distance_#2 = global_int$0 - distance_res:
+sub $s6, $zero, $s7
+
+# distance_res = distance_#2:
+move $s7, $s6
+
+# label$108::
+label$108:
+
+# compare_edage2 = distance_res:
+move $s3, $s7
+
+# distance_#1 = compare_a - compare_c:
+lw $t0, 20($sp)
+sub $s6, $t0, $s5
+
+# distance_res = distance_#1:
+move $s7, $s6
+
+# if distance_#1 >= global_int$0 branch to "label$110":
+bgez $s6, label$110
+
+# distance_#2 = global_int$0 - distance_res:
+sub $s6, $zero, $s7
+
+# distance_res = distance_#2:
+move $s7, $s6
+
+# label$110::
+label$110:
+
+# compare_edage3 = distance_res:
+move $s6, $s7
+
+# compare_#7 = compare_edage1 + distance_res:
+add $s5, $s4, $s7
+
+# if compare_#7 < compare_edage2 branch to "label$54":
+blt $s5, $s3, label$54
+
+# output "assumption1 confirmed 1" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# compare_#8 = compare_edage1 + compare_edage3:
+add $s5, $s4, $s6
+
+# if compare_#8 <= compare_edage2 branch to "label$55":
+ble $s5, $s3, label$55
+
+# output "situation 1" :
+move $t8, $a0
+la $a0, str$2
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$56:
+j label$56
+
+# label$55::
+label$55:
+
+# output "no situation 1" :
+move $t8, $a0
+la $a0, str$3
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$56::
+label$56:
+
+# compare_#9 = compare_edage1 + compare_edage3:
+add $s5, $s4, $s6
+
+# if compare_#9 != compare_edage2 branch to "label$57":
+bne $s5, $s3, label$57
+
+# output "situation 2" :
+move $t8, $a0
+la $a0, str$4
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$58:
+j label$58
+
+# label$57::
+label$57:
+
+# output "no situation 2" :
+move $t8, $a0
+la $a0, str$5
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$58::
+label$58:
+
+# label$54::
+label$54:
+
+# compare_#10 = compare_edage2 + compare_edage3:
+add $s5, $s3, $s6
+
+# if compare_edage1 > compare_#10 branch to "label$59":
+bgt $s4, $s5, label$59
+
+# output "assumption1 confirmed 2" :
+move $t8, $a0
+la $a0, str$6
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# compare_#11 = compare_edage2 + compare_edage3:
+add $s5, $s3, $s6
+
+# if compare_edage1 == compare_#11 branch to "label$60":
+beq $s4, $s5, label$60
+
+# output "situation 1" :
+move $t8, $a0
+la $a0, str$2
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$61:
+j label$61
+
+# label$60::
+label$60:
+
+# output "no situation 1" :
+move $t8, $a0
+la $a0, str$3
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$61::
+label$61:
+
+# compare_#12 = compare_edage2 + compare_edage3:
+add $s5, $s3, $s6
+
+# if compare_#12 != compare_edage1 branch to "label$62":
+bne $s5, $s4, label$62
+
+# output "situation 2" :
+move $t8, $a0
+la $a0, str$4
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$63:
+j label$63
+
+# label$62::
+label$62:
+
+# output "no situation 2" :
+move $t8, $a0
+la $a0, str$5
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$63::
+label$63:
+
+# label$59::
+label$59:
+
+# compare_#13 = compare_edage1 - compare_edage2:
+sub $s5, $s4, $s3
+
+# if compare_#13 > compare_edage3 branch to "label$64":
+bgt $s5, $s6, label$64
+
+# output "assumption2 confirmed 1" :
+move $t8, $a0
+la $a0, str$7
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# compare_#14 = compare_edage1 - compare_edage2:
+sub $s5, $s4, $s3
+
+# if compare_edage3 <= compare_#14 branch to "label$65":
+ble $s6, $s5, label$65
+
+# output "situation 1" :
+move $t8, $a0
+la $a0, str$2
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$66:
+j label$66
+
+# label$65::
+label$65:
+
+# output "no situation 1" :
+move $t8, $a0
+la $a0, str$3
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$66::
+label$66:
+
+# compare_#15 = compare_edage1 - compare_edage2:
+sub $s5, $s4, $s3
+
+# if compare_#15 != compare_edage1 branch to "label$67":
+bne $s5, $s4, label$67
+
+# output "situation 2" :
+move $t8, $a0
+la $a0, str$4
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$68:
+j label$68
+
+# label$67::
+label$67:
+
+# output "no situation 2" :
+move $t8, $a0
+la $a0, str$5
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$68::
+label$68:
+
+# label$64::
+label$64:
+
+# compare_#16 = compare_edage3 - compare_edage2:
+sub $s5, $s6, $s3
+
+# if compare_edage1 < compare_#16 branch to "label$69":
+blt $s4, $s5, label$69
+
+# output "assumption2 confirmed 2" :
+move $t8, $a0
+la $a0, str$8
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# compare_#17 = compare_edage2 + compare_edage3:
+add $s5, $s3, $s6
+
+# if compare_#17 >= compare_edage1 branch to "label$70":
+bge $s5, $s4, label$70
+
+# output "situation 1" :
+move $t8, $a0
+la $a0, str$2
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$71:
+j label$71
+
+# label$70::
+label$70:
+
+# output "no situation 1" :
+move $t8, $a0
+la $a0, str$3
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$71::
+label$71:
+
+# compare_#18 = compare_edage2 - compare_edage3:
+sub $s3, $s3, $s6
+
+# if compare_#18 != compare_edage1 branch to "label$72":
+bne $s3, $s4, label$72
+
+# output "situation 2" :
+move $t8, $a0
+la $a0, str$4
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$73:
+j label$73
+
+# label$72::
+label$72:
+
+# output "no situation 2" :
+move $t8, $a0
+la $a0, str$5
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$73::
+label$73:
+
+# label$69::
+label$69:
+
+# compare_to_num_a = main_a:
+move $s3, $s2
+
+# compare_to_num_b = main_b:
+move $s1, $s1
+
+# compare_to_num_c = main_c:
+move $s4, $s0
+
+# if main_a >= global_int$10 branch to "label$75":
+bge $s2, 10, label$75
+
+# output "a < 10" :
+move $t8, $a0
+la $a0, str$9
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$76:
+j label$76
+
+# label$75::
+label$75:
+
+# output " " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$76::
+label$76:
+
+# if global_int$85 >= compare_to_num_b branch to "label$77":
+ble $s1, 85, label$77
+
+# output "85 < b" :
+move $t8, $a0
+la $a0, str$11
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$78:
+j label$78
+
+# label$77::
+label$77:
+
+# output " " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$78::
+label$78:
+
+# if compare_to_num_b > global_int$5 branch to "label$79":
+bgt $s1, 5, label$79
+
+# output "b <= 5" :
+move $t8, $a0
+la $a0, str$12
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$80:
+j label$80
+
+# label$79::
+label$79:
+
+# output " " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$80::
+label$80:
+
+# if global_int$1 > compare_to_num_b branch to "label$81":
+blt $s1, 1, label$81
+
+# output "1 <= b" :
+move $t8, $a0
+la $a0, str$13
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$82:
+j label$82
+
+# label$81::
+label$81:
+
+# output " " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$82::
+label$82:
+
+# if global_int$8 != compare_to_num_c branch to "label$83":
+bne $s4, 8, label$83
+
+# output "8 == c" :
+move $t8, $a0
+la $a0, str$14
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$84:
+j label$84
+
+# label$83::
+label$83:
+
+# output " " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$84::
+label$84:
+
+# if compare_to_num_a != global_int$7 branch to "label$85":
+bne $s3, 7, label$85
+
+# output "a == 7" :
+move $t8, $a0
+la $a0, str$15
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$86:
+j label$86
+
+# label$85::
+label$85:
+
+# output " " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$86::
+label$86:
+
+# if global_int$9 == compare_to_num_b branch to "label$87":
+beq $s1, 9, label$87
+
+# output "9 != b" :
+move $t8, $a0
+la $a0, str$16
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$88:
+j label$88
+
+# label$87::
+label$87:
+
+# output " " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$88::
+label$88:
+
+# compare_to_num_#19 = compare_to_num_a + compare_to_num_c:
+add $s0, $s3, $s4
+
+# if compare_to_num_#19 == global_int$15 branch to "label$89":
+beq $s0, 15, label$89
+
+# output "a + c != 15" :
+move $t8, $a0
+la $a0, str$17
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$90:
+j label$90
+
+# label$89::
+label$89:
+
+# output " " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$90::
+label$90:
+
+# compare_to_num_#21 = compare_to_num_a - compare_to_num_c:
+sub $s0, $s3, $s4
+
+# if global_int$-1 <= compare_to_num_#21 branch to "label$91":
+bge $s0, -1, label$91
+
+# output "-1 > a - c" :
+move $t8, $a0
+la $a0, str$18
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$92:
+j label$92
+
+# label$91::
+label$91:
+
+# output " " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$92::
+label$92:
+
+# compare_to_num_#22 = compare_to_num_c - compare_to_num_a:
+sub $s0, $s4, $s3
+
+# if compare_to_num_#22 <= global_int$-8 branch to "label$93":
+ble $s0, -8, label$93
+
+# output "c - a > -8" :
+move $t8, $a0
+la $a0, str$19
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$94:
+j label$94
+
+# label$93::
+label$93:
+
+# output " " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$94::
+label$94:
+
+# compare_to_num_#24 = compare_to_num_a + compare_to_num_c:
+add $s0, $s3, $s4
+
+# compare_to_num_#24 = compare_to_num_#24 + compare_to_num_b:
+add $s0, $s0, $s1
+
+# if global_int$56 < compare_to_num_#24 branch to "label$95":
+bgt $s0, 56, label$95
+
+# output "56 >= a + c + b" :
+move $t8, $a0
+la $a0, str$20
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$96:
+j label$96
+
+# label$95::
+label$95:
+
+# output " " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$96::
+label$96:
+
+# compare_to_num_#25 = compare_to_num_a + compare_to_num_b:
+add $s0, $s3, $s1
+
+# compare_to_num_#25 = compare_to_num_#25 - compare_to_num_c:
+sub $s0, $s0, $s4
+
+# if compare_to_num_#25 < global_int$5 branch to "label$97":
+blt $s0, 5, label$97
+
+# output "a + b - c >= 5" :
+move $t8, $a0
+la $a0, str$21
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# goto label$98:
+j label$98
+
+# label$97::
+label$97:
+
+# output " " :
+move $t8, $a0
+la $a0, str$10
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# label$98::
+label$98:
+
+# goto label$49:
+j label$49

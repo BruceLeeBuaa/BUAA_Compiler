@@ -1,0 +1,13 @@
+.data
+
+.text
+jal main
+li $v0, 10
+syscall
+
+main:
+sub $sp, $sp, 116
+
+# return:
+add $sp, $sp, 116
+jr $ra

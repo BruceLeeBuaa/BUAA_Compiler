@@ -1,0 +1,413 @@
+
+func main()
+call testRecursion
+return
+
+func judge1()
+judge1_ret = global_int$0
+if judge1_a >= judge1_b branch to "label$1"
+if judge1_c < judge1_d branch to "label$2"
+judge1_ret = global_int$1
+label$2:
+label$1:
+return judge1_ret
+
+func judge2()
+judge2_ret = global_int$0
+if judge2_a >= judge2_b branch to "label$3"
+if judge2_c > judge2_d branch to "label$4"
+judge2_ret = global_int$1
+label$4:
+label$3:
+return judge2_ret
+
+func Qsort()
+Qsort_first = Qsort_low
+Qsort_last = Qsort_high
+Qsort_#1 = global_sort[Qsort_first]
+Qsort_key = Qsort_#1
+if Qsort_low < Qsort_high branch to "label$5"
+return
+label$5:
+if Qsort_first >= Qsort_last branch to "label$6"
+label$7:
+Qsort_#2 = global_sort[Qsort_last]
+push Qsort_first
+push Qsort_last
+push Qsort_#2
+push Qsort_key
+Qsort_#3 = call judge1
+if Qsort_#3 != global_int$1 branch to "label$8"
+label$9:
+Qsort_#4 = Qsort_last - global_int$1
+Qsort_last = Qsort_#4
+Qsort_#2 = global_sort[Qsort_last]
+push Qsort_first
+push Qsort_last
+push Qsort_#2
+push Qsort_key
+Qsort_#3 = call judge1
+if Qsort_#3 == global_int$1 branch to "label$9"
+label$8:
+Qsort_#5 = global_sort[Qsort_last]
+global_sort[Qsort_first] = Qsort_#5
+Qsort_#6 = global_sort[Qsort_first]
+push Qsort_first
+push Qsort_last
+push Qsort_#6
+push Qsort_key
+Qsort_#7 = call judge2
+if Qsort_#7 != global_int$1 branch to "label$10"
+label$11:
+Qsort_#8 = Qsort_first + global_int$1
+Qsort_first = Qsort_#8
+Qsort_#6 = global_sort[Qsort_first]
+push Qsort_first
+push Qsort_last
+push Qsort_#6
+push Qsort_key
+Qsort_#7 = call judge2
+if Qsort_#7 == global_int$1 branch to "label$11"
+label$10:
+Qsort_#9 = global_sort[Qsort_first]
+global_sort[Qsort_last] = Qsort_#9
+if Qsort_first < Qsort_last branch to "label$7"
+label$6:
+global_sort[Qsort_first] = Qsort_key
+Qsort_#10 = Qsort_first - global_int$1
+push Qsort_low
+push Qsort_#10
+call Qsort
+Qsort_#11 = Qsort_first + global_int$1
+push Qsort_#11
+push Qsort_high
+call Qsort
+return
+
+func testRecursion()
+global_sort[global_int$0] = global_int$5
+global_sort[global_int$1] = global_int$8
+global_sort[global_int$2] = global_int$3
+global_sort[global_int$3] = global_int$6
+global_sort[global_int$4] = global_int$4
+global_sort[global_int$5] = global_int$1
+global_sort[global_int$6] = global_int$2
+global_sort[global_int$7] = global_int$7
+push global_int$0
+push global_int$7
+call Qsort
+testRecursion_i = global_int$0
+if testRecursion_i >= global_int$8 branch to "label$12"
+label$13:
+testRecursion_#12 = global_sort[testRecursion_i]
+output testRecursion_#12
+output "\n" 
+testRecursion_#13 = testRecursion_i + global_int$1
+testRecursion_i = testRecursion_#13
+if testRecursion_i < global_int$8 branch to "label$13"
+label$12:
+return
+
+<!--anchor-->
+
+func main()
+global_sort[global_int$0] = global_int$5
+global_sort[global_int$1] = global_int$8
+global_sort[global_int$2] = global_int$3
+global_sort[global_int$3] = global_int$6
+global_sort[global_int$4] = global_int$4
+global_sort[global_int$5] = global_int$1
+global_sort[global_int$6] = global_int$2
+global_sort[global_int$7] = global_int$7
+push global_int$0
+push global_int$7
+call Qsort
+testRecursion_i = global_int$0
+if global_int$0 >= global_int$8 branch to "label$15"
+label$16:
+testRecursion_#12 = global_sort[testRecursion_i]
+output testRecursion_#12
+output "\n" 
+testRecursion_#13 = testRecursion_i + global_int$1
+testRecursion_i = testRecursion_#13
+if testRecursion_#13 < global_int$8 branch to "label$16"
+label$15:
+return
+
+func Qsort()
+Qsort_first = Qsort_low
+Qsort_last = Qsort_high
+Qsort_#1 = global_sort[Qsort_low]
+Qsort_key = Qsort_#1
+if Qsort_low < Qsort_high branch to "label$5"
+return
+label$5:
+if Qsort_first >= Qsort_last branch to "label$6"
+label$7:
+Qsort_#2 = global_sort[Qsort_last]
+judge1_c = Qsort_#2
+judge1_d = Qsort_key
+judge1_ret = global_int$0
+if Qsort_first >= Qsort_last branch to "label$18"
+if judge1_c < judge1_d branch to "label$19"
+judge1_ret = global_int$1
+label$19:
+label$18:
+Qsort_#3 = judge1_ret
+if Qsort_#3 != global_int$1 branch to "label$8"
+label$9:
+Qsort_#4 = Qsort_last - global_int$1
+Qsort_last = Qsort_#4
+Qsort_#2 = global_sort[Qsort_#4]
+judge1_c = Qsort_#2
+judge1_d = Qsort_key
+judge1_ret = global_int$0
+if Qsort_first >= Qsort_#4 branch to "label$21"
+if judge1_c < judge1_d branch to "label$22"
+judge1_ret = global_int$1
+label$22:
+label$21:
+Qsort_#3 = judge1_ret
+if Qsort_#3 == global_int$1 branch to "label$9"
+label$8:
+Qsort_#5 = global_sort[Qsort_last]
+global_sort[Qsort_first] = Qsort_#5
+Qsort_#6 = global_sort[Qsort_first]
+judge2_c = Qsort_#6
+judge2_d = Qsort_key
+judge2_ret = global_int$0
+if Qsort_first >= Qsort_last branch to "label$24"
+if judge2_c > judge2_d branch to "label$25"
+judge2_ret = global_int$1
+label$25:
+label$24:
+Qsort_#7 = judge2_ret
+if Qsort_#7 != global_int$1 branch to "label$10"
+label$11:
+Qsort_#8 = Qsort_first + global_int$1
+Qsort_first = Qsort_#8
+Qsort_#6 = global_sort[Qsort_#8]
+judge2_c = Qsort_#6
+judge2_d = Qsort_key
+judge2_ret = global_int$0
+if Qsort_#8 >= Qsort_last branch to "label$27"
+if judge2_c > judge2_d branch to "label$28"
+judge2_ret = global_int$1
+label$28:
+label$27:
+Qsort_#7 = judge2_ret
+if Qsort_#7 == global_int$1 branch to "label$11"
+label$10:
+Qsort_#9 = global_sort[Qsort_first]
+global_sort[Qsort_last] = Qsort_#9
+if Qsort_first < Qsort_last branch to "label$7"
+label$6:
+global_sort[Qsort_first] = Qsort_key
+Qsort_#10 = Qsort_first - global_int$1
+push Qsort_low
+push Qsort_#10
+call Qsort
+Qsort_#11 = Qsort_first + global_int$1
+push Qsort_#11
+push Qsort_high
+call Qsort
+return
+
+<!--anchor-->
+
+func main()
+global_sort[global_int$0] = global_int$5
+global_sort[global_int$1] = global_int$8
+global_sort[global_int$2] = global_int$3
+global_sort[global_int$3] = global_int$6
+global_sort[global_int$4] = global_int$4
+global_sort[global_int$5] = global_int$1
+global_sort[global_int$6] = global_int$2
+global_sort[global_int$7] = global_int$7
+push global_int$0
+push global_int$7
+call Qsort
+testRecursion_i = global_int$0
+label$16:
+testRecursion_#12 = global_sort[testRecursion_i]
+output testRecursion_#12
+output "\n" 
+testRecursion_#13 = testRecursion_i + global_int$1
+testRecursion_i = testRecursion_#13
+if testRecursion_#13 < global_int$8 branch to "label$16"
+return
+
+func Qsort()
+Qsort_first = Qsort_low
+Qsort_last = Qsort_high
+Qsort_#1 = global_sort[Qsort_low]
+Qsort_key = Qsort_#1
+if Qsort_low < Qsort_high branch to "label$5"
+return
+label$5:
+if Qsort_first >= Qsort_last branch to "label$6"
+label$7:
+Qsort_#2 = global_sort[Qsort_last]
+judge1_c = Qsort_#2
+judge1_d = Qsort_key
+judge1_ret = global_int$0
+if Qsort_first >= Qsort_last branch to "label$18"
+if judge1_c < judge1_d branch to "label$19"
+judge1_ret = global_int$1
+label$19:
+label$18:
+if judge1_ret != global_int$1 branch to "label$8"
+label$9:
+Qsort_#4 = Qsort_last - global_int$1
+Qsort_last = Qsort_#4
+Qsort_#2 = global_sort[Qsort_#4]
+judge1_c = Qsort_#2
+judge1_d = Qsort_key
+judge1_ret = global_int$0
+if Qsort_first >= Qsort_#4 branch to "label$21"
+if judge1_c < judge1_d branch to "label$22"
+judge1_ret = global_int$1
+label$22:
+label$21:
+if judge1_ret == global_int$1 branch to "label$9"
+label$8:
+Qsort_#5 = global_sort[Qsort_last]
+global_sort[Qsort_first] = Qsort_#5
+Qsort_#6 = global_sort[Qsort_first]
+judge2_c = Qsort_#6
+judge2_d = Qsort_key
+judge2_ret = global_int$0
+if Qsort_first >= Qsort_last branch to "label$24"
+if judge2_c > judge2_d branch to "label$25"
+judge2_ret = global_int$1
+label$25:
+label$24:
+if judge2_ret != global_int$1 branch to "label$10"
+label$11:
+Qsort_#8 = Qsort_first + global_int$1
+Qsort_first = Qsort_#8
+Qsort_#6 = global_sort[Qsort_#8]
+judge2_c = Qsort_#6
+judge2_d = Qsort_key
+judge2_ret = global_int$0
+if Qsort_#8 >= Qsort_last branch to "label$27"
+if judge2_c > judge2_d branch to "label$28"
+judge2_ret = global_int$1
+label$28:
+label$27:
+if judge2_ret == global_int$1 branch to "label$11"
+label$10:
+Qsort_#9 = global_sort[Qsort_first]
+global_sort[Qsort_last] = Qsort_#9
+if Qsort_first < Qsort_last branch to "label$7"
+label$6:
+global_sort[Qsort_first] = Qsort_key
+Qsort_#10 = Qsort_first - global_int$1
+push Qsort_low
+push Qsort_#10
+call Qsort
+Qsort_#11 = Qsort_first + global_int$1
+push Qsort_#11
+push Qsort_high
+call Qsort
+return
+
+<!--anchor-->
+
+func main()
+global_sort[global_int$0] = global_int$5
+global_sort[global_int$1] = global_int$8
+global_sort[global_int$2] = global_int$3
+global_sort[global_int$3] = global_int$6
+global_sort[global_int$4] = global_int$4
+global_sort[global_int$5] = global_int$1
+global_sort[global_int$6] = global_int$2
+global_sort[global_int$7] = global_int$7
+push global_int$0
+push global_int$7
+call Qsort
+testRecursion_i = global_int$0
+label$16:
+testRecursion_#12 = global_sort[testRecursion_i]
+output testRecursion_#12
+output "\n" 
+testRecursion_#13 = testRecursion_i + global_int$1
+testRecursion_i = testRecursion_#13
+if testRecursion_#13 < global_int$8 branch to "label$16"
+return
+
+func Qsort()
+Qsort_first = Qsort_low
+Qsort_last = Qsort_high
+Qsort_#1 = global_sort[Qsort_low]
+Qsort_key = Qsort_#1
+if Qsort_low < Qsort_high branch to "label$5"
+return
+label$5:
+if Qsort_first >= Qsort_last branch to "label$6"
+label$7:
+Qsort_#2 = global_sort[Qsort_last]
+judge1_c = Qsort_#2
+judge1_d = Qsort_key
+judge1_ret = global_int$0
+if Qsort_first >= Qsort_last branch to "label$18"
+if judge1_c < judge1_d branch to "label$19"
+judge1_ret = global_int$1
+label$19:
+label$18:
+if judge1_ret != global_int$1 branch to "label$8"
+label$9:
+Qsort_#4 = Qsort_last - global_int$1
+Qsort_last = Qsort_#4
+Qsort_#2 = global_sort[Qsort_#4]
+judge1_c = Qsort_#2
+judge1_d = Qsort_key
+judge1_ret = global_int$0
+if Qsort_first >= Qsort_#4 branch to "label$21"
+if judge1_c < judge1_d branch to "label$22"
+judge1_ret = global_int$1
+label$22:
+label$21:
+if judge1_ret == global_int$1 branch to "label$9"
+label$8:
+Qsort_#5 = global_sort[Qsort_last]
+global_sort[Qsort_first] = Qsort_#5
+Qsort_#6 = global_sort[Qsort_first]
+judge2_c = Qsort_#6
+judge2_d = Qsort_key
+judge2_ret = global_int$0
+if Qsort_first >= Qsort_last branch to "label$24"
+if judge2_c > judge2_d branch to "label$25"
+judge2_ret = global_int$1
+label$25:
+label$24:
+if judge2_ret != global_int$1 branch to "label$10"
+label$11:
+Qsort_#8 = Qsort_first + global_int$1
+Qsort_first = Qsort_#8
+Qsort_#6 = global_sort[Qsort_#8]
+judge2_c = Qsort_#6
+judge2_d = Qsort_key
+judge2_ret = global_int$0
+if Qsort_#8 >= Qsort_last branch to "label$27"
+if judge2_c > judge2_d branch to "label$28"
+judge2_ret = global_int$1
+label$28:
+label$27:
+if judge2_ret == global_int$1 branch to "label$11"
+label$10:
+Qsort_#9 = global_sort[Qsort_first]
+global_sort[Qsort_last] = Qsort_#9
+if Qsort_first < Qsort_last branch to "label$7"
+label$6:
+global_sort[Qsort_first] = Qsort_key
+Qsort_#10 = Qsort_first - global_int$1
+push Qsort_low
+push Qsort_#10
+call Qsort
+Qsort_#11 = Qsort_first + global_int$1
+push Qsort_#11
+push Qsort_high
+call Qsort
+return
+

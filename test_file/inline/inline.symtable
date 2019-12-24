@@ -1,0 +1,125 @@
+N8symtable5EntryE              : global_f                      <const int(45)>
+N8symtable5EntryE              : global_a                      <int>
+N8symtable5EntryE              : global_b                      <int>
+N8symtable5EntryE              : global_rec1                   <int>
+N8symtable5EntryE              : global_rec2                   <int>
+N8symtable9FuncTableE          : inline1                       <void>
+N8symtable5EntryE              : inline1_a                     <int>
+N8symtable5EntryE              : global_int$0                  <const int(0)>
+N8symtable5EntryE              : inline1_#1                    <int>
+N8symtable5EntryE              : global_int$1                  <const int(1)>
+N8symtable5EntryE              : global_int$10                 <const int(10)>
+N8symtable9FuncTableE          : recur1                        <void>
+N8symtable5EntryE              : recur1_#2                     <int>
+N8symtable5EntryE              : recur1_#3                     <int>
+N8symtable9FuncTableE          : recur2                        <void>
+N8symtable5EntryE              : recur2_#4                     <int>
+N8symtable5EntryE              : recur2_#5                     <int>
+N8symtable5EntryE              : global_int$20                 <const int(20)>
+N8symtable9FuncTableE          : inline2                       <int>
+N8symtable5EntryE              : inline2_a                     <int>
+N8symtable5EntryE              : inline2_b                     <char>
+N8symtable5EntryE              : inline2_c                     <int>
+N8symtable5EntryE              : global_int$3                  <const int(3)>
+N8symtable5EntryE              : global_char$102               <const char('f')>
+N8symtable9FuncTableE          : testinline                    <void>
+N8symtable5EntryE              : global_int$5                  <const int(5)>
+N8symtable5EntryE              : testinline_#6                 <int>
+N8symtable5EntryE              : global_int$11                 <const int(11)>
+N8symtable5EntryE              : global_char$100               <const char('d')>
+N8symtable5EntryE              : testinline_#7                 <int>
+N8symtable9FuncTableE          : f0                            <int>
+N8symtable5EntryE              : f0_a                          <int>
+N8symtable5EntryE              : f0_#8                         <int>
+N8symtable5EntryE              : f0_#9                         <int>
+N8symtable9FuncTableE          : f1                            <void>
+N8symtable5EntryE              : f1_a                          <int>
+N8symtable5EntryE              : f1_#10                        <int>
+N8symtable5EntryE              : f1_#11                        <int>
+N8symtable9FuncTableE          : cbase                         <char>
+N8symtable5EntryE              : cbase_b                       <char>
+N8symtable5EntryE              : global_char$122               <const char('z')>
+N8symtable9FuncTableE          : ibase                         <int>
+N8symtable5EntryE              : ibase_a                       <int>
+N8symtable5EntryE              : ibase_#12                     <int>
+N8symtable9FuncTableE          : cv                            <void>
+N8symtable5EntryE              : cv_a                          <int>
+N8symtable5EntryE              : cv_b                          <char>
+N8symtable5EntryE              : cv_#13                        <int>
+N8symtable5EntryE              : cv_#14                        <int>
+N8symtable5EntryE              : cv_#15                        <char>
+N8symtable9FuncTableE          : testcall                      <void>
+N8symtable5EntryE              : testcall_a                    <int>
+N8symtable5EntryE              : testcall_#16                  <int>
+N8symtable5EntryE              : global_int$6                  <const int(6)>
+N8symtable5EntryE              : global_char$99                <const char('c')>
+N8symtable9FuncTableE          : fun1                          <void>
+N8symtable5EntryE              : fun1_p1                       <int>
+N8symtable5EntryE              : fun1_p2                       <int>
+N8symtable5EntryE              : fun1_p3                       <int>
+N8symtable5EntryE              : fun1_p4                       <int>
+N8symtable5EntryE              : fun1_p5                       <char>
+N8symtable5EntryE              : fun1_p6                       <int>
+N8symtable5EntryE              : fun1_p7                       <int>
+N8symtable5EntryE              : fun1_p8                       <int>
+N8symtable5EntryE              : fun1_p9                       <int>
+N8symtable5EntryE              : fun1_p10                      <int>
+N8symtable5EntryE              : fun1_p11                      <int>
+N8symtable5EntryE              : fun1_p12                      <int>
+N8symtable5EntryE              : fun1_p13                      <int>
+N8symtable5EntryE              : fun1_y                        <const int(987)>
+N8symtable5EntryE              : fun1_x                        <const char('I')>
+N8symtable5EntryE              : fun1_c                        <char[10]>
+N8symtable5EntryE              : fun1_s1                       <int>
+N8symtable5EntryE              : fun1_s2                       <int>
+N8symtable5EntryE              : fun1_s3                       <int>
+N8symtable5EntryE              : fun1_s4                       <int>
+N8symtable5EntryE              : fun1_s5                       <int>
+N8symtable5EntryE              : fun1_s6                       <int>
+N8symtable5EntryE              : fun1_s7                       <int>
+N8symtable5EntryE              : fun1_s8                       <int>
+N8symtable5EntryE              : fun1_s9                       <int>
+N8symtable5EntryE              : fun1_s10                      <int>
+N8symtable5EntryE              : global_char$81                <const char('Q')>
+N8symtable5EntryE              : global_int$2                  <const int(2)>
+N8symtable5EntryE              : global_char$70                <const char('F')>
+N8symtable5EntryE              : global_int$9                  <const int(9)>
+N8symtable5EntryE              : global_char$45                <const char('-')>
+N8symtable5EntryE              : global_int$12                 <const int(12)>
+N8symtable5EntryE              : global_int$123                <const int(123)>
+N8symtable5EntryE              : global_int$1234               <const int(1234)>
+N8symtable5EntryE              : global_int$12345              <const int(12345)>
+N8symtable5EntryE              : global_int$123456             <const int(123456)>
+N8symtable5EntryE              : global_int$1234567            <const int(1234567)>
+N8symtable5EntryE              : global_int$12345467           <const int(12345467)>
+N8symtable5EntryE              : global_int$12343567           <const int(12343567)>
+N8symtable5EntryE              : global_int$12234567           <const int(12234567)>
+N8symtable5EntryE              : fun1_#17                      <char>
+N8symtable5EntryE              : fun1_#18                      <char>
+N8symtable5EntryE              : fun1_#19                      <char>
+N8symtable9FuncTableE          : testpara                      <void>
+N8symtable5EntryE              : testpara_ch                   <char[10]>
+N8symtable5EntryE              : testpara_c                    <char>
+N8symtable5EntryE              : testpara_c1                   <char>
+N8symtable5EntryE              : testpara_array                <int[20]>
+N8symtable5EntryE              : global_char$101               <const char('e')>
+N8symtable5EntryE              : testpara_#20                  <char>
+N8symtable5EntryE              : global_int$4                  <const int(4)>
+N8symtable5EntryE              : testpara_#21                  <int>
+N8symtable5EntryE              : global_int$78                 <const int(78)>
+N8symtable5EntryE              : global_int$7                  <const int(7)>
+N8symtable5EntryE              : global_char$57                <const char('9')>
+N8symtable5EntryE              : global_int$321                <const int(321)>
+N8symtable5EntryE              : global_int$345                <const int(345)>
+N8symtable5EntryE              : global_int$1231               <const int(1231)>
+N8symtable5EntryE              : global_int$5345               <const int(5345)>
+N8symtable5EntryE              : global_int$1321               <const int(1321)>
+N8symtable5EntryE              : testpara_#22                  <int>
+N8symtable5EntryE              : global_char$56                <const char('8')>
+N8symtable5EntryE              : testpara_#23                  <int>
+N8symtable5EntryE              : testpara_#24                  <int>
+N8symtable9FuncTableE          : main                          <void>
+N8symtable5EntryE              : global_int$-11                <const int(-11)>
+N8symtable5EntryE              : global_int$-20                <const int(-20)>
+N8symtable5EntryE              : global_int$80                 <const int(80)>
+N8symtable5EntryE              : global_int$8                  <const int(8)>

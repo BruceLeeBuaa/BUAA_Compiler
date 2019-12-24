@@ -1,0 +1,7 @@
+int num5;
+void main()
+{
+	num5=9;
+	for(num5=9;num5>=0;num5=num5-1) printf(num5);
+	return;
+}

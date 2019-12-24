@@ -1,0 +1,838 @@
+const int const_int_1 = 12345679
+const int const_int_2 = 0
+const int const_int_3 = 0
+const int const_int_4 = -12345679
+const char const_char_1 = '9'
+const char const_char_2 = '_'
+const char const_char_3 = '+'
+const char const_char_4 = '*'
+array int global_int_array_1[5]
+var int global_int_1
+array char global_char_array_1[5]
+var char global_char_1
+var int global_int_2
+array int global_int_array_2[5]
+var char global_char_2
+array char global_char_array_2[5]
+array char global_char_array_3[10]
+void hanoi()
+para int n
+para char from
+para char tmp
+para char to
+#1 = n
+#2 = 0
+ble #1,#2,Label0
+#3 = n
+#4 = 1
+#5 = #3 - #4
+push #5
+#6 = from
+push #6
+#7 = to
+push #7
+#8 = tmp
+push #8
+call hanoi()
+output string take
+#9 = n
+output #9
+output string from
+#10 = from
+output char #10
+output string to
+#11 = to
+output char #11
+#12 = n
+#13 = 1
+#14 = #12 - #13
+push #14
+#15 = tmp
+push #15
+#16 = from
+push #16
+#17 = to
+push #17
+call hanoi()
+Label0:
+#ret 
+#ret 
+int Fibonacci()
+para int n
+#1 = n
+#2 = 0
+bne #1,#2,Label2
+#3 = 0
+#ret #3
+Label2:
+#4 = n
+#5 = 1
+bne #4,#5,Label4
+#6 = 1
+#ret #6
+Label4:
+#7 = n
+#8 = 1
+#9 = #7 - #8
+push #9
+call Fibonacci()
+#10 = #ret
+#11 = n
+#12 = 2
+#13 = #11 - #12
+push #13
+call Fibonacci()
+#14 = #ret
+#15 = #10 + #14
+#ret #15
+int fac()
+para int n
+#1 = n
+#2 = 1
+bne #1,#2,Label6
+#3 = 1
+#ret #3
+Label6:
+#4 = n
+#5 = n
+#6 = 1
+#7 = #5 - #6
+push #7
+call fac()
+#8 = #ret
+#9 = #4 * #8
+#ret #9
+void initGlobalArray()
+#1 = 0
+#2 = 0
+global_int_array_1[#1] = #2
+#3 = 1
+#4 = 1
+global_int_array_1[#3] = #4
+#5 = 2
+#6 = 0
+#7 = global_int_array_1[#6]
+#8 = 1
+#9 = global_int_array_1[#8]
+#10 = #7 + #9
+global_int_array_1[#5] = #10
+#11 = 3
+#12 = 2
+#13 = global_int_array_1[#12]
+#14 = 1
+#15 = global_int_array_1[#14]
+#16 = #13 + #15
+global_int_array_1[#11] = #16
+#17 = 4
+#18 = 3
+#19 = global_int_array_1[#18]
+#20 = 2
+#21 = global_int_array_1[#20]
+#22 = #19 + #21
+global_int_array_1[#17] = #22
+#23 = 0
+#24 = 1
+#25 = global_int_array_1[#24]
+global_int_array_2[#23] = #25
+#26 = 1
+#27 = 0
+#28 = global_int_array_2[#27]
+#29 = 2
+#30 = global_int_array_1[#29]
+#31 = #28 * #30
+global_int_array_2[#26] = #31
+#32 = 2
+#33 = 1
+#34 = global_int_array_2[#33]
+#35 = 3
+#36 = global_int_array_1[#35]
+#37 = #34 * #36
+global_int_array_2[#32] = #37
+#38 = 3
+#39 = 2
+#40 = global_int_array_2[#39]
+#41 = 4
+#42 = global_int_array_1[#41]
+#43 = #40 * #42
+global_int_array_2[#38] = #43
+#44 = 4
+#45 = 3
+#46 = global_int_array_2[#45]
+#47 = 4
+#48 = global_int_array_1[#47]
+#49 = #46 / #48
+global_int_array_2[#44] = #49
+#50 = 0
+#51 = 97
+global_char_array_1[#50] = #51
+#52 = 1
+#53 = 65
+global_char_array_1[#52] = #53
+#54 = 2
+#55 = 122
+global_char_array_1[#54] = #55
+#56 = 3
+#57 = 90
+global_char_array_1[#56] = #57
+#58 = 4
+#59 = 95
+global_char_array_1[#58] = #59
+#60 = 0
+#61 = 43
+global_char_array_2[#60] = #61
+#62 = 1
+#63 = 45
+global_char_array_2[#62] = #63
+#64 = 2
+#65 = 42
+global_char_array_2[#64] = #65
+#66 = 3
+#67 = 47
+global_char_array_2[#66] = #67
+#68 = 4
+#69 = 54
+global_char_array_2[#68] = #69
+#ret 
+#ret 
+void assignGlobal()
+para int a
+para char b
+para int c
+para char d
+#1 = a
+global_int_1 = #1
+#2 = b
+global_char_1 = #2
+#3 = c
+global_int_2 = #3
+#4 = d
+global_char_2 = #4
+#ret 
+#ret 
+void printGlobalConst()
+#1 = 12345679
+output #1
+#2 = 0
+output #2
+#3 = 0
+output #3
+#4 = -12345679
+output #4
+#5 = 57
+output char #5
+#6 = 95
+output char #6
+#7 = 43
+output char #7
+#8 = 42
+output char #8
+#ret 
+#ret 
+void printGlobalVar()
+#1 = global_int_1
+output #1
+#2 = global_int_2
+output #2
+#3 = global_char_1
+output char #3
+#4 = global_char_2
+output char #4
+#ret 
+#ret 
+void printGlobalArray()
+#1 = 0
+#2 = global_int_array_1[#1]
+output #2
+#3 = 1
+#4 = global_int_array_1[#3]
+output #4
+#5 = 2
+#6 = global_int_array_1[#5]
+output #6
+#7 = 3
+#8 = global_int_array_1[#7]
+output #8
+#9 = 4
+#10 = global_int_array_1[#9]
+output #10
+#11 = 0
+#12 = global_int_array_2[#11]
+output #12
+#13 = 1
+#14 = global_int_array_2[#13]
+output #14
+#15 = 2
+#16 = global_int_array_2[#15]
+output #16
+#17 = 3
+#18 = global_int_array_2[#17]
+output #18
+#19 = 4
+#20 = global_int_array_2[#19]
+output #20
+#21 = 0
+#22 = global_char_array_1[#21]
+output char #22
+#23 = 1
+#24 = global_char_array_1[#23]
+output char #24
+#25 = 2
+#26 = global_char_array_1[#25]
+output char #26
+#27 = 3
+#28 = global_char_array_1[#27]
+output char #28
+#29 = 4
+#30 = global_char_array_1[#29]
+output char #30
+#31 = 0
+#32 = global_char_array_2[#31]
+output char #32
+#33 = 1
+#34 = global_char_array_2[#33]
+output char #34
+#35 = 2
+#36 = global_char_array_2[#35]
+output char #36
+#37 = 3
+#38 = global_char_array_2[#37]
+output char #38
+#39 = 4
+#40 = global_char_array_2[#39]
+output char #40
+#ret 
+#ret 
+void testGlobal()
+call initGlobalArray()
+#1 = 12345679
+push #1
+#2 = 57
+push #2
+#3 = -12345679
+push #3
+#4 = 42
+push #4
+call assignGlobal()
+call printGlobalConst()
+call printGlobalVar()
+call printGlobalArray()
+#ret 
+#ret 
+int testReturnInt()
+para int a
+#1 = a
+#2 = 1
+#3 = #1 + #2
+#ret #3
+char testReturnChar()
+para int a
+#1 = a
+#2 = 1
+bne #1,#2,Label8
+#3 = 97
+#ret #3
+Label8:
+#4 = a
+#5 = 2
+bne #4,#5,Label10
+#6 = 98
+#ret #6
+Label10:
+#7 = a
+#8 = 3
+bne #7,#8,Label12
+#9 = 99
+#ret #9
+Label12:
+#10 = 95
+#ret #10
+void testReturn()
+#1 = 3
+push #1
+call fac()
+#2 = #ret
+#3 = 2
+push #3
+call fac()
+#4 = #ret
+#5 = #2 + #4
+push #5
+call Fibonacci()
+#6 = #ret
+push #6
+call testReturnInt()
+#7 = #ret
+output #7
+#8 = 1
+push #8
+call testReturnChar()
+#9 = #ret
+output char #9
+#10 = 2
+push #10
+call testReturnChar()
+#11 = #ret
+output char #11
+#12 = 3
+push #12
+call testReturnChar()
+#13 = #ret
+output char #13
+#14 = 4
+push #14
+call testReturnChar()
+#15 = #ret
+output char #15
+#ret 
+#ret 
+void testAssignAndExp()
+const int const_int_1 = 1
+const int const_int_2 = -1
+const int const_int_3 = 0
+const char const_char_1 = 'a'
+const char const_char_2 = 'A'
+const char const_char_3 = 'b'
+var int int_temp_1
+var int int_temp_2
+array int int_array[2]
+var int int_temp_3
+var char char_temp_1
+array char char_array[2]
+var char char_temp_2
+#1 = 1
+#2 = 5
+push #2
+call Fibonacci()
+#3 = #ret
+push #3
+call Fibonacci()
+#4 = #ret
+push #4
+call Fibonacci()
+#5 = #ret
+#6 = 1
+#7 = -1
+#8 = -12345679
+#9 = #7 * #8
+#10 = #6 / #9
+#11 = #5 + #10
+#12 = 3
+push #12
+call fac()
+#13 = #ret
+#14 = #11 / #13
+#15 = #1 + #14
+int_temp_1 = #15
+#16 = 3
+push #16
+call fac()
+#17 = #ret
+#18 = 2
+push #18
+call fac()
+#19 = #ret
+#20 = #17 + #19
+push #20
+call fac()
+#21 = #ret
+int_temp_2 = #21
+#22 = 0
+#23 = 0
+push #23
+call testReturnInt()
+#24 = #ret
+int_array[#22] = #24
+#25 = 1
+#26 = -1
+#27 = -12345679
+#28 = #26 * #27
+#29 = 0
+push #29
+call testReturnInt()
+#30 = #ret
+#31 = -12345679
+#32 = #30 * #31
+#33 = #28 + #32
+#34 = #25 - #33
+#35 = 1
+#36 = 1
+push #36
+call testReturnInt()
+#37 = #ret
+#38 = #35 + #37
+int_array[#34] = #38
+#39 = 0
+#40 = int_array[#39]
+#41 = 1
+#42 = -1
+#43 = -12345679
+#44 = #42 * #43
+#45 = 0
+push #45
+call testReturnInt()
+#46 = #ret
+#47 = -12345679
+#48 = #46 * #47
+#49 = #44 + #48
+#50 = #41 - #49
+#51 = int_array[#50]
+#52 = 98
+#53 = 97
+#54 = #52 - #53
+#55 = #51 * #54
+#56 = #40 - #55
+int_temp_3 = #56
+#57 = 0
+#58 = 0
+#59 = int_array[#58]
+push #59
+call testReturnChar()
+#60 = #ret
+char_array[#57] = #60
+#61 = 1
+#62 = -1
+#63 = -12345679
+#64 = #62 * #63
+#65 = 0
+push #65
+call testReturnInt()
+#66 = #ret
+#67 = -12345679
+#68 = #66 * #67
+#69 = #64 + #68
+#70 = #61 - #69
+#71 = 1
+#72 = int_array[#71]
+#73 = 1
+#74 = #72 + #73
+push #74
+call testReturnChar()
+#75 = #ret
+char_array[#70] = #75
+#76 = 0
+#77 = char_array[#76]
+char_temp_1 = #77
+#78 = 1
+#79 = -1
+#80 = -12345679
+#81 = #79 * #80
+#82 = 0
+push #82
+call testReturnInt()
+#83 = #ret
+#84 = -12345679
+#85 = #83 * #84
+#86 = #81 + #85
+#87 = #78 - #86
+#88 = char_array[#87]
+char_temp_2 = #88
+#89 = int_temp_1
+output #89
+#90 = int_temp_2
+output #90
+#91 = int_temp_3
+output #91
+#92 = 0
+#93 = int_array[#92]
+output #93
+#94 = 1
+#95 = -1
+#96 = -12345679
+#97 = #95 * #96
+#98 = 0
+push #98
+call testReturnInt()
+#99 = #ret
+#100 = -12345679
+#101 = #99 * #100
+#102 = #97 + #101
+#103 = #94 - #102
+#104 = int_array[#103]
+output #104
+#105 = char_temp_1
+output char #105
+#106 = char_temp_2
+output char #106
+#107 = 0
+#108 = char_array[#107]
+output char #108
+#109 = 1
+#110 = char_array[#109]
+output char #110
+#111 = char_temp_1
+#112 = 0
+#113 = char_array[#112]
+#114 = 0
+#115 = char_array[#114]
+#116 = char_temp_2
+#117 = #115 * #116
+#118 = #113 + #117
+#119 = #111 * #118
+output #119
+#ret 
+#ret 
+void testIO()
+input global_int_1
+input global_char_1
+output string !@\n#$^&*()Qqaa123[];',./
+#1 = global_int_1
+output #1
+#2 = global_char_1
+output char #2
+input global_int_1
+input global_char_1
+output string !@\n#$^&*()Qqaa123[];',./
+#3 = global_int_1
+output #3
+#4 = global_char_1
+output char #4
+input global_char_1
+input global_int_1
+output string !@\n#$^&*()Qqaa123[];',./
+#5 = global_char_1
+output char #5
+#6 = global_int_1
+output #6
+#ret 
+#ret 
+void testIfWhile()
+var int i
+var int j
+var int k
+var char a
+var char b
+var char c
+var char d
+#1 = 10
+k = #1
+#2 = 43
+a = #2
+#3 = 45
+b = #3
+#4 = 42
+c = #4
+#5 = 47
+d = #5
+#6 = k
+#7 = 0
+ble #6,#7,Label14
+#8 = k
+#9 = 10
+bgt #8,#9,Label16
+#10 = 0
+i = #10
+Label18:
+#11 = i
+#12 = k
+#13 = 2
+#14 = #12 / #13
+bge #11,#14,Label19
+#15 = i
+#16 = i
+#17 = 2
+#18 = #16 / #17
+#19 = 2
+#20 = #18 * #19
+#21 = #15 - #20
+#22 = 0
+bne #21,#22,Label20
+#23 = i
+#24 = a
+global_char_array_3[#23] = #24
+Label20:
+#25 = i
+#26 = i
+#27 = 2
+#28 = #26 / #27
+#29 = 2
+#30 = #28 * #29
+#31 = #25 - #30
+#32 = 1
+bne #31,#32,Label22
+#33 = i
+#34 = b
+global_char_array_3[#33] = #34
+Label22:
+#35 = i
+#36 = global_char_array_3[#35]
+output char #36
+#37 = i
+#38 = 1
+#39 = #37 + #38
+i = #39
+goto Label18
+Label19:
+Label24:
+#40 = i
+#41 = k
+bge #40,#41,Label25
+#42 = i
+#43 = i
+#44 = 2
+#45 = #43 / #44
+#46 = 2
+#47 = #45 * #46
+#48 = #42 - #47
+#49 = 0
+bne #48,#49,Label26
+#50 = i
+#51 = c
+global_char_array_3[#50] = #51
+goto Label27
+Label26:
+#52 = i
+#53 = d
+global_char_array_3[#52] = #53
+Label27:
+#54 = i
+#55 = global_char_array_3[#54]
+output char #55
+#56 = i
+#57 = 1
+#58 = #56 + #57
+i = #58
+goto Label24
+Label25:
+Label16:
+Label14:
+#ret 
+#ret 
+int func_ret_int_1()
+para int i_1
+para int i_2
+para char c_1
+para char c_2
+var int i_temp
+var char c_temp
+output string INPUT of func_ret_int_1:
+#1 = i_1
+output #1
+#2 = i_2
+output #2
+#3 = c_1
+output char #3
+#4 = c_2
+output char #4
+#5 = i_1
+i_temp = #5
+#6 = i_2
+i_1 = #6
+#7 = i_temp
+i_2 = #7
+#8 = c_1
+c_temp = #8
+#9 = c_2
+c_1 = #9
+#10 = c_temp
+c_2 = #10
+output string OPERATE of func_ret_int_1:
+#11 = i_1
+output #11
+#12 = i_2
+output #12
+#13 = c_1
+output char #13
+#14 = c_2
+output char #14
+#15 = i_1
+#ret #15
+void testPara()
+var int i
+var int j
+var char c
+var char d
+#1 = 12345679
+i = #1
+#2 = -12345679
+j = #2
+#3 = 65
+c = #3
+#4 = 90
+d = #4
+#5 = i
+push #5
+#6 = j
+push #6
+#7 = c
+push #7
+#8 = d
+push #8
+call func_ret_int_1()
+#9 = #ret
+output #9
+#ret 
+#ret 
+void testRecursion()
+#1 = 2
+push #1
+call fac()
+#2 = #ret
+#3 = 3
+push #3
+call fac()
+#4 = #ret
+#5 = #2 * #4
+push #5
+call Fibonacci()
+#6 = #ret
+#7 = 3
+push #7
+call Fibonacci()
+#8 = #ret
+#9 = 4
+push #9
+call Fibonacci()
+#10 = #ret
+#11 = #8 + #10
+push #11
+call fac()
+#12 = #ret
+#13 = #6 - #12
+#14 = 2
+push #14
+call Fibonacci()
+#15 = #ret
+#16 = 3
+push #16
+call Fibonacci()
+#17 = #ret
+#18 = #15 + #17
+push #18
+call fac()
+#19 = #ret
+#20 = #13 / #19
+push #20
+#21 = 97
+push #21
+#22 = 98
+push #22
+#23 = 99
+push #23
+call hanoi()
+#ret 
+#ret 
+void main()
+output string ************************************************
+output string Start testing recursion:
+call testRecursion()
+output string ************************************************
+output string Start testing global:
+call testGlobal()
+output string ************************************************
+output string Start testing return:
+call testReturn()
+output string ************************************************
+output string Start testing I/O:
+call testIO()
+output string ************************************************
+output string Start testing assign & exp:
+call testAssignAndExp()
+output string ************************************************
+output string Start testing if & while:
+call testIfWhile()
+output string ************************************************
+output string Start testing parameter:
+call testPara()
+output string ************************************************
+#ret 
+#ret 

@@ -1,0 +1,283 @@
+.data
+str$1: .asciiz "\\n"
+str$0: .asciiz "\n"
+
+.text
+jal main
+li $v0, 10
+syscall
+
+arrange:
+# $a0 : arrange_n
+# $a1 : arrange_i
+# $s1 : arrange_#2
+# $s0 : arrange_#3
+# $s1 : arrange_#11
+# $s1 : arrange_#4
+# $s2 : arrange_#6
+# $s1 : arrange_#8
+# $s2 : arrange_#9
+# $s1 : arrange_#10
+# $s1 : arrange_#12
+# $s1 : arrange_#13
+# $s3 : arrange_#14
+# $s2 : arrange_#15
+# $s1 : arrange_#16
+# $s0 : arrange_j
+# $s0 : arrange_#1
+sub $sp, $sp, 156
+sw $s0, 72($sp)
+sw $s1, 76($sp)
+sw $s2, 80($sp)
+sw $s3, 84($sp)
+
+# arrange_#1 = arrange_n - global_int$1:
+sub $s0, $a0, 1
+
+# if arrange_i < arrange_#1 branch to "label$1":
+blt $a1, $s0, label$1
+
+# arrange_j = global_int$0:
+move $s0, $zero
+
+# if global_int$0 >= arrange_n branch to "label$2":
+blez $a0, label$2
+
+# label$3::
+label$3:
+
+# arrange_#2 = global_arr[arrange_j]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s1, 0($t8)
+
+# output arrange_#2:
+move $t8, $a0
+move $a0, $s1
+li $v0, 11
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# arrange_j = arrange_j + global_int$1:
+add $s0, $s0, 1
+
+# if arrange_j < arrange_n branch to "label$3":
+blt $s0, $a0, label$3
+
+# label$2::
+label$2:
+
+# output "\\n" :
+move $t8, $a0
+la $a0, str$1
+li $v0, 4
+syscall
+move $a0, $t8
+
+# output "\n" :
+move $t8, $a0
+la $a0, str$0
+li $v0, 4
+syscall
+move $a0, $t8
+
+# return:
+lw $s0, 72($sp)
+lw $s1, 76($sp)
+lw $s2, 80($sp)
+lw $s3, 84($sp)
+add $sp, $sp, 156
+jr $ra
+
+# label$1::
+label$1:
+
+# arrange_#3 = arrange_i + global_int$1:
+add $s0, $a1, 1
+
+# <!-- call block begin -->:
+sw $a0, 140($sp)
+sw $a1, 144($sp)
+sw $ra, 136($sp)
+lw $a0, 140($sp)
+move $a1, $s0
+jal arrange
+lw $ra, 136($sp)
+lw $a0, 140($sp)
+lw $a1, 144($sp)
+# <!-- call block end -->:
+
+# arrange_#4 = arrange_i + arrange_ONE:
+add $s1, $a1, 1
+
+# arrange_j = arrange_#4:
+move $s0, $s1
+
+# if arrange_#4 >= arrange_n branch to "label$5":
+bge $s1, $a0, label$5
+
+# label$6::
+label$6:
+
+# arrange_#6 = global_arr[arrange_i]:
+sll $t8, $a1, 2
+add $t8, $t8, $gp
+lw $s2, 0($t8)
+
+# arrange_#8 = global_arr[arrange_j]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s1, 0($t8)
+
+# if arrange_#6 == arrange_#8 branch to "label$7":
+beq $s2, $s1, label$7
+
+# arrange_#9 = global_arr[arrange_i]:
+sll $t8, $a1, 2
+add $t8, $t8, $gp
+lw $s2, 0($t8)
+
+# arrange_#10 = global_arr[arrange_j]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s1, 0($t8)
+
+# global_arr[arrange_i] = arrange_#10:
+sll $t8, $a1, 2
+add $t8, $t8, $gp
+sw $s1, 0($t8)
+
+# global_arr[arrange_j] = arrange_#9:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+sw $s2, 0($t8)
+
+# arrange_#11 = arrange_i + global_int$1:
+add $s1, $a1, 1
+
+# <!-- call block begin -->:
+sw $a0, 140($sp)
+sw $a1, 144($sp)
+sw $ra, 136($sp)
+lw $a0, 140($sp)
+move $a1, $s1
+jal arrange
+lw $ra, 136($sp)
+lw $a0, 140($sp)
+lw $a1, 144($sp)
+# <!-- call block end -->:
+
+# label$7::
+label$7:
+
+# arrange_j = arrange_j + global_int$1:
+add $s0, $s0, 1
+
+# if arrange_j < arrange_n branch to "label$6":
+blt $s0, $a0, label$6
+
+# label$5::
+label$5:
+
+# arrange_#12 = arrange_i + global_int$1:
+add $s1, $a1, 1
+
+# arrange_j = arrange_#12:
+move $s0, $s1
+
+# if arrange_n <= arrange_#12 branch to "label$8":
+ble $a0, $s1, label$8
+
+# label$9::
+label$9:
+
+# arrange_#13 = arrange_j - global_int$1:
+sub $s1, $s0, 1
+
+# arrange_#14 = global_arr[arrange_#13]:
+sll $t8, $s1, 2
+add $t8, $t8, $gp
+lw $s3, 0($t8)
+
+# arrange_#15 = arrange_j + global_int$-1:
+add $s2, $s0, -1
+
+# arrange_#16 = global_arr[arrange_j]:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+lw $s1, 0($t8)
+
+# global_arr[arrange_#15] = arrange_#16:
+sll $t8, $s2, 2
+add $t8, $t8, $gp
+sw $s1, 0($t8)
+
+# global_arr[arrange_j] = arrange_#14:
+sll $t8, $s0, 2
+add $t8, $t8, $gp
+sw $s3, 0($t8)
+
+# arrange_j = arrange_j + global_int$1:
+add $s0, $s0, 1
+
+# if arrange_n > arrange_j branch to "label$9":
+bgt $a0, $s0, label$9
+
+# label$8::
+label$8:
+
+# return:
+lw $s0, 72($sp)
+lw $s1, 76($sp)
+lw $s2, 80($sp)
+lw $s3, 84($sp)
+add $sp, $sp, 156
+jr $ra
+
+main:
+sub $sp, $sp, 84
+
+# global_arr[global_int$0] = global_char$97:
+sll $t8, $zero, 2
+li $t9, 97
+add $t8, $t8, $gp
+sw $t9, 0($t8)
+
+# global_arr[global_int$1] = global_char$98:
+li $t9, 98
+sw $t9, 4($gp)
+
+# global_arr[global_int$2] = global_char$99:
+li $t9, 99
+sw $t9, 8($gp)
+
+# global_arr[global_int$3] = global_char$100:
+li $t9, 100
+sw $t9, 12($gp)
+
+# global_arr[global_int$4] = global_char$101:
+li $t9, 101
+sw $t9, 16($gp)
+
+# global_arr[global_int$5] = global_char$102:
+li $t9, 102
+sw $t9, 20($gp)
+
+# <!-- call block begin -->:
+sw $ra, 64($sp)
+li $a0, 5
+move $a1, $zero
+jal arrange
+lw $ra, 64($sp)
+# <!-- call block end -->:
+
+# return:
+add $sp, $sp, 84
+jr $ra

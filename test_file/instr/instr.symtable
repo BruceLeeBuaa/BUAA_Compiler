@@ -1,0 +1,161 @@
+N8symtable5EntryE              : global_a                      <const int(10)>
+N8symtable5EntryE              : global_b                      <const int(20)>
+N8symtable5EntryE              : global_c                      <const int(-10)>
+N8symtable5EntryE              : global_d                      <const int(0)>
+N8symtable5EntryE              : global_aa                     <const char('a')>
+N8symtable5EntryE              : global_bb                     <const char('b')>
+N8symtable5EntryE              : global_io_a                   <const int(14)>
+N8symtable5EntryE              : global_io_b                   <const int(28)>
+N8symtable5EntryE              : global_io_c                   <const char('c')>
+N8symtable5EntryE              : global_io_d                   <const char('d')>
+N8symtable5EntryE              : global_e                      <int>
+N8symtable5EntryE              : global_f                      <char>
+N8symtable5EntryE              : global_g                      <int[5]>
+N8symtable5EntryE              : global_h                      <char[5]>
+N8symtable5EntryE              : global_io_e                   <int>
+N8symtable5EntryE              : global_io_f                   <int>
+N8symtable5EntryE              : global_io_g                   <char>
+N8symtable5EntryE              : global_io_h                   <char>
+N8symtable5EntryE              : global_array_a                <int[4]>
+N8symtable9FuncTableE          : func1                         <void>
+N8symtable9FuncTableE          : func2                         <void>
+N8symtable5EntryE              : func2_a                       <int>
+N8symtable5EntryE              : func2_b                       <int>
+N8symtable5EntryE              : func2_c                       <int>
+N8symtable5EntryE              : func2_#1                      <int>
+N8symtable9FuncTableE          : func3                         <int>
+N8symtable5EntryE              : func3_a                       <int>
+N8symtable9FuncTableE          : integral                      <void>
+N8symtable5EntryE              : integral_a                    <const int(1)>
+N8symtable5EntryE              : integral_b                    <int[10]>
+N8symtable5EntryE              : integral_c                    <int>
+N8symtable5EntryE              : integral_#2                   <int>
+N8symtable5EntryE              : global_int$1                  <const int(1)>
+N8symtable5EntryE              : integral_#3                   <int>
+N8symtable5EntryE              : integral_#4                   <int>
+N8symtable5EntryE              : integral_#5                   <int>
+N8symtable5EntryE              : integral_#6                   <int>
+N8symtable5EntryE              : global_int$2                  <const int(2)>
+N8symtable5EntryE              : integral_#7                   <int>
+N8symtable5EntryE              : global_int$0                  <const int(0)>
+N8symtable5EntryE              : integral_#8                   <int>
+N8symtable5EntryE              : integral_#9                   <int>
+N8symtable5EntryE              : global_int$8                  <const int(8)>
+N8symtable5EntryE              : global_int$9                  <const int(9)>
+N8symtable5EntryE              : integral_#10                  <int>
+N8symtable9FuncTableE          : funcif                        <int>
+N8symtable5EntryE              : funcif_a                      <const int(10)>
+N8symtable5EntryE              : funcif_b                      <const int(5)>
+N8symtable5EntryE              : funcif_c                      <char>
+N8symtable5EntryE              : global_char$53                <const char('5')>
+N8symtable5EntryE              : funcif_#11                    <int>
+N8symtable5EntryE              : funcif_#12                    <int>
+N8symtable5EntryE              : funcif_#13                    <int>
+N8symtable5EntryE              : funcif_#14                    <int>
+N8symtable5EntryE              : global_char$48                <const char('0')>
+N8symtable9FuncTableE          : funcloop                      <void>
+N8symtable5EntryE              : funcloop_i                    <int>
+N8symtable5EntryE              : global_int$10                 <const int(10)>
+N8symtable5EntryE              : funcloop_#15                  <int>
+N8symtable5EntryE              : global_int$20                 <const int(20)>
+N8symtable5EntryE              : funcloop_#16                  <int>
+N8symtable9FuncTableE          : funcio                        <void>
+N8symtable5EntryE              : funcio_aa                     <int[3]>
+N8symtable5EntryE              : funcio_i                      <int>
+N8symtable5EntryE              : funcio_sum                    <int>
+N8symtable5EntryE              : funcio_tmp                    <int>
+N8symtable5EntryE              : global_int$30                 <const int(30)>
+N8symtable5EntryE              : global_char$103               <const char('g')>
+N8symtable5EntryE              : global_char$104               <const char('h')>
+N8symtable5EntryE              : funcio_#17                    <int>
+N8symtable5EntryE              : funcio_#18                    <int>
+N8symtable5EntryE              : funcio_#19                    <int>
+N8symtable5EntryE              : funcio_#20                    <int>
+N8symtable5EntryE              : funcio_#21                    <int>
+N8symtable5EntryE              : funcio_#22                    <int>
+N8symtable5EntryE              : funcio_#23                    <int>
+N8symtable5EntryE              : funcio_#24                    <int>
+N8symtable5EntryE              : funcio_#25                    <int>
+N8symtable5EntryE              : funcio_#26                    <int>
+N8symtable5EntryE              : funcio_#27                    <int>
+N8symtable5EntryE              : global_int$3                  <const int(3)>
+N8symtable5EntryE              : funcio_#28                    <int>
+N8symtable5EntryE              : funcio_#29                    <int>
+N8symtable5EntryE              : funcio_#30                    <int>
+N8symtable9FuncTableE          : funcarray                     <void>
+N8symtable5EntryE              : funcarray_b                   <int[4]>
+N8symtable5EntryE              : funcarray_#31                 <int>
+N8symtable5EntryE              : funcarray_#32                 <int>
+N8symtable5EntryE              : funcarray_#33                 <int>
+N8symtable5EntryE              : funcarray_#34                 <int>
+N8symtable5EntryE              : funcarray_#35                 <int>
+N8symtable5EntryE              : funcarray_#36                 <int>
+N8symtable5EntryE              : funcarray_#37                 <int>
+N8symtable5EntryE              : funcarray_#38                 <int>
+N8symtable5EntryE              : funcarray_#39                 <int>
+N8symtable5EntryE              : funcarray_#40                 <int>
+N8symtable5EntryE              : funcarray_#41                 <int>
+N8symtable5EntryE              : funcarray_#42                 <int>
+N8symtable5EntryE              : global_int$4                  <const int(4)>
+N8symtable5EntryE              : funcarray_#43                 <int>
+N8symtable5EntryE              : funcarray_#44                 <int>
+N8symtable5EntryE              : funcarray_#45                 <int>
+N8symtable5EntryE              : funcarray_#46                 <int>
+N8symtable5EntryE              : funcarray_#47                 <int>
+N8symtable5EntryE              : funcarray_#48                 <int>
+N8symtable5EntryE              : funcarray_#49                 <int>
+N8symtable5EntryE              : funcarray_#50                 <int>
+N8symtable5EntryE              : global_int$5                  <const int(5)>
+N8symtable5EntryE              : funcarray_#51                 <int>
+N8symtable5EntryE              : funcarray_#52                 <int>
+N8symtable5EntryE              : funcarray_#53                 <int>
+N8symtable5EntryE              : funcarray_#54                 <int>
+N8symtable5EntryE              : funcarray_#55                 <int>
+N8symtable5EntryE              : funcarray_#56                 <int>
+N8symtable5EntryE              : funcarray_#57                 <int>
+N8symtable5EntryE              : funcarray_#58                 <int>
+N8symtable5EntryE              : funcarray_#59                 <int>
+N8symtable5EntryE              : funcarray_#60                 <int>
+N8symtable5EntryE              : global_int$6                  <const int(6)>
+N8symtable5EntryE              : funcarray_#61                 <int>
+N8symtable5EntryE              : funcarray_#62                 <int>
+N8symtable5EntryE              : funcarray_#63                 <int>
+N8symtable5EntryE              : funcarray_#64                 <int>
+N8symtable5EntryE              : funcarray_#65                 <int>
+N8symtable5EntryE              : funcarray_#66                 <int>
+N8symtable5EntryE              : funcarray_#67                 <int>
+N8symtable5EntryE              : funcarray_#68                 <int>
+N8symtable5EntryE              : funcarray_#69                 <int>
+N8symtable5EntryE              : funcarray_#70                 <int>
+N8symtable5EntryE              : funcarray_#71                 <int>
+N8symtable5EntryE              : funcarray_#72                 <int>
+N8symtable5EntryE              : global_int$7                  <const int(7)>
+N8symtable5EntryE              : funcarray_#73                 <int>
+N8symtable5EntryE              : funcarray_#74                 <int>
+N8symtable5EntryE              : funcarray_#75                 <int>
+N8symtable5EntryE              : funcarray_#76                 <int>
+N8symtable5EntryE              : funcarray_#77                 <int>
+N8symtable5EntryE              : funcarray_#78                 <int>
+N8symtable5EntryE              : funcarray_#79                 <int>
+N8symtable5EntryE              : funcarray_#80                 <int>
+N8symtable5EntryE              : funcarray_#81                 <int>
+N8symtable5EntryE              : funcarray_#82                 <int>
+N8symtable5EntryE              : funcarray_#83                 <int>
+N8symtable5EntryE              : funcarray_#84                 <int>
+N8symtable5EntryE              : funcarray_#85                 <int>
+N8symtable5EntryE              : funcarray_#86                 <int>
+N8symtable5EntryE              : funcarray_#87                 <int>
+N8symtable5EntryE              : funcarray_#88                 <int>
+N8symtable5EntryE              : funcarray_#89                 <int>
+N8symtable5EntryE              : funcarray_#90                 <int>
+N8symtable5EntryE              : funcarray_#91                 <int>
+N8symtable5EntryE              : funcarray_#92                 <int>
+N8symtable5EntryE              : funcarray_#93                 <int>
+N8symtable5EntryE              : funcarray_#94                 <int>
+N8symtable9FuncTableE          : main                          <void>
+N8symtable5EntryE              : main_#95                      <int>
+N8symtable5EntryE              : global_int$-5                 <const int(-5)>
+N8symtable5EntryE              : global_int$-10                <const int(-10)>
+N8symtable5EntryE              : global_int$207                <const int(207)>
+N8symtable5EntryE              : global_int$-71                <const int(-71)>
+N8symtable5EntryE              : global_int$-994               <const int(-994)>
